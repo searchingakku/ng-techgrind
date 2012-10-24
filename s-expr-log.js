@@ -4,18 +4,13 @@ function sexp(data)
     s = ''
     if (Array.isArray(data)) 
     {
-        children = ((function() 
-                    {
-                        var _i, _len, _results;
-                        _results = []
-                        for (_i = 0, _len = data.length; _i < _len; _i++) 
-                        {
-                            elem = data[_i];
-                            _results.push(sexp(elem))
-                        }
-                        return _results
-                    })()).join(' ')
-        return '(' + children + ')'
+        var children = []
+        for (key in data) 
+        {
+            var elem = data[key]
+            children.push(sexp(elem))
+        }
+        return "(" + children.join(" ") + ")"
     } 
     else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1)
     {
@@ -23,6 +18,12 @@ function sexp(data)
     }
     else
     {
-        return JSON.stringify(data)
+        var children = []
+        for (key in data)
+        {
+            var pair = "("+sexp(key)+" . "+sexp(data[key])+")"
+            children.push(pair)
+        }
+        return "("+children.join(" ")+")"
     }
 }
