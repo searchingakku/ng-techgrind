@@ -17,7 +17,11 @@ function sexp(data)
                     })()).join(' ')
         return '(' + children + ')'
     } 
-    else 
+    else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1)
+    {
+        return data
+    }
+    else
     {
         return JSON.stringify(data)
     }
