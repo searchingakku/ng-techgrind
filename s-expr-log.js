@@ -15,6 +15,10 @@ function sexp(data)
     {
         return data
     }
+    else if ((typeof data === "string" || data instanceof String))
+    {
+        return JSON.stringify(data)
+    }
     else
     {
         var children = []
