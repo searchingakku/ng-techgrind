@@ -7,8 +7,7 @@ function sexp(data)
         var children = []
         for (key in data) 
         {
-            var elem = data[key]
-            children.push(sexp(elem))
+            children.push(sexp(data[key]))
         }
         return "(" + children.join(" ") + ")"
     } 
