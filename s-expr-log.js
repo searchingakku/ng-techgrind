@@ -7,9 +7,12 @@ function sexp(data)
         var children = []
         for (key in data) 
         {
-            children.push(sexp(data[key]))
+            children.push(sexp(data[key], indent+"  "))
         }
-        return "(" + children.join(" ") + ")"
+        if (children.length)
+            return "\n" + indent + "  (" + children.join("\n  "+indent) + ")"
+        else 
+            return "()"
     } 
     else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1)
     {
@@ -24,9 +27,12 @@ function sexp(data)
         var children = []
         for (key in data)
         {
-            var pair = "("+sexp(key)+" . "+sexp(data[key])+")"
+            var pair = "("+sexp(key, indent+"    ")+" . "+sexp(data[key], indent+"    ")+")"
             children.push(pair)
         }
-        return "("+children.join(" ")+")"
+        if (children.length)
+            return "("+children.join("\n  "+indent)+")"
+        else 
+            return "()"
     }
 }
