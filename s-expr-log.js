@@ -17,7 +17,7 @@ function sexp(data, indent)
         else 
             return "()"
     } 
-    else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1)
+    else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1 && data != "")
     {
         return data
     }
