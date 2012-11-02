@@ -17,15 +17,12 @@ function sexp(data, indent)
         else 
             return "()"
     } 
-    else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1 && data != "")
+    else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1 && data != "" && !Number(data) && data != "0")
     {
+        /* strings that look like numbers need to be quoted */
         return data
     }
-    else if ((typeof data === "string" || data instanceof String))
-    {
-        return JSON.stringify(data)
-    }
-    else
+    else if (typeof data === "object" && !data instanceof String && Object.keys(data).length)
     {
         var children = []
         for (key in data)
@@ -38,6 +35,10 @@ function sexp(data, indent)
             return "("+children.join("\n"+pad(indent+1))+")"
         else 
             return "()"
+    }
+    else /* if ((typeof data === "string" || data instanceof String || typeof data === "number" || data instanceof Number)) */
+    {
+        return JSON.stringify(data)
     }
 }
 
