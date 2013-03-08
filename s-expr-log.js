@@ -36,9 +36,17 @@ function sexp(data, indent)
         else 
             return "()"
     }
-    else /* if ((typeof data === "string" || data instanceof String || typeof data === "number" || data instanceof Number)) */
+    else if ((typeof data === "string" || data instanceof String || typeof data === "number" || data instanceof Number))
     {
         return JSON.stringify(data)
+    }
+    else if (typeof data === "object")
+    {
+        return "("+typeof data+" ("+(typeof data === "object")+" && "+(!data instanceof String)+" && "+Object.keys(data).length+") "+JSON.stringify(data)+")"
+    }
+    else
+    {
+        return "("+typeof data+" "+JSON.stringify(data)+")"
     }
 }
 
