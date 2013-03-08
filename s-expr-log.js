@@ -1,22 +1,22 @@
-function sexp(data, indent) 
+function sexp(data, indent)
 {
     if (!indent)
         indent = 0
 
     var children, elem, s
     s = ''
-    if (Array.isArray(data)) 
+    if (Array.isArray(data))
     {
         var children = []
-        for (key in data) 
+        for (key in data)
         {
             children.push(sexp(data[key], indent+1))
         }
         if (children.length)
             return "(" + children.join("\n"+pad(indent+1)) + ")"
-        else 
+        else
             return "()"
-    } 
+    }
     else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1 && data != "" && !Number(data) && data != "0")
     {
         /* strings that look like numbers need to be quoted */
@@ -33,7 +33,7 @@ function sexp(data, indent)
         }
         if (children.length)
             return "("+children.join("\n"+pad(indent+1))+")"
-        else 
+        else
             return "()"
     }
     else if ((typeof data === "string" || data instanceof String || typeof data === "number" || data instanceof Number))
