@@ -5,7 +5,11 @@ function sexp(data, indent)
 
     var children, elem, s
     s = ''
-    if (Array.isArray(data))
+    if (data == null)
+    {
+        return "nil"
+    }
+    else if (Array.isArray(data))
     {
         var children = []
         for (key in data)
@@ -22,7 +26,7 @@ function sexp(data, indent)
         /* strings that look like numbers need to be quoted */
         return data
     }
-    else if (typeof data === "object" && !data instanceof String && Object.keys(data).length)
+    else if (typeof data === "object" && !(data instanceof String) && Object.keys(data).length)
     {
         var children = []
         for (key in data)
@@ -42,7 +46,7 @@ function sexp(data, indent)
     }
     else if (typeof data === "object")
     {
-        return "("+typeof data+" ("+(typeof data === "object")+" && "+(!data instanceof String)+" && "+Object.keys(data).length+") "+JSON.stringify(data)+")"
+        return "("+typeof data+" ("+(typeof data === "object")+" && "+!(data instanceof String)+" && "+Object.keys(data).length+") "+JSON.stringify(data)+")"
     }
     else
     {
