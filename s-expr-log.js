@@ -1,4 +1,12 @@
-function sexp(data, indent)
+function sexp()
+{
+    if (arguments.length > 1)
+        return sexpr(Array.prototype.slice.call(arguments))
+    else
+        return sexpr(arguments[0])
+}
+
+function sexpr(data, indent)
 {
     if (!indent)
         indent = 0
@@ -14,7 +22,7 @@ function sexp(data, indent)
         var children = []
         for (key in data)
         {
-            children.push(sexp(data[key], indent+1))
+            children.push(sexpr(data[key], indent+1))
         }
         if (children.length)
             return "(" + children.join("\n"+pad(indent+1)) + ")"
@@ -31,8 +39,8 @@ function sexp(data, indent)
         var children = []
         for (key in data)
         {
-            var keystr = sexp(key, indent+1)
-            var pair = "("+keystr+" . "+sexp(data[key], indent+keystr.length+5)+")"
+            var keystr = sexpr(key, indent+1)
+            var pair = "("+keystr+" . "+sexpr(data[key], indent+keystr.length+5)+")"
             children.push(pair)
         }
         if (children.length)
