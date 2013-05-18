@@ -3,6 +3,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.services'
 	'TechGrindApp.directives'
 	'TechGrindApp.controllers'
+	'ui.bootstrap'
 ]
 
 app.config ['$routeProvider', ($routeProvider) ->
