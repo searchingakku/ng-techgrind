@@ -5,21 +5,29 @@ html(lang="en", ng-app="TechGrindApp")
 		link(rel="shortcut icon", href="img/tgfavicon-gear.ico")
 		title TechGrind &middot; Asia's Startup Community
 
-		//- for angular UI, from http://www.bootstrapcdn.com/
-		//- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+		//- for Angular UI Bootstrap, from http://www.bootstrapcdn.com/
+		//- link(rel="stylesheet", href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css")
 		link(rel="stylesheet", href="css/bootstrap-combined.min.css")
 
+		//- http://jumpstartui.com/templates/admin-templates/base-admin/
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		meta(name="apple-mobile-web-app-capable", content="yes")
+		link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600")
+		link(rel="stylesheet", href="css/font-awesome.css")
+		link(rel="stylesheet", href="css/base-admin.css")
+		link(rel="stylesheet", href="css/base-admin-responsive.css")
+		link(rel="stylesheet", href="css/dashboard.css")
+		
 		link(rel="stylesheet", href="css/app.css")
+
 	body(ng-controller="AppCtrl")
 		heading
 			h1 TechGrind
+
 		nav(ng-include="'partials/menu.html'")
 		section#main(ng-view)
-		footer
-			ul
-				li 123
-				li 1234
-				li 12345
+		footer.footer(ng-include="'partials/footer.html'")
+
 		//- In production use:
 		//- script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js")
 		script(src="lib/angular/angular.js")
