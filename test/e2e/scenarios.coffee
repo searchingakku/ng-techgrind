@@ -36,6 +36,7 @@ describe 'Tech Grind app', ->
 			# using('footer').expectLink 'javascript:;', 'Privacy Settings'
 	describe 'home page', ->
 		beforeEach -> browser().navigateTo '#/home'
+		it 'shows social media buttons', -> expectViewText '', '.addthis_toolbox'
 		it 'shows Top happenings', -> expectViewText 'Top Happenings'
 		it 'shows Latest Content', -> expectViewText 'Latest Content'
 		it 'highlights the home menu and only that', ->

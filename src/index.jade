@@ -9,6 +9,9 @@ html(lang="en", ng-app="TechGrindApp")
 		//- link(rel="stylesheet", href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css")
 		link(rel="stylesheet", href="css/bootstrap-combined.min.css")
 
+		//- https://www.addthis.com/get/follow
+		link(rel="stylesheet", href="css/addthis.css")
+		
 		//- http://jumpstartui.com/templates/admin-templates/base-admin/
 		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 		meta(name="apple-mobile-web-app-capable", content="yes")
@@ -17,7 +20,10 @@ html(lang="en", ng-app="TechGrindApp")
 		link(rel="stylesheet", href="css/base-admin.css")
 		link(rel="stylesheet", href="css/base-admin-responsive.css")
 		link(rel="stylesheet", href="css/dashboard.css")
-		
+		//- Le HTML5 shim, for IE6-8 support of HTML5 elements
+		//if lt IE 9
+			script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+
 		link(rel="stylesheet", href="css/app.css")
 
 	body(ng-controller="AppCtrl")
