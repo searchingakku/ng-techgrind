@@ -28,10 +28,9 @@ html(lang="en", ng-app="TechGrindApp")
 
 	body(ng-controller="AppCtrl")
 		heading
-			h1 TechGrind
-
-		nav(ng-include="'partials/menu.html'")
-		section#main(ng-view)
+			nav(ng-include="'partials/navbar.html'")
+			nav(ng-include="'partials/menu.html'")
+		section#main.main(ng-view)
 		footer.footer(ng-include="'partials/footer.html'")
 
 		//- In production use:

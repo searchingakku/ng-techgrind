@@ -1,8 +1,8 @@
 angular.scenario.dsl 'expectClass', -> (klass, selector, label) ->
 	expect(element(selector, label).prop('classList')).toContain klass
 
-angular.scenario.dsl 'expectViewText', -> (text, selector, label) ->
-	expect(element("[ng-view] "+ (selector || ''), label).text()).toMatch text
+angular.scenario.dsl 'expectViewText', -> (text) ->
+	expect(using('[ng-view]').element(@selector||'').text()).toMatch text
 
 angular.scenario.dsl 'expectLink', -> (link, text) ->
 	a = using(@selector||'').element("[href='#{link}']")
@@ -13,6 +13,9 @@ describe 'Tech Grind app', ->
 	describe 'root page', ->
 		beforeEach -> browser().navigateTo '/'
 		it 'shows the home page', -> expect(browser().location().url()).toBe '/home'
+		it 'has a navbar', ->
+			expect(element('.navbar').text()).toContain 'Settings'
+			expect(element('.navbar').text()).toContain 'Coming Soon'
 		it 'has a menu', ->
 		it 'has a footer', ->
 			# About
@@ -34,9 +37,10 @@ describe 'Tech Grind app', ->
 			# using('footer').expectLink 'javascript:;', 'Sign Up'
 			# using('footer').expectLink 'javascript:;', 'Account Settings'
 			# using('footer').expectLink 'javascript:;', 'Privacy Settings'
+
 	describe 'home page', ->
 		beforeEach -> browser().navigateTo '#/home'
-		it 'shows social media buttons', -> expectViewText '', '.addthis_toolbox'
+		it 'shows social media buttons', -> expectViewText 'Follow Us'
 		it 'shows Top happenings', -> expectViewText 'Top Happenings'
 		it 'shows Latest Content', -> expectViewText 'Latest Content'
 		it 'highlights the home menu and only that', ->
