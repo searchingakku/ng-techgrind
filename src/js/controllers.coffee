@@ -7,3 +7,10 @@ app.controller 'AppCtrl', ['$scope', '$location', (S, loc) ->
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('/mock').success (data) -> S.mock = data
 ]
+
+app.controller 'RegionsCtrl', ->
+app.controller 'CalendarCtrl', ->
+app.controller 'EventsCtrl', ->
+app.controller 'ResourcesCtrl', ->
+app.controller 'MediaCtrl', ->
+app.controller 'PartnersCtrl', ->

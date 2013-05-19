@@ -1,8 +1,29 @@
-ul#menu
-	li#home(ng-class="active('/home')") Home
-	li#regions(ng-class="active('/regions')") Regions
-	li#calendar(ng-class="active('/calendar')") Calendar
-	li#events(ng-class="active('/events')") Events
-	li#resources(ng-class="active('/resources')") Resources
-	li#media(ng-class="active('/media')") Media
-	li#partners(ng-class="active('/partners')") Partners
+.subnavbar: .subnavbar-inner: .container: ul#menu.mainnav
+	li(ng-class="active('/home')"): a(href="#/home")
+		i.icon-cogs
+		span Home
+	li.dropdown(ng-class="active('/regions')")
+		a.dropdown-toggle
+			i.icon-globe.icon-white
+			span Regions
+			b.caret
+		ul.dropdown-menu
+			li: a(href="#/regions/thailand") Thailand
+			li: a(href="#/regions/singapore") Singapore
+	li(ng-class="active('/calendar')"): a(href="#/calendar")
+		i.icon-calendar
+		span Calendar
+	li(ng-class="active('/events')"): a(href="#/events")
+		i.icon-bullhorn
+		span Events
+		b.caret
+	li(ng-class="active('/resources')"): a(href="#/resources")
+		i.icon-cloud-download
+		span Resources
+		b.caret
+	li(ng-class="active('/media')"): a(href="#/media")
+		i.icon-film
+		span Media
+	li(ng-class="active('/partners')"): a(href="#/partners")
+		i.icon-star
+		span Partners

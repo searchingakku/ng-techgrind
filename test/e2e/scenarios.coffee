@@ -13,6 +13,9 @@ describe 'Tech Grind app', ->
 	describe 'root page', ->
 		beforeEach -> browser().navigateTo '/'
 		it 'shows the home page', -> expect(browser().location().url()).toBe '/home'
+
+	describe 'home page', ->
+		beforeEach -> browser().navigateTo '#/home'
 		it 'has a navbar', ->
 			expect(element('.navbar').text()).toContain 'Settings'
 			expect(element('.navbar').text()).toContain 'Coming Soon'
@@ -37,15 +40,11 @@ describe 'Tech Grind app', ->
 			# using('footer').expectLink 'javascript:;', 'Sign Up'
 			# using('footer').expectLink 'javascript:;', 'Account Settings'
 			# using('footer').expectLink 'javascript:;', 'Privacy Settings'
-
-	describe 'home page', ->
-		beforeEach -> browser().navigateTo '#/home'
 		it 'shows social media buttons', -> expectViewText 'Follow Us'
 		it 'shows Top happenings', -> expectViewText 'Top Happenings'
 		it 'shows Latest Content', -> expectViewText 'Latest Content'
 		it 'highlights the home menu and only that', ->
-			expectClass 'active', '#menu #home'
-			expect(element('#menu [class="active"]').count()).toBe 1
+			expect(element('#menu [class="active"]').text()).toEqual 'Home'
 
 	describe 'regions', ->
 		beforeEach -> browser().navigateTo '#/regions'
@@ -53,10 +52,34 @@ describe 'Tech Grind app', ->
 	describe 'a specific region', ->
 		beforeEach -> browser().navigateTo '#/regions/thailand'
 
+	describe 'regions', ->
+		beforeEach -> browser().navigateTo '#/regions'
+		it 'highlights the regions menu and only that', ->
+			expect(element('#menu [class="active"]').text()).toEqual 'Regions'
+
 	describe 'calendar', ->
+		beforeEach -> browser().navigateTo '#/calendar'
+		it 'highlights the calendar menu and only that', ->
+			expect(element('#menu [class="active"]').text()).toEqual 'Calendar'
+
 	describe 'events', ->
+		beforeEach -> browser().navigateTo '#/events'
+		it 'highlights the events menu and only that', ->
+			expect(element('#menu [class="active"]').text()).toEqual 'Events'
+
 	describe 'resources', ->
+		beforeEach -> browser().navigateTo '#/resources'
+		it 'highlights the resources menu and only that', ->
+			expect(element('#menu [class="active"]').text()).toEqual 'Resources'
+
 	describe 'media', ->
+		beforeEach -> browser().navigateTo '#/media'
+		it 'highlights the media menu and only that', ->
+			expect(element('#menu [class="active"]').text()).toEqual 'Media'
+
 	describe 'partners', ->
+		beforeEach -> browser().navigateTo '#/partners'
+		it 'highlights the partners menu and only that', ->
+			expect(element('#menu [class="active"]').text()).toEqual 'Partners'
 		xit 'shows Global Partners'
 		xit 'has Connect With Us form'
