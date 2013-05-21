@@ -1,1 +1,58 @@
-h1 Events
+.main-inner: .container
+	.row
+		#upcoming.span6: .widget
+			.widget-header
+				i.icon-cogs
+				span.break
+				h3 TechGrind Events
+			.widget-content
+				table.table.table-striped.table-condensed
+					thead
+						tr
+							td
+							td
+					tbody
+						tr.linkrow(align='center', ng-repeat='event in upcoming', ng-click='showEvent(event)')
+							td {{event.abbr}}
+							td {{event.name}}
+
+		#regional.span6: .widget
+			.widget-header
+				i.icon-bullhorn
+				span.break
+				h3 Regional Events
+			.widget-content
+				table.table.table-striped.table-condensed
+					thead
+						tr
+							td
+							td
+					tbody
+						tr.linkrow(align='center', ng-repeat='event in regional', ng-click='showEvent(event)')
+							td {{event.abbr}}
+							td {{event.name}}
+	.row
+		#submit.span8: .widget
+			.widget-header
+				i.icon-upload-alt
+				span.break
+				h3 Submit an Event
+			.widget-content
+				center
+					iframe(src='https://docs.google.com/forms/d/1ASsktttmdbnaPV4scxHD8fTLV4hQFHGWlHmXBLExaoc/viewform?embedded=true', width='600', height='500', frameborder='0', marginheight='0', marginwidth='0') Loading...
+
+		#past.span4: .widget
+			.widget-header
+				i.icon-upload-alt
+				span.break
+				h3 Past Events
+			.widget-content
+				table.table.table-striped.table-condensed
+					thead
+						tr
+							td
+							td
+					tbody
+						tr.linkrow(align='center', ng-repeat='event in past', ng-click='showEvent(event)')
+							td {{event.abbr}}
+							td {{event.name}}

@@ -1,4 +1,4 @@
-== Calendar features
+== Event features
 
 Feature: Visitor submits an established event
 	A visitor want to submit an event he runs or knows about,
@@ -28,10 +28,7 @@ Feature: Curator publishes public event
 Feature: Curator rejects public event
 	A curator wants to reject inappropriate public event submissions
 	So visitors are protected from scam
-	<14:02:40> ... no -> rejects and sends directors + submitter message
-	@onetom: to avoid dictatorship, bribing, etc,
-	other curators or directors should reject it too and maybe
-	the submission/rejection fact should be public with the reasoning along
+	We assume curators agree on this so there is no need for double confirmation
 
 Feature: Curator request more info about public event
 	A curator wants to request more info on the event from the submitter
@@ -39,3 +36,13 @@ Feature: Curator request more info about public event
 	and the submitter gets a chance to fix the info
 	<14:02:40> "efraim": ... request more info -> keeps it pending and sends message to submitter to update / fix it
 	@onetom: submitter or curator should have a way to change the data
+
+Feature: Visitor checks upcoming events
+	A visitor wants to see upcoming events all around the globe
+	So ???
+
+Feature: Visitor checks regional upcoming events
+	A visitor wants to see upcoming events in his region
+	So ???
+	@onetom: what details should be displayed in the event list, beside the event name?
+	
