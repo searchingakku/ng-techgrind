@@ -1,20 +1,26 @@
-.navbar.navbar-fixed-top: .navbar-inner: .container: ul.nav.pull-right
-	li.dropdown
-		a.dropdown-toggle
-			i.icon-cog
-			| Settings
-			b.caret
-		ul.dropdown-menu
-			li: a(href="javascript:;") Account Settings
-			li.divider
-			li: a(href="#/faq") Help
-	li.dropdown
-		a.dropdown-toggle
-			i.icon-user
-			| Coming Soon
-			b.caret
-		ul.dropdown-menu
-			li: a(href="javascript:;") My Profile
-			li: a(href="javascript:;") My Groups
-			li.divider
-			li: a(href="javascript:;") Login
+.navbar.navbar-fixed-top: .navbar-inner: .container
+	//- a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+	//- 	span.icon-list-ul
+	//- angular provides (collapse="navCollapsed")
+	//- but not sure how to wire it up to the responsive layout change
+	div.nav-collapse
+		ul.nav.pull-right
+			li.dropdown
+				a.dropdown-toggle
+					i.icon-cog
+					| Settings
+					b.caret
+				ul.dropdown-menu
+					li: a(href="javascript:;") Account Settings
+					li.divider
+					li: a(href="#/faq") Help
+			li.dropdown
+				a.dropdown-toggle
+					i.icon-user
+					| Coming Soon
+					b.caret
+				ul.dropdown-menu
+					li: a(href="javascript:;") My Profile
+					li: a(href="javascript:;") My Groups
+					li.divider
+					li: a(href="javascript:;") Login
