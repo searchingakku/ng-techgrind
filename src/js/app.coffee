@@ -34,6 +34,14 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/partners',
 		templateUrl: 'partials/partners.html'
 		controller: 'PartnersCtrl'
-
+	
+	$routeProvider.when '/register',
+		templateUrl: 'partials/register.html'
+		controller: 'RegisterCtrl'
+	
+	$routeProvider.when '/login',
+		templateUrl: 'partials/login.html'
+		controller: 'LoginCtrl'
+	
 	$routeProvider.otherwise redirectTo: '/home'
 ]

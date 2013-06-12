@@ -1,5 +1,36 @@
 app = angular.module 'TechGrindApp.controllers', []
 
+baseurl = 'http://dev-back1.techgrind.asia/'
+restapi = baseurl+'scripts/rest.pike?request='
+logindata = { "userid":"", "password":"" }
+
+sTeam_get = (request, handler, http) ->
+	headers = {}
+	if logindata.userid
+		headers = 
+			headers:
+				Authorization: 'Basic '+window.btoa(logindata.userid + ":" + logindata.password)
+	http.get(restapi+request, headers).success(handler)
+
+app.controller 'LoginCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+	S.password = ""
+	S.loginp = ->
+		if logindata.userid && logindata.password
+			true
+	
+	S.login = ->
+		logindata.userid = S.userid
+		logindata.password = S.password
+		S.userid = ""
+		S.password = ""
+		sTeam_get('login', handle_request, http)
+
+	handle_request = (data, status) ->
+		S.data = data
+
+	sTeam_get('login', handle_request, http)
+]
+
 app.controller 'AppCtrl', ['$scope', '$location', (S, loc) ->
 	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
 ]
