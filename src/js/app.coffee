@@ -42,6 +42,10 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/login',
 		templateUrl: 'partials/login.html'
 		controller: 'LoginCtrl'
-	
+
+	$routeProvider.when '/activate/:userid/:activationcode',
+		templateUrl: 'partials/activation.html'
+		controller: 'ActivationCtrl'
+
 	$routeProvider.otherwise redirectTo: '/home'
 ]

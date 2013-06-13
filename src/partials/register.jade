@@ -1,0 +1,22 @@
+
+form(name='user_registration', method='post', action='/')
+
+ul
+	li
+		input(type='text', ng-model='registerdata.fullname', placeholder='Your full name')
+	li
+		input(type='email', ng-model='registerdata.email' , placeholder='email address' )
+
+	li
+		input(type='password', ng-model='registerdata.password' , placeholder='password')
+
+	li
+		input(type='password', ng-model='registerdata.password2' ,
+		       placeholder='repeat password')
+	li	
+		input(type='submit', value='Register', id='registerhere', ng-click='register()')
+
+	pre
+		{{ data }}
+	#newuserid
+		{{ data.user.id }}		

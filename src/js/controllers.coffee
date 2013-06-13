@@ -12,6 +12,27 @@ sTeam_get = (request, handler, http) ->
 				Authorization: 'Basic '+window.btoa(logindata.userid + ":" + logindata.password)
 	http.get(restapi+request, headers).success(handler)
 
+sTeam_post = (request, data, handler, http) ->
+	headers = {}
+	if logindata.userid
+		headers = 
+			headers:
+				Authorization: 'Basic '+window.btoa(logindata.userid + ":" + logindata.password)
+	http.post(restapi+request, data, headers).success(handler)
+
+app.controller 'RegisterCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+	S.registerdata = {}
+	S.register = ->
+		S.registerdata.group = 'techgrind'
+		S.testname = S.registerdata.fullname.toLowerCase().replace(/[^a-z ]/g, "").trim().replace(/\s+/g, ".")
+		S.registerdata.userid = S.testname
+		S.data = S.testname
+		sTeam_post('register', S.registerdata, handle_request, http)
+
+	handle_request = (data, status) ->
+		S.data = data
+]
+
 app.controller 'LoginCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	S.password = ""
 	S.loginp = ->

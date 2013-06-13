@@ -14,6 +14,21 @@ describe 'Tech Grind app', ->
 		beforeEach -> browser().navigateTo '/'
 		it 'shows the home page', -> expect(browser().location().url()).toBe '/home'
 
+	describe 'register page', ->
+		beforeEach -> browser().navigateTo '#/register'
+		it 'registration successful', ->
+			input('registerdata.fullname').enter('naveen test')
+			input('registerdata.email').enter('personal.navi93@gmail.com')
+			input('registerdata.password').enter('abc123')
+			input('registerdata.password2').enter('abc123')
+			element('#registerhere').click()
+			expect(element('#newuserid').text()).toContain 'naveen.test'
+
+	describe 'activation', ->
+		beforeEach -> browser().navigateTo '#/activate/naveen.test/activationcode'
+		it 'activation successful', ->
+			expect(element('#activation').text()).toContain 'user is activated'
+
 	describe 'home page', ->
 		beforeEach -> browser().navigateTo '#/home'
 		it 'has a navbar', ->
