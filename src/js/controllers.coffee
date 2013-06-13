@@ -53,6 +53,18 @@ app.controller 'LoginCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	sTeam_get('login', handle_request, http)
 ]
 
+app.controller 'ActivationCtrl', ['$scope', '$routeParams', '$http', (S, rp, http) ->
+	handle_activation = (data,status) ->
+		S.activation = data.result
+		S.error = data.error
+		S.data = data
+	activationdata =
+		activate: rp.activationcode
+		userid: rp.userid
+	sTeam_post('activate', activationdata, handle_activation, http)
+]
+
+
 app.controller 'AppCtrl', ['$scope', '$location', (S, loc) ->
 	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
 ]

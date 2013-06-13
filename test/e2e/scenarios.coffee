@@ -17,12 +17,12 @@ describe 'Tech Grind app', ->
 	describe 'register page', ->
 		beforeEach -> browser().navigateTo '#/register'
 		it 'registration successful', ->
-			input('registerdata.fullname').enter('naveen test')
+			input('registerdata.fullname').enter('naveen test1')
 			input('registerdata.email').enter('personal.navi93@gmail.com')
 			input('registerdata.password').enter('abc123')
 			input('registerdata.password2').enter('abc123')
 			element('#registerhere').click()
-			expect(element('#newuserid').text()).toContain 'naveen.test'
+			expect(element('#newuserid').text()).toContain 'naveen.test1'
 
 	describe 'activation', ->
 		beforeEach -> browser().navigateTo '#/activate/naveen.test/activationcode'
