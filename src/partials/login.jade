@@ -1,0 +1,15 @@
+form(name='loginform', method='post', action='/')
+ul
+	li
+		input(type='text', ng-model='userid' , placeholder='login name')
+	li
+		input(type='password', ng-model='password' , placeholder='password')
+
+	li
+		input(type='submit', value='Sign in', id='signin', ng-click='login()')
+		input(type='submit', value='test', ng-click='userid="test"')
+	pre
+		userid:	{{ userid }}
+		data: {{ data }}
+	#current-user-name
+		{{ user.id }}

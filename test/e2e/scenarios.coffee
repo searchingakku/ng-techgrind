@@ -54,7 +54,7 @@ describe 'Tech Grind app', ->
 
 	describe 'regions', ->
 		beforeEach -> browser().navigateTo '#/regions'
-		it 'highlights the regions menu and only that', ->
+		xit 'highlights the regions menu and only that', ->
 			expect(element('#menu [class="active"]').text()).toEqual 'Regions'
 
 	describe 'calendar', ->
@@ -88,3 +88,11 @@ describe 'Tech Grind app', ->
 			expect(element('#menu [class="active"]').text()).toEqual 'Partners'
 		xit 'shows Global Partners'
 		xit 'has Connect With Us form'
+
+	describe 'login page', ->
+		beforeEach -> browser().navigateTo '#/login'
+		it 'logs in successfully', ->
+			input('userid').enter('naveen')
+			input('password').enter('abc123')
+			element('#signin').click()
+			expect(element('#current-user-name').text()).toContain 'naveen'

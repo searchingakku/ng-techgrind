@@ -27,6 +27,7 @@ app.controller 'LoginCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 
 	handle_request = (data, status) ->
 		S.data = data
+		S.user = data.me
 
 	sTeam_get('login', handle_request, http)
 ]
