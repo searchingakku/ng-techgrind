@@ -12,11 +12,12 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in upcoming', ng-click='showEvent(event)')
+						tr.linkrow(align='center', ng-repeat='event in events', ng-click='showEvent(event)')
 							td {{event.abbr}}
 							td {{event.name}}
+							td {{event.desc}}
 
-		#regional.span6: .widget
+		#workshops.span10: .widget
 			.widget-header
 				i.icon-bullhorn
 				span.break
@@ -27,25 +28,18 @@
 						tr
 							td
 							td
+							td
 					tbody
 						tr.linkrow(align='center', ng-repeat='event in regional', ng-click='showEvent(event)')
 							td {{event.abbr}}
 							td {{event.name}}
-	.row
-		#submit.span8: .widget
-			.widget-header
-				i.icon-upload-alt
-				span.break
-				h3 Submit an Event
-			.widget-content
-				center
-					iframe(src='https://docs.google.com/forms/d/1ASsktttmdbnaPV4scxHD8fTLV4hQFHGWlHmXBLExaoc/viewform?embedded=true', width='600', height='500', frameborder='0', marginheight='0', marginwidth='0') Loading...
+							td {{event.desc}}
 
-		#past.span4: .widget
+		#conferences.span10: .widget
 			.widget-header
 				i.icon-upload-alt
 				span.break
-				h3 Past Events
+				h3 Conferences
 			.widget-content
 				table.table.table-striped.table-condensed
 					thead
@@ -53,6 +47,7 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in past', ng-click='showEvent(event)')
-							td {{event.abbr}}
-							td {{event.name}}
+						tr.linkrow(align='center', ng-repeat='event in conferences', ng-click='showEvent(event)')
+							td {{event.owner}}
+							td {{event.place}}
+							td {{event.desc}}

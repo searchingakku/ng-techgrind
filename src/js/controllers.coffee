@@ -77,32 +77,55 @@ app.controller 'RegionsCtrl', ->
 app.controller 'CalendarCtrl', ->
 
 app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
-	S.upcoming = [
-		name: 'Speak.Learn.And.Pitch'
-		abbr: 'SLAP'
-		url: './_events/events_slap.html'
+	S.events = [
+		name: 'Get.A.Partner'
+		abbr: 'GAP'
+		desc: 'Find your cofounders - partners - and hires!'
+		url: './_events/events_gap.html'
 	,
-		name: 'Find.A.Partner'
-		abbr: 'FAP'
-		url: './_events/events_fap.html'
+		name: 'Interview'
+		abbr: 'INTRVU'
+		desc: 'Learn about building businesses from successful entrepreneurs'
+		url: './_events/events_intrvu.html'
 	,
-		name: 'Seed.Stars.World'
-		abbr: 'SSW'
-		url: './_events/events_ssw.html'
-	]
-
-	S.regional = [
 		name: 'Mobile Monday Bangkok'
 		abbr: 'MoMoBKK'
+		desc: 'See all the latest mobile tech and trends!'
 		url: 'http://momobkk.com/'
+	]
+
+	S.workshops = [
+		name: 'Slap.Learn.And.Pitch'
+		abbr: 'SLAP'
+		desc: 'find your cofounders - partners - hires!'
+		url: './_events/events_slap.html'
 	,
-		name: 'OpenCoffee Tech Meetup'
-		abbr: 'OCT'
-		url: 'http://www.meetup.com/bkk-startup/'
+		name: 'Coding.For.Fun'
+		abbr: 'CFF'
+		desc: 'come learn to code something new'
+		url: './_events/events_cff.html'
 	,
-		name: 'Bangkok Education Technology Meetup'
-		abbr: 'BKK.EdTech'
-		url: 'http://www.meetup.com/EdTech-Bangkok/'
+		name: 'Citech.Hacker.Space.Party'
+		abbr: 'CITEC.HSP'
+		desc: 'learn to hack apart and build hardware'
+		url: './_events/events_citec.html'
+	]
+
+	S.conferences = [
+		place: 'Singapore'
+		owner: 'Startup Asia'
+		desc : 'TechInAsias hallmark tech conference'
+		url: ''
+	,
+		place: 'Singapore'
+		owner: 'Echelon'
+		desc: 'e27s hallmark tech conference'
+		url: ''
+	,
+		owner: 'GDCThailand'
+		place: 'Bangkok Thailand'
+		desc: 'TechGrinds Game Developer Conference Thailand'
+		url: ''
 	]
 
 	S.past = [
