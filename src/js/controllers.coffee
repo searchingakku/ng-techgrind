@@ -128,6 +128,10 @@ app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 		url: ''
 	]
 
+	S.createactivity = [
+		url: 'partials/createactivity.html'
+	]
+
 	S.past = [
 		name: 'World.Startup.Report'
 		abbr: 'WSR'

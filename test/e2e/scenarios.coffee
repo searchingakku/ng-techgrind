@@ -81,11 +81,9 @@ describe 'Tech Grind app', ->
 		beforeEach -> browser().navigateTo '#/events'
 		it 'highlights the events menu and only that', ->
 			expect(element('#menu [class="active"]').text()).toEqual 'Events'
-		it 'show upcoming events', -> expectViewText 'TechGrind Events'
-		it 'show upcoming regional events', -> expectViewText 'Regional Events'
-		it 'past events', -> expectViewText 'Past Event'
-		it 'has event submission form', -> expectViewText 'Submit an Event'
-
+		it 'show upcoming events', -> expectViewText 'Events'
+		it 'show upcoming regional events/workshops', -> expectViewText 'Workshops'
+		it 'conferences', -> expectViewText 'Conferences'
 
 	describe 'resources', ->
 		beforeEach -> browser().navigateTo '#/resources'
