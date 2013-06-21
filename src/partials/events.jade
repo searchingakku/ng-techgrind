@@ -1,14 +1,15 @@
-.main-inner: .container
+.main-inner: .container-fluid
 	.row
-		#upcoming.span6: .widget
+		#events.span10.offset1: .widget
 			.widget-header
-				i.icon-cogs
+				i.icon-cogs 
 				span.break
-				h3 TechGrind Events
+				h3 Events
 			.widget-content
 				table.table.table-striped.table-condensed
 					thead
 						tr
+							td
 							td
 							td
 					tbody
@@ -17,11 +18,22 @@
 							td {{event.name}}
 							td {{event.desc}}
 
-		#workshops.span10: .widget
+		#activity.span4: .widget
+			.widget-header
+				h3 Your activities
+			.widget-content
+				a(class='btn', href='')
+					h4 login to create new activities
+
+		#create_activity.span2.offset2
+			a(class='btn', href='')
+				h4 Create Activity
+
+		#workshops.span10.offset1: .widget
 			.widget-header
 				i.icon-bullhorn
 				span.break
-				h3 Regional Events
+				h3 Workshops
 			.widget-content
 				table.table.table-striped.table-condensed
 					thead
@@ -30,12 +42,12 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in regional', ng-click='showEvent(event)')
+						tr.linkrow(align='center', ng-repeat='event in workshops', ng-click='showEvent(event)')
 							td {{event.abbr}}
 							td {{event.name}}
 							td {{event.desc}}
 
-		#conferences.span10: .widget
+		#conferences.span10.offset1: .widget
 			.widget-header
 				i.icon-upload-alt
 				span.break
@@ -44,6 +56,7 @@
 				table.table.table-striped.table-condensed
 					thead
 						tr
+							td
 							td
 							td
 					tbody
