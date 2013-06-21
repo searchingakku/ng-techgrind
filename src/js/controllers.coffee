@@ -36,9 +36,14 @@ app.controller 'RegisterCtrl', ['$scope', '$location', '$http', (S, loc, http) -
 app.controller 'LoginCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	S.password = ""
 	S.loginp = ->
-		if logindata.userid && logindata.password
+		if S.user.id != "guest"
 			true
-	
+
+	S.logout = ->
+		logindata.userid = ""
+		logindata.password = ""
+		sTeam_get('login', handle_request, http)
+
 	S.login = ->
 		logindata.userid = S.userid
 		logindata.password = S.password
@@ -49,6 +54,7 @@ app.controller 'LoginCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	handle_request = (data, status) ->
 		S.data = data
 		S.user = data.me
+		console.log(sexp(S.user))
 
 	sTeam_get('login', handle_request, http)
 ]
