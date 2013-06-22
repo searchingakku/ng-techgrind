@@ -32,8 +32,8 @@ describe 'Tech Grind app', ->
 	describe 'home page', ->
 		beforeEach -> browser().navigateTo '#/home'
 		it 'has a navbar', ->
-			expect(element('.navbar').text()).toContain 'Settings'
-			expect(element('.navbar').text()).toContain 'Coming Soon'
+			expect(element('.navbar').text()).toContain 'Register'
+			expect(element('.navbar').text()).toContain 'Login'
 		it 'has a menu', ->
 		it 'has a footer', ->
 			# About
@@ -60,6 +60,16 @@ describe 'Tech Grind app', ->
 		it 'shows Latest Content', -> expectViewText 'Latest Content'
 		it 'highlights the home menu and only that', ->
 			expect(element('#menu [class="active"]').text()).toEqual 'Home'
+
+	describe 'navbar login', ->
+		beforeEach -> browser().navigateTo '#/home'
+		it 'logs in successfully', ->
+			element('#login-link').click()
+			input('userid').enter('naveen')
+			input('password').enter('abc123')
+			element('#login-submit').click()
+			expect(element('#show-user-name').text()).toContain 'Naveen'
+			expect(element('.navbar').text()).toContain 'Settings'
 
 	describe 'regions', ->
 		beforeEach -> browser().navigateTo '#/regions'
