@@ -141,6 +141,52 @@ app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 	S.showEvent = (event) -> loc.path event.url
 ]
 
+app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', (S,http,loc) ->
+	S.changeable = [
+		title: 'Activity abbr'
+	,
+		title: 'Activity Full-Name'
+	]	
+
+	S.details = [
+		desc: 'ta-binding is an automatic way of updating the view whenever the model changes, as well as updating the model whenever the view changes. This is awesome because it eliminates DOM manipulation from the list of things you have to worry about.'
+	]
+		
+	S.events = [
+		place1: 'singapore'
+		place2:	'singapore'
+		date: '20 june'
+		time: '12:00'
+		source: 'ekita'
+	]
+]
+
+app.controller 'ListCtrl', ['$scope', Project, (S,P) ->
+        S.projects = P.query()
+]
+
+app.controller 'CreateCtrl', ['$scope', '$location', Project, (S,loc,P) ->
+	S.save ->
+		P.save(S.project, (project) ->
+			loc.path('/edit/' + project._id.$oid))
+]
+
+app.controller 'EditCtrl', ['$scope', '$location', '$routeParams', Project, (S,loc,route,P) ->
+	P.get({id: route.projectId}, (project ->
+		self.project = project
+		S.project = new P(self.original)))
+	
+	S.isClean ->
+		angular.equals(self.original, S.project)
+	
+	S.destroy ->
+		self.original.destroy ->
+			loc.path('/creativity')
+	S.save ->
+		S.project.update ->
+			loc.path('/creativity')
+]
+
 app.controller 'ResourcesCtrl', ->
 app.controller 'MediaCtrl', ->
 app.controller 'PartnersCtrl', ->

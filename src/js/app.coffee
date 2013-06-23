@@ -47,9 +47,9 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/activation.html'
 		controller: 'ActivationCtrl'
 
-	$routeProvider.when 'createactivity',
+	$routeProvider.when '/createactivity',
 		templateUrl: 'partials/createactivity.html'
-		controller:	'CreateactivityCtrl'
+		controller: 'CreateactivityCtrl'
 
 	$routeProvider.otherwise redirectTo: '/home'
 ]

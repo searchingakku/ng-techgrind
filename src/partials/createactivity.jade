@@ -1,1 +1,57 @@
-h1 help
+div(ng-app)
+	div(ng-controller='CreateactivityCtrl')
+		ul(class='unstyled')
+			li(ng-repeat='change in changeable')
+				div(ng-hide='edit')
+					h1 {{change.title}}
+						a(href='', ng-click='edit=!edit')
+							i.icon-pencil
+				div(ng-show='edit')
+					input(ng-model='change.title')
+					a(href='', ng-click='edit=!edit')
+						i.icon-ok
+			br
+			li(ng-repeat='description in details')
+				.span8.div(ng-hide='edit1')
+					h3 {{description.desc}}
+						a(href='', ng-click='edit1=!edit1')
+							i.icon-pencil
+				div(ng-show='edit1')
+					textarea(rows='10', ng-model='description.desc')
+					a(href='', ng-click='edit1=!edit1')
+						i.icon-ok
+			li(ng-repeat='event in events')
+				div(ng-hide='edit2')
+					td
+						tr
+							th {{event.place1}}
+							th {{event.place2}}
+							th {{event.date}}
+							th {{event.time}}
+							th {{event.source}}
+							a(href='', ng-click='edit2=!edit2')
+									i.icon-pencil
+				div(ng-show='edit2')
+					td
+						tr
+							th
+								input(ng-model='event.place1', type='text')
+								a(href='', ng-click='edit2=!edit2')
+										i.icon-ok
+							th	
+								input(ng-model='event.place2', type='text')
+								a(href='', ng-click='edit2=!edit2')
+									i.icon-ok
+							th											input(ng-model='event.date', type='text')
+								a(href='', ng-click='edit2=!edit2')
+									i.icon-ok
+							th
+								input(ng-model='event.time', type='text')
+								a(href='', ng-click='edit2=!edit2')
+									i.icon-ok
+								input(ng-model='event.source')
+								a(href='', ng-click='edit2=!edit2')
+									i.icon-ok
+form(ng-submit='addevent')
+	input(class='btn', value='createEvent', type='submit')
+
