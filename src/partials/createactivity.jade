@@ -36,22 +36,33 @@ div(ng-app)
 						tr
 							th
 								input(ng-model='event.place1', type='text')
-								a(href='', ng-click='edit2=!edit2')
-										i.icon-ok
 							th	
 								input(ng-model='event.place2', type='text')
-								a(href='', ng-click='edit2=!edit2')
-									i.icon-ok
-							th											input(ng-model='event.date', type='text')
-								a(href='', ng-click='edit2=!edit2')
-									i.icon-ok
+							th
+								input(ng-model='event.date', type='text')
 							th
 								input(ng-model='event.time', type='text')
-								a(href='', ng-click='edit2=!edit2')
-									i.icon-ok
+
+							th
 								input(ng-model='event.source')
 								a(href='', ng-click='edit2=!edit2')
 									i.icon-ok
-form(ng-submit='addevent')
-	input(class='btn', value='createEvent', type='submit')
-
+		form(ng-submit='addEvent()')
+			div(ng-hide='edit3')
+				a(href='', ng-click='edit3=!edit3')
+					input(class='btn', value='createEvent')
+			div(ng-show='edit3')
+				td
+					tr
+						th
+							input(ng-model='insertplace1', type='text', placeholder='city')
+						th
+							input(ng-model='insertplace2', type='text', placeholder='country')
+						th
+							input(ng-model='insertdate', type='text', placeholder='date')
+						th	
+							input(ng-model='inserttime', type='text', placeholder='time')
+						th
+							input(ng-model='insertsource', type='text', placeholder='source')
+							a(href='', ng-click='edit3=!edit3')
+								input(type='submit', value='add', class='btn')

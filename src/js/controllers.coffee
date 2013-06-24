@@ -159,32 +159,18 @@ app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', (S,http,lo
 		time: '12:00'
 		source: 'ekita'
 	]
-]
-
-app.controller 'ListCtrl', ['$scope', Project, (S,P) ->
-        S.projects = P.query()
-]
-
-app.controller 'CreateCtrl', ['$scope', '$location', Project, (S,loc,P) ->
-	S.save ->
-		P.save(S.project, (project) ->
-			loc.path('/edit/' + project._id.$oid))
-]
-
-app.controller 'EditCtrl', ['$scope', '$location', '$routeParams', Project, (S,loc,route,P) ->
-	P.get({id: route.projectId}, (project ->
-		self.project = project
-		S.project = new P(self.original)))
-	
-	S.isClean ->
-		angular.equals(self.original, S.project)
-	
-	S.destroy ->
-		self.original.destroy ->
-			loc.path('/creativity')
-	S.save ->
-		S.project.update ->
-			loc.path('/creativity')
+	S.addEvent = ->
+		S.events.push( 
+			place1: S.insertplace1
+			,
+			place2: S.insertplace2
+			,
+			date: S.insertdate
+			,
+			time: S.inserttime
+			,
+			source: S.insertsource
+			)		
 ]
 
 app.controller 'ResourcesCtrl', ->
