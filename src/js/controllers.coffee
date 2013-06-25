@@ -160,15 +160,12 @@ app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', (S,http,lo
 		source: 'ekita'
 	]
 	S.addEvent = ->
+		console.log("adding event")
 		S.events.push( 
 			place1: S.insertplace1
-			,
 			place2: S.insertplace2
-			,
 			date: S.insertdate
-			,
 			time: S.inserttime
-			,
 			source: S.insertsource
 			)		
 ]
