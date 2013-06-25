@@ -149,7 +149,13 @@ app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', (S,http,lo
 	]	
 
 	S.details = [
-		desc: 'ta-binding is an automatic way of updating the view whenever the model changes, as well as updating the model whenever the view changes. This is awesome because it eliminates DOM manipulation from the list of things you have to worry about.'
+		desc: 'Media queries allow for custom CSS based on a number of conditions—ratios, widths, display type, etc—but usually focuses around min-width and max-width.
+
+    Modify the width of column in our grid
+    Stack elements instead of float wherever necessary
+    Resize headings and text to be more appropriate for devices
+
+Use media queries responsibly and only as a start to your mobile audiences. For larger projects, do consider dedicated code bases and not layers of media queries. .data-binding is an automatic way of updating the view whenever the model changes, as well as updating the model whenever the view changes. This is awesome because it eliminates DOM manipulation from the list of things you have to worry about.'
 	]
 		
 	S.events = [
@@ -167,7 +173,12 @@ app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', (S,http,lo
 			date: S.insertdate
 			time: S.inserttime
 			source: S.insertsource
-			)		
+			)
+		S.insertplace1 = ""
+		S.insertplace2 = ""
+		S.insertdate = ""
+		S.inserttime= ""
+		S.insertsource = ""
 ]
 
 app.controller 'ResourcesCtrl', ->
