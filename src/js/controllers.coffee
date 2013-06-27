@@ -142,22 +142,15 @@ app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 ]
 
 app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', (S,http,loc) ->
-	S.changeable = [
-		title: 'Activity abbr'
-	,
-		title: 'Activity Full-Name'
-	]	
-
-	S.details = [
-		desc: 'Media queries allow for custom CSS based on a number of conditions—ratios, widths, display type, etc—but usually focuses around min-width and max-width.
-
-    Modify the width of column in our grid
-    Stack elements instead of float wherever necessary
-    Resize headings and text to be more appropriate for devices
+	S.event =
+		abbr: 'C.L.H.F'
+		title: 'COME LEARN AND HAVE FUN'
+		description: 'Media queries allow for custom CSS based on a number of conditions—ratios, widths, display type, etc—but usually focuses around min-width and max-width.
+Modify the width of column in our grid
+Stack elements instead of float wherever necessary    Resize headings and text to be more appropriate for devices
 
 Use media queries responsibly and only as a start to your mobile audiences. For larger projects, do consider dedicated code bases and not layers of media queries. .data-binding is an automatic way of updating the view whenever the model changes, as well as updating the model whenever the view changes. This is awesome because it eliminates DOM manipulation from the list of things you have to worry about.'
-	]
-		
+
 	S.events = [
 		place1: 'singapore'
 		place2:	'singapore'
@@ -167,18 +160,28 @@ Use media queries responsibly and only as a start to your mobile audiences. For 
 	]
 	S.addEvent = ->
 		console.log("adding event")
-		S.events.push( 
+		event = 
 			place1: S.insertplace1
 			place2: S.insertplace2
 			date: S.insertdate
 			time: S.inserttime
 			source: S.insertsource
-			)
+		events.push(event)
 		S.insertplace1 = ""
 		S.insertplace2 = ""
 		S.insertdate = ""
 		S.inserttime= ""
 		S.insertsource = ""
+
+#		handle_event = -> (data, status) ->
+#			S.data = data
+#		sTeam_post('event', event, handle_event, http)
+#
+#	S.create_eventtype = ->
+#		handle_eventtype = -> (data, status) ->
+#			S.data = data
+#			S.eventtype = data.eventtype
+#		sTeam_post('eventtype', S.eventtype, handle_eventtype, http)
 ]
 
 app.controller 'ResourcesCtrl', ->
