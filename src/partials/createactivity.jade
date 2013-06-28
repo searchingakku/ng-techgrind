@@ -1,1 +1,82 @@
-h1 help
+.main-inner: .container-fluid.div(ng-app)
+	.row-fluid
+		.div(ng-controller='CreateactivityCtrl')				
+			.offset2.div(ng-hide='edit')
+				div
+					div(style='font-size:300%;font-weight:400;float:left;') 
+						{{event.abbr}}
+					i.icon-pencil(ng-click='edit=!edit', style='margin-top:30px;position:relative;')
+			.offset2.div(ng-show='edit', )
+				input(ng-model='event.abbr', style='width:140px;height:50px;')
+				i.icon-ok(ng-click='edit=!edit')
+			br
+			br
+			br
+			.offset2.div(ng-hide='editf')
+				div {{event.title}}
+					i.icon-pencil(ng-click='editf=!editf', style='margin-left:10px;')
+			.offset2.div(ng-show='editf')
+				input(ng-model='event.title')
+				i.icon-ok(ng-click='editf=!editf', style='margin-left:10px;')
+			.container: .widget
+				.widget-content
+					div(ng-hide='edit1')
+						h3 {{event.description}}
+							a(href='', ng-click='edit1=!edit1')
+								i.icon-pencil
+					div(ng-show='edit1')
+						textarea(rows='6', ng-model='event.description', style='width:100%')
+						a(href='', ng-click='edit1=!edit1')
+							i.icon-ok
+			
+				div(ng-hide='edit2')
+					table.table.table-bordered.table-condensed
+						tbody
+							tr.linkrow.container(ng-repeat='event in events')
+									td
+										span(ng-hide='edit2')
+											{{event.place1}}
+										input(ng-show='edit2', ng-model='event.place1', type='text')
+									td
+										span(ng-hide='edit2')
+											{{event.place2}}
+										input(ng-show='edit2', ng-model='event.place2', type='text')
+									td
+										span(ng-hide='edit2')
+											{{event.date}}
+										input(ng-show='edit2', ng-model='event.date', type='text', style='width:100px;')
+									td
+										span(ng-hide='edit2')
+											{{event.time}}
+										input(ng-show='edit2', ng-model='event.time', type='text', size='5', style='width:80px;height:15px;')
+									td
+										span(ng-hide='edit2')
+											{{event.source}}
+										input(ng-show='edit2', ng-model='event.source', type='text', style='width:120px;')
+									td
+										a(href='', ng-click='edit2=!edit2')
+											i.icon-pencil(ng-hide='edit2')
+											i.icon-ok(ng-show='edit2')
+			form(ng-submit='addEvent(); (edit3=!edit3)', class='container')
+				div(ng-hide='edit3')
+					a(href='', ng-click='edit3=!edit3')
+						input(class='btn', value='createEvent')
+				div(ng-show='edit3')
+					td
+						tr
+							th
+								input(ng-model='insertplace1', type='text', placeholder='city')
+							th
+								input(ng-model='insertplace2', type='text', placeholder='country')
+							th
+								input(ng-model='insertdate', type='text', placeholder='date')
+							th	
+								input(ng-model='inserttime', type='text', placeholder='time')
+							th
+								input(ng-model='insertsource', type='text', placeholder='source')
+								input(type='submit', value='add', class='btn')
+
+pre
+	{{ event }}
+pre
+	{{ events }}
