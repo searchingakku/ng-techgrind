@@ -12,11 +12,11 @@
 			br
 			br
 			.offset2.div(ng-hide='editf')
-				div(style='float:left;width:220px;height:50px;margin-left:-30px;')
+				div(style='float:left;width:220px;height:50px;margin-left:-28px;')
 					{{event.title}}
 				i.icon-pencil(ng-click='editf=!editf', style='margin-left:10px;')
 			.offset2.div(ng-show='editf')
-				div(style='float:left;width:220px;height:50px;margin-left:-30px;')
+				div(style='float:left;width:220px;height:50px;margin-left:-28px;')
 					input(ng-model='event.title')
 				i.icon-ok(ng-click='editf=!editf', style='margin-left:10px;')
 			.container: .widget
