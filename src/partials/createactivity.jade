@@ -2,21 +2,22 @@
 	.row-fluid
 		.div(ng-controller='CreateactivityCtrl')				
 			.offset2.div(ng-hide='edit')
-				div(style='font-size:300%;font-weight:400;float:left;width:190px;height:50px;margin-left:-30px;') 
+				div(style='font-size:300%;font-weight:400;float:left;width:190px;height:50px;') 
 					{{event.abbr}}
 				i.icon-pencil(ng-click='edit=!edit', style='margin-top:50px;position:relative;')
 			.offset2.div(ng-show='edit')
-				div(style='float:left;width:190px;height:50px;margin-left:-30px;') 
+				div(style='float:left;width:190px;height:50px;') 
 					input(ng-model='event.abbr', style='width:170px;height:50px;font-size:300%;font-weight:400;')
 				i.icon-ok(ng-click='edit=!edit')
 			br
 			br
+			br
 			.offset2.div(ng-hide='editf')
-				div(style='float:left;width:220px;height:50px;margin-left:-28px;')
+				div(style='float:left;width:220px;height:50px;')
 					{{event.title}}
 				i.icon-pencil(ng-click='editf=!editf', style='margin-left:10px;')
 			.offset2.div(ng-show='editf')
-				div(style='float:left;width:220px;height:50px;margin-left:-28px;')
+				div(style='float:left;width:220px;height:50px;')
 					input(ng-model='event.title')
 				i.icon-ok(ng-click='editf=!editf', style='margin-left:10px;')
 			.container: .widget
