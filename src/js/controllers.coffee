@@ -182,13 +182,13 @@ Use media queries responsibly and only as a start to your mobile audiences. For 
 			date: S.insertdate
 			time: S.inserttime
 			source: S.insertsource
-		events.push(event)
+		S.events.push(event)
 		S.insertplace1 = ""
 		S.insertplace2 = ""
 		S.insertdate = ""
 		S.inserttime= ""
 		S.insertsource = ""
-
+]
 #		handle_event = -> (data, status) ->
 #			S.data = data
 #		sTeam_post('event', event, handle_event, http)
@@ -198,7 +198,7 @@ Use media queries responsibly and only as a start to your mobile audiences. For 
 #			S.data = data
 #			S.eventtype = data.eventtype
 #		sTeam_post('eventtype', S.eventtype, handle_eventtype, http)
-]
+
 
 app.controller 'ResourcesCtrl', ->
 app.controller 'MediaCtrl', ->
