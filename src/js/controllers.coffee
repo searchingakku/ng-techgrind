@@ -20,6 +20,10 @@ sTeam_post = (request, data, handler, http) ->
 				Authorization: 'Basic '+window.btoa(logindata.userid + ":" + logindata.password)
 	http.post(restapi+request, data, headers).success(handler)
 
+app.run(['$rootScope', (root) ->
+	root.sexp = sexp
+])
+
 app.controller 'RegisterCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	S.registerdata = {}
 	S.register = ->
