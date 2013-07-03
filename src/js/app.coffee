@@ -51,5 +51,9 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/createactivity.html'
 		controller: 'CreateactivityCtrl'
 
+	$routeProvider.when '/test-cleanup',
+		templateUrl: 'partials/home.html'
+		controller: 'TestCtrl'
+
 	$routeProvider.otherwise redirectTo: '/home'
 ]

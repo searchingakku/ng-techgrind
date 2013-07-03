@@ -203,3 +203,14 @@ Use media queries responsibly and only as a start to your mobile audiences. For 
 app.controller 'ResourcesCtrl', ->
 app.controller 'MediaCtrl', ->
 app.controller 'PartnersCtrl', ->
+
+app.controller 'TestCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+
+	handle_request = (data, status) ->
+		S.data = data
+		S.user = data.me
+
+	sTeam_get('delete', handle_request, http)
+	sTeam_get('login', handle_request, http)
+]
+
