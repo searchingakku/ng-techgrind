@@ -2,6 +2,11 @@
 
 `scripts/server.coffee` is a node+express webserver which can compile jade/coffee files on the fly if the corresponding static file doesn't exist:
 
+jade/coffee source code is stored in src/
+static files are placed in app/
+
+app/ is the docroot from which the website is served
+
     http://localhost:8000/page.html <-- src/page.jade
     http://localhost:8000/dir/page.html <-- src/dir/page.jade
     http://localhost:8000/dir/js/code.js <-- src/js/code.coffee
