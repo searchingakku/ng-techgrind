@@ -12,11 +12,14 @@ ul
 
 	li
 		input(type='password', ng-model='registerdata.password2' ,
-		       placeholder='repeat password')
-	li	
+			placeholder='repeat password')
+	li
 		input(type='submit', value='Register', id='registerhere', ng-click='register()')
 
 	pre
 		{{ data }}
 	#newuserid
-		{{ data.user.id }}		
+		{{ data.user.id }}
+	#newusercode(ng-show="data.activation")
+		a#activation_link(href='/#activate/{{data.user.id}}/{{data.activation}}')
+			| activate

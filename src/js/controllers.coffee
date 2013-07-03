@@ -40,7 +40,7 @@ app.controller 'RegisterCtrl', ['$scope', '$location', '$http', (S, loc, http) -
 app.controller 'LoginCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	S.password = ""
 	S.loginp = ->
-		if S.user.id != "guest"
+		if S.user and S.user.id != "guest"
 			true
 
 	S.logout = ->
@@ -75,8 +75,14 @@ app.controller 'ActivationCtrl', ['$scope', '$routeParams', '$http', (S, rp, htt
 ]
 
 
-app.controller 'AppCtrl', ['$scope', '$location', (S, loc) ->
+app.controller 'AppCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
+
+	handle_request = (data, status) ->
+		S.data = data
+		S.user = data.me
+
+	sTeam_get('login', handle_request, http)
 ]
 
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->

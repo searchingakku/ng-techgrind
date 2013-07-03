@@ -14,19 +14,16 @@ describe 'Tech Grind app', ->
 		beforeEach -> browser().navigateTo '/'
 		it 'shows the home page', -> expect(browser().location().url()).toBe '/home'
 
-	describe 'register page', ->
+	describe 'register and activate', ->
 		beforeEach -> browser().navigateTo '#/register'
 		it 'registration successful', ->
-			input('registerdata.fullname').enter('naveen test1')
-			input('registerdata.email').enter('personal.navi93@gmail.com')
+			input('registerdata.fullname').enter('test user tg ')
+			input('registerdata.email').enter('martin@ekita.co')
 			input('registerdata.password').enter('abc123')
 			input('registerdata.password2').enter('abc123')
 			element('#registerhere').click()
-			expect(element('#newuserid').text()).toContain 'naveen.test1'
-
-	describe 'activation', ->
-		beforeEach -> browser().navigateTo '#/activate/naveen.test/activationcode'
-		it 'activation successful', ->
+			expect(element('#newuserid').text()).toContain 'test.user.tg'
+			element('#activation_link').click()
 			expect(element('#activation').text()).toContain 'user is activated'
 
 	describe 'home page', ->
@@ -65,11 +62,25 @@ describe 'Tech Grind app', ->
 		beforeEach -> browser().navigateTo '#/home'
 		it 'logs in successfully', ->
 			element('#login-link').click()
-			input('userid').enter('naveen')
+			input('userid').enter('test.user.tg')
 			input('password').enter('abc123')
 			element('#login-submit').click()
-			expect(element('#show-user-name').text()).toContain 'Naveen'
-			expect(element('.navbar').text()).toContain 'Settings'
+			expect(element('#show-user-name:visible').count()).toBe 1
+			expect(element('#show-settings:visible').count()).toBe 1
+			expect(element('#show-register').css('display')).toBe 'none'
+			expect(element('#show-login').css('display')).toBe 'none'
+			# user-name and Settings should be visible, Register and Login should be hidden
+
+	describe 'user deleted', ->
+		beforeEach -> browser().navigateTo '#/test-cleanup'
+		it 'cleanup successful', ->
+			expect(element('#show-user-name').css('display')).toBe 'none'
+			expect(element('#show-settings').css('display')).toBe 'none'
+			expect(element('#show-register:visible').count()).toBe 1
+			expect(element('#show-login:visible').count()).toBe 1
+			expect(element('#show-user-name').text()).toContain 'User'
+			# user-name and Settings should be hidden, Register and Login should be hidden
+
 
 	describe 'regions', ->
 		beforeEach -> browser().navigateTo '#/regions'
@@ -112,10 +123,3 @@ describe 'Tech Grind app', ->
 		xit 'shows Global Partners'
 		xit 'has Connect With Us form'
 
-	describe 'login page', ->
-		beforeEach -> browser().navigateTo '#/login'
-		it 'logs in successfully', ->
-			input('userid').enter('naveen')
-			input('password').enter('abc123')
-			element('#signin').click()
-			expect(element('#current-user-name').text()).toContain 'naveen'
