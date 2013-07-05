@@ -57,9 +57,8 @@
 											{{event.source}}
 										input(ng-show='edit2', ng-model='event.source', type='text', style='width:120px;')
 									td
-										a(href='', ng-click='edit2=!edit2')
-											i.icon-pencil(ng-hide='edit2')
-											i.icon-ok(ng-show='edit2')
+										i.icon-pencil(ng-hide='edit2', ng-click='edit2=!edit2')
+										i.icon-ok(ng-show='edit2', ng-click='edit2=!edit2')
 			form(ng-submit='addEvent(); (edit3=!edit3)', class='container')
 				div(ng-hide='edit3')
 					a(href='', ng-click='edit3=!edit3')

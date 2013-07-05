@@ -50,6 +50,50 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/createactivity',
 		templateUrl: 'partials/createactivity.html'
 		controller: 'CreateactivityCtrl'
+	
+	$routeProvider.when '/content/',
+		templateUrl: 'partials/content.html'
+		controller: 'ContentCtrl'
+
+	$routeProvider.when '/content-page',
+		templateUrl: 'partials/content-page.html'
+		controller: 'ContentPageCtrl'
+
+	$routeProvider.when ':userid/articles',
+		templateUrl: 'partials/content.html'
+		controller: 'ContentCtrl'
+
+	$routeProvider.when ':userid/articles/:tags',
+		templateUrl: 'partials/content.html'
+		controller: 'ContentCtrl'
+
+	$routeProvider.when ':userid/article/:articleid',
+		templateUrl: 'partials/content-page.html'
+		controller: 'ContentPageCtrl'
+
+	$routeProvider.when '/:country/articles',
+		templateUrl: 'partials/content.html'
+		controller: 'ContentCtrl'
+
+	$routeProvider.when '/:country/articles/:tags',
+		templateUrl: 'partials/content.html'
+		controller: 'ContentCtrl'
+
+	$routeProvider.when '/:country/article/:articleid',
+		templateUrl: 'partials/content-page.html'
+		controller: 'ContentPageCtrl'
+
+	$routeProvider.when '/articles',
+		templateUrl: 'partials/content.html'
+		controller: 'ContentCtrl'
+
+	$routeProvider.when '/articles/:tags',
+		templateUrl: 'partials/content.html'
+		controller: 'ContentCtrl'
+
+	$routeProvider.when '/article/:articleid',
+		templateUrl: 'partials/content-page.html'
+		controller: 'ContentPageCtrl'
 
 	$routeProvider.when '/test-cleanup',
 		templateUrl: 'partials/home.html'

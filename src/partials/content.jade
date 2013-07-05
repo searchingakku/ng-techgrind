@@ -1,0 +1,32 @@
+html(ng-app='Techgrind')
+	.main.div(id='main')
+		.main-inner
+			.container
+				.row
+					.span12
+						.widget
+							.widget-header
+								i.icon-list-alt
+								.break.span
+								h3 Latest Content
+							.widget-content
+									tabset(style='font-color:red')
+										tab(heading='News') hi i am news
+										tab(ng-repeat='tab in tabs', heading='{{tab.title}}', active='tab.active', disabled='tab.disabled') 
+											div
+												ul(class='items')
+													li(ng-repeat='item in getblog[tab.title]')
+														div(class='item-detail', id='topcontent', ng-click='toggle=!toggle')
+															div(class='item-title')
+																h3 {{item.title}}
+															div(class='item-date')
+																span.offset9(class='item-day', style='font-size:200%') {{item.day}} 
+																span(class='item-month') {{item.month}}
+															p(ng-class='{showall:toggle,showless:!toggle}', class='item-preview', ng-bind-html-unsafe='item.content')
+															p(align='left', ng-show='toggle')
+																sub click to collapse
+															p(align='left', ng-show='!toggle')
+																sub click to expand
+
+pre
+	{{ sexp(rp) }}

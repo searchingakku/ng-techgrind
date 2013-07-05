@@ -214,3 +214,37 @@ app.controller 'TestCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	sTeam_get('login', handle_request, http)
 ]
 
+app.controller 'ContentCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
+	S.rp = rp
+
+	S.tabs = [
+		title: 'article'
+	,
+		title: 'events'
+	,
+		title: 'calender'
+	]
+	S.getblog =
+		article: [
+			title: 'ng-bind-html-safe'
+			day: '20'
+			month: 'june'
+			content: 'reates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive and when you absolutely trust the source of the content you are binding to.'
+		,
+			title: 'Article2'
+			day: '7'
+			month: 'july'
+			content: 'content2'
+		],
+		events: [
+			title: 'Event1'
+			content: 'content1'
+		,
+			title: 'Event2'
+			content: 'content2'
+		],
+		calender: [
+			title: 'Coming soon '
+			content: 'wait'
+		] 
+]
