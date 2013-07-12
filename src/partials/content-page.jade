@@ -1,4 +1,4 @@
-.container
+.container.div(ng-controller='ContentCtrl', ng-bind='findarticle()')
 	.span7.row
 		.item-title
 			h2 {{item.title}}
@@ -19,7 +19,10 @@
 			div(class='social-site-links')
 			h3 how useful was this content
 			span(class='rating-stars')  400 votes
-		div(class='chatterbox', class='well well-large', style='height:200px;display:table-cell;vertical-align:bottom;')
+		div(ng-model='chatterbox', class='well well-large', style='height:200px;display:table-cell;vertical-align:bottom;')
 			form(ng-submit='addComment')
-				input(type='text', placeholder='add comment. . .', style='margin-bottom:-30px;align:center;width:240px;')
+				input(type='text', placeholder='add comment. . .', ng-model='text', style='margin-bottom:-30px;align:center;width:240px;')
 		div(class='well well-large')
+pre
+	{{ sexp(rp) }}
+

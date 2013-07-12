@@ -50,8 +50,12 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/createactivity',
 		templateUrl: 'partials/createactivity.html'
 		controller: 'CreateactivityCtrl'
-	
+
 	$routeProvider.when '/content/',
+		templateUrl: 'partials/content.html'
+		controller: 'ContentCtrl'
+
+	$routeProvider.when '/content/:type',
 		templateUrl: 'partials/content.html'
 		controller: 'ContentCtrl'
 
@@ -63,11 +67,11 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/content.html'
 		controller: 'ContentCtrl'
 
-	$routeProvider.when ':userid/articles/:tags',
+	$routeProvider.when '/content:userid/:tab/:articlename/:tags',
 		templateUrl: 'partials/content.html'
 		controller: 'ContentCtrl'
 
-	$routeProvider.when ':userid/article/:articleid',
+	$routeProvider.when ':userid/article/:articlename',
 		templateUrl: 'partials/content-page.html'
 		controller: 'ContentPageCtrl'
 
@@ -79,7 +83,7 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/content.html'
 		controller: 'ContentCtrl'
 
-	$routeProvider.when '/:country/article/:articleid',
+	$routeProvider.when '/:country/article/:articlename',
 		templateUrl: 'partials/content-page.html'
 		controller: 'ContentPageCtrl'
 
@@ -91,7 +95,11 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/content.html'
 		controller: 'ContentCtrl'
 
-	$routeProvider.when '/article/:articleid',
+	$routeProvider.when '/article/:articlename',
+		templateUrl: 'partials/content-page.html'
+		controller: 'ContentPageCtrl'
+
+	$routeProvider.when 'content-page/:title',
 		templateUrl: 'partials/content-page.html'
 		controller: 'ContentPageCtrl'
 

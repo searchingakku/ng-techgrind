@@ -216,19 +216,24 @@ app.controller 'TestCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 
 app.controller 'ContentCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
 	S.rp = rp
-
 	S.tabs = [
-		title: 'article'
+		title: 'articles'
 	,
 		title: 'events'
 	,
 		title: 'calender'
 	]
 	S.getblog =
-		article: [
-			title: 'ng-bind-html-safe'
+		articles: [
+			title: 'how to use ng-bind-html-safe'
 			day: '20'
 			month: 'june'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+			articlename: 'how-to-use-ng-bind-html-safe'
+			tab: 'articles'
+			url: 'article/how-to-use-ng-bind-html-safe'
 			content: 'reates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive and when you absolutely trust the source of the content you are binding to.'
 		,
 			title: 'Article2'
@@ -246,5 +251,20 @@ app.controller 'ContentCtrl', ['$scope', '$location', '$routeParams', (S, loc, r
 		calender: [
 			title: 'Coming soon '
 			content: 'wait'
-		] 
+		]
+	S.addComment = -> 
+		S.chatterbox.push(text);
+		S.text="";
+
+	S.findarticle =(name) ->
+		rp.articlename = name
+		for item in getblog.articles
+			if(item.articlename==name)
+			 return item
+]
+
+app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
+	S.addComment = -> 
+		S.chatterbox.push(text);
+		S.text="";
 ]
