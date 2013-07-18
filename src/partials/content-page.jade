@@ -1,13 +1,13 @@
 .container.div(ng-controller='ContentCtrl', ng-bind='findarticle()')
 	.span7.row
 		.item-title
-			h2 {{item.title}}
-			span(class='item-day', style='font-size:150%') {{item.day}}
-			span(class='item-month') {{item.month}}
+			h2 {{articlename}}
+			span.offset5(class='item-day', style='font-size:150%;') {{day}}
+			span(class='item-month') {{month}}
 		div(class='well well-large')
 			h3 some image
 		div(class='item-content')
-			{{item.content}}
+			{{content}}
 	.span4.row
 		div(class='well well-large')
 			h4 Author:  {{detail.author}}
@@ -16,13 +16,26 @@
 			h4 Twitter:  {{detail.twitter}}
 			h4 Website:  {{detail.website}}
 		div(class='well well-large')
-			div(class='social-site-links')
+			div(class='social-site-links', style='margin-top:0px;')
+				h2
+					.span
+						a(href="")
+							.i.icon-facebook
+					.span
+						a(href="")
+							.i.icon-twitter
+					.span
+						a(href="")
+							.i.icon-envelope
+					.span
+						a(href="")
+							.i.icon-share
+			br
 			h3 how useful was this content
 			span(class='rating-stars')  400 votes
 		div(ng-model='chatterbox', class='well well-large', style='height:200px;display:table-cell;vertical-align:bottom;')
 			form(ng-submit='addComment')
 				input(type='text', placeholder='add comment. . .', ng-model='text', style='margin-bottom:-30px;align:center;width:240px;')
 		div(class='well well-large')
-pre
-	{{ sexp(rp) }}
+
 

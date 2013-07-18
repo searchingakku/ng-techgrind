@@ -214,8 +214,13 @@ app.controller 'TestCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 	sTeam_get('login', handle_request, http)
 ]
 
-app.controller 'ContentCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
+app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', (S, r, loc, rp)  ->
+	S.loc = loc
 	S.rp = rp
+	S.articlename=rp.articlename
+	S.day = rp.day
+	S.month = rp.month
+	S.content = rp.content
 	S.tabs = [
 		title: 'articles'
 	,
@@ -233,13 +238,16 @@ app.controller 'ContentCtrl', ['$scope', '$location', '$routeParams', (S, loc, r
 			owner: 'Naveen'
 			articlename: 'how-to-use-ng-bind-html-safe'
 			tab: 'articles'
-			url: 'article/how-to-use-ng-bind-html-safe'
+
 			content: 'reates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive and when you absolutely trust the source of the content you are binding to.'
 		,
 			title: 'Article2'
 			day: '7'
 			month: 'july'
 			content: 'content2'
+			tab: 'articles'
+			articlename: 'Article2'
+			url: 'articles/Article2'
 		],
 		events: [
 			title: 'Event1'
@@ -257,7 +265,7 @@ app.controller 'ContentCtrl', ['$scope', '$location', '$routeParams', (S, loc, r
 		S.text="";
 
 	S.findarticle =(name) ->
-		rp.articlename = name
+		name=rp.articlename
 		for item in getblog.articles
 			if(item.articlename==name)
 			 return item
