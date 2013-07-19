@@ -16,7 +16,7 @@ html
 											div
 												ul(class='items')
 													li(ng-repeat='item in getblog[tab.title]')
-														a(href='#/{{item.tab}}/{{item.articlename}}/{{item.day}}/{{item.month}}/{{item.content}}', style='text-decoration:none;') {{item.title}}
+														a(href='#/{{item.tab}}/{{item.articlename}}', style='text-decoration:none;') {{item.title}}
 														div(class='item-detail', id='topcontent', ng-click='toggle=!toggle')
 															div(class='item-title')
 																h3 {{item.title}}

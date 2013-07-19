@@ -1,0 +1,43 @@
+html
+	.main.div(id='main')
+		.main-inner
+			.container
+				.row
+					.span8
+						.widget
+							.widget-content
+								tabset(style='font-color:red')
+									tab(heading='News') hi i am news
+									tab(ng-repeat='tab in tabs', heading='{{tab.title}}', active='tab.active', disabled='tab.disabled') 
+										div
+											ul(class='items')
+												li(ng-repeat='item in regionblog[tab.title]')
+													a(href='#/{{item.tab}}/{{item.articlename}}', style='text-decoration:none;') {{item.title}}
+													div(class='item-detail', id='topcontent', ng-click='toggle=!toggle')
+														div(class='item-title')
+															h3 {{item.title}}
+														div(class='item-date')
+															span.offset9(class='item-day', style='font-size:200%') {{a.day}} 
+															span(class='item-month') {{item.month}}
+														p(ng-class='{showall:toggle,showless:!toggle}', class='item-preview', ng-bind-html-unsafe='item.content')
+														p(align='left', ng-show='!toggle')
+															a(href='#/{{item.url||"empty"}}', style='text-decoration:none;') click to expand
+					.span4
+						.div(class='widget widget-nopad')
+							.widget-header
+								i.icon-list-alt
+								span.break Techgrind {{articles.country}}
+							.widget-content
+								center
+									table(class='table table-hover table-striped')
+										thead
+											tr
+												th
+													.i.icon-eye-open &nbsp;
+													em Directors
+										tbody
+											tr(ng-repeat='director in directors', ng-controller='RegionContentCtrl')
+												td {{director.name}}
+												td {{director.mail}}
+pre
+	{{ sexp(rp) }}

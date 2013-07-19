@@ -89,7 +89,19 @@ app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('/mock').success (data) -> S.mock = data
 ]
 
-app.controller 'RegionsCtrl', ->
+app.controller 'RegionsCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+	S.countries = [
+		name: 'Thailand'
+		url: 'thailand'
+	,
+		name: 'Singapore'
+		url : 'singapore'
+	,
+		name: 'India'
+		url: 'india'
+	]
+]
+
 app.controller 'CalendarCtrl', ->
 
 app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
@@ -228,7 +240,63 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	,
 		title: 'calender'
 	]
-	S.getblog =
+
+	S.getblog = getblog()
+
+	S.regionblog = {}
+	S.chatterbox = []
+	S.addComment = -> 
+		S.chatterbox.push(S.commenttext);
+		S.commenttext="";
+
+	S.findarticle =(name) ->
+		name=rp.articlename
+		for item in S.getblog.articles
+			console.log(sexp(item))
+			if(item.articlename==name)
+				return item
+
+	if rp.articlename
+		S.article = S.findarticle(rp.articlename)
+
+	S.find = (regionname) ->
+		regionname=rp.region
+		for item in S.getblog.articles
+			console.log(sexp(item))
+			if(item.country==regionname)
+				return item
+
+	matchregion = (item) ->
+		console.log(sexp("filter", item.country==rp.region, item.country, rp.region, item))
+		item.country==rp.region
+
+	if rp.region
+		S.regionblog.articles = S.getblog.articles.filter(matchregion)
+		S.regionblog.events = S.getblog.events.filter(matchregion)
+		S.regionblog.calendar = S.getblog.calendar.filter(matchregion)
+]
+
+app.controller 'RegionContentCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp) ->
+	S.directors = [
+		name : 'Nantaprong (House) Leelahongjudha'
+		mail : 'th.house @ techgrind.asia'
+	,
+		name : 'Karl Hoffman'
+		mail : 'th.karl @ techgrind.asia'
+	,
+		name : 'Efraim Pettersson'
+		mail : 'th.efraim @ techgrind.asia'
+	]
+]
+
+app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
+	S.addComment = -> 
+		S.chatterbox.push(S.commenttext);
+		S.commenttext="";
+]
+
+
+getblog = ->
 		articles: [
 			title: 'how to use ng-bind-html-safe'
 			day: '20'
@@ -245,6 +313,7 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 			day: '7'
 			month: 'july'
 			content: 'content2'
+			country: 'india'
 			tab: 'articles'
 			articlename: 'Article2'
 			url: 'articles/Article2'
@@ -256,23 +325,7 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 			title: 'Event2'
 			content: 'content2'
 		],
-		calender: [
+		calendar: [
 			title: 'Coming soon '
 			content: 'wait'
 		]
-	S.addComment = -> 
-		S.chatterbox.push(text);
-		S.text="";
-
-	S.findarticle =(name) ->
-		name=rp.articlename
-		for item in getblog.articles
-			if(item.articlename==name)
-			 return item
-]
-
-app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
-	S.addComment = -> 
-		S.chatterbox.push(text);
-		S.text="";
-]

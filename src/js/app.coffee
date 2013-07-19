@@ -83,15 +83,15 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/content.html'
 		controller: 'ContentCtrl'
 
-	$routeProvider.when '/:country/article/:articlename',
-		templateUrl: 'partials/content-page.html'
-		controller: 'ContentPageCtrl'
+	$routeProvider.when '/regions/:region/',
+		templateUrl: 'partials/region-content.html'
+		controller: 'ContentCtrl'
 
 	$routeProvider.when '/articles',
 		templateUrl: 'partials/content.html'
 		controller: 'ContentCtrl'
 
-	$routeProvider.when '/:tab/:articlename/:day/:month/:content',
+	$routeProvider.when '/:tab/:articlename',
 		templateUrl: 'partials/content-page.html'
 		controller: 'ContentCtrl'
 

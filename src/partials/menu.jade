@@ -7,9 +7,9 @@
 			i.icon-globe.icon-white
 			span Regions
 			b.caret
-		ul.dropdown-menu
-			li: a(href="#/regions/thailand") Thailand
-			li: a(href="#/regions/singapore") Singapore
+		ul.dropdown-menu(ng-controller='RegionsCtrl')
+			li(ng-repeat='country in countries')
+				a(href="#/regions/{{country.url}}") {{country.name}}
 	li(ng-class="active('/calendar')"): a(href="#/calendar")
 		i.icon-calendar
 		span Calendar
