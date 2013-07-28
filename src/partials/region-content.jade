@@ -17,7 +17,7 @@ html
 														div(class='item-title')
 															h3 {{item.title}}
 														div(class='item-date')
-															span.offset9(class='item-day', style='font-size:200%') {{a.day}} 
+															span.offset9(class='item-day', style='font-size:200%') {{item.day}}
 															span(class='item-month') {{item.month}}
 														p(ng-class='{showall:toggle,showless:!toggle}', class='item-preview', ng-bind-html-unsafe='item.content')
 														p(align='left', ng-show='!toggle')
@@ -30,14 +30,13 @@ html
 							.widget-content
 								center
 									table(class='table table-hover table-striped')
-										thead
+										tbody(ng-repeat='profile in profiles')
 											tr
 												th
-													.i.icon-eye-open &nbsp;
-													em Directors
-										tbody
-											tr(ng-repeat='director in directors', ng-controller='RegionContentCtrl')
-												td {{director.name}}
-												td {{director.mail}}
+													i(class='{{profile.icon}}') &nbsp;
+													em {{profile.role}}
+											tr(ng-repeat='detail in regionprofile[profile.type]')
+												td {{detail.name}}
+												td {{detail.mail}}
 pre
 	{{ sexp(rp) }}

@@ -237,9 +237,8 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	S.regionblog = {}
 	S.chatterbox = []
 	S.addComment = -> 
-		S.chatterbox.push(S.commenttext);
+		S.comments.push(print: S.commenttext)
 		S.commenttext="";
-
 	S.findarticle =(name) ->
 		name=rp.articlename
 		for item in S.getblog.articles
@@ -265,20 +264,114 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 		S.regionblog.articles = S.getblog.articles.filter(matchregion)
 		S.regionblog.events = S.getblog.events.filter(matchregion)
 		S.regionblog.calendar = S.getblog.calendar.filter(matchregion)
+	S.profiles = [
+		role: 'Directors'
+		icon: 'icon-eye-open'
+		type: 'directors'
+	,
+		role: 'Organizers'
+		icon: 'icon-group'
+		type: 'organizers'
+	,
+		role: 'Curators'
+		icon: 'icon-thumbs-up'
+		type: 'curators'
+	]
+	S.regiongetdetail = regiongetdetail()
+	S.regionprofile={}
+	S.findprofile = (rname) ->
+		rname=rp.region
+		for detail in S.regiongetdetail.directors
+			console.log(sexp(item))
+			if(detail.country==rname)
+				return detail
+	matchr = (detail) ->
+		console.log(sexp("filter", detail.country==rp.region, detail.country, rp.region, detail))
+		detail.country==rp.region
+
+	if rp.region
+		S.regionprofile.directors = S.regiongetdetail.directors.filter(matchr)
+		S.regionprofile.organizers = S.regiongetdetail.organizers.filter(matchr)
+		S.regionprofile.curators = S.regiongetdetail.curators.filter(matchr)
 ]
 
-app.controller 'RegionContentCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp) ->
-	S.directors = [
-		name : 'Nantaprong (House) Leelahongjudha'
-		mail : 'th.house @ techgrind.asia'
-	,
-		name : 'Karl Hoffman'
-		mail : 'th.karl @ techgrind.asia'
-	,
-		name : 'Efraim Pettersson'
-		mail : 'th.efraim @ techgrind.asia'
-	]
-]
+regiongetdetail = ->
+		directors: [
+			name: 'Nantaprong (House) Leelahongjudha'
+			mail: 'th.house @ techgrind.asia'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+		,
+			name: 'Karl Hoffman'
+			mail: 'th.karl @ techgrind.asia'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+		,
+			name: 'Efraim Pettersson'
+			mail: 'th.efraim @ techgrind.asia'
+			tags: 'developement'
+			country: 'thailand'
+			ownem: 'Naveen'
+		,
+			name: 'Juanita Sabapathy'
+			mail: 'sg.juanita @ techgrind.asia'
+			tags: 'developement'
+			country: 'singapore'
+			owner: 'Naveen'
+		,
+			name: 'Martin Bähr'
+			mail: 'cn.martin @ techgrind.asia'
+			tags: 'developement'
+			country: 'china'
+			owner: 'Naveen'
+		,
+
+		],
+		organizers: [
+			name: 'Herman Tamas'
+			mail: 'cn.tamas @ techgrind.asia'
+			month: 'june'
+			tags: 'developement'
+			country: 'china'
+			owner: 'Naveen'
+		,
+			name: 'Worawut SaibuaWorawut Saibua'
+			mail: 'th.worawut @ techgrind.asia'
+			month: 'june'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+			icon: ''
+		,
+			name: 'Philippe Dacquet'
+			mail: 'th.philippe @ techgrind.asia'
+			month: 'june'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+			icon: ''
+		],
+		curators: [
+			name: 'Bie Eadtevongsai'
+			mail: 'th.bie @ techgrind.asia'
+			month: 'june'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+			icon: ''
+			title: 'Coming soon '
+			content: 'wait'
+		,
+			name: ' Join Us!'
+			mail: 'contact @ techgrind.asia'
+			month: 'june'
+			tags: 'developement'
+			country: 'china'
+			owner: 'Naveen'
+			icon: ''
+		]
 
 app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
 	S.addComment = -> 
@@ -311,12 +404,17 @@ getblog = ->
 		],
 		events: [
 			title: 'Event1'
+			articlename: 'yo'
 			content: 'content1'
+			country: 'thailand'
 		,
 			title: 'Event2'
 			content: 'content2'
+			country: 'singapore'
 		],
 		calendar: [
 			title: 'Coming soon '
 			content: 'wait'
+			country: 'india'
+			articlename: 'bye'
 		]
