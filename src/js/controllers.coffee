@@ -105,75 +105,44 @@ app.controller 'RegionsCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
 app.controller 'CalendarCtrl', ->
 
 app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
-	S.events = [
-		name: 'Get.A.Partner'
-		abbr: 'GAP'
-		desc: 'Find your cofounders - partners - and hires!'
-		url: './_events/events_gap.html'
-	,
-		name: 'Interview'
-		abbr: 'INTRVU'
-		desc: 'Learn about building businesses from successful entrepreneurs'
-		url: './_events/events_intrvu.html'
-	,
-		name: 'Mobile Monday Bangkok'
-		abbr: 'MoMoBKK'
-		desc: 'See all the latest mobile tech and trends!'
-		url: 'http://momobkk.com/'
-	]
 
-	S.workshops = [
-		name: 'Slap.Learn.And.Pitch'
-		abbr: 'SLAP'
-		desc: 'find your cofounders - partners - hires!'
-		url: './_events/events_slap.html'
-	,
-		name: 'Coding.For.Fun'
-		abbr: 'CFF'
-		desc: 'come learn to code something new'
-		url: './_events/events_cff.html'
-	,
-		name: 'Citech.Hacker.Space.Party'
-		abbr: 'CITEC.HSP'
-		desc: 'learn to hack apart and build hardware'
-		url: './_events/events_citec.html'
-	]
+	list_events_by_category = (category) ->
+		console.log(sexp("list_events_by_category", category))
+		mockevents.filter((item) -> item.category==category)
 
-	S.conferences = [
-		place: 'Singapore'
-		owner: 'Startup Asia'
-		desc : 'TechInAsias hallmark tech conference'
-		url: ''
-	,
-		place: 'Singapore'
-		owner: 'Echelon'
-		desc: 'e27s hallmark tech conference'
-		url: ''
-	,
-		owner: 'GDCThailand'
-		place: 'Bangkok Thailand'
-		desc: 'TechGrinds Game Developer Conference Thailand'
-		url: ''
-	]
+	S.events = list_events_by_category('event')
+	S.workshops = list_events_by_category('workshop')
+	S.conferences = list_events_by_category('conference')
 
 	S.createactivity = [
-		url: 'partials/createactivity.html'
+		path: 'partials/createactivity.html'
 	]
 
 	S.past = [
-		name: 'World.Startup.Report'
+		title: 'World.Startup.Report'
 		abbr: 'WSR'
-		url: './_events/wsr-bangkok.html'
+		path: '/events/wsr'
 	]
 
 	S.showEvent = (event) -> loc.path event.url
 ]
 
-app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', (S,http,loc) ->
+app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', '$routeParams', (S,http,loc,rp) ->
+	S.rp = rp
 	S.event =
 		abbr: 'E.A.B.B.R.'
 		title: 'Event Title'
 		description: 'Event description'
+
+	findevent = (name) ->
+		console.log(sexp("findevent", name))
+		mockevents.filter((item) -> 
+			console.log(sexp(item, item.name, item.name==name))
+			item.name==name)
+
+	if rp.name
+		console.log(sexp(rp))
+		S.event = findevent(rp.name)[0]
 
 	S.events = [
 	]
@@ -418,3 +387,69 @@ getblog = ->
 			country: 'india'
 			articlename: 'bye'
 		]
+
+
+	mockevents = [
+		title: 'Get.A.Partner'
+		abbr: 'GAP'
+		description: 'Find your cofounders - partners - and hires!'
+		path: '/events/gap'
+		name: 'gap'
+		category: 'event'
+	,
+		title: 'Interview'
+		abbr: 'INTRVU'
+		description: 'Learn about building businesses from successful entrepreneurs'
+		path: '/events/intrvu'
+		name: 'intrvu'
+		category: 'event'
+	,
+		title: 'Mobile Monday Bangkok'
+		abbr: 'MoMoBKK'
+		description: 'See all the latest mobile tech and trends!'
+		path: '/events/momobkk'
+		name: 'momobkk'
+		category: 'event'
+	,
+		title: 'Slap.Learn.And.Pitch'
+		abbr: 'SLAP'
+		description: 'find your cofounders - partners - hires!'
+		path: '/events/slap'
+		name: 'slap'
+		category: 'workshop'
+	,
+		title: 'Coding.For.Fun'
+		abbr: 'CFF'
+		description: 'come learn to code something new'
+		path: '/events/cff'
+		name: 'cff'
+		category: 'workshop'
+	,
+		title: 'Citech.Hacker.Space.Party'
+		abbr: 'CITEC.HSP'
+		description: 'learn to hack apart and build hardware'
+		path: '/events/citec'
+		name: 'citec'
+		category: 'workshop'
+	,
+		place: 'Singapore'
+		owner: 'Startup Asia'
+		description : 'TechInAsias hallmark tech conference'
+		path: '/events/startup-asia'
+		name: 'startup-asia'
+		category: 'conference'
+	,
+		place: 'Singapore'
+		owner: 'Echelon'
+		description: 'e27s hallmark tech conference'
+		path: '/events/echelon'
+		name: 'echelon'
+		category: 'conference'
+	,
+		owner: 'GDCThailand'
+		place: 'Bangkok Thailand'
+		description: 'TechGrinds Game Developer Conference Thailand'
+		path: '/events/gdc-thailand'
+		name: 'gdc-thailand'
+		category: 'conference'
+	]

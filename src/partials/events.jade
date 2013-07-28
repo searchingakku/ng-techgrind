@@ -13,10 +13,13 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in events', ng-click='showEvent(event)')
-							td {{event.abbr}}
-							td {{event.name}}
-							td {{event.desc}}
+						tr.linkrow(align='center', ng-repeat='event in events')
+							td
+								a(href='#\{{event.path}}') {{event.abbr}}
+							td
+								a(href='#\{{event.path}}') {{event.title}}
+							td
+								a(href='#\{{event.path}}') {{event.description}}
 
 		#activity.span4: .widget
 			.widget-header
@@ -26,7 +29,7 @@
 					h4 login to create new activities
 
 		#create_activity.span2.offset2
-			a(class='btn', href='#/createactivity')
+			a(class='btn', href='#/events/new')
 				h4 Create Activity
 
 		#workshops.span10.offset1: .widget
@@ -42,10 +45,13 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in workshops', ng-click='showEvent(event)')
-							td {{event.abbr}}
-							td {{event.name}}
-							td {{event.desc}}
+						tr.linkrow(align='center', ng-repeat='event in workshops')
+							td
+								a(href='#\{{event.path}}') {{event.abbr}}
+							td
+								a(href='#\{{event.path}}') {{event.title}}
+							td
+								a(href='#\{{event.path}}') {{event.description}}
 
 		#conferences.span10.offset1: .widget
 			.widget-header
@@ -60,7 +66,10 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in conferences', ng-click='showEvent(event)')
-							td {{event.owner}}
-							td {{event.place}}
-							td {{event.desc}}
+						tr.linkrow(align='center', ng-repeat='event in conferences')
+							td
+								a(href='#\{{event.path}}') {{event.owner}}
+							td
+								a(href='#\{{event.path}}') {{event.place}}
+							td
+								a(href='#\{{event.path}}') {{event.description}}

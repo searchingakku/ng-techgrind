@@ -23,6 +23,14 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/events.html'
 		controller: 'EventsCtrl'
 
+	$routeProvider.when '/events/new',
+		templateUrl: 'partials/createactivity.html'
+		controller: 'CreateactivityCtrl'
+
+	$routeProvider.when '/events/:name',
+		templateUrl: 'partials/createactivity.html'
+		controller: 'CreateactivityCtrl'
+
 	$routeProvider.when '/resources',
 		templateUrl: 'partials/resources.html'
 		controller: 'ResourcesCtrl'
@@ -46,10 +54,6 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/activate/:userid/:activationcode',
 		templateUrl: 'partials/activation.html'
 		controller: 'ActivationCtrl'
-
-	$routeProvider.when '/createactivity',
-		templateUrl: 'partials/createactivity.html'
-		controller: 'CreateactivityCtrl'
 
 	$routeProvider.when '/content/',
 		templateUrl: 'partials/content.html'
