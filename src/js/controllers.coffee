@@ -171,20 +171,11 @@ app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 
 app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', (S,http,loc) ->
 	S.event =
-		abbr: 'C.L.H.F'
-		title: 'COME LEARN AND HAVE FUN'
-		description: 'Media queries allow for custom CSS based on a number of conditions—ratios, widths, display type, etc—but usually focuses around min-width and max-width.
-Modify the width of column in our grid
-Stack elements instead of float wherever necessary    Resize headings and text to be more appropriate for devices
-
-Use media queries responsibly and only as a start to your mobile audiences. For larger projects, do consider dedicated code bases and not layers of media queries. .data-binding is an automatic way of updating the view whenever the model changes, as well as updating the model whenever the view changes. This is awesome because it eliminates DOM manipulation from the list of things you have to worry about.'
+		abbr: 'E.A.B.B.R.'
+		title: 'Event Title'
+		description: 'Event description'
 
 	S.events = [
-		place1: 'singapore'
-		place2:	'singapore'
-		date: '20 june'
-		time: '12:00'
-		source: 'ekita'
 	]
 	S.addEvent = ->
 		console.log("adding event")

@@ -1,69 +1,69 @@
 .main-inner: .container-fluid.div(ng-app)
 	.row-fluid
 		.div(ng-controller='CreateactivityCtrl')				
-			.offset2.div(ng-hide='edit')
+			.offset2.div(ng-hide='edit.shortname')
 				div(style='font-size:300%;font-weight:400;float:left;width:190px;height:50px;') 
 					{{event.abbr}}
-				i.icon-pencil(ng-click='edit=!edit', style='margin-top:50px;position:relative;')
-			.offset2.div(ng-show='edit')
+				i.icon-pencil(ng-click='edit.shortname=!edit.shortname', style='margin-top:50px;position:relative;')
+			.offset2.div(ng-show='edit.shortname')
 				div(style='float:left;width:190px;height:50px;') 
-					input(ng-model='event.abbr', style='width:170px;height:50px;font-size:300%;font-weight:400;')
-				i.icon-ok(ng-click='edit=!edit')
+					input(ng-model='event.abbr', placeholder='Event shortname', style='width:170px;height:50px;font-size:300%;font-weight:400;')
+				i.icon-ok(ng-click='edit.shortname=!edit.shortname')
 			br
 			br
 			br
-			.offset2.div(ng-hide='editf')
+			.offset2.div(ng-hide='edit.title')
 				div(style='float:left;width:220px;height:50px;')
 					{{event.title}}
-				i.icon-pencil(ng-click='editf=!editf', style='margin-left:10px;')
-			.offset2.div(ng-show='editf')
+				i.icon-pencil(ng-click='edit.title=!edit.title', style='margin-left:10px;')
+			.offset2.div(ng-show='edit.title')
 				div(style='float:left;width:220px;height:50px;')
-					input(ng-model='event.title')
-				i.icon-ok(ng-click='editf=!editf', style='margin-left:10px;')
+					input(ng-model='event.title', placeholder='Event title')
+				i.icon-ok(ng-click='edit.title=!edit.title', style='margin-left:10px;')
 			.container: .widget
 				.widget-content
-					div(ng-hide='edit1')
+					div(ng-hide='edit.description')
 						div(style='float:left;width:850px;height:150px;font-size:100%;')
 							{{event.description}}
-						i.icon-pencil(ng-click='edit1=!edit1', style='margin-left:10px;')
-					div(ng-show='edit1')
+						i.icon-pencil(ng-click='edit.description=!edit.description', style='margin-left:10px;')
+					div(ng-show='edit.description')
 						div(style='float:left;width:850px;height:150px;')
-							textarea(rows='6', ng-model='event.description', style='width:100%;font-size:100%;height:150px;')
-						i.icon-ok(ng-click='edit1=!edit1', style='margin-left:10px;')
+							textarea(rows='6', ng-model='event.description', placeholder='Event description', style='width:100%;font-size:100%;height:150px;')
+						i.icon-ok(ng-click='edit.description=!edit.description', style='margin-left:10px;')
 				br
 				br
-				div(ng-hide='edit2')
+				div(ng-hide='edit.event')
 					table.table.table-bordered.table-condensed
 						tbody
 							tr.linkrow.container(ng-repeat='event in events')
 									td
-										span(ng-hide='edit2')
+										span(ng-hide='edit.event')
 											{{event.place1}}
-										input(ng-show='edit2', ng-model='event.place1', type='text')
+										input(ng-show='edit.event', ng-model='event.place1', type='text')
 									td
-										span(ng-hide='edit2')
+										span(ng-hide='edit.event')
 											{{event.place2}}
-										input(ng-show='edit2', ng-model='event.place2', type='text')
+										input(ng-show='edit.event', ng-model='event.place2', type='text')
 									td
-										span(ng-hide='edit2')
+										span(ng-hide='edit.event')
 											{{event.date}}
-										input(ng-show='edit2', ng-model='event.date', type='text', style='width:100px;')
+										input(ng-show='edit.event', ng-model='event.date', type='text', style='width:100px;')
 									td
-										span(ng-hide='edit2')
+										span(ng-hide='edit.event')
 											{{event.time}}
-										input(ng-show='edit2', ng-model='event.time', type='text', size='5', style='width:80px;height:15px;')
+										input(ng-show='edit.event', ng-model='event.time', type='text', size='5', style='width:80px;height:15px;')
 									td
-										span(ng-hide='edit2')
+										span(ng-hide='edit.event')
 											{{event.source}}
-										input(ng-show='edit2', ng-model='event.source', type='text', style='width:120px;')
+										input(ng-show='edit.event', ng-model='event.source', type='text', style='width:120px;')
 									td
-										i.icon-pencil(ng-hide='edit2', ng-click='edit2=!edit2')
-										i.icon-ok(ng-show='edit2', ng-click='edit2=!edit2')
-			form(ng-submit='addEvent(); (edit3=!edit3)', class='container')
-				div(ng-hide='edit3')
-					a(href='', ng-click='edit3=!edit3')
+										i.icon-pencil(ng-hide='edit.event', ng-click='edit.event=!edit.event')
+										i.icon-ok(ng-show='edit.event', ng-click='edit.event=!edit.event')
+			form(ng-submit='addEvent(); (edit.newevent=!edit.newevent)', class='container')
+				div(ng-hide='edit.newevent')
+					a(href='', ng-click='edit.newevent=!edit.newevent')
 						input(class='btn', value='createEvent')
-				div(ng-show='edit3')
+				div(ng-show='edit.newevent')
 					td
 						tr
 							th
