@@ -22,6 +22,16 @@ html
 														p(ng-class='{showall:toggle,showless:!toggle}', class='item-preview', ng-bind-html-unsafe='item.content')
 														p(align='left', ng-show='!toggle')
 															a(href='#/{{item.url||"empty"}}', style='text-decoration:none;') click to expand
+									div(ng-hide='editable')
+										.btn(style='float:right;', ng-click='editable=!editable') Edit items
+									div(ng-show='editable')
+										div(class='list1', droppable)
+											div(class='btn btn-info btn-block', ng-repeat='tab in list1', data-index='$index', data-reject='{{tab.reject}}', draggable) {{ tab.name }}
+										div(class='list2', droppable)
+											div(class='btn btn-info btn-block', ng-repeat='tab in list2', data-index='$index', data-reject='{{tab.reject}}', draggable) {{ tab.name }}
+										.btn(style='float:right;', ng-click='editable=!editable') Done
+
+
 					.span4
 						.div(class='widget widget-nopad')
 							.widget-header

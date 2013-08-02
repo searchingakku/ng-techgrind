@@ -124,6 +124,7 @@ app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 		path: '/events/wsr'
 	]
 
+
 	S.showEvent = (event) -> loc.path event.url
 ]
 
@@ -262,6 +263,13 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 		S.regionprofile.directors = S.regiongetdetail.directors.filter(matchr)
 		S.regionprofile.organizers = S.regiongetdetail.organizers.filter(matchr)
 		S.regionprofile.curators = S.regiongetdetail.curators.filter(matchr)
+
+	S.list1 = [
+		name: 'News'
+	,
+		name: 'Articles'
+	]
+	S.list2 = []
 ]
 
 regiongetdetail = ->
