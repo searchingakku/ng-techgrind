@@ -29,9 +29,16 @@ function sexpr(data, indent)
         else
             return "()"
     }
-    else if ((typeof data === "string" || data instanceof String) && data.search(" ") == -1 && data.search("\"") == -1 && data != "" && !Number(data) && data != "0")
+    else if ((typeof data === "string" || data instanceof String) 
+             && data.search(" ") == -1 
+             && data.search("\"") == -1 
+             && data != "" 
+             && !Number(data) /* strings that look like numbers need to be quoted */
+             && data != "0"
+             && data[0] != "(" /* strings that look like lists need to be quoted */
+             && data[data.length-1] != ")")
     {
-        /* strings that look like numbers need to be quoted */
+
         return data
     }
     else if (typeof data === "object" && !(data instanceof String) && Object.keys(data).length)
@@ -40,7 +47,17 @@ function sexpr(data, indent)
         for (key in data)
         {
             var keystr = sexpr(key, indent+1)
-            var pair = "("+keystr+" . "+sexpr(data[key], indent+keystr.length+5)+")"
+            var valstr = sexpr(data[key], indent+keystr.length+2)
+            var sep = " . "
+            if (valstr[0] == "(" && valstr[valstr.length-1] == ")") // turn (key . (val)) into (key val)
+            {
+                valstr = valstr.substr(1, valstr.length-2)
+                if (valstr.length)
+                    sep = " "
+                else
+                    sep = ""
+            }
+            var pair = "("+keystr+sep+valstr+")"
             children.push(pair)
         }
         if (children.length)
