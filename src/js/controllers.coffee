@@ -1,7 +1,7 @@
 app = angular.module 'TechGrindApp.controllers', []
 
 app.run(['$rootScope', (root) ->
-	root.sexp = sexp
+	root.sexpr = sexpr
 ])
 
 
@@ -29,7 +29,7 @@ app.controller 'LoginCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	handle_request = (data) ->
 		S.data = data
 		S.user = data.me
-		console.log(sexp(S.user))
+		console.log(sexpr(S.user))
 
 	steam.get('login').then(handle_request)
 ]
@@ -78,7 +78,7 @@ app.controller 'CalendarCtrl', ->
 app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 
 	list_events_by_category = (category) ->
-		console.log(sexp("list_events_by_category", category))
+		console.log(sexpr("list_events_by_category", category))
 		mockevents.filter((item) -> item.category==category)
 
 	S.events = list_events_by_category('event')
@@ -109,13 +109,13 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 		events: []
 
 	findevent = (name) ->
-		console.log(sexp("findevent", name))
+		console.log(sexpr("findevent", name))
 		mockevents.filter((item) -> 
-			console.log(sexp(item, item.name, item.name==name))
+			console.log(sexpr(item, item.name, item.name==name))
 			item.name==name)
 
 	if rp.name
-		console.log(sexp(rp))
+		console.log(sexpr(rp))
 		S.event = findevent(rp.name)[0]
 
 	S.addEvent = ->
@@ -134,12 +134,12 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 		S.insertsource = ""
 
 	S.submit_event = ->
-		console.log(sexp())
+		console.log(sexpr())
 		steam.put('techgrind.events', S.event).then(handle_event)
 
 	handle_event = (data) ->
 		S.data = data
-		console.log(sexp("handle_event", data))
+		console.log(sexpr("handle_event", data))
 
 #		steam.post('event', event).then(handle_event)
 #
@@ -190,7 +190,7 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	S.findarticle =(name) ->
 		name=rp.articlename
 		for item in S.getblog.articles
-			console.log(sexp(item))
+			console.log(sexpr(item))
 			if(item.articlename==name)
 				return item
 
@@ -200,12 +200,12 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	S.find = (regionname) ->
 		regionname=rp.region
 		for item in S.getblog.articles
-			console.log(sexp(item))
+			console.log(sexpr(item))
 			if(item.country==regionname)
 				return item
 
 	matchregion = (item) ->
-		console.log(sexp("filter", item.country==rp.region, item.country, rp.region, item))
+		console.log(sexpr("filter", item.country==rp.region, item.country, rp.region, item))
 		item.country==rp.region
 
 	if rp.region
@@ -230,11 +230,11 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	S.findprofile = (rname) ->
 		rname=rp.region
 		for detail in S.regiongetdetail.directors
-			console.log(sexp(item))
+			console.log(sexpr(item))
 			if(detail.country==rname)
 				return detail
 	matchr = (detail) ->
-		console.log(sexp("filter", detail.country==rp.region, detail.country, rp.region, detail))
+		console.log(sexpr("filter", detail.country==rp.region, detail.country, rp.region, detail))
 		detail.country==rp.region
 
 	if rp.region

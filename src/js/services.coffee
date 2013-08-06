@@ -10,12 +10,12 @@ services.factory 'steam', ($http) ->
 
 	handle_request = (response) ->
 		user = response.data.me
-		console.log(sexp("steam-service", "response", response))
+		console.log(sexpr("steam-service", "response", response))
 		response.data
 
 	login_handler = (data, status) ->
 		user = data.me
-		console.log(sexp(data))
+		console.log(sexpr(data))
 
 	login: (userid, password) ->
 		logindata =
@@ -33,7 +33,7 @@ services.factory 'steam', ($http) ->
 		user
 
 	get: (request) ->
-		console.log(sexp("steam-service", "GET", logindata, request))
+		console.log(sexpr("steam-service", "GET", logindata, request))
 		headers = {}
 		if logindata
 			headers =
@@ -42,14 +42,14 @@ services.factory 'steam', ($http) ->
 
 	post: (request, data) ->
 		headers = {}
-		console.log(sexp("steam-service", "POST", logindata, request, data))
+		console.log(sexpr("steam-service", "POST", logindata, request, data))
 		if logindata
 			headers =
 				headers: logindata
 		$http.post(restapi+request, data, headers).then(handle_request)
 
 	put: (request, data) ->
-		console.log(sexp("steam-service", "PUT", logindata, request, data))
+		console.log(sexpr("steam-service", "PUT", logindata, request, data))
 		headers = {}
 		if logindata
 			headers =
