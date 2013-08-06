@@ -1,69 +1,40 @@
 app = angular.module 'TechGrindApp.controllers', []
 
-baseurl = 'http://dev-back1.techgrind.asia/'
-restapi = baseurl+'scripts/rest.pike?request='
-logindata = { "userid":"", "password":"" }
-
-sTeam_get = (request, handler, http) ->
-	headers = {}
-	if logindata.userid
-		headers = 
-			headers:
-				Authorization: 'Basic '+window.btoa(logindata.userid + ":" + logindata.password)
-	http.get(restapi+request, headers).success(handler)
-
-sTeam_post = (request, data, handler, http) ->
-	headers = {}
-	if logindata.userid
-		headers = 
-			headers:
-				Authorization: 'Basic '+window.btoa(logindata.userid + ":" + logindata.password)
-	http.post(restapi+request, data, headers).success(handler)
-
 app.run(['$rootScope', (root) ->
 	root.sexp = sexp
 ])
 
-app.controller 'RegisterCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+
+app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.registerdata = {}
 	S.register = ->
 		S.registerdata.group = 'techgrind'
 		S.testname = S.registerdata.fullname.toLowerCase().replace(/[^a-z ]/g, "").trim().replace(/\s+/g, ".")
 		S.registerdata.userid = S.testname
 		S.data = S.testname
-		sTeam_post('register', S.registerdata, handle_request, http)
+		steam.post('register', S.registerdata).then(handle_request)
 
-	handle_request = (data, status) ->
+	handle_request = (data) ->
 		S.data = data
 ]
 
-app.controller 'LoginCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+app.controller 'LoginCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.password = ""
-	S.loginp = ->
-		if S.user and S.user.id != "guest"
-			true
-
-	S.logout = ->
-		logindata.userid = ""
-		logindata.password = ""
-		sTeam_get('login', handle_request, http)
+	S.loginp = steam.loginp
+	S.logout = steam.logout
 
 	S.login = ->
-		logindata.userid = S.userid
-		logindata.password = S.password
-		S.userid = ""
-		S.password = ""
-		sTeam_get('login', handle_request, http)
+		steam.login(S.userid, S.password).then(handle_request)
 
-	handle_request = (data, status) ->
+	handle_request = (data) ->
 		S.data = data
 		S.user = data.me
 		console.log(sexp(S.user))
 
-	sTeam_get('login', handle_request, http)
+	steam.get('login').then(handle_request)
 ]
 
-app.controller 'ActivationCtrl', ['$scope', '$routeParams', '$http', (S, rp, http) ->
+app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, steam) ->
 	handle_activation = (data,status) ->
 		S.activation = data.result
 		S.error = data.error
@@ -71,25 +42,25 @@ app.controller 'ActivationCtrl', ['$scope', '$routeParams', '$http', (S, rp, htt
 	activationdata =
 		activate: rp.activationcode
 		userid: rp.userid
-	sTeam_post('activate', activationdata, handle_activation, http)
+	steam.post('activate', activationdata).then(handle_activation)
 ]
 
 
-app.controller 'AppCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
 
-	handle_request = (data, status) ->
+	handle_request = (data) ->
 		S.data = data
 		S.user = data.me
 
-	sTeam_get('login', handle_request, http)
+	steam.get('login').then(handle_request)
 ]
 
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('/mock').success (data) -> S.mock = data
 ]
 
-app.controller 'RegionsCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.countries = [
 		name: 'Thailand'
 		url: 'thailand'
@@ -128,12 +99,14 @@ app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 	S.showEvent = (event) -> loc.path event.url
 ]
 
-app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', '$routeParams', (S,http,loc,rp) ->
+app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routeParams', (S,steam,loc,rp) ->
 	S.rp = rp
+	S.user = steam.user
 	S.event =
 		abbr: 'E.A.B.B.R.'
 		title: 'Event Title'
 		description: 'Event description'
+		events: []
 
 	findevent = (name) ->
 		console.log(sexp("findevent", name))
@@ -145,8 +118,6 @@ app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', '$routePar
 		console.log(sexp(rp))
 		S.event = findevent(rp.name)[0]
 
-	S.events = [
-	]
 	S.addEvent = ->
 		console.log("adding event")
 		event = 
@@ -155,36 +126,43 @@ app.controller 'CreateactivityCtrl', ['$scope', '$http', '$location', '$routePar
 			date: S.insertdate
 			time: S.inserttime
 			source: S.insertsource
-		S.events.push(event)
+		S.event.events.push(event)
 		S.insertplace1 = ""
 		S.insertplace2 = ""
 		S.insertdate = ""
 		S.inserttime= ""
 		S.insertsource = ""
-]
-#		handle_event = -> (data, status) ->
-#			S.data = data
-#		sTeam_post('event', event, handle_event, http)
+
+	S.submit_event = ->
+		console.log(sexp())
+		steam.put('techgrind.events', S.event).then(handle_event)
+
+	handle_event = (data) ->
+		S.data = data
+		console.log(sexp("handle_event", data))
+
+#		steam.post('event', event).then(handle_event)
 #
 #	S.create_eventtype = ->
-#		handle_eventtype = -> (data, status) ->
+#		handle_eventtype = -> (data) ->
 #			S.data = data
 #			S.eventtype = data.eventtype
-#		sTeam_post('eventtype', S.eventtype, handle_eventtype, http)
+#		steam.post('eventtype', S.eventtype).then(handle_eventtype)
 
+]
 
 app.controller 'ResourcesCtrl', ->
 app.controller 'MediaCtrl', ->
 app.controller 'PartnersCtrl', ->
 
-app.controller 'TestCtrl', ['$scope', '$location', '$http', (S, loc, http) ->
+app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 
-	handle_request = (data, status) ->
+	handle_request = (data) ->
 		S.data = data
 		S.user = data.me
 
-	sTeam_get('delete', handle_request, http)
-	sTeam_get('login', handle_request, http)
+	steam.get('delete').then(handle_request)
+	steam.get('login').then(handle_request)
 ]
 
 app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', (S, r, loc, rp)  ->

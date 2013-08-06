@@ -32,37 +32,37 @@
 						i.icon-ok(ng-click='edit.description=!edit.description', style='margin-left:10px;')
 				br
 				br
-				div(ng-hide='edit.event')
+				div(ng-hide='edit.eventi')
 					table.table.table-bordered.table-condensed
 						tbody
-							tr.linkrow.container(ng-repeat='event in events')
+							tr.linkrow.container(ng-repeat='eventi in event.events')
 									td
-										span(ng-hide='edit.event')
-											{{event.place1}}
-										input(ng-show='edit.event', ng-model='event.place1', type='text')
+										span(ng-hide='edit.eventi')
+											{{eventi.place1}}
+										input(ng-show='edit.eventi', ng-model='eventi.place1', type='text')
 									td
-										span(ng-hide='edit.event')
-											{{event.place2}}
-										input(ng-show='edit.event', ng-model='event.place2', type='text')
+										span(ng-hide='edit.eventi')
+											{{eventi.place2}}
+										input(ng-show='edit.eventi', ng-model='eventi.place2', type='text')
 									td
-										span(ng-hide='edit.event')
-											{{event.date}}
-										input(ng-show='edit.event', ng-model='event.date', type='text', style='width:100px;')
+										span(ng-hide='edit.eventi')
+											{{eventi.date}}
+										input(ng-show='edit.eventi', ng-model='eventi.date', type='text', style='width:100px;')
 									td
-										span(ng-hide='edit.event')
-											{{event.time}}
-										input(ng-show='edit.event', ng-model='event.time', type='text', size='5', style='width:80px;height:15px;')
+										span(ng-hide='edit.eventi')
+											{{eventi.time}}
+										input(ng-show='edit.eventi', ng-model='eventi.time', type='text', size='5', style='width:80px;height:15px;')
 									td
-										span(ng-hide='edit.event')
-											{{event.source}}
-										input(ng-show='edit.event', ng-model='event.source', type='text', style='width:120px;')
+										span(ng-hide='edit.eventi')
+											{{eventi.source}}
+										input(ng-show='edit.eventi', ng-model='eventi.source', type='text', style='width:120px;')
 									td
-										i.icon-pencil(ng-hide='edit.event', ng-click='edit.event=!edit.event')
-										i.icon-ok(ng-show='edit.event', ng-click='edit.event=!edit.event')
+										i.icon-pencil(ng-hide='edit.eventi', ng-click='edit.eventi=!edit.eventi')
+										i.icon-ok(ng-show='edit.eventi', ng-click='edit.eventi=!edit.eventi')
 			form(ng-submit='addEvent(); (edit.newevent=!edit.newevent)', class='container')
 				div(ng-hide='edit.newevent')
 					a(href='', ng-click='edit.newevent=!edit.newevent')
-						input(class='btn', value='createEvent')
+						input(class='btn', value='Add Dates and Times')
 				div(ng-show='edit.newevent')
 					td
 						tr
@@ -78,9 +78,13 @@
 								input(ng-model='insertsource', type='text', placeholder='source')
 								input(type='submit', value='add', class='btn')
 
+				a(href='', ng-click='submit_event()')
+					input(class='btn', value='Submit Event')
 				pre 
-					| a {{ sexp(event) }}
+					| {{ sexp(event) }}
 				pre 
-					| a {{ sexp(events) }}
+					| {{ sexp(rp) }}
 				pre 
-					| a {{ sexp(rp) }}
+					| {{ sexp(data) }}
+				pre 
+					| {{ sexp(user()) }}
