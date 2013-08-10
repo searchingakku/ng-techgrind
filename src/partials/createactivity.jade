@@ -2,12 +2,12 @@
 	.row-fluid
 		div
 			.offset2(ng-hide='edit.shortname')
-				div(style='font-size:300%;font-weight:400;float:left;width:190px;height:50px;') 
-					{{event.abbr}}
+				div(style='font-size:200%;font-weight:400;float:left;width:250px;height:50px;') 
+					{{event.name}}
 				i.icon-pencil(ng-click='edit.shortname=!edit.shortname', style='margin-top:50px;position:relative;')
 			.offset2(ng-show='edit.shortname')
-				div(style='float:left;width:190px;height:50px;') 
-					input(ng-model='event.abbr', placeholder='Event shortname', style='width:170px;height:50px;font-size:300%;font-weight:400;')
+				div(style='float:left;width:250px;height:50px;') 
+					input(ng-model='event.name', placeholder='Event shortname', style='width:230px;height:50px;font-size:200%;font-weight:400;')
 				i.icon-ok(ng-click='edit.shortname=!edit.shortname')
 			br
 			br

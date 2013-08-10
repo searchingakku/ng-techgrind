@@ -91,7 +91,7 @@ app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 
 	S.past = [
 		title: 'World.Startup.Report'
-		abbr: 'WSR'
+		name: 'WSR'
 		path: '/events/wsr'
 	]
 
@@ -103,7 +103,7 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 	S.rp = rp
 	S.user = steam.user
 	S.event =
-		abbr: 'E.A.B.B.R.'
+		name: 'SHORT-NAME'
 		title: 'Event Title'
 		description: 'Event description'
 		events: []
@@ -134,7 +134,7 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 		S.insertsource = ""
 
 	S.submit_event = ->
-		console.log(sexpr())
+		console.log(sexpr("submit_event", S.event))
 		steam.put('techgrind.events', S.event).then(handle_event)
 
 	handle_event = (data) ->
@@ -377,42 +377,42 @@ getblog = ->
 
 	mockevents = [
 		title: 'Get.A.Partner'
-		abbr: 'GAP'
+		name: 'GAP'
 		description: 'Find your cofounders - partners - and hires!'
 		path: '/events/gap'
 		name: 'gap'
 		category: 'event'
 	,
 		title: 'Interview'
-		abbr: 'INTRVU'
+		name: 'INTRVU'
 		description: 'Learn about building businesses from successful entrepreneurs'
 		path: '/events/intrvu'
 		name: 'intrvu'
 		category: 'event'
 	,
 		title: 'Mobile Monday Bangkok'
-		abbr: 'MoMoBKK'
+		name: 'MoMoBKK'
 		description: 'See all the latest mobile tech and trends!'
 		path: '/events/momobkk'
 		name: 'momobkk'
 		category: 'event'
 	,
 		title: 'Slap.Learn.And.Pitch'
-		abbr: 'SLAP'
+		name: 'SLAP'
 		description: 'find your cofounders - partners - hires!'
 		path: '/events/slap'
 		name: 'slap'
 		category: 'workshop'
 	,
 		title: 'Coding.For.Fun'
-		abbr: 'CFF'
+		name: 'CFF'
 		description: 'come learn to code something new'
 		path: '/events/cff'
 		name: 'cff'
 		category: 'workshop'
 	,
 		title: 'Citech.Hacker.Space.Party'
-		abbr: 'CITEC.HSP'
+		name: 'CITEC-HSP'
 		description: 'learn to hack apart and build hardware'
 		path: '/events/citec'
 		name: 'citec'

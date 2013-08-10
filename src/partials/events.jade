@@ -15,7 +15,7 @@
 					tbody
 						tr.linkrow(align='center', ng-repeat='event in events')
 							td
-								a(href='#\{{event.path}}') {{event.abbr}}
+								a(href='#\{{event.path}}') {{event.name}}
 							td
 								a(href='#\{{event.path}}') {{event.title}}
 							td
@@ -47,7 +47,7 @@
 					tbody
 						tr.linkrow(align='center', ng-repeat='event in workshops')
 							td
-								a(href='#\{{event.path}}') {{event.abbr}}
+								a(href='#\{{event.path}}') {{event.name}}
 							td
 								a(href='#\{{event.path}}') {{event.title}}
 							td
