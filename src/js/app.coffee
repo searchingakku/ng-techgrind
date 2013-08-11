@@ -4,6 +4,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.directives'
 	'TechGrindApp.controllers'
 	'ui.bootstrap'
+	'LocalStorageModule'
 ]
 
 app.config ['$routeProvider', ($routeProvider) ->

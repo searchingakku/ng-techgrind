@@ -21,10 +21,13 @@ app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) 
 app.controller 'LoginCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.password = ""
 	S.loginp = steam.loginp
-	S.logout = steam.logout
+	S.logout = ->
+		steam.logout().then(handle_request)
 
 	S.login = ->
 		steam.login(S.userid, S.password).then(handle_request)
+		S.userid = ""
+		S.password = ""
 
 	handle_request = (data) ->
 		S.data = data
