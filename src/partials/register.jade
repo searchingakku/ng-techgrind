@@ -3,21 +3,32 @@ form(name='user_registration', method='post', action='/')
 
 ul
 	li
-		input(type='text', ng-model='registerdata.fullname', placeholder='Your full name')
+		input(type='text', ng-model='registerdata.fullname', 
+			placeholder='Your full name', ng-required='true')
 	li
-		input(type='email', ng-model='registerdata.email' , placeholder='email address' )
+		input(type='text', ng-model='registerdata.userid', 
+			placeholder='your userid', ng-required='true')
+		span(ng-show='user_available()') userid is available
+		span(ng-show='user_taken()') userid is taken
+	li
+		input(type='email', ng-model='registerdata.email' , 
+			placeholder='email address', ng-required='true')
 
 	li
-		input(type='password', ng-model='registerdata.password' , placeholder='password')
+		input(type='password', ng-model='registerdata.password', 
+			placeholder='password', ng-required='true', 
+			ng-valid='passwordmatch')
 
 	li
 		input(type='password', ng-model='registerdata.password2' ,
-			placeholder='repeat password')
+			placeholder='repeat password', ng-required='true', 
+			ng-valid='passwordmatch')
+		span(ng-show='!passwordmatch') passwords don't match!
 	li
 		input(type='submit', value='Register', id='registerhere', ng-click='register()')
 
 	pre
-		{{ data }}
+		{{ sexpr(data) }}
 	#newuserid
 		{{ data.user.id }}
 	#newusercode(ng-show="data.activation")
