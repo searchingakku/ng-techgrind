@@ -18,9 +18,6 @@ app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) 
 
 	S.register = ->
 		S.registerdata.group = 'techgrind'
-		S.testname = S.registerdata.fullname.toLowerCase().replace(/[^a-z ]/g, "").trim().replace(/\s+/g, ".")
-		S.registerdata.userid = S.testname
-		S.data = S.testname
 		steam.post('register', S.registerdata).then(handle_request)
 
 	handle_request = (data) ->
