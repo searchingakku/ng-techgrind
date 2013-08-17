@@ -19,9 +19,7 @@ function s_express(data, indent)
     {
         var children = []
         for (key in data)
-        {
             children.push(s_express(data[key], indent+1))
-        }
         if (children.length)
             return "(" + children.join("\n"+pad(indent+1)) + ")"
         else
@@ -35,8 +33,12 @@ function s_express(data, indent)
              && data != "0"
              && data[0] != "(" /* strings that look like lists need to be quoted */
              && data[data.length-1] != ")")
-
         return data
+    else if (typeof data === "string" || data instanceof String 
+             || typeof data === "number" || data instanceof Number)
+        return JSON.stringify(data)
+    else if (typeof data === "boolean" || data instanceof Boolean)
+        return (data && "T") || "F"
     else if (typeof data === "object" && !(data instanceof String) && Object.keys(data).length)
     {
         var children = []
@@ -59,14 +61,12 @@ function s_express(data, indent)
         if (children.length)
             return "("+children.join("\n"+pad(indent+1))+")"
         else
-            return "()"
+            return "(.)"
     }
-    else if (typeof data === "string" || data instanceof String || typeof data === "number" || data instanceof Number)
-        return JSON.stringify(data)
+    else if (typeof data === "object" && JSON.stringify(data) == "{}")
+        return "(.)"
     else if (typeof data === "object")
-        return "("+typeof data+" ("+(typeof data === "object")+" && "+!(data instanceof String)+" && "+Object.keys(data).length+") "+JSON.stringify(data)+")"
-    else if (typeof data === "boolean")
-        return (data && "T") || "F"
+        return "["+JSON.stringify(data)+"]"
     else
         return "["+typeof data+" "+JSON.stringify(data)+"]"
 }
