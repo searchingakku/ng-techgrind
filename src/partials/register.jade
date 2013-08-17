@@ -8,6 +8,7 @@ ul
 	li
 		input(type='text', ng-model='registerdata.userid', 
 			placeholder='your userid', ng-required='true')
+		span(ng-show='user_checking()') checking availability
 		span(ng-show='user_available()') userid is available
 		span(ng-show='user_taken()') userid is taken
 	li

@@ -4,7 +4,7 @@
 	//- angular provides (collapse="navCollapsed")
 	//- but not sure how to wire it up to the responsive layout change
 	div.nav-collapse
-		ul.nav.pull-right(ng-controller="LoginCtrl")
+		ul.nav.pull-right
 			li.dropdown#show-settings(ng-show="loginp()")
 				a.dropdown-toggle
 					i.icon-cog
@@ -18,7 +18,7 @@
 				a.dropdown-toggle
 					i.icon-user
 					span(id="show-user-name")
-						| {{ user.fullname }}
+						| {{ user().fullname }}
 					b.caret
 				ul.dropdown-menu
 					li: a(href="javascript:;") My Profile
@@ -35,10 +35,5 @@
 					i.icon-user
 					| Login
 					b.caret
-				div(modal="openlogin", close="openlogin=false")
-					form(name='loginform', method='post')
-						input(type='text', ng-model='userid' , placeholder='login name')
-						br
-						input(type='password', ng-model='password' , placeholder='password')
-						br
-						input(type='submit', value='Sign in', id='login-submit', ng-click='login();openlogin=false')
+				div(modal="openlogin && !loginp()", close="openlogin=false")
+					div(ng-include="'partials/loginform.html'")

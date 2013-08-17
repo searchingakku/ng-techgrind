@@ -11,6 +11,8 @@ app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) 
 	tested_users = {}
 	S.tested_users = () ->
 		tested_users
+	S.user_checking = ->
+		S.registerdata.userid and typeof tested_users[S.registerdata.userid] == 'undefined'
 	S.user_available = ->
 		typeof tested_users[S.registerdata.userid] != 'undefined' and !tested_users[S.registerdata.userid]
 	S.user_taken = ->
@@ -60,28 +62,40 @@ app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) 
 			steam.get(S.registerdata.userid).then(handle_user))
 ]
 
-app.controller 'LoginCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
+app.controller 'LoginCtrl', ['$scope', '$location', '$routeParams', 'steam', (S, loc, rp, steam) ->
+	S.username = ""
 	S.password = ""
+
+	if rp.userid
+		S.userid = rp.userid
+
 	S.loginp = steam.loginp
+	S.user = steam.user
 	S.logout = ->
 		steam.logout().then(handle_request)
 
 	S.login = ->
+		console.log(sexpr("LoginCtrl", S.userid, S.password))
 		steam.login(S.userid, S.password).then(handle_request)
 		S.userid = ""
 		S.password = ""
 
 	handle_request = (data) ->
 		S.data = data
-		S.user = data.me
-		console.log(sexpr(S.user))
+		console.log(sexpr("LoginCtrl", "handle_request", S.user(), data))
 
 	steam.get('login').then(handle_request)
 ]
 
 app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, steam) ->
-	handle_activation = (data,status) ->
-		S.activation = data.result
+	handle_activation = (data) ->
+		if data.result == "user is activated"
+			S.activation = "activated"
+		else if data.error == "user already activated"
+			S.activation = "active"
+		else
+			S.activation = "failed"
+		S.userid = rp.userid
 		S.error = data.error
 		S.data = data
 	activationdata =
@@ -93,10 +107,13 @@ app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, ste
 
 app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
+	S.user = steam.user
+	S.loginp = steam.loginp
+	S.logout = steam.logout
+	S.data = {}
 
 	handle_request = (data) ->
 		S.data = data
-		S.user = data.me
 
 	steam.get('login').then(handle_request)
 ]
@@ -202,9 +219,9 @@ app.controller 'PartnersCtrl', ->
 
 app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 
+	S.user = steam.user
 	handle_request = (data) ->
 		S.data = data
-		S.user = data.me
 
 	steam.get('delete').then(handle_request)
 	steam.get('login').then(handle_request)

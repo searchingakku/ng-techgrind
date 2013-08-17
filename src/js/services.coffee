@@ -9,33 +9,35 @@ services.factory 'steam', ($http, localStorageService) ->
 		localStorageService.add('user', JSON.stringify(response.data.me))
 		console.log(sexpr("steam-service", "response", response))
 		response.data
-
-	login_handler = (data, status) ->
-		localStorageService.add('user', JSON.stringify(data.me))
-		console.log(sexpr(data))
-
-	headers = ->
+	
+	loginp = ->
 		logindata = JSON.parse(localStorageService.get('logindata'))
-		if logindata
+		user = JSON.parse(localStorageService.get('user'))
+		logindata and user and user.id and user.id != "guest"
+
+	headers = (login) ->
+		logindata = JSON.parse(localStorageService.get('logindata'))
+		if loginp() or (login and logindata)
 			headers: logindata
 		else
 			{}
 
 	login: (userid, password) ->
-		localStorageService.add('logindata', JSON.stringify(Authorization: 'Basic '+window.btoa(userid + ":" + password)))
-		this.get('login')
+		console.log(sexpr("steam-service", "login:", userid, password))
+		if userid != "" and password != ""
+			localStorageService.add('logindata', JSON.stringify(Authorization: 'Basic '+window.btoa(userid + ":" + password)))
+			$http.get(restapi+"login", headers(true)).then(handle_request)
 
 	logout: ->
 		localStorageService.remove('logindata')
 		localStorageService.remove('user')
-		this.get('login', login_handler)
+		$http.get(restapi+"login", headers()).then(handle_request)
 
-	loginp: ->
-		user = JSON.parse(localStorageService.get('user'))
-		user and user.id and user.id != "guest"
+	loginp: loginp
 
 	user: ->
-		JSON.parse(localStorageService.get('user'))
+		if loginp()
+			JSON.parse(localStorageService.get('user'))
 
 	get: (request) ->
 		console.log(sexpr("steam-service", "GET", request))

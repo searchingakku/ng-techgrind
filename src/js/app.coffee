@@ -52,6 +52,10 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/login.html'
 		controller: 'LoginCtrl'
 
+	$routeProvider.when '/login/:userid',
+		templateUrl: 'partials/login.html'
+		controller: 'LoginCtrl'
+
 	$routeProvider.when '/activate/:userid/:activationcode',
 		templateUrl: 'partials/activation.html'
 		controller: 'ActivationCtrl'

@@ -1,8 +1,14 @@
-h1
-	account activation
-p#activation
+h1 account activation
+p#activation(ng-hide="true")
 	{{ activation }}
-pre
-	{{ error }}
+
+h3(ng-show="activation == 'failed'") activation failed.
+h3(ng-show="activation == 'activated'") your account is now activated.
+h3(ng-show="activation == 'active'") your account is already active.
+div(ng-hide="!activation || activation == 'failed'")
+	| your userid is
+	h2 {{ userid }}
+	| and you may 
+	a(href="#/login/{{userid}}") log in here
 pre
 	{{ sexpr(data) }}
