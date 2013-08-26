@@ -20,6 +20,12 @@
 				div(style='float:left;width:220px;height:50px;')
 					input(ng-model='event.title', placeholder='Event title')
 				i.icon-ok(ng-click='edit.title=!edit.title', style='margin-left:10px;')
+			.offset2
+				div(style='float:left;width:850px;height:150px;font-size:100%;')
+					span(ng-repeat="category in categories")
+						label(for="{{category.name}}")
+						| {{ category.name }}
+						input(type="radio", value="{{category.name}}", ng-model="event.category")
 			.container: .widget
 				.widget-content
 					div(ng-hide='edit.description')

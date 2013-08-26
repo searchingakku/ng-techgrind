@@ -137,15 +137,22 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) -
 
 app.controller 'CalendarCtrl', ->
 
-app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
+app.controller 'EventsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 
+	S.events = {}
+	allevents = []
 	list_events_by_category = (category) ->
-		console.log(sexpr("list_events_by_category", category))
-		mockevents.filter((item) -> item.category==category)
+		S.events[category] = allevents.filter((item) -> item.category==category)
+		console.log(sexpr("list_events_by_category", category, S.events))
 
-	S.events = list_events_by_category('event')
-	S.workshops = list_events_by_category('workshop')
-	S.conferences = list_events_by_category('conference')
+	get_events = (data) ->
+		S.data = data
+		allevents = data.events
+		list_events_by_category('event')
+		list_events_by_category('workshop')
+		list_events_by_category('conference')
+
+	steam.get('techgrind.events').then(get_events)
 
 	S.createactivity = [
 		path: 'partials/createactivity.html'
@@ -164,44 +171,30 @@ app.controller 'EventsCtrl', ['$scope', '$location', (S, loc) ->
 app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routeParams', (S,steam,loc,rp) ->
 	S.rp = rp
 	S.user = steam.user
-	S.event =
-		name: 'SHORT-NAME'
-		title: 'Event Title'
-		description: 'Event description'
-		events: []
 
-	findevent = (name) ->
-		console.log(sexpr("findevent", name))
-		mockevents.filter((item) -> 
-			console.log(sexpr(item, item.name, item.name==name))
-			item.name==name)
-
-	if rp.name
-		console.log(sexpr(rp))
-		S.event = findevent(rp.name)[0]
-
-	S.addEvent = ->
-		console.log("adding event")
-		event = 
-			place1: S.insertplace1
-			place2: S.insertplace2
-			date: S.insertdate
-			time: S.inserttime
-			source: S.insertsource
-		S.event.events.push(event)
-		S.insertplace1 = ""
-		S.insertplace2 = ""
-		S.insertdate = ""
-		S.inserttime= ""
-		S.insertsource = ""
-
-	S.submit_event = ->
-		console.log(sexpr("submit_event", S.event))
-		steam.put('techgrind.events', S.event).then(handle_event)
+	S.categories = categories
 
 	handle_event = (data) ->
 		S.data = data
+		S.event = data.event
 		console.log(sexpr("handle_event", data))
+
+	if rp.name
+		console.log(sexpr("rp.name", rp))
+		steam.get('techgrind.events.'+rp.name).then(handle_event)
+	else
+		S.event =
+			name: 'SHORT-NAME'
+			title: 'Event Title'
+			description: 'Event description'
+			events: []
+
+	S.submit_event = ->
+		console.log(sexpr("submit_event", S.event))
+		if S.event.eventid
+			steam.post(S.event.eventid, S.event).then(handle_event)
+		else
+			steam.put('techgrind.events', S.event).then(handle_event)
 
 #		steam.post('event', event).then(handle_event)
 #
@@ -312,6 +305,12 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	S.list2 = []
 ]
 
+app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
+	S.addComment = -> 
+		S.chatterbox.push(S.commenttext);
+		S.commenttext="";
+]
+
 regiongetdetail = ->
 		directors: [
 			name: 'Nantaprong (House) Leelahongjudha'
@@ -389,12 +388,6 @@ regiongetdetail = ->
 			owner: 'Naveen'
 			icon: ''
 		]
-
-app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
-	S.addComment = -> 
-		S.chatterbox.push(S.commenttext);
-		S.commenttext="";
-]
 
 
 getblog = ->
@@ -500,4 +493,12 @@ getblog = ->
 		path: '/events/gdc-thailand'
 		name: 'gdc-thailand'
 		category: 'conference'
+	]
+categories = 
+	[ 
+		name:'event'
+	, 
+		name:'workshop'
+	,
+		name:'conference'
 	]

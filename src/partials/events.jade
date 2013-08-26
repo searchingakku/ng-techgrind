@@ -13,13 +13,13 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in events')
+						tr.linkrow(align='center', ng-repeat='event in events.event')
 							td
-								a(href='#\{{event.path}}') {{event.name}}
+								a(href='#/events/{{event.name}}') {{event.name}}
 							td
-								a(href='#\{{event.path}}') {{event.title}}
+								a(href='#/events/{{event.name}}') {{event.title}}
 							td
-								a(href='#\{{event.path}}') {{event.description}}
+								a(href='#/events/{{event.name}}') {{event.description}}
 
 		#activity.span4: .widget
 			.widget-header
@@ -45,13 +45,13 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in workshops')
+						tr.linkrow(align='center', ng-repeat='event in events.workshop')
 							td
-								a(href='#\{{event.path}}') {{event.name}}
+								a(href='#/events/{{event.name}}') {{event.name}}
 							td
-								a(href='#\{{event.path}}') {{event.title}}
+								a(href='#/events/{{event.name}}') {{event.title}}
 							td
-								a(href='#\{{event.path}}') {{event.description}}
+								a(href='#/events/{{event.name}}') {{event.description}}
 
 		#conferences.span10.offset1: .widget
 			.widget-header
@@ -66,10 +66,13 @@
 							td
 							td
 					tbody
-						tr.linkrow(align='center', ng-repeat='event in conferences')
+						tr.linkrow(align='center', ng-repeat='event in events.conference')
 							td
-								a(href='#\{{event.path}}') {{event.owner}}
+								a(href='#/events/{{event.name}}') {{event.owner}}
 							td
-								a(href='#\{{event.path}}') {{event.place}}
+								a(href='#/events/{{event.name}}') {{event.place}}
 							td
-								a(href='#\{{event.path}}') {{event.description}}
+								a(href='#/events/{{event.name}}') {{event.description}}
+
+	pre
+		{{ sexpr(data) }}
