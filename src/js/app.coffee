@@ -3,8 +3,10 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.services'
 	'TechGrindApp.directives'
 	'TechGrindApp.controllers'
+	'TechGrindApp.oldcontrollers'
 	'ui.bootstrap'
 	'LocalStorageModule'
+	'ngResource'
 ]
 
 app.config ['$routeProvider', ($routeProvider) ->
