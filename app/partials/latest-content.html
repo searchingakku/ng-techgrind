@@ -1,0 +1,67 @@
+		<div class="row">
+			<div class="span12">
+				<div class="widget">
+					<div class="widget-header">
+						<i class="icon-list-alt"></i><span class="break"></span><h3>Latest Content</h3>
+					</div> <!-- /widget-header -->
+					<div class="widget-content">
+						<div class="tabbable">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#News" data-toggle="tab">News</a></li>
+								<li><a href="#Articles" data-toggle="tab">Articles</a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="News">
+								<div ng-controller="BlogSpot" class="widget-content">
+								<ul class="news-items">
+									<li ng-repeat="item in getblog('news').feed.entry">
+										<div class="news-item-detail" id="topcontent" ng-click="toggle=!toggle">
+											<div class="news-item-title"><h3>{{item.title.$t}}</h3></div>
+											<div class="news-item-date">
+												<span class="news-item-day">{{date(item.published.$t).day}}</span>
+												<span class="news-item-month">{{date(item.published.$t).month}}</span>
+											</div>
+											<p ng-class="{showall:toggle, showless:!toggle}" class="news-item-preview" ng-bind-html-unsafe="item.content.$t">
+											<p align=left ng-show="toggle"><sub>click to collapse</sub></p>
+											<p align=left ng-show="!toggle"><sub>click to expand</sub></p>
+											<!-- if you want to do something with the source URL???
+											<a ng-href="{{item.link.slice(-1)[0].href}}">
+												<p align=right class="muted">source</p>
+											</a>
+											-->
+											</p>
+										</div>
+									</li>
+								</ul>
+								</div> <!-- /widget-content -->
+								</div> <!-- /tab-pane -->
+								<div class="tab-pane" id="Articles">
+								<div ng-controller="BlogSpot" class="widget-content">
+								<ul class="news-items">
+									<li ng-repeat="item in getblog('articles').feed.entry">
+										<div class="news-item-detail" id="topcontent" ng-click="toggle=!toggle">
+											<div class="news-item-title"><h3>{{item.title.$t}}</h3></div>
+											<div class="news-item-date">
+												<span class="news-item-day">{{date(item.published.$t).day}}</span>
+												<span class="news-item-month">{{date(item.published.$t).month}}</span>
+											</div>
+											<p ng-class="{showall:toggle, showless:!toggle}" class="news-item-preview" ng-bind-html-unsafe="item.content.$t">
+											<p align=left ng-show="toggle"><sub>click to collapse</sub></p>
+											<p align=left ng-show="!toggle"><sub>click to expand</sub></p>
+											<!-- if you want to do something with the source URL???
+											<a ng-href="{{item.link.slice(-1)[0].href}}">
+												<p align=right class="muted">source</p>
+											</a>
+											-->
+											</p>
+										</div>
+									</li>
+								</ul>
+								</div> <!-- /widget-content -->
+								</div> <!-- /tab-pane -->
+								</div> <!-- /tabbable -->
+								</div> <!-- /tab-content -->
+					</div> <!-- /widget -->
+				</div> <!-- /widget -->
+		    </div> <!-- /span8 -->
+	    </div> <!-- /row -->
