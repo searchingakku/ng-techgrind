@@ -231,8 +231,6 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 		title: 'articles'
 	,
 		title: 'events'
-	,
-		title: 'calender'
 	]
 
 	S.getblog = getblog()

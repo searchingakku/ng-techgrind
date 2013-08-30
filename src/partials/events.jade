@@ -21,13 +21,6 @@
 							td
 								a(href='#/events/{{event.name}}') {{event.description}}
 
-		#activity.span4: .widget
-			.widget-header
-				h3 Your activities
-			.widget-content
-				a(class='btn', href='')
-					h4 login to create new activities
-
 		#create_activity.span2.offset2
 			a(class='btn', href='#/events/new')
 				h4 Create Activity
@@ -74,5 +67,3 @@
 							td
 								a(href='#/events/{{event.name}}') {{event.description}}
 
-	pre
-		{{ sexpr(data) }}
