@@ -25,3 +25,34 @@ directives.directive 'droppable', ($compile) ->
 				scope.list2.splice(dragIndex, 1)
 			scope.$apply()
 		)
+
+directives.directive 'calendar', ($parse) ->
+	restrict: 'A'
+	link: (scope, element, attrs) ->
+		region = $parse(attrs['region'])
+		calendar = $parse(attrs['calendar'])
+		console.log(sexpr("calendar-directive", region(scope), calendar(scope)))
+		regions = 
+			thailand: [ # techgrindth 
+				'https://www.google.com/calendar/feeds/7rd1tlnke94kh99ub6vta9ov34%40group.calendar.google.com/public/basic',
+				# Thai Holidays
+				'https://www.google.com/calendar/feeds/en.thai%23holiday%40group.v.calendar.google.com/public/basic']
+			singapore: [ # techgrindsg 
+				'https://www.google.com/calendar/feeds/c6itotjtf79b07k42qqo5ngqu4%40group.calendar.google.com/public/basic', 
+				# Singaporean Holidays 
+				'https://www.google.com/calendar/feeds/en.singapore%23holiday%40group.v.calendar.google.com/public/basic' ]
+
+		element.fullCalendar( 
+			header:
+				left: 'prev,next today'
+				center: 'title'
+				right: 'month,basicWeek,basicDay'
+			eventSources: regions[calendar(scope)]
+			eventClick: (event) ->
+				window.open(event.url, 'gcalevent', 'width=700,height=600')
+				false
+			loading: (bool) ->
+				if bool 
+					$('#loading').show()
+				else
+					$('#loading').hide())
