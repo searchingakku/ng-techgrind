@@ -228,9 +228,9 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	S.month = rp.month
 	S.content = rp.content
 	S.tabs = [
-		title: 'articles'
+		title: 'Articles'
 	,
-		title: 'events'
+		title: 'Events'
 	]
 
 	S.getblog = getblog()
@@ -266,23 +266,15 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 		S.regionblog.events = S.getblog.events.filter(matchregion)
 		S.regionblog.calendar = S.getblog.calendar.filter(matchregion)
 	S.profiles = [
-		role: 'Directors'
-		icon: 'icon-eye-open'
-		type: 'directors'
-	,
-		role: 'Organizers'
+		role: 'Volunteers'
 		icon: 'icon-group'
-		type: 'organizers'
-	,
-		role: 'Curators'
-		icon: 'icon-thumbs-up'
-		type: 'curators'
+		type: 'volunteers'
 	]
 	S.regiongetdetail = regiongetdetail()
 	S.regionprofile={}
 	S.findprofile = (rname) ->
 		rname=rp.region
-		for detail in S.regiongetdetail.directors
+		for detail in S.regiongetdetail.volunteers
 			console.log(sexpr(item))
 			if(detail.country==rname)
 				return detail
@@ -291,9 +283,7 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 		detail.country==rp.region
 
 	if rp.region
-		S.regionprofile.directors = S.regiongetdetail.directors.filter(matchr)
-		S.regionprofile.organizers = S.regiongetdetail.organizers.filter(matchr)
-		S.regionprofile.curators = S.regiongetdetail.curators.filter(matchr)
+		S.regionprofile.volunteers = S.regiongetdetail.volunteers.filter(matchr)
 
 	S.list1 = [
 		name: 'News'
@@ -310,7 +300,7 @@ app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, lo
 ]
 
 regiongetdetail = ->
-		directors: [
+		volunteers: [
 			name: 'Nantaprong (House) Leelahongjudha'
 			mail: 'th.house @ techgrind.asia'
 			tags: 'developement'
@@ -341,9 +331,6 @@ regiongetdetail = ->
 			country: 'china'
 			owner: 'Naveen'
 		,
-
-		],
-		organizers: [
 			name: 'Herman Tamas'
 			mail: 'cn.tamas @ techgrind.asia'
 			month: 'june'
@@ -366,8 +353,7 @@ regiongetdetail = ->
 			country: 'thailand'
 			owner: 'Naveen'
 			icon: ''
-		],
-		curators: [
+		,
 			name: 'Bie Eadtevongsai'
 			mail: 'th.bie @ techgrind.asia'
 			month: 'june'
