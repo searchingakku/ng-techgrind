@@ -124,14 +124,26 @@ app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 
 app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.countries = [
-		name: 'Thailand'
-		url: 'thailand'
+		name: 'Cambodia'
+		url: 'cambodia'
+	,
+		name: 'China'
+		url: 'china'
+	,
+		name: 'Malaysia'
+		url: 'malaysia'
+	,
+		name: 'Philippines'
+		url: 'philippines'
 	,
 		name: 'Singapore'
 		url : 'singapore'
 	,
-		name: 'India'
-		url: 'india'
+		name: 'Thailand'
+		url: 'thailand'
+	,
+		name: 'Vietnam'
+		url: 'vietnam'
 	]
 ]
 
@@ -338,7 +350,7 @@ regiongetdetail = ->
 			country: 'china'
 			owner: 'Naveen'
 		,
-			name: 'Worawut SaibuaWorawut Saibua'
+			name: 'Worawut Saibua'
 			mail: 'th.worawut @ techgrind.asia'
 			month: 'june'
 			tags: 'developement'
