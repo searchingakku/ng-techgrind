@@ -1,96 +1,97 @@
 .main-inner: .container-fluid
 	.row-fluid
-		div
-			.offset2(ng-hide='edit.shortname')
-				div(style='font-size:200%;font-weight:400;float:left;width:250px;height:50px;') 
-					{{event.name}}
-				i.icon-pencil(ng-click='edit.shortname=!edit.shortname', style='margin-top:50px;position:relative;')
-			.offset2(ng-show='edit.shortname')
-				div(style='float:left;width:250px;height:50px;') 
+		.offset2
+			.span4
+				div(ng-hide='edit.shortname', ng-click='edit.shortname=!edit.shortname')
+					span(style='font-size:200%;font-weight:400;') 
+						{{event.name}}
+					i.icon-pencil
+				div(ng-show='edit.shortname', style='float:left') 
 					input(ng-model='event.name', placeholder='Event shortname', style='width:230px;height:50px;font-size:200%;font-weight:400;')
-				i.icon-ok(ng-click='edit.shortname=!edit.shortname')
-			br
-			br
-			br
-			.offset2(ng-hide='edit.title')
-				div(style='float:left;width:220px;height:50px;')
-					{{event.title}}
-				i.icon-pencil(ng-click='edit.title=!edit.title', style='margin-left:10px;')
-			.offset2(ng-show='edit.title')
-				div(style='float:left;width:220px;height:50px;')
-					input(ng-model='event.title', placeholder='Event title')
-				i.icon-ok(ng-click='edit.title=!edit.title', style='margin-left:10px;')
-			.offset2
-				div(style='float:left;width:850px;height:150px;font-size:100%;')
-					span(ng-repeat="category in categories")
-						label(for="{{category.name}}")
+					i.icon-ok(ng-click='edit.shortname=!edit.shortname')
+			fieldset.span4
+				div.radio(ng-repeat="category in categories")
+					label(for="category.{{category.name}}")
+						input(type="radio", id="category.{{category.name}}", value="{{category.name}}", ng-model="event.category")
 						| {{ category.name }}
-						input(type="radio", value="{{category.name}}", ng-model="event.category")
-			.container: .widget
-				.widget-content
-					div(ng-hide='edit.description')
-						div(style='float:left;width:850px;height:150px;font-size:100%;')
-							{{event.description}}
-						i.icon-pencil(ng-click='edit.description=!edit.description', style='margin-left:10px;')
-					div(ng-show='edit.description')
-						div(style='float:left;width:850px;height:150px;')
-							textarea(rows='6', ng-model='event.description', placeholder='Event description', style='width:100%;font-size:100%;height:150px;')
-						i.icon-ok(ng-click='edit.description=!edit.description', style='margin-left:10px;')
-				br
-				br
-				div(ng-hide='edit.eventi')
-					table.table.table-bordered.table-condensed
-						tbody
-							tr.linkrow.container(ng-repeat='eventi in event.events')
-									td
-										span(ng-hide='edit.eventi')
-											{{eventi.place1}}
-										input(ng-show='edit.eventi', ng-model='eventi.place1', type='text')
-									td
-										span(ng-hide='edit.eventi')
-											{{eventi.place2}}
-										input(ng-show='edit.eventi', ng-model='eventi.place2', type='text')
-									td
-										span(ng-hide='edit.eventi')
-											{{eventi.date}}
-										input(ng-show='edit.eventi', ng-model='eventi.date', type='text', style='width:100px;')
-									td
-										span(ng-hide='edit.eventi')
-											{{eventi.time}}
-										input(ng-show='edit.eventi', ng-model='eventi.time', type='text', size='5', style='width:80px;height:15px;')
-									td
-										span(ng-hide='edit.eventi')
-											{{eventi.source}}
-										input(ng-show='edit.eventi', ng-model='eventi.source', type='text', style='width:120px;')
-									td
-										i.icon-pencil(ng-hide='edit.eventi', ng-click='edit.eventi=!edit.eventi')
-										i.icon-ok(ng-show='edit.eventi', ng-click='edit.eventi=!edit.eventi')
-			form(ng-submit='addEvent(); (edit.newevent=!edit.newevent)', class='container')
-				div(ng-hide='edit.newevent')
-					a(href='', ng-click='edit.newevent=!edit.newevent')
-						input(class='btn', value='Add Dates and Times')
-				div(ng-show='edit.newevent')
-					td
-						tr
-							th
-								input(ng-model='insertplace1', type='text', placeholder='city')
-							th
-								input(ng-model='insertplace2', type='text', placeholder='country')
-							th
-								input(ng-model='insertdate', type='text', placeholder='date')
-							th	
-								input(ng-model='inserttime', type='text', placeholder='time')
-							th
-								input(ng-model='insertsource', type='text', placeholder='source')
-								input(type='submit', value='add', class='btn')
+	.row-fluid
+		.offset2
+			.span8
+				div(ng-hide='edit.title', ng-click='edit.title=!edit.title')
+					span
+						{{event.title}}
+					i.icon-pencil(style='margin-left:10px;')
+				div(ng-show='edit.title')
+					span
+						input(ng-model='event.title', placeholder='Event title')
+					i.icon-ok(ng-click='edit.title=!edit.title', style='margin-left:10px;')
+	.row-fluid
+		.container: .widget
+			.widget-content
+				div(ng-hide='edit.description', ng-click='edit.description=!edit.description')
+					div(style='float:left;width:850px;height:150px;font-size:100%;')
+						{{event.description}}
+					i.icon-pencil(style='margin-left:10px;')
+				div(ng-show='edit.description')
+					div(style='float:left;width:850px;height:150px;')
+						textarea(rows='6', ng-model='event.description', placeholder='Event description', style='width:100%;font-size:100%;height:150px;')
+					i.icon-ok(ng-click='edit.description=!edit.description', style='margin-left:10px;')
+	.row-fluid
+			div(ng-hide='edit.eventi')
+				table.table.table-bordered.table-condensed
+					tbody
+						tr.linkrow.container(ng-repeat='eventi in event.events')
+								td
+									span(ng-hide='edit.eventi')
+										{{eventi.place1}}
+									input(ng-show='edit.eventi', ng-model='eventi.place1', type='text')
+								td
+									span(ng-hide='edit.eventi')
+										{{eventi.place2}}
+									input(ng-show='edit.eventi', ng-model='eventi.place2', type='text')
+								td
+									span(ng-hide='edit.eventi')
+										{{eventi.date}}
+									input(ng-show='edit.eventi', ng-model='eventi.date', type='text', style='width:100px;')
+								td
+									span(ng-hide='edit.eventi')
+										{{eventi.time}}
+									input(ng-show='edit.eventi', ng-model='eventi.time', type='text', size='5', style='width:80px;height:15px;')
+								td
+									span(ng-hide='edit.eventi')
+										{{eventi.source}}
+									input(ng-show='edit.eventi', ng-model='eventi.source', type='text', style='width:120px;')
+								td
+									i.icon-pencil(ng-hide='edit.eventi', ng-click='edit.eventi=!edit.eventi')
+									i.icon-ok(ng-show='edit.eventi', ng-click='edit.eventi=!edit.eventi')
+	.row-fluid
+		form(ng-submit='addEvent(); (edit.newevent=!edit.newevent)', class='container')
+			div(ng-hide='edit.newevent')
+				a(href='', ng-click='edit.newevent=!edit.newevent')
+					input(class='btn', value='Add Dates and Times')
+			div(ng-show='edit.newevent')
+				td
+					tr
+						th
+							input(ng-model='insertplace1', type='text', placeholder='city')
+						th
+							input(ng-model='insertplace2', type='text', placeholder='country')
+						th
+							input(ng-model='insertdate', type='text', placeholder='date')
+						th	
+							input(ng-model='inserttime', type='text', placeholder='time')
+						th
+							input(ng-model='insertsource', type='text', placeholder='source')
+							input(type='submit', value='add', class='btn')
 
-				a(href='', ng-click='submit_event()')
-					input(class='btn', value='Submit Event')
-				pre 
-					| {{ sexpr(event) }}
-				pre 
-					| {{ sexpr(rp) }}
-				pre 
-					| {{ sexpr(data) }}
-				pre 
-					| {{ sexpr(user()) }}
+			a(href='', ng-click='submit_event()')
+				input(class='btn', value='Submit Event')
+	.row-fluid
+		pre 
+			| {{ sexpr(event) }}
+		pre 
+			| {{ sexpr(rp) }}
+		pre 
+			| {{ sexpr(data) }}
+		pre 
+			| {{ sexpr(user()) }}
