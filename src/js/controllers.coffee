@@ -297,6 +297,10 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	if rp.region
 		S.regionprofile.volunteers = S.regiongetdetail.volunteers.filter(matchr)
 
+	S.rendercal = () ->
+		$('#calendar').fullCalendar('render');
+		console.log(sexpr("cal-tab-selected"))
+
 	S.list1 = [
 		name: 'News'
 	,

@@ -41,6 +41,7 @@ directives.directive 'calendar', ($parse) ->
 				'https://www.google.com/calendar/feeds/c6itotjtf79b07k42qqo5ngqu4%40group.calendar.google.com/public/basic', 
 				# Singaporean Holidays 
 				'https://www.google.com/calendar/feeds/en.singapore%23holiday%40group.v.calendar.google.com/public/basic' ]
+
 		if calendar(scope) == "all"
 			cal = regions['thailand'].concat(regions['singapore'])
 		else
