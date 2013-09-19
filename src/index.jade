@@ -8,270 +8,278 @@ html(lang="en", ng-app="TechGrindApp")
 
 		title TechGrind &middot; Asia's Startup Community
 
-		link(href="css/bootstrap.min.css", rel="stylesheet")
-		link(href="css/app.css", rel="stylesheet")
-		link(href="css/menu.css", rel="stylesheet")
+		link(rel="stylesheet", href="css/bootplus.min.css")
+		link(rel="stylesheet", href="css/bootplus-responsive.min.css")
+		link(rel="stylesheet", href="css/font-awesome.min.css")
+		link(rel="stylesheet", href="css/app.css")
 
 		//- HTML5 shim for old IEs
 		//if lt IE 9
 			script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
 
 	body(ng-controller="AppCtrl")
-		header.top
+		header.header
 			.container
-				.row
-					.col-md-2
-						a(href="/", class="logo", alt="Home")
+				.pull-left
+					a(href="/", class="logo", alt="Home")
 
-					.pull-right
-						span.glyphicon.glyphicon-cog
+				.pull-right
+					a(href="#")
+						<i class="icon-gear"></i>
 						&nbsp; Setting
-		section.middle
+						
+		section
 			.container
 				.row
 					//- Main Navigation Column
-					aside(class="col-md-2", style="padding-right: 0;")
+					aside(class="span2 hidden-phone")
 						.menu-container
-							//- .show-entries-hover.hidden
-							//- 	span.hover-arrow
 							ul.play-menu
-								li#home
+								li(class="active", id="home")
 									a
-										span.menu-entry-icon.glyphicon.glyphicon-home.home
-										span.menu-entry-text Home
+										.menu-entry-icon.home
+										.menu-entry-text <i class="icon-home"></i> &nbsp;Home
 								li#regions
 									a
-										span.menu-entry-icon.glyphicon.glyphicon-globe.regions
-										span.menu-entry-text Regions
+										.menu-entry-icon.regions
+										.menu-entry-text <i class="icon-globe"></i> &nbsp;Regions
 									ul.sub-menu
-										li.main-link.highlight Cambodia
-										li.main-link China
-										li.main-link Malyasia
-										li.main-link Philippines
-										li.main-link Singapore
-										li.main-link Thailand
-										li.main-link Vietnam
-										li.sub-menu-divider
-										li.secondary-link Your Hub Not Here ?
-										li.sub-menu-divider
-										li.secondary-link.back &#9664; &nbsp; back
+										li.main-link.current 
+											a(href="#") Cambodia
+										li.main-link
+											a(href="#") China
+										li.main-link
+											a(href="#") Malyasia
+										li.main-link
+											a(href="#") Philippines
+										li.main-link
+											a(href="#") Singapore
+										li.main-link
+											a(href="#") Thailand
+										li.main-link
+											a(href="#") Vietnam
+										li.main-link
+											a(href="#", style="margin-left: 0; text-align: center;") Your Hub Not Here ?
 								li#calendar
 									a
-										span.menu-entry-icon.glyphicon.glyphicon.glyphicon-calendar.calendar
-										span.menu-entry-text Calendar
+										.menu-entry-icon.glyphicon.calendar
+										.menu-entry-text <i class="icon-calendar"></i> &nbsp;&nbsp;Calendar
 									ul.sub-menu
-										li.main-link Calendar
-										li.sub-menu-divider
-										li.secondary-link.back &#9664; &nbsp; back
+										li.main-link.current
+											a(href="#") Calendar
 								li#events
 									a
-										span.menu-entry-icon.glyphicon.glyphicon-bullhorn.events
-										span.menu-entry-text Events
+										.menu-entry-icon.events
+										.menu-entry-text <i class="icon-bullhorn"></i> &nbsp;&nbsp;Events
 									ul.sub-menu
-										li.main-link.highlight Events
-										li.main-link Workshop
-										li.sub-menu-divider
-										li.secondary-link.back &#9664; &nbsp; back
+										li.main-link.current
+											a(href="#") Events
+										li.main-link
+											a(href="#") Workshop
 								li#resources
 									a
-										span.menu-entry-icon.glyphicon.glyphicon-save.resources
-										span.menu-entry-text Resources
+										.menu-entry-icon.resources
+										.menu-entry-text <i class="icon-download-alt"></i> &nbsp;&nbsp;Resources
 									ul.sub-menu
-										li.main-link Tutorials
-										li.main-link.highlight Startup Jobs
-										li.sub-menu-divider
-										li.secondary-link.back &#9664; &nbsp; back
+										li.main-link.current
+											a(href="#") Tutorials
+										li.main-link
+											a(href="#") Startup Jobs
 								li#media
 									a
-										span.menu-entry-icon.glyphicon.glyphicon-film.media
-										span.menu-entry-text Media
+										.menu-entry-icon.media
+										.menu-entry-text <i class="icon-film"></i> &nbsp;&nbsp;Media
 									ul.sub-menu
-										li.main-link Media
-										li.sub-menu-divider
-										li.secondary-link.back &#9664; &nbsp; back
+										li.main-link.current
+											a(href="#") Media
 								li#partners
 									a
-										span.menu-entry-icon.glyphicon.glyphicon-star.partners
-										span.menu-entry-text Partners
+										.menu-entry-icon.partners
+										.menu-entry-text <i class="icon-star"></i> &nbsp;&nbsp;Partners
 									ul.sub-menu
-										li.main-link Partners
-										li.sub-menu-divider
-										li.secondary-link.back &#9664; &nbsp; back
+										li.main-link.current
+											a(href="#") Partners
 
 					//- Main Content Column
-					section(class="col-md-10", style="border-left: 1px solid #333333;")
-						.row
+					section(class="span10")
+						.wrapper
+							.row
+								//- Sub Navigation
+								.span7.offset2
+									.sub-navigation.clearfix
+										.navbar
+											ul.nav
+												li.active
+													a(href="#") News
+												li
+													a(href="#") Articles
 
-							//- Sub Navigation
-							.sub-navigation
-								.col-md-7.col-md-offset-2
-									ul
-										li.active
-											a(href="#") News
-										li
-											a(href="#") Articles
+								//- Article List
+								article.span7.offset2
+									.article
+										h3
+											a(href="#") Wearables Usher In the Age of Context
+										p
+											a(href="#") Wearables have made me aware. What I choose to do about that, of course, is my own business. But they have placed me more firmly in my context, or my environment, than I was before.
+										.meta
+											ul
+												li Thailand
+												li &bull;
+												li September 20, 2013
+												li &bull;
+												li 4 min read
 
-							//- Article List
-							article.col-md-7.col-md-offset-2
-								.article
-									h3
-										a(href="#") Wearables Usher In the Age of Context
-									p
-										a(href="#") Wearables have made me aware. What I choose to do about that, of course, is my own business. But they have placed me more firmly in my context, or my environment, than I was before.
-									.meta
-										ul
-											li Thailand
-											li &bull;
-											li September 20, 2013
-											li &bull;
-											li 4 min read
+								article.span7.offset2
+									.article
+										h3
+											a(href="#") Why Mobile ROI Is So Hard
+										p
+											a(href="#") Those of us who are in the digital advertising industry are well aware of the gap between mobile usage and mobile ad spend. This gap is most clearly illustrated by the chart included in Mary Meeker’s “KPCB Internet Trends 2013” presentation from earlier this year.
+										.meta
+											ul
+												li Singapore
+												li &bull;
+												li September 12, 2013
+												li &bull;
+												li 12 min read
 
-							.clearfix
+								article.span7.offset2
+									.article
+										h3
+											a(href="#") When to Sell Your Company
+										p
+											a(href="#") On October 30, 2008, I wrote an email to Twitter’s board of directors, which started:
+										.meta
+											ul
+												li Cambodia
+												li &bull;
+												li August 07, 2013
+												li &bull;
+												li 4 min read
+									
+								article.span7.offset2
+									.article
+										h3
+											a(href="#") Why Twitter Buying MoPub Is a Very Big Deal
+										p
+											a(href="#") Full disclosure: I’m a former Facebook product manager and was creator and builder of Facebook Exchange (FBX), Facebook’s real-time bidding ad exchange.
+										.meta
+											ul
+												li Cambodia
+												li &bull;
+												li August 07, 2013
+												li &bull;
+												li 4 min read
+									
+								article.span7.offset2
+									.article
+										h3
+											a(href="#") Apple to Revolutionise Global Personal Health and Medicare
+										p
+											a(href="#") Yesterdays Apple event did not pass unnoticed. With small emphasis on the new iOS7 — it simply just swooshed by.Apple however made big emphasis on the new chipset.
+										.meta
+											ul
+												li Philippines
+												li &bull;
+												li June 8, 2013
+												li &bull;
+												li 8 min read
 
-							article.col-md-7.col-md-offset-2
-								.article
-									h3
-										a(href="#") Why Mobile ROI Is So Hard
-									p
-										a(href="#") Those of us who are in the digital advertising industry are well aware of the gap between mobile usage and mobile ad spend. This gap is most clearly illustrated by the chart included in Mary Meeker’s “KPCB Internet Trends 2013” presentation from earlier this year.
-									.meta
-										ul
-											li Singapore
-											li &bull;
-											li September 12, 2013
-											li &bull;
-											li 12 min read
-							.clearfix
+					.span7.offset2
+						.pagination
+							ul
+								li.active
+									a(href="#") 1
+								li
+									a(href="#") 2
+								li
+									a(href="#") 3
+								li
+									a(href="#") 4
+								li
+									a(href="#") 5
+								li
+									a(href="#") &raquo;
 
-							article.col-md-7.col-md-offset-2
-								.article
-									h3
-										a(href="#") When to Sell Your Company
-									p
-										a(href="#") On October 30, 2008, I wrote an email to Twitter’s board of directors, which started:
-									.meta
-										ul
-											li Cambodia
-											li &bull;
-											li August 07, 2013
-											li &bull;
-											li 4 min read
-
-							.clearfix
-								
-							article.col-md-7.col-md-offset-2
-								.article
-									h3
-										a(href="#") Why Twitter Buying MoPub Is a Very Big Deal
-									p
-										a(href="#") Full disclosure: I’m a former Facebook product manager and was creator and builder of Facebook Exchange (FBX), Facebook’s real-time bidding ad exchange.
-									.meta
-										ul
-											li Cambodia
-											li &bull;
-											li August 07, 2013
-											li &bull;
-											li 4 min read
-
-							.clearfix
-								
-							article.col-md-7.col-md-offset-2
-								.article
-									h3
-										a(href="#") Apple to Revolutionise Global Personal Health and Medicare
-									p
-										a(href="#") Yesterdays Apple event did not pass unnoticed. With small emphasis on the new iOS7 — it simply just swooshed by.Apple however made big emphasis on the new chipset.
-									.meta
-										ul
-											li Philippines
-											li &bull;
-											li June 8, 2013
-											li &bull;
-											li 8 min read
-
-							.clearfix
-
-							.col-md-7.col-md-offset-2
-								.pagination
-									ul
-										li.active
-											a(href="#") 1
-										li
-											a(href="#") 2
-										li
-											a(href="#") 3
-										li
-											a(href="#") 4
-										li
-											a(href="#") 5
-										li
-											a(href="#") &#8594;
-
-		footer.bottom
+		footer.footer
 			.container
-				nav.footer-navigation
-					ul
-						li About Us
-							ul
-								li
-									a(href="#") About Us
-						li Support
-							ul
-								li
-									a(href="#") FAQ
-								li
-									a(href="#") Feedback
-								li
-									a(href="#") Contact Us
-						li Legal
-							ul
-								li
-									a(href="#") License
-								li
-									a(href="#") Terms of Use
-								li
-									a(href="#") Privacy Policy
-								li
-									a(href="#") Security
-						li Setting
-							ul
-								li
-									a(href="#") Login
-								li
-									a(href="#") Sign Up
-								li
-									a(href="#") Account Setting
-								li
-									a(href="#") Privacy Setting
-						li.social Follow Us
-							ul
-								li
-									a(href="https://www.facebook.com/techgrind", target="_blank", class="facebook", alt="Facebook")
-								li
-									a(href="https://plus.google.com/114529345031512116214/posts", target="_blank", class="google-plus")
-								li
-									a(href="https://twitter.com/Tech_Grind", target="_blank", class="twitter")
+				.wrapper
+					nav.footer-navigation
+						ul
+							li About Us
+								ul
+									li
+										a(href="#") About Us
+							li Support
+								ul
+									li
+										a(href="#") FAQ
+									li
+										a(href="#") Feedback
+									li
+										a(href="#") Contact Us
+							li Legal
+								ul
+									li
+										a(href="#") License
+									li
+										a(href="#") Terms of Use
+									li
+										a(href="#") Privacy Policy
+									li
+										a(href="#") Security
+							li Setting
+								ul
+									li
+										a(href="#") Login
+									li
+										a(href="#") Sign Up
+									li
+										a(href="#") Account Setting
+									li
+										a(href="#") Privacy Setting
+							li.social Follow Us
+								ul
+									li
+										a(href="https://www.facebook.com/techgrind", target="_blank", class="facebook", alt="Facebook")
+									li
+										a(href="https://plus.google.com/114529345031512116214/posts", target="_blank", class="google-plus")
+									li
+										a(href="https://twitter.com/Tech_Grind", target="_blank", class="twitter")
 
 		.container
 			p.copyright &copy; 2013 TechGrind, Pte. Ltd.			
 
-
+		//- Javascript
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
 		script window.jQuery || document.write('<script src="lib/jquery/jquery-1.9.1.min.js"><\/script>')
-
 
 		script(src="js/menu.js")
 
 		script.
 			$(function() {
-				//- Sub Navigation FX
+
+				// Algin .pagination to center on small screen
+				if ($(window).width() <= 767) {
+					$('.pagination').addClass('pagination-centered');
+				}
+
+				$(window).resize(function() {
+					if ($(window).width() <= 767) {
+						$('.pagination').addClass('pagination-centered');
+					} else {
+						$('.pagination').removeClass('pagination-centered');
+					}
+				});
+				
+				//- Sub navigation toggle highlight
 				$('.sub-navigation a').on('click', function() {
 					$(this).closest('ul').find('li').removeClass('active');
 					$(this).parent().addClass('active');
 					return false;
 				});
 
-				//- Remove bottom margin & bottom border of last article item
-				$('.article:last').css({'border-bottom': 0, 'margin-bottom': 0});
+				//- Add bottom margin & remove bottom border of last article item
+				$('.article:last').css({'border-bottom': 0, 'margin-bottom': 30});
 			});
 		
