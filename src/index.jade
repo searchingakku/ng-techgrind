@@ -25,7 +25,7 @@ html(lang="en", ng-app="TechGrindApp")
 
 				.pull-right
 					a(href="#")
-						<i class="icon-gear"></i>
+						i.icon-gear
 						&nbsp; Setting
 						
 		section
@@ -34,15 +34,17 @@ html(lang="en", ng-app="TechGrindApp")
 					//- Main Navigation Column
 					aside(class="span2 hidden-phone")
 						.menu-container
-							ul.play-menu
+							ul.main-menu
 								li(class="active", id="home")
 									a
 										.menu-entry-icon.home
-										.menu-entry-text <i class="icon-home"></i> &nbsp;Home
+										.menu-entry-text
+											i.icon-home&nbsp;&nbsp;Home
 								li#regions
 									a
 										.menu-entry-icon.regions
-										.menu-entry-text <i class="icon-globe"></i> &nbsp;Regions
+										.menu-entry-text
+											i.icon-globe&nbsp;&nbsp;Regions
 									ul.sub-menu
 										li.main-link.current 
 											a(href="#") Cambodia
@@ -60,17 +62,11 @@ html(lang="en", ng-app="TechGrindApp")
 											a(href="#") Vietnam
 										li.main-link
 											a(href="#", style="margin-left: 0; text-align: center;") Your Hub Not Here ?
-								li#calendar
-									a
-										.menu-entry-icon.glyphicon.calendar
-										.menu-entry-text <i class="icon-calendar"></i> &nbsp;&nbsp;Calendar
-									ul.sub-menu
-										li.main-link.current
-											a(href="#") Calendar
 								li#events
 									a
 										.menu-entry-icon.events
-										.menu-entry-text <i class="icon-bullhorn"></i> &nbsp;&nbsp;Events
+										.menu-entry-text
+											i.icon-bullhorn&nbsp;&nbsp;Events
 									ul.sub-menu
 										li.main-link.current
 											a(href="#") Events
@@ -79,7 +75,8 @@ html(lang="en", ng-app="TechGrindApp")
 								li#resources
 									a
 										.menu-entry-icon.resources
-										.menu-entry-text <i class="icon-download-alt"></i> &nbsp;&nbsp;Resources
+										.menu-entry-text
+											i.icon-download-alt&nbsp;&nbsp;Resources
 									ul.sub-menu
 										li.main-link.current
 											a(href="#") Tutorials
@@ -88,14 +85,16 @@ html(lang="en", ng-app="TechGrindApp")
 								li#media
 									a
 										.menu-entry-icon.media
-										.menu-entry-text <i class="icon-film"></i> &nbsp;&nbsp;Media
+										.menu-entry-text
+											i.icon-film&nbsp;&nbsp;Media
 									ul.sub-menu
 										li.main-link.current
 											a(href="#") Media
 								li#partners
 									a
 										.menu-entry-icon.partners
-										.menu-entry-text <i class="icon-star"></i> &nbsp;&nbsp;Partners
+										.menu-entry-text
+											i.icon-star&nbsp;&nbsp;Partners
 									ul.sub-menu
 										li.main-link.current
 											a(href="#") Partners

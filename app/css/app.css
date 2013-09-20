@@ -36,13 +36,13 @@
 }
 
  /* Main Navigation - top level */
-.play-menu {
+.main-menu {
 	margin: 0;
 	padding: 0;
 	height: 200px;
 	position: relative;
 }
-.play-menu li {
+.main-menu li {
 	background: white;
 	cursor: pointer;
 	height: 50px;
@@ -56,23 +56,23 @@
 	     -o-transition: top 500ms, background 500ms, opacity 500ms;
 	        transition: top 500ms, background 500ms, opacity 500ms;
 }
-.play-menu li a {
+.main-menu li a {
 	display: block;
 }
-.play-menu li a:hover {
+.main-menu li a:hover {
 	text-decoration: none;
 }
-.play-menu li .menu-entry-icon {
+.main-menu li .menu-entry-icon {
 	display: inline-block;
 	margin: 0 10px;
 }
-.play-menu li .menu-entry-text {
+.main-menu li .menu-entry-text {
 	color: #4D4D4D;
 	display: inline-block;
 	height: 50px;
 	line-height: 50px;
 }
-.play-menu li.active {
+.main-menu li.active {
 	-webkit-box-shadow: inset 2px 0 0 #427FED;
 	   -moz-box-shadow: inset 2px 0 0 #427FED;
 	        box-shadow: inset 2px 0 0 #427FED;

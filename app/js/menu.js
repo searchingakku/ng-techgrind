@@ -4,7 +4,7 @@
 */
 
 $(function() {
-	var link = $('.play-menu > li > a'),
+	var link = $('.main-menu > li > a'),
 	pos1 = 0,
 	pos2 = 50,
 	pos3 = 100,
@@ -15,11 +15,10 @@ $(function() {
 
 	$('li#home').css('top', pos1);
 	$('li#regions').css('top', pos2);
-	$('li#calendar').css('top', pos3);
-	$('li#events').css('top', pos4);
-	$('li#resources').css('top', pos5);
-	$('li#media').css('top', pos6);
-	$('li#partners').css('top', pos7);
+	$('li#events').css('top', pos3);
+	$('li#resources').css('top', pos4);
+	$('li#media').css('top', pos5);
+	$('li#partners').css('top', pos6);
 
 	//- Main Navigation - top level
 	link.each(function() {
@@ -35,16 +34,15 @@ $(function() {
 			if ($(this).children().hasClass('home')) {
 				$(this).parent().css('top', pos1);
 				$('li#regions').css('top', pos2);
-				$('li#calendar').css('top', pos3);
-				$('li#events').css('top', pos4);
-				$('li#resources').css('top', pos5);
-				$('li#media').css('top', pos6);
-				$('li#partners').css('top', pos7);
+				$('li#events').css('top', pos3);
+				$('li#resources').css('top', pos4);
+				$('li#media').css('top', pos5);
+				$('li#partners').css('top', pos6);
 
-				$('.play-menu li').removeClass('hide');
+				$('.main-menu li').removeClass('hide');
 				setTimeout(function() {
-					$('.play-menu li').not('#home').removeClass('active');
-					$('.play-menu li#home').addClass('active');
+					$('.main-menu li').not('#home').removeClass('active');
+					$('.main-menu li#home').addClass('active');
 				}, 500);
 
 				// Reset sub level highlight
@@ -57,13 +55,6 @@ $(function() {
 				$(this).parent().css('top',pos1);
 				$(this).parent().addClass('active');
 				$('#home').css('top', pos1+450);
-			}
-
-			//- Calendar
-			else if ($(this).children().hasClass('calendar')) {
-				$(this).parent().css('top',pos1);
-				$(this).parent().addClass('active');
-				$('#home').css('top', pos1+100);
 			}
 
 			//- Events
