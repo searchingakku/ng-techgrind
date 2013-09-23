@@ -2,27 +2,12 @@
 	.row-fluid
 		.span8
 			.wrapper
-				.article
-					h1 This is short news article
-					<img src="http://placehold.it/120x100">
+				.article(ng-repeat='item in getblog['news']')
+					 h1 {{item.title}}
+					//- img({{item.src}})
 					.meta
-						by John Doe - September 20, 2013
-					p.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				.article
-					h1 This is short news article
-					<img src="http://placehold.it/120x100">
-					.meta
-						by John Doe - September 20, 2013
-					p.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				.article
-					h1 This is short news article
-					<img src="http://placehold.it/120x100">
-					.meta
-						by John Doe - September 20, 2013
-					p.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					by {{item.author}} - {{item.month}} {{item.day}}
+					p {{item.content}}
 		//- .span8
 		//- 	.wrapper
 		//- 		h2 Some Contents
