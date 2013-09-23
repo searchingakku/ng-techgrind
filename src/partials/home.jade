@@ -2,8 +2,8 @@
 	.row-fluid
 		.span8
 			.wrapper
-				.article(ng-repeat='item in getblog["news"]')
-					 h1 {{item.title}}
+				.article(ng-repeat='item in getblog["articles"]')
+					h1 {{item.title}}
 					//- img({{item.src}})
 					.meta
 						by {{item.author}} - {{item.month}} {{item.day}}
