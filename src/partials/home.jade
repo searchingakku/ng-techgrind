@@ -1,32 +1,53 @@
-.container-fluid
-	.row-fluid
+.container
+	.row
 		.span8
 			.wrapper
-				.article(ng-repeat='item in getblog["articles"]')
-					h1 {{item.title}}
-					//- img({{item.src}})
-					.meta
-						by {{item.author}} - {{item.month}} {{item.day}}
-					p {{item.content}}
-		//- .span8
-		//- 	.wrapper
-		//- 		.article
-		//- 			h1 This is a short news title
-		//- 			<img src="http://placehold.it/120x100">
-		//- 			p.
-		//- 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.
-		//- 		.article
-		//- 			h1 This is a short news title
-		//- 			<img src="http://placehold.it/120x100">
-		//- 			p.
-		//- 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.
-		//- 		.article
-		//- 			h1 This is a short news title
-		//- 			<img src="http://placehold.it/120x100">
-		//- 			p.
-		//- 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.
+				tabset
+					tab(heading='News')
+						.article(ng-repeat='item in getblog["news"]')
+							h1 {{item.title}}
+							<img src="http://placehold.it/120x100">
+							.meta
+								{{item.country}} - {{item.owner}} - {{item.month}} {{item.day}}
+							p {{item.content}}
+
+					tab(heading='Articles')
+						.article(ng-repeat='item in getblog["articles"]')
+							h1 {{item.title}}
+							<img src="http://placehold.it/120x100">
+							.meta
+								{{item.country}} - {{item.owner}} - {{item.month}} {{item.day}}
+							p {{item.content}}
+
+					tab(heading='Activities')
+						.article(ng-repeat='item in getblog["activities"]')
+							h1 {{item.title}}
+							<img src="http://placehold.it/120x100">
+							.meta
+								{{item.country}} - {{item.owner}} - {{item.month}} {{item.day}}
+							p {{item.content}}
+
+					tab(heading='Calendar', select='rendercal()')
+						div#calendar(calendar="rp.region", region="rp")
+					tab(heading='Discussion')
+						.article(ng-repeat='item in getblog["discussion"]')
+							h1 {{item.title}}
+							<img src="http://placehold.it/120x100">
+							.meta
+								{{item.country}} - {{item.month}} {{item.day}}
+							p {{item.content}}
 		.span4
 			.wrapper
-				h1 Widget
+				h3 Widget 1
 				p.
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			.wrapper
+				h3 Widget 2
+				p.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			.wrapper
+				h3 Widget 3
+				p.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+//- pre
+//- 	{{ sexpr(data) }}

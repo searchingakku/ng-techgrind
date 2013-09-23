@@ -18,11 +18,14 @@ html(lang="en", ng-app="TechGrindApp")
 			script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
 
 	body(ng-controller="AppCtrl")
-		header.header
-			nav(ng-include="'partials/menu.html'")
-		section.main(ng-view)
+		header
+			.header
+				nav(ng-include="'partials/menu.html'")
+		section
+			.main(ng-view)
 
-		footer.footer(ng-include="'partials/footer.html'")
+		footer
+			.footer(ng-include="'partials/footer.html'")
 
 		//- Javascript
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")

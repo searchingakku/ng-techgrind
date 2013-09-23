@@ -120,6 +120,7 @@ app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('/mock').success (data) -> S.mock = data
+	S.getblog = getblog()
 ]
 
 app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
@@ -391,8 +392,109 @@ regiongetdetail = ->
 
 
 getblog = ->
+		news: [
+			title: 'How to Use ng-bind-html-safe'
+			day: '20'
+			month: 'june'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+			articlename: 'how-to-use-ng-bind-html-safe'
+			tab: 'news'
+
+			content: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
+		,
+			title: 'SSW Winner Announced'
+			day: '7'
+			month: 'july'
+			tags: 'developement'
+			country: 'singaphore'
+			owner: 'Naveen'
+			articlename: 'ssw-winner-announced'
+			tab: 'news'
+
+			content: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.'
+			url: 'news/article2'
+		,
+			title: 'Fashion Incubator Looking for Design Talent'
+			day: '9'
+			month: 'May'
+			tags: 'developement'
+			country: 'viewtnam'
+			owner: 'Naveen'
+			articlename: 'fashion-incubator'
+			tab: 'news'
+
+			content: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!'
+		,
+			title: 'Founder Equity Calculator'
+			day: '8'
+			month: 'May'
+			tags: 'developement'
+			country: 'india'
+			owner: 'Naveen'
+			articlename: 'founder-equity-calculator'
+			tab: 'news'
+
+			content: 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator that was presented at TechGrind Co-founder dating event in April.'
+		,
+			title: 'TG Monthly Enter Singaphore'
+			day: '2'
+			month: 'May'
+			tags: 'developement'
+			country: 'singaphore'
+			owner: 'Naveen'
+			articlename: 'tg-monthly-enter-singaphore'
+			tab: 'news'
+
+			content: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+		,
+			title: 'FAP.BKK#1, WSR, and Re-cap of a very busy week!'
+			day: '27'
+			month: 'April'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+			articlename: 'fap-bkk-very-busy-work'
+			tab: 'news'
+
+			content: 'Thank-you everyone for a great week full of events! This last week was incredibly busy and productive for Bangkok startups. Thanks to all who contributed and helped make TechGrind explode onto the scene with such success.'
+		,
+			title: 'Fashion Incubator Looking for Design Talent'
+			day: '9'
+			month: 'May'
+			tags: 'developement'
+			country: 'viewtnam'
+			owner: 'Naveen'
+			articlename: 'fashion-incubator'
+			tab: 'articles'
+
+			content: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!'
+		,
+			title: 'How to Use ng-bind-html-safe'
+			day: '20'
+			month: 'june'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Naveen'
+			articlename: 'how-to-use-ng-bind-html-safe'
+			tab: 'news'
+
+			content: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
+		,
+			title: 'TG Monthly Enter Singaphore'
+			day: '2'
+			month: 'May'
+			tags: 'developement'
+			country: 'singaphore'
+			owner: 'Naveen'
+			articlename: 'tg-monthly-enter-singaphore'
+			tab: 'news'
+
+			content: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+		],
 		articles: [
-			title: 'how to use ng-bind-html-safe'
+			title: 'How to Use ng-bind-html-safe'
 			day: '20'
 			month: 'june'
 			tags: 'developement'
@@ -401,33 +503,85 @@ getblog = ->
 			articlename: 'how-to-use-ng-bind-html-safe'
 			tab: 'articles'
 
-			content: 'reates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive and when you absolutely trust the source of the content you are binding to.'
+			content: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
 		,
-			title: 'Article2'
+			title: 'SSW Winner Announced'
 			day: '7'
 			month: 'july'
-			content: 'content2'
-			country: 'india'
+			tags: 'developement'
+			country: 'singaphore'
+			owner: 'Naveen'
+			articlename: 'ssw-winner-announced'
 			tab: 'articles'
-			articlename: 'Article2'
-			url: 'articles/Article2'
-		],
-		events: [
-			title: 'Event1'
-			articlename: 'yo'
-			content: 'content1'
-			country: 'thailand'
+
+			content: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.'
+			url: 'articles/article2'
 		,
-			title: 'Event2'
-			content: 'content2'
-			country: 'singapore'
+			title: 'Fashion Incubator Looking for Design Talent'
+			day: '9'
+			month: 'May'
+			tags: 'developement'
+			country: 'viewtnam'
+			owner: 'Naveen'
+			articlename: 'fashion-incubator'
+			tab: 'articles'
+
+			content: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!'
+		,
+			title: 'Founder Equity Calculator'
+			day: '8'
+			month: 'May'
+			tags: 'developement'
+			country: 'india'
+			owner: 'Naveen'
+			articlename: 'founder-equity-calculator'
+			tab: 'articles'
+
+			content: 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator that was presented at TechGrind Co-founder dating event in April.'
+		,
+			title: 'TG Monthly Enter Singaphore'
+			day: '2'
+			month: 'May'
+			tags: 'developement'
+			country: 'singaphore'
+			owner: 'Naveen'
+			articlename: 'tg-monthly-enter-singaphore'
+			tab: 'articles'
+
+			content: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+		],
+		activities: [
+			title: 'SSW Winner Announced'
+			day: '7'
+			month: 'july'
+			tags: 'developement'
+			country: 'Singaphore'
+			owner: 'Naveen'
+			articlename: 'ssw-winner-announced'
+			tab: 'activities'
+
+			content: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.'
+			url: 'activities/ssw-winner-announced'
 		],
 		calendar: [
 			title: 'Coming soon '
 			content: 'wait'
 			country: 'india'
 			articlename: 'bye'
-		]
+		],
+		discussion: [
+			title: 'SSW Winner Announced'
+			day: '7'
+			month: 'july'
+			tags: 'developement'
+			country: 'singaphore'
+			owner: 'Naveen'
+			articlename: 'ssw-winner-announced'
+			tab: 'discussion'
+
+			content: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.'
+			url: 'discussion/ssw-winner-announced'
+		],
 
 
 	mockevents = [
