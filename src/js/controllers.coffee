@@ -449,7 +449,7 @@ getblog = ->
 
 			content: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
 		,
-			title: 'FAP.BKK#1, WSR, and Re-cap of a very busy week!'
+			title: 'FAP.BKK#1, WSR, a very busy week!'
 			day: '27'
 			month: 'April'
 			tags: 'developement'
