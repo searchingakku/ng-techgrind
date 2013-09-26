@@ -47,11 +47,14 @@ directives.directive 'calendar', ($parse) ->
 		else
 			cal = regions[calendar(scope)]
 
-		element.fullCalendar( 
+		element.fullCalendar(
 			header:
-				left: 'prev,next today'
-				center: 'title'
-				right: 'month,basicWeek,basicDay'
+				left: 'title'
+				center: ''
+				right: 'today'
+				# left: 'prev,next today'
+				# center: 'title'
+				# right: 'month,basicWeek,basicDay'
 			eventSources: cal
 			eventClick: (event) ->
 				window.open(event.url, 'gcalevent', 'width=700,height=600')

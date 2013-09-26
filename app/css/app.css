@@ -78,10 +78,20 @@ html, body {
 /* Main
 ----------------------------------------------- */
 .article {
+	border: 1px solid #E8E8E8;
+	border-radius: 4px;
 	display: inline-block;
-	padding-right: 5px;
+	height: 200px;
+	margin: 5px;
+	padding: 10px;
 	vertical-align: top;
-	width: 49%;
+	width: 46%;
+}
+.article:nth-child(odd) {
+	margin-left: 0;
+}
+.article:nth-child(even) {
+	margin-right: 0;
 }
 .article h1 {
 	font-size: 18px;
@@ -145,129 +155,6 @@ html, body {
 	background-position: -60px 0;
 }
 
-/* Middle
------------------------------------------------ */
-/*
-	Main Navigation
-	Thanks to Eduard Mayer
-	http://vsxed.github.io/play-store-menu
-*/
-/*.menu-container {
-	height: auto;
-}*/
-
- /* Main Navigation - top level */
-/*.main-menu {
-	margin: 0;
-	padding: 0;
-	height: 200px;
-	position: relative;
-}
-.main-menu li {
-	background: white;
-	cursor: pointer;
-	height: 50px;
-	list-style-type: none;
-	position: absolute;
-	width: 100%;
-
-	-webkit-transition: top 500ms, background 500ms, opacity 500ms;
-	   -moz-transition: top 500ms, background 500ms, opacity 500ms;
-	    -ms-transition: top 500ms, background 500ms, opacity 500ms;
-	     -o-transition: top 500ms, background 500ms, opacity 500ms;
-	        transition: top 500ms, background 500ms, opacity 500ms;
-}
-.main-menu li a {
-	display: block;
-}
-.main-menu li a:hover {
-	text-decoration: none;
-}
-.main-menu li .menu-entry-icon {
-	display: inline-block;
-	margin: 0 10px;
-}
-.main-menu li .menu-entry-text {
-	color: #4D4D4D;
-	display: inline-block;
-	height: 50px;
-	line-height: 50px;
-}
-.main-menu li.active {
-	-webkit-box-shadow: inset 2px 0 0 #427FED;
-	   -moz-box-shadow: inset 2px 0 0 #427FED;
-	        box-shadow: inset 2px 0 0 #427FED;
-}*/
-
-/* Main Navigation - sub level */
-/*.sub-menu {
-	left: 12px;
-	list-style-type: none;
-	opacity: 0;
-	padding: 0;
-	width: 100%;
-}
-.sub-menu.index {
-	z-index: -1 !important;
-}
-.sub-menu.active li {
-	left: -25px;
-	opacity: 1;
-	top: 0px;
-	
-	-webkit-transition: top 500ms 500ms, opacity 500ms 500ms;
-	   -moz-transition: top 500ms 500ms, opacity 500ms 500ms;
-	    -ms-transition: top 500ms 500ms, opacity 500ms 500ms;
-	     -o-transition: top 500ms 500ms, opacity 500ms 500ms;
-	        transition: top 500ms 500ms, opacity 500ms 500ms;
-}
-.sub-menu li {
-	cursor: pointer;
-	height: 50px;
-	line-height: 50px;
-	opacity: 0;
-	overflow: hidden;
-	position: relative;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-.sub-menu li a {
-	border: 0;
-	color: #4D4D4D;
-	display: block;
-	margin-left: 40px;
-}
-.main-link.current a {
-	color: #4D90FE;
-}
-.hide {
-	left: -200px;
-	opacity: 0;
-}
-.hide a .menu-entry-text {
-	background: white;
-}*/
-
-/* Article */
-/*.article {
-	border-bottom: 1px solid #F5F5F5;
-}
-
-.article p a {
-	color: #4D4D4D;
-}*/
-/* Meta */
-/*.meta ul {
-	color: #B1B1B1;
-	font-size: 12px;
-	margin-left: 0;
-}
-.meta li {
-	display: inline-block;
-}*/
-
-
-
 /* Styling for responsive layout
 ----------------------------------------------- */
 
@@ -280,45 +167,5 @@ html, body {
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-	/*.header {
-		padding: 0 2%;
-	}
-	.wrapper {
-		padding: 2%;
-	}*/
-	
-	/* Footer Navigation */
-	/*.footer-navigation ul li {
-		border-bottom: 1px solid #F5F5F5;
-		display: block;
-		padding: 2% 0;
-		text-align: center;
-		width: 100%;
-	}
-	.footer-navigation ul li:last-child {
-		border-bottom: 0;
-	}
-	.footer-navigation ul li ul li {
-		border-bottom: 0;
-		display: inline-block;
-		width: 30%;
-	}*/
 
-	/* Social iCon */
-	/*li.social {
-		width: 100%;
-	}
-	li.social ul {
-		margin-top: 0 !important;
-		text-align: center;
-	}
-
-	li.social ul li {
-		padding: 4%;
-		width: 35px !important;
-	}
-
-	.copyright {
-		text-align: center;
-	}*/
 }
