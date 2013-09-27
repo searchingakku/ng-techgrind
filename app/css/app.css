@@ -117,10 +117,12 @@ html, body {
 	font-size: 10px;
 }
 .meta ul {
+	margin: 0;
 	padding: 0;
 }
 .meta ul li {
 	display: inline-block;
+	margin-right: 5px;
 }
 
 /* Footer
