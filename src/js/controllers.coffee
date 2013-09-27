@@ -4,7 +4,6 @@ app.run(['$rootScope', (root) ->
 	root.sexpr = sexpr
 ])
 
-
 app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.registerdata = {}
 	S.passwordmatch = true
