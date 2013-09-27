@@ -5,17 +5,24 @@
 				tabset
 					tab(heading='News')
 						.article(ng-repeat='item in getblog["news"]')
-							rating(value="rate", max="max", readonly="isReadonly", on-hover="hoveringOver(value)", on-leave="overStar = null")
 							h1 {{item.title}}
-							img(src="http://placehold.it/120x100")
-							.meta
-								{{item.country}} - {{item.owner}} - {{item.month}} {{item.day}}
-							p {{item.content}}
+							.left
+								img(src="http://placehold.it/120x80")
+								.clearfix
+								rating(value="item.rate", max="5", readonly="false")
+							.right
+								.meta
+									ul
+										li {{item.country}}
+										li {{item.owner}}
+										li {{item.day}}
+								p {{item.content}}
 
 					tab(heading='Articles')
 						.article(ng-repeat='item in getblog["articles"]')
 							h1 {{item.title}}
-							img(src="http://placehold.it/120x100")
+							img(src="http://placehold.it/120x80")
+							rating(value="item.rate", max="5", readonly="false")
 							.meta
 								{{item.country}} - {{item.owner}} - {{item.month}} {{item.day}}
 							p {{item.content}}
@@ -23,7 +30,8 @@
 					tab(heading='Activities')
 						.article(ng-repeat='item in getblog["activities"]')
 							h1 {{item.title}}
-							img(src="http://placehold.it/120x100")
+							img(src="http://placehold.it/120x80")
+							rating(value="item.rate", max="5", readonly="false")
 							.meta
 								{{item.country}} - {{item.owner}} - {{item.month}} {{item.day}}
 							p {{item.content}}
@@ -34,7 +42,8 @@
 					tab(heading='Discussion')
 						.article(ng-repeat='item in getblog["discussion"]')
 							h1 {{item.title}}
-							img(src="http://placehold.it/120x100")
+							img(src="http://placehold.it/120x80")
+							rating(value="item.rate", max="5", readonly="false")
 							.meta
 								{{item.country}} - {{item.month}} {{item.day}}
 							p {{item.content}}

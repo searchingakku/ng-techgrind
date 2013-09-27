@@ -97,13 +97,30 @@ html, body {
 	font-size: 18px;
 	margin: 0;
 }
-.article img {
+
+.article .left, .article .right {
 	float: left;
-	margin-right: 5px;
 }
 
+.article .left {
+	text-align: center;
+	width: 30%;
+}
+.article .right {
+	padding-left: 2%;
+	width: 68%;
+}
+.article img {
+	margin-bottom: 5px;
+}
 .meta {
 	font-size: 10px;
+}
+.meta ul {
+	padding: 0;
+}
+.meta ul li {
+	display: inline-block;
 }
 
 /* Footer
