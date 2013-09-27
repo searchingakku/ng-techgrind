@@ -1,103 +1,117 @@
 .container
 	.row
 		.span8
-			.wrapper
-				tabset
-					tab(heading='News')
-						.article(ng-repeat='item in getblog["news"]')
-							h1 {{item.title}}
-							.left
-								img(src="http://placehold.it/120x80")
-								.clearfix
-								rating(value="item.rate", max="5", readonly="false")
-							.right
-								.meta
-									ul
-										li {{item.country}}
-										li {{item.owner}}
-										li {{item.month}} {{item.day}}
-								p {{item.excerpt}}
-								.social-sharing
-									ul
-										li: i.icon-facebook-sign  {{item.fb}}
-										li: i.icon-twitter-sign  {{item.tw}}
-										li: i.icon-google-plus-sign  {{item.gp}}
+			.widget
+				.widget-head
+					i.icon-ellipsis-horizontal
+				.widget-body
+					tabset
+						tab(heading='News')
+							.article(ng-repeat='item in getblog["news"]')
+								h1 {{item.title}}
+								.left
+									img(src="http://placehold.it/120x80")
+									.clearfix
+									rating(value="item.rate", max="5", readonly="false")
+								.right
+									.meta
+										ul
+											li {{item.country}}
+											li {{item.owner}}
+											li {{item.month}} {{item.day}}
+									p {{item.excerpt}}
+									.social-sharing
+										ul
+											li
+												i.icon-facebook-sign
+												{{item.fb}}
+											li
+												i.icon-google-plus-sign
+												{{item.gp}}
+											li
+												i.icon-twitter-sign
+												{{item.tw}}
 
-					tab(heading='Articles')
-						.article(ng-repeat='item in getblog["articles"]')
-							h1 {{item.title}}
-							.left
-								img(src="http://placehold.it/120x80")
-								.clearfix
-								rating(value="item.rate", max="5", readonly="false")
-							.right
-								.meta
-									ul
-										li {{item.country}}
-										li {{item.owner}}
-										li {{item.month}} {{item.day}}
-								p {{item.excerpt}}
-								.social-sharing
-									ul
-										li: i.icon-facebook-sign  {{item.fb}}
-										li: i.icon-twitter-sign  {{item.tw}}
-										li: i.icon-google-plus-sign  {{item.gp}}
+						tab(heading='Articles')
+							.article(ng-repeat='item in getblog["articles"]')
+								h1 {{item.title}}
+								.left
+									img(src="http://placehold.it/120x80")
+									.clearfix
+									rating(value="item.rate", max="5", readonly="false")
+								.right
+									.meta
+										ul
+											li {{item.country}}
+											li {{item.owner}}
+											li {{item.month}} {{item.day}}
+									p {{item.excerpt}}
+									.social-sharing
+										ul
+											li
+												i.icon-facebook-sign
+												{{item.fb}}
+											li
+												i.icon-google-plus-sign
+												{{item.gp}}
+											li
+												i.icon-twitter-sign
+												{{item.tw}}
 
-					tab(heading='Activities')
-						.article(ng-repeat='item in getblog["activities"]')
-							h1 {{item.title}}
-							.left
-								img(src="http://placehold.it/120x80")
-								.clearfix
-								rating(value="item.rate", max="5", readonly="false")
-							.right
-								.meta
-									ul
-										li {{item.country}}
-										li {{item.owner}}
-										li {{item.month}} {{item.day}}
-								p {{item.excerpt}}
-								.social-sharing
-									ul
-										li: i.icon-facebook-sign  {{item.fb}}
-										li: i.icon-twitter-sign  {{item.tw}}
-										li: i.icon-google-plus-sign  {{item.gp}}
+						tab(heading='Activities')
+							.article(ng-repeat='item in getblog["activities"]')
+								h1 {{item.title}}
+								.left
+									img(src="http://placehold.it/120x80")
+									.clearfix
+									rating(value="item.rate", max="5", readonly="false")
+								.right
+									.meta
+										ul
+											li {{item.country}}
+											li {{item.owner}}
+											li {{item.month}} {{item.day}}
+									p {{item.excerpt}}
+									.social-sharing
+										ul
+											li
+												i.icon-facebook-sign
+												{{item.fb}}
+											li
+												i.icon-google-plus-sign
+												{{item.gp}}
+											li
+												i.icon-twitter-sign
+												{{item.tw}}
 
-					tab(heading='Calendar')
-						div(calendar="'all'")
-							
-					tab(heading='Discussion')
-						.article(ng-repeat='item in getblog["discussion"]')
-							h1 {{item.title}}
-							.left
-								img(src="http://placehold.it/120x80")
-								.clearfix
-								rating(value="item.rate", max="5", readonly="false")
-							.right
-								.meta
-									ul
-										li {{item.country}}
-										li {{item.owner}}
-										li {{item.month}} {{item.day}}
-								p {{item.excerpt}}
-								.social-sharing
-									ul
-										li: i.icon-facebook-sign  {{item.fb}}
-										li: i.icon-twitter-sign  {{item.tw}}
-										li: i.icon-google-plus-sign  {{item.gp}}
+						tab(heading='Calendar')
+							div(calendar="'all'")
+								
+						tab(heading='Discussion')
+							div
+								{{facebookFeed}}
 		.span4
-			.wrapper
-				h3 Widget 1
-				p.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			.wrapper
-				div(calendar)
-				//- div(calendar="'all'")
+			.widget
+				.widget-head
+					i.icon-ellipsis-horizontal
+				.widget-body
+					h3 Widget 1
+					p.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			.widget
+				.widget-head
+					i.icon-ellipsis-horizontal
+				.widget-body
+					div(calendar)
+					//- div(calendar="'all'")
 
-			.wrapper
-				a(class="twitter-timeline", href="https://twitter.com/Tech_Grind", data-widget-id="383053553666781185") Tweets by @Tech_Grind
-				script.
-					!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+			.widget
+				.widget-head
+					i.icon-ellipsis-horizontal
+				.widget-body
+					a(class="twitter-timeline", href="https://twitter.com/Tech_Grind", data-widget-id="383053553666781185") Tweets by @Tech_Grind
+					script.
+						!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
 //- pre
-//- 	{{ sexpr(getblog) }}
+//- 	{{ sexpr(facebookFeed) }}
