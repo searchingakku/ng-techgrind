@@ -5,7 +5,7 @@
 				tabset
 					tab(heading='News')
 						.article(ng-repeat='item in getblog["news"]')
-							rating(value="rate", max="max", readonly="isReadonly", on-hover="hoveringOver(value)", on-leave="overStar = null")
+							rating(value="item.rate", max="max", readonly="item.readonly", on-hover="setrate(item, value)", on-leave="overStar = null")
 							h1 {{item.title}}
 							img(src="http://placehold.it/120x100")
 							.meta

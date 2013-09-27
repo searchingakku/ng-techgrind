@@ -120,6 +120,8 @@ app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('/mock').success (data) -> S.mock = data
 	S.getblog = getblog()
+	S.setrate = (item,value) ->
+		item.rate = value # FIXME: this is not yet being saved
 ]
 
 app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
@@ -400,6 +402,8 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'how-to-use-ng-bind-html-safe'
 			tab: 'news'
+			rate: 5
+			readonly: false
 
 			content: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
 		,
