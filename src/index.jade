@@ -1,50 +1,43 @@
-!!!5
+doctype 5
 html(lang="en", ng-app="TechGrindApp")
 	head
 		meta(charset="utf-8")
-		link(rel="shortcut icon", href="img/tgfavicon-gear.ico")
-		title TechGrind &middot; Asia's Startup Community
-
-		script(src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
-		script(src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js")
-		// script(src="lib/jquery/jquery-1.10.2.min.js")
-		script(src="http://code.jquery.com/jquery-1.10.1.min.js")
-		script(src="lib/jquery/fullcalendar.js")
-		script(src="lib/jquery/gcal.js")
-
-		//- for Angular UI Bootstrap, from http://www.bootstrapcdn.com/
-		//- link(rel="stylesheet", href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css")
-		link(rel="stylesheet", href="css/bootstrap.min.css")
-
-		//- https://www.addthis.com/get/follow
-		link(rel="stylesheet", href="css/addthis.css")
-		
-		//- http://jumpstartui.com/templates/admin-templates/base-admin/
+		meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 		meta(name="apple-mobile-web-app-capable", content="yes")
-		link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600")
-		link(rel="stylesheet", href="css/font-awesome.css")
-		link(rel="stylesheet", href="css/base-admin.css")
-		link(rel="stylesheet", href="css/base-admin-responsive.css")
-		link(rel="stylesheet", href="css/dashboard.css")
+
+		title TechGrind &middot; Asia's Startup Community
+
+		link(rel="stylesheet", href="css/bootplus.min.css")
+		link(rel="stylesheet", href="css/bootplus-responsive.min.css")
+		link(rel="stylesheet", href="css/font-awesome.min.css")
+		link(rel="stylesheet", href="css/app.css")
 		link(rel="stylesheet", href="css/fullcalendar.css")
-		//- Le HTML5 shim, for IE6-8 support of HTML5 elements
+
+		//- HTML5 shim for old IEs
 		//if lt IE 9
 			script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
 
-		link(rel="stylesheet", href="css/app.css")
-
 	body(ng-controller="AppCtrl")
-		heading
-			nav(ng-include="'partials/navbar.html'")
-			nav(ng-include="'partials/menu.html'")
-		section#main.main(ng-view)
-		footer.footer(ng-include="'partials/footer.html'")
+		header
+			.header
+				nav(ng-include="'partials/menu.html'")
+		section
+			.main(ng-view)
 
-		//- In production use:
-		//- script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js")
+		footer
+			.footer(ng-include="'partials/footer.html'")
+
+		//- Javascript
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+		script window.jQuery || document.write('<script src="lib/jquery/jquery-1.9.1.min.js"><\/script>')
+
+		//- jQuery Plugin
+		script(src="lib/jquery/fullcalendar.js")
+		script(src="lib/jquery/gcal.js")
+
+		//- Angular JS Stuff
 		script(src="lib/angular/angular.js")
-		//- from https://raw.github.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-0.4.0.js
 		script(src="lib/angular/ui-bootstrap-tpls-0.4.0.js")
 		script(src="lib/angular/localStorageModule.js")
 		script(src="js/app.js")
@@ -53,6 +46,7 @@ html(lang="en", ng-app="TechGrindApp")
 		script(src="js/filters.js")
 		script(src="js/directives.js")
 		script(src="js/s-expr-log.js")
+
 		if settings.env == 'test'
 			script(src="test/lib/angular/angular-mocks.js")
 			script(src="test/e2e/backend-mocks.js")
