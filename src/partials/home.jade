@@ -16,25 +16,52 @@
 										li {{item.country}}
 										li {{item.owner}}
 										li {{item.month}} {{item.day}}
-								p {{item.content}}
+								p {{item.excerpt}}
+								.social-sharing
+									ul
+										li: i.icon-facebook-sign  {{item.fb}}
+										li: i.icon-twitter-sign  {{item.tw}}
+										li: i.icon-google-plus-sign  {{item.gp}}
 
 					tab(heading='Articles')
 						.article(ng-repeat='item in getblog["articles"]')
 							h1 {{item.title}}
-							img(src="http://placehold.it/120x80")
-							rating(value="item.rate", max="5", readonly="false")
-							.meta
-								{{item.country}} - {{item.owner}} - {{item.month}} {{item.day}}
-							p {{item.content}}
+							.left
+								img(src="http://placehold.it/120x80")
+								.clearfix
+								rating(value="item.rate", max="5", readonly="false")
+							.right
+								.meta
+									ul
+										li {{item.country}}
+										li {{item.owner}}
+										li {{item.month}} {{item.day}}
+								p {{item.excerpt}}
+								.social-sharing
+									ul
+										li: i.icon-facebook-sign  {{item.fb}}
+										li: i.icon-twitter-sign  {{item.tw}}
+										li: i.icon-google-plus-sign  {{item.gp}}
 
 					tab(heading='Activities')
 						.article(ng-repeat='item in getblog["activities"]')
 							h1 {{item.title}}
-							img(src="http://placehold.it/120x80")
-							rating(value="item.rate", max="5", readonly="false")
-							.meta
-								{{item.country}} - {{item.owner}} - {{item.month}} {{item.day}}
-							p {{item.content}}
+							.left
+								img(src="http://placehold.it/120x80")
+								.clearfix
+								rating(value="item.rate", max="5", readonly="false")
+							.right
+								.meta
+									ul
+										li {{item.country}}
+										li {{item.owner}}
+										li {{item.month}} {{item.day}}
+								p {{item.excerpt}}
+								.social-sharing
+									ul
+										li: i.icon-facebook-sign  {{item.fb}}
+										li: i.icon-twitter-sign  {{item.tw}}
+										li: i.icon-google-plus-sign  {{item.gp}}
 
 					tab(heading='Calendar')
 						div(calendar="'all'")
@@ -42,11 +69,22 @@
 					tab(heading='Discussion')
 						.article(ng-repeat='item in getblog["discussion"]')
 							h1 {{item.title}}
-							img(src="http://placehold.it/120x80")
-							rating(value="item.rate", max="5", readonly="false")
-							.meta
-								{{item.country}} - {{item.month}} {{item.day}}
-							p {{item.content}}
+							.left
+								img(src="http://placehold.it/120x80")
+								.clearfix
+								rating(value="item.rate", max="5", readonly="false")
+							.right
+								.meta
+									ul
+										li {{item.country}}
+										li {{item.owner}}
+										li {{item.month}} {{item.day}}
+								p {{item.excerpt}}
+								.social-sharing
+									ul
+										li: i.icon-facebook-sign  {{item.fb}}
+										li: i.icon-twitter-sign  {{item.tw}}
+										li: i.icon-google-plus-sign  {{item.gp}}
 		.span4
 			.wrapper
 				h3 Widget 1
@@ -57,8 +95,9 @@
 				//- div(calendar="'all'")
 
 			.wrapper
-				<a class="twitter-timeline" href="https://twitter.com/Tech_Grind" data-widget-id="383053553666781185">Tweets by @Tech_Grind</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				a(class="twitter-timeline", href="https://twitter.com/Tech_Grind", data-widget-id="383053553666781185") Tweets by @Tech_Grind
+				script.
+					!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
 //- pre
 //- 	{{ sexpr(getblog) }}

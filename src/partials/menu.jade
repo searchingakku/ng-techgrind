@@ -11,7 +11,7 @@
 				a.dropdown-toggle
 					i.icon-globe.icon-white
 					span Regions
-					b.caret
+					//- b.caret
 				ul.dropdown-menu(ng-controller='RegionsCtrl')
 					li(ng-repeat='country in countries')
 						a(href="#/regions/{{country.url}}") {{country.name}}
@@ -20,13 +20,13 @@
 				a(href="#/events")
 					i.icon-bullhorn
 					span Events
-					b.caret
+					//- b.caret
 
 			li(ng-class="active('/resources')")
 				a(href="#/resources")
 					i.icon-cloud-download
 					span Resources
-					b.caret
+					//- b.caret
 
 			li(ng-class="active('/media')")
 				a(href="#/media")
@@ -43,7 +43,7 @@
 				a.dropdown-toggle
 					i.icon-cog
 					| Settings
-					b.caret
+					//- b.caret
 				ul.dropdown-menu
 					li: a(href="javascript:;") Account Settings
 					li.divider
@@ -53,7 +53,7 @@
 					i.icon-user
 					span(id="show-user-name")
 						| {{ user().fullname }}
-					b.caret
+					//- b.caret
 				ul.dropdown-menu
 					li: a(href="javascript:;") My Profile
 					li: a(href="javascript:;") My Groups
@@ -63,11 +63,11 @@
 				a(href="#/register")
 					i.icon-cog
 					| Register
-					b.caret
+					//- b.caret
 			li#show-login(ng-hide="loginp()")
 				a(id="login-link", ng-click="openlogin=true")
 					i.icon-user
 					| Login
-					b.caret
+					//- b.caret
 				div(modal="openlogin && !loginp()", close="openlogin=false")
 					div(ng-include="'partials/loginform.html'")

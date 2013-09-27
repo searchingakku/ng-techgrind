@@ -400,8 +400,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'how-to-use-ng-bind-html-safe'
 			tab: 'news'
-			rate: 3
 
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element The innerHTML-ed content'
 			content: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
 		,
 			title: 'SSW Winner Announced'
@@ -412,12 +417,17 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'ssw-winner-announced'
 			tab: 'news'
-			rate: 3
 
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European'
 			content: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.'
 			url: 'news/article2'
 		,
-			title: 'Fashion Incubator Looking for Design Talent'
+			title: 'Fashion Incubator Looking for Talent'
 			day: '9'
 			month: 'May'
 			tags: 'developement'
@@ -425,8 +435,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'fashion-incubator'
 			tab: 'news'
-			rate: 2
 
+			rate: 2
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs'
 			content: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!'
 		,
 			title: 'Founder Equity Calculator'
@@ -437,8 +452,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'founder-equity-calculator'
 			tab: 'news'
-			rate: 4
 
+			rate: 4
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator'
 			content: 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator that was presented at TechGrind Co-founder dating event in April.'
 		,
 			title: 'TG Monthly Enter Singaphore'
@@ -449,8 +469,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'tg-monthly-enter-singaphore'
 			tab: 'news'
-			rate: 1
 
+			rate: 1
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community'
 			content: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
 		,
 			title: 'FAP.BKK#1, WSR, a very busy week!'
@@ -461,11 +486,16 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'fap-bkk-very-busy-work'
 			tab: 'news'
-			rate: 4
 
+			rate: 4
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Thank-you everyone for a great week full of events! This last week was incredibly busy and productive for Bangkok startups.'
 			content: 'Thank-you everyone for a great week full of events! This last week was incredibly busy and productive for Bangkok startups. Thanks to all who contributed and helped make TechGrind explode onto the scene with such success.'
 		,
-			title: 'Fashion Incubator Looking for Design Talent'
+			title: 'Fashion Incubator Looking for Talent'
 			day: '9'
 			month: 'May'
 			tags: 'developement'
@@ -473,8 +503,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'fashion-incubator'
 			tab: 'articles'
-			rate: 3
 
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs'
 			content: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!'
 		,
 			title: 'How to Use ng-bind-html-safe'
@@ -485,8 +520,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'how-to-use-ng-bind-html-safe'
 			tab: 'news'
-			rate: 3
 
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content'
 			content: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
 		,
 			title: 'TG Monthly Enter Singaphore'
@@ -497,8 +537,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'tg-monthly-enter-singaphore'
 			tab: 'news'
-			rate: 3
 
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community'
 			content: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
 		],
 		articles: [
@@ -510,8 +555,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'how-to-use-ng-bind-html-safe'
 			tab: 'articles'
-			rate: 5
 
+			rate: 5
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized!'
 			content: 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
 		,
 			title: 'SSW Winner Announced'
@@ -522,12 +572,17 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'ssw-winner-announced'
 			tab: 'articles'
-			rate: 1
 
+			rate: 1
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor'
 			content: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.'
 			url: 'articles/article2'
 		,
-			title: 'Fashion Incubator Looking for Design Talent'
+			title: 'Fashion Incubator Looking for Talent'
 			day: '9'
 			month: 'May'
 			tags: 'developement'
@@ -535,8 +590,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'fashion-incubator'
 			tab: 'articles'
-			rate: 3
 
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs'
 			content: 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!'
 		,
 			title: 'Founder Equity Calculator'
@@ -547,8 +607,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'founder-equity-calculator'
 			tab: 'articles'
-			rate: 4
 
+			rate: 4
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator'
 			content: 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator that was presented at TechGrind Co-founder dating event in April.'
 		,
 			title: 'TG Monthly Enter Singaphore'
@@ -559,8 +624,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'tg-monthly-enter-singaphore'
 			tab: 'articles'
-			rate: 2
 
+			rate: 2
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community'
 			content: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
 		],
 		activities: [
@@ -572,8 +642,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'ssw-winner-announced'
 			tab: 'activities'
-			rate: 3
 
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community'
 			content: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.'
 			url: 'activities/ssw-winner-announced'
 		],
@@ -592,8 +667,13 @@ getblog = ->
 			owner: 'Naveen'
 			articlename: 'ssw-winner-announced'
 			tab: 'discussion'
-			rate: 3
 
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor'
 			content: 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.'
 			url: 'discussion/ssw-winner-announced'
 		],
