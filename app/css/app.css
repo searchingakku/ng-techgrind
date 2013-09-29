@@ -1,30 +1,266 @@
-/* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+/* Style Guide
+	body color:   #E5E5E5
+	border color: #C5C5C5
+*/
+
+/* General
+----------------------------------------------- */
+/* Prevent any object from being highlighted upon touch event */
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+html, body {
+	height: 100%;
+	width: 100%;
 }
 
-.menu:before {
-  content: "[";
+/* Widget */
+.widget {
+	background: white;
+	border: 1px solid #C5C5C5;
+	border-radius: 4px;
+	margin: 20px 0;
+}
+.widget-head {
+	background: #F3F3F3;
+	border-bottom: 1px solid #E5E5E5;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	height: 15px;
+	line-height: 15px;
+	padding-left: 5px;
+	
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f3f3f3));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:    -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 100%);
+	background:     -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:      -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:         linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0 );
+}
+.widget-head i {
+	color: #C5C3C3;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+}
+.widget-body {
+	padding: 10px;
 }
 
-.menu:after {
-  content: "]";
+/* Header
+----------------------------------------------- */
+.header {
+	background: #F3F3F3;
+	border-bottom: 1px solid #C5C5C5;
+	height: 50px;
+	line-height: 50px;
+
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f3f3f3));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:    -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 100%);
+	background:     -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:      -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:         linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0 );
 }
 
-.menu > li {
-  display: inline;
+/* Logo */
+.logo {
+	background: url('../img/logo.svg') no-repeat left top;
+	display: block;
+	float: left;
+	height: 40px;
+	width: 140px;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+/* Main Menu */
+.main-menu {
+	float: left;
+	width: 60%;
+}
+.main-menu ul {
+	margin: 0;
+	padding: 0;
+}
+.main-menu li {
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 2%;
+	vertical-align: middle;
+}
+.main-menu li.active {
+	-webkit-box-shadow: inset 0 -2px 0 #4D90FE;
+	   -moz-box-shadow: inset 0 -2px 0 #4D90FE;
+	        box-shadow: inset 0 -2px 0 #4D90FE;
+}
+.main-menu i {
+	margin-right: 5px;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+/* User Setting */
+.user-setting {
+	float: right;
+}
+.user-setting ul {
+	margin: 0;
+	padding: 0;
+	width: 200px;
+}
+.user-setting li {
+	display: inline-block;
+	vertical-align: middle;
+	width: 80px;
+}
+.user-setting i {
+	margin-right: 5px;
+}
+
+/* Main
+----------------------------------------------- */
+.article {
+	border: 1px solid #E8E8E8;
+	border-radius: 4px;
+	display: inline-block;
+	min-height: 180px;
+	margin: 5px;
+	padding: 10px;
+	vertical-align: top;
+	width: 46%;
+}
+.article:nth-child(odd) {
+	margin-left: 0;
+}
+.article:nth-child(even) {
+	margin-right: 0;
+}
+.article h1 {
+	font-size: 18px;
+	margin: 0;
+}
+
+.article .left, .article .right {
+	float: left;
+}
+
+.article .left {
+	text-align: center;
+	width: 30%;
+}
+.article .right {
+	padding-left: 2%;
+	width: 68%;
+}
+.article img {
+	margin-bottom: 10px;
+}
+.article .icon-star {
+	color: #D6AE3E;
+}
+.article .icon-star-empty {
+	color: #C5C5C5;
+}
+
+/* Meta */
+.meta {
+	font-size: 12px;
+}
+.meta ul {
+	margin: 0;
+	padding: 0;
+}
+.meta ul li {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+/* Social Sharing */
+.social-sharing ul {
+	margin: 0;
+	padding: 0;
+}
+.social-sharing ul li {
+	display: inline-block;
+	margin-right: 5px;
+}
+.social-sharing i {
+	margin-right: 5px;
+}
+.social-sharing .icon-facebook-sign {
+	color: #315D99;
+}
+.social-sharing .icon-google-plus-sign {
+	color: #C12D21;
+}
+.social-sharing .icon-twitter-sign {
+	color: #00ACDE;
+}
+
+/* Footer
+----------------------------------------------- */
+.footer {
+	background: #F3F3F3;
+	border-top: 1px solid #C5C5C5;
+	margin: 0;
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f3f3f3));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:    -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 100%);
+	background:     -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:      -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
+	background:         linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0 );
+}
+
+.footer p {
+	margin: 0;
+	padding: 0;
+}
+
+/* Social iCon */
+.social ul {
+	margin: 0;
+	padding: 0;
+}
+.social li {
+	display: inline-block;
+	text-align: right;
+	vertical-align: middle;
+}
+.social a {
+	display: block;
+	float: left;
+	margin: 0 4%;
+}
+.facebook, .google-plus, .twitter {
+	background: url('../img/social-icon.svg') no-repeat;
+	display: block;
+	height: 30px;
+	width: 30px;
+}
+.facebook {
+	background-position: 0 0;
+}
+.google-plus {
+	background-position: -30px 0;
+}
+.twitter {
+	background-position: -60px 0;
+}
+
+/* Styling for responsive layout
+----------------------------------------------- */
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	/*body {
+		padding: 2%;
+	}*/
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
 }

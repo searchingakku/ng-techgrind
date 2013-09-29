@@ -1,0 +1,29 @@
+.subnavbar: .subnavbar-inner: .container: ul#menu.mainnav
+	li(ng-class="active('/home')"): a(href="#/home")
+		i.icon-cogs
+		span Home
+	li.dropdown(ng-class="active('/regions')")
+		a.dropdown-toggle
+			i.icon-globe.icon-white
+			span Regions
+			b.caret
+		ul.dropdown-menu(ng-controller='RegionsCtrl')
+			li(ng-repeat='country in countries')
+				a(href="#/regions/{{country.url}}") {{country.name}}
+	li(ng-class="active('/calendar')"): a(href="#/calendar")
+		i.icon-calendar
+		span Calendar
+	li(ng-class="active('/events')"): a(href="#/events")
+		i.icon-bullhorn
+		span Events
+		b.caret
+	li(ng-class="active('/resources')"): a(href="#/resources")
+		i.icon-cloud-download
+		span Resources
+		b.caret
+	li(ng-class="active('/media')"): a(href="#/media")
+		i.icon-film
+		span Media
+	li(ng-class="active('/partners')"): a(href="#/partners")
+		i.icon-star
+		span Partners
