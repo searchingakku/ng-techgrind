@@ -11,7 +11,7 @@ html
 									tab(ng-repeat='tab in tabs', heading='{{tab.title}}', active='tab.active', disabled='tab.disabled') 
 										div
 											ul(class='items')
-												li(ng-repeat='item in regionblog[tab.name]')
+												li(ng-repeat='item in regionblog[tab.title]')
 													a(href='#/{{item.tab}}/{{item.articlename}}', style='text-decoration:none;') {{item.title}}
 													div(class='item-detail', id='topcontent', ng-click='toggle=!toggle')
 														div(class='item-title')
@@ -52,5 +52,3 @@ html
 												td {{detail.mail}}
 pre
 	{{ sexpr(rp) }}
-pre
-	{{ sexpr(regionblog) }}

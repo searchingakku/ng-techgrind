@@ -8,12 +8,12 @@
 					span Home
 
 			li.dropdown(ng-class="active('/regions')")
-				a.dropdown-toggle
+				a()
 					i.icon-globe.icon-white
 					span Regions
-					//- b.caret
+					b.caret
 				ul.dropdown-menu(ng-controller='RegionsCtrl')
-					li(ng-repeat='country in countries')
+					li.sub-menu(ng-repeat='country in countries')
 						a(href="#/regions/{{country.url}}") {{country.name}}
 
 			li(ng-class="active('/events')")

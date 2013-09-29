@@ -242,10 +242,8 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	S.content = rp.content
 	S.tabs = [
 		title: 'Articles'
-		name: 'articles'
 	,
 		title: 'Events'
-		name: 'events'
 	]
 
 	S.getblog = getblog()
