@@ -22,11 +22,14 @@
 					span Events
 					//- b.caret
 
-			li(ng-class="active('/resources')")
+			li.dropdown(ng-class="active('/resources')")
 				a(href="#/resources")
 					i.icon-cloud-download
 					span Resources
-					//- b.caret
+					b.caret
+				ul.dropdown-menu(ng-controller='ResourcesCtrl')
+					li.sub-menu(ng-repeat='resource in resources')
+						a(href="#/resources/{{resource.url}}") {{resource.name}}
 
 			li(ng-class="active('/media')")
 				a(href="#/media")

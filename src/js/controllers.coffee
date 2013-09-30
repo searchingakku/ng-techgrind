@@ -131,6 +131,9 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) -
 		name: 'China'
 		url: 'china'
 	,
+		name: 'Indonesia'
+		url: 'indonesia'
+	,
 		name: 'Malaysia'
 		url: 'malaysia'
 	,
@@ -148,7 +151,18 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) -
 	]
 ]
 
-app.controller 'CalendarCtrl', ->
+app.controller 'ResourcesCtrl', ['$scope', '$location', (S, loc) ->
+	S.resources = [
+		name: 'Startup Jobs'
+		url: 'jobs'
+	,
+		name: 'Docs & Templates'
+		url: 'docs'
+	,
+		name: 'Guides & Tutorials'
+		url: 'tutorials'	
+	]
+]
 
 app.controller 'EventsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 
@@ -219,7 +233,6 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 
 ]
 
-app.controller 'ResourcesCtrl', ->
 app.controller 'MediaCtrl', ->
 app.controller 'PartnersCtrl', ->
 
