@@ -69,10 +69,11 @@ html, body {
 
 /* Logo */
 .logo {
-	background: url('../img/logo.svg') no-repeat left top;
+	background: url('../img/tg_logo_light_trans_orange.png') 0 0 no-repeat;
+	/* background-size: 200px; */
 	display: block;
 	float: left;
-	height: 40px;
+	height: 50px;
 	width: 140px;
 }
 
