@@ -111,6 +111,10 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/test-cleanup',
 		templateUrl: 'partials/home.html'
 		controller: 'TestCtrl'
+		
+	$routeProvider.when '/sgenome',
+		templateUrl: 'partials/sgenome.html'
+		controller: 'StartupGenomeCtrl'
 
 	$routeProvider.otherwise redirectTo: '/home'
 ]

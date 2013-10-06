@@ -3,15 +3,15 @@ startupgenome = angular.module 'TechGrindApp.startupgenome', []
 #startupgenome.auth_code = '5ac893e8ef1f8159ef79a4b561d6c475'
 #startupgenome.headers = array('AUTH-CODE: ' + startupgenome.auth_code)
 
-<!--
 #TODO: redo this code in angular :)
-<?php
-/* // auth code
-$auth_code = '[your-auth-code-here]';
-$headers = array("AUTH-CODE: {$auth_code}");
+#<?php
+#/* // auth code
+#$auth_code = '[your-auth-code-here]';
+#$headers = array("AUTH-CODE: {$auth_code}");
 
-// Get cURL resource
-$curl = curl_init();
+/*
+# Get cURL resource
+##$curl = curl_init();
 
 // Set some options
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -25,8 +25,10 @@ $resp = curl_exec($curl);
 // Close request to clear up some resources
 curl_close($curl);
 
+
 // output $resp (response from API)
 echo "<pre>";
 echo print_r(json_decode($resp,1));
 exit();
 ?>
+*/

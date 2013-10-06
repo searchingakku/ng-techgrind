@@ -15,6 +15,15 @@ html, body {
 	width: 100%;
 }
 
+a {
+	color: #666;
+	font-weight: bold;
+}
+a:hover {
+	color: #666;
+	font-weight: bold;
+}
+
 /* Widget */
 .widget {
 	background: white;
@@ -48,6 +57,7 @@ html, body {
 }
 .nav-tabs {
 	cursor: default;
+	font-weight: bold;
 }
 
 /* HEADER
@@ -70,11 +80,13 @@ html, body {
 /* Logo */
 .logo {
 	background: url('../img/tg_logo_light_trans_orange.png') 0 0 no-repeat;
-	/* background-size: 200px; */
+	background-size: 200px auto;
 	display: block;
 	float: left;
 	height: 50px;
-	width: 140px;
+	width: 200px;
+	margin-right: 5px;
+	margin-left: 5px;
 }
 
 /* Main Menu */
@@ -89,7 +101,7 @@ html, body {
 .main-menu li {
 	display: inline-block;
 	height: 50px;
-	border-right: 1px dotted #CDCDCD;
+	border-right: 1px dotted #DCDCDC;
 	line-height: 50px;
 	padding: 0;
 	vertical-align: middle;
@@ -108,9 +120,9 @@ html, body {
 }
 .main-menu li.active {
 	background: #e5e5e5;
-	-webkit-box-shadow: inset 0 -2px 0 #4D90FE;
-	   -moz-box-shadow: inset 0 -2px 0 #4D90FE;
-	        box-shadow: inset 0 -2px 0 #4D90FE;
+	-webkit-box-shadow: inset 0 -2px 0 #F68F37;
+	   -moz-box-shadow: inset 0 -2px 0 #F68F37;
+	        box-shadow: inset 0 -2px 0 #F68F37;
 	font-weight: bold;
 }
 .main-menu i {

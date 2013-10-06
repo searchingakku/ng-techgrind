@@ -235,6 +235,7 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 
 app.controller 'MediaCtrl', ->
 app.controller 'PartnersCtrl', ->
+app.controller 'StartupGenomeCtrl', ->
 
 app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 
