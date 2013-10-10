@@ -120,7 +120,7 @@ app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('/mock').success (data) -> S.mock = data
 	S.getblog = getblog()
-	http.get('https://graph.facebook.com/153371304826505/feed?limit=2&access_token=CAACEdEose0cBADfr7fkYk2DRbnxTDwxAv5NzZAiThAC70zNYNjQQSTxYaLkXZBjkEcsY0U5xlC0EZBPe6hd5HoZAN6jHxENAYX9agG0SGfYfuZA2oGomDtCxZA5yv1eKSbVZCxBOIaYEk599WaQo3sBk2sHBIgSuxnNzK7NIlVhWTUBjAnmLgdxgicYcxaTaUNZBG8s7ZAOcZCIQZDZD').success (data) -> S.facebookFeed = data
+	http.get('https://graph.facebook.com/153371304826505/feed?limit=5&access_token=CAACEdEose0cBAOGDpUGu6jvFBkuibxGrHEPEgvDkVEPaomUw1FPMjRbJ408vNYsWiiUSyCfDx3C9cxtM22eph3aokhHc0L02JzwKPnldUN1T3SZBuuTtGI582ahKDgGivN421JINwiygtQGZA62Owc7rlpiPR8cNZA1QZCjeuYcMAMsW8NjYgLbuJrdIMPJgQlsHrmGOnwZDZD').success (data) -> S.facebookFeed = data
 ]
 
 app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
