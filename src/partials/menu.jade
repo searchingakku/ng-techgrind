@@ -23,19 +23,16 @@
 					//- b.caret
 
 			li.dropdown(ng-class="active('/resources')")
-				a(href="#/resources")
+				a()
 					i.icon-cloud-download
 					span Resources
 					b.caret
 				ul.dropdown-menu(ng-controller='ResourcesCtrl')
 					li.sub-menu(ng-repeat='resource in resources')
-						a(href="#/resources/{{resource.url}}") {{resource.name}}
+						a(href="#/{{resource.url}}")
+							i.{{resource.icon}}
+							{{resource.name}}
 
-			li(ng-class="active('/media')")
-				a(href="#/media")
-					i.icon-film
-					span Media
-					
 			li(ng-class="active('/partners')")
 				a(href="#/partners")
 					i.icon-star

@@ -35,10 +35,26 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/resources',
 		templateUrl: 'partials/resources.html'
 		controller: 'ResourcesCtrl'
+	
+	$routeProvider.when '/resources/jobs',
+		templateUrl: 'partials/res-jobs.html'
+		controller: 'ResourcesCtrl'
+		
+	$routeProvider.when '/resources/docs',
+		templateUrl: 'partials/res-docs.html'
+		controller: 'ResourcesCtrl'
+		
+	$routeProvider.when '/resources/tutorials',
+		templateUrl: 'partials/res-tutorials.html'
+		controller: 'ResourcesCtrl'
+		
+	$routeProvider.when '/resources/teamspeak',
+		templateUrl: 'partials/res-teamspeak.html'
+		controller: 'ResourcesCtrl'
 
-	$routeProvider.when '/media',
-		templateUrl: 'partials/media.html'
-		controller: 'MediaCtrl'
+	$routeProvider.when '/resources/media',
+		templateUrl: 'partials/res-media.html'
+		controller: 'ResourcesCtrl'
 
 	$routeProvider.when '/partners',
 		templateUrl: 'partials/partners.html'
@@ -60,53 +76,7 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/activation.html'
 		controller: 'ActivationCtrl'
 
-	$routeProvider.when '/content/',
-		templateUrl: 'partials/content.html'
-		controller: 'ContentCtrl'
 
-	$routeProvider.when '/content/:type',
-		templateUrl: 'partials/content.html'
-		controller: 'ContentCtrl'
-
-	$routeProvider.when '/content-page',
-		templateUrl: 'partials/content-page.html'
-		controller: 'ContentPageCtrl'
-
-	$routeProvider.when ':userid/articles',
-		templateUrl: 'partials/content.html'
-		controller: 'ContentCtrl'
-
-	$routeProvider.when '/content:userid/:tab/:articlename/:tags',
-		templateUrl: 'partials/content.html'
-		controller: 'ContentCtrl'
-
-	$routeProvider.when ':userid/article/:articlename',
-		templateUrl: 'partials/content-page.html'
-		controller: 'ContentPageCtrl'
-
-	$routeProvider.when '/:country/articles',
-		templateUrl: 'partials/content.html'
-		controller: 'ContentCtrl'
-
-	$routeProvider.when '/:country/articles/:tags',
-		templateUrl: 'partials/content.html'
-		controller: 'ContentCtrl'
-
-	$routeProvider.when '/regions/:region/',
-		templateUrl: 'partials/region-content.html'
-		controller: 'ContentCtrl'
-
-	$routeProvider.when '/articles',
-		templateUrl: 'partials/content.html'
-		controller: 'ContentCtrl'
-
-	$routeProvider.when '/:tab/:articlename',
-		templateUrl: 'partials/content-page.html'
-		controller: 'ContentCtrl'
-
-	$routeProvider.when 'content-page/:title',
-		templateUrl: 'partials/content-page.html'
-		controller: 'ContentPageCtrl'
 
 	$routeProvider.when '/test-cleanup',
 		templateUrl: 'partials/home.html'

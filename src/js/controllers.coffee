@@ -148,20 +148,31 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) -
 	,
 		name: 'Vietnam'
 		url: 'vietnam'
-	]
+	];
 ]
 
 app.controller 'ResourcesCtrl', ['$scope', '$location', (S, loc) ->
 	S.resources = [
 		name: 'Startup Jobs'
-		url: 'jobs'
+		url: 'resources/jobs'
+		icon: 'icon-laptop'
 	,
 		name: 'Docs & Templates'
-		url: 'docs'
+		url: 'resources/docs'
+		icon: 'icon-file-text'
 	,
 		name: 'Guides & Tutorials'
-		url: 'tutorials'	
-	]
+		url: 'resources/tutorials'
+		icon: 'icon-lightbulb'
+	,
+		name: 'Photos & Video'
+		url: 'resources/media'
+		icon: 'icon-film'
+	,
+		name: 'TeamSpeak Server'
+		url: 'resources/teamspeak'
+		icon: 'icon-group'
+	];
 ]
 
 app.controller 'EventsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
@@ -233,7 +244,6 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 
 ]
 
-app.controller 'MediaCtrl', ->
 app.controller 'PartnersCtrl', ->
 app.controller 'StartupGenomeCtrl', ->
 

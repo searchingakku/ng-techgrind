@@ -17,8 +17,7 @@ $(function() {
 	$('li#regions').css('top', pos2);
 	$('li#events').css('top', pos3);
 	$('li#resources').css('top', pos4);
-	$('li#media').css('top', pos5);
-	$('li#partners').css('top', pos6);
+	$('li#partners').css('top', pos5);
 
 	//- Main Navigation - top level
 	link.each(function() {
@@ -36,8 +35,7 @@ $(function() {
 				$('li#regions').css('top', pos2);
 				$('li#events').css('top', pos3);
 				$('li#resources').css('top', pos4);
-				$('li#media').css('top', pos5);
-				$('li#partners').css('top', pos6);
+				$('li#partners').css('top', pos5);
 
 				$('.main-menu li').removeClass('hide');
 				setTimeout(function() {
@@ -69,13 +67,6 @@ $(function() {
 				$(this).parent().css('top',pos1);
 				$(this).parent().addClass('active');
 				$('#home').css('top', pos1+150);
-			}
-
-			//- Mdia
-			else if ($(this).children().hasClass('media')) {
-				$(this).parent().css('top',pos1);
-				$(this).parent().addClass('active');
-				$('#home').css('top', pos1+100);
 			}
 
 			//- Partners
