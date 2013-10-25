@@ -1,6 +1,6 @@
 /* Style Guide
-	body color:   #E5E5E5
-	border color: #C5C5C5
+	body color:   #eee E5E5E5
+	border color: #ccc C5C5C5
 	
 	orange: #FF871E
 	blue: 	#0078E1
@@ -16,7 +16,6 @@ html, body {
 	height: 100%;
 	width: 100%;
 }
-
 a {
 	color: #444;
 	font-weight: bold;
@@ -31,24 +30,27 @@ a:hover {
 ----------------------------------------------- */
 .header {
 	background: #F3F3F3;
-	border-bottom: 1px solid #C5C5C5;
+	border-bottom: 1px solid #ccc;
 	height: 50px;
 	line-height: 50px;
+}
 
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f3f3f3));
-	background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
-	background:    -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 100%);
-	background:     -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
-	background:      -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
-	background:         linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0 );
+.navbar-inner {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#ddd));
+	background: -webkit-linear-gradient(top,	#fff 0%,	#ddd 100%);
+	background:    -moz-linear-gradient(top,	#fff 0%,	#ddd 100%);
+	background:     -ms-linear-gradient(top,	#fff 0%,	#ddd 100%);
+	background:      -o-linear-gradient(top,	#fff 0%,	#ddd 100%);
+	background:         linear-gradient(to bottom,	#fff 0%,	#ddd 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#ddd',GradientType=0 );
 }
 
 /* Logo */
 .logo {
 	background: url('../img/logo_tg_bglight_trans_orange.png') 0 0 no-repeat;
 	background-size: 240px auto;
-	display: inline-block;
+	display: block;
+	position: static;
 	float: left;
 	height: 50px;
 	width: 240px;
@@ -60,7 +62,6 @@ a:hover {
 /* Main Menu */
 .main-menu {
 	float: left;
-	width: 60%;
 }
 .main-menu ul {
 	margin: 0;
@@ -68,32 +69,29 @@ a:hover {
 }
 .main-menu li {
 	display: inline-block;
-	height: 50px;
-	border-right: 1px dotted #DCDCDC;
-	line-height: 50px;
-	padding: 0;
-	vertical-align: middle;
+	border-right: 1px dotted #bbb;
+	padding: 0px;
+	margin: 0px;
 }
 .main-menu a {
-	display: table-cell;
+	display: inline-block;
+	height: 4em;
+	line-height: 4em;
 	padding-right: 1em;
 	padding-left: 1em;
-	width: 100%;
-	margin: 2em auto;
+	vertical-align: middle;
 	cursor: pointer;
 	text-decoration: none;
 }
-.main-menu li:hover, .main-menu li.active:hover a {
+.main-menu li:hover, .main-menu li.active:hover {
 	background: #444;
 }
 .main-menu li:hover a, .main-menu li.active:hover a {
 	color: #fff;
 }
 .main-menu li.active {
-	background: #ddd;
-	-webkit-box-shadow: inset 0 -2px 0 #FF871E;
-	   -moz-box-shadow: inset 0 -2px 0 #FF871E;
-	        box-shadow: inset 0 -2px 0 #FF871E;
+	background: #bbb;
+	border-bottom: 2px solid #FF871E;
 	font-weight: bold;
 }
 .main-menu i {
@@ -105,39 +103,41 @@ a:hover {
 .caret {
 	margin-top: 2px !important; /* figure out how to do this without implicit overriding */
 }
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
+
 .dropdown-menu {
-	min-width: 140px;
-	line-height: 0px;
 	padding: 0px;
 	margin: 0px;
+}
+.dropdown-menu i {
+	margin-right: 5px;
 }
 .dropdown-menu li.sub-menu {
 	width: 100%;
-	height: 3em;
 	border: 0px;
 	padding: 0px;
-	padding-bottom: 1em;
 	margin: 0px;
+}
+.dropdown-menu li.sub-menu a {
+	color: #444;
+	background: #fff;
+	font-weight: bold;
+	width: 80%;
+	height: 3em;
+	line-height: 3em;
+	vertical-align: middle;
+	margin: 0px;
+	padding: 0px;
+	padding-right: 1em;
+	padding-left: 1em;
+	cursor: pointer;
 }
 .dropdown-menu li.sub-menu:hover a {
 	color: #fff;
 	background: #444;
 }
-.dropdown-menu li.sub-menu a {
-	font-weight: bold;
-	color: #444;
-	width: auto;
-	height: 100%;
-	padding: 0px;
-	padding-top: 1em;
-	padding-right: 1em;
-	padding-left: 1em;
-	margin: 0px;
-	cursor: pointer;
-	vertical-align: middle;
+/* Create Dropdown-On-Hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 .dropdown:after .dropdown-menu {
 	display: none;
@@ -147,24 +147,48 @@ a:hover {
 .user-setting {
 	float: right;
 }
-.user-setting ul {
-	margin: 0;
-	padding: 0;
-	width: 200px;
-}
-.user-setting li {
-	display: inline-block;
-	vertical-align: middle;
-	width: 90px;
-}
 .user-setting a {
+	height: 2em;
+	line-height: 2em;
+	margin: 0px;
+	padding: 0px;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
 	text-decoration: none;
 	cursor: pointer;
 }
-.user-setting li:hover, .user-setting li:hover a {
-	background: #444;
-	color: #fff;
+.user-setting li.sub-menu {
+	width: 100%;
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	position: static;
+}
+.user-setting li.sub-menu a {
+	color: #444;
+	background: #fff;
 	font-weight: bold;
+	width: 80%;
+	height: 2em;
+	line-height: 2em;
+	vertical-align: middle;
+	margin: 0px;
+	padding: 0px;
+	padding-right: 1em;
+	padding-left: 1em;
+	cursor: pointer;
+}
+.user-setting li.sub-menu:hover, .user-setting li.sub-menu:hover a {
+	color: #fff;
+	background: #444;
+}
+.user-setting li.divider {
+	height: 1px;
+	line-height: 1px;
+	font-size: 0px;
+	padding: 0px;
+	margin: 0px;
+	border: none;
 }
 .user-setting i {
 	font-size: 18px;
@@ -185,7 +209,7 @@ a:hover {
 /* Widget */
 .widget {
 	background: white;
-	border: 1px solid #C5C5C5;
+	border: 1px solid #ccc;
 	border-radius: 4px;
 	margin: 20px 0;
 }
@@ -197,27 +221,32 @@ a:hover {
 	height: 15px;
 	line-height: 15px;
 	padding-left: 5px;
-	
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ccc));
-	background: -webkit-linear-gradient(top,  #ffffff 0%, #ccc 100%);
-	background:    -moz-linear-gradient(top,  #ffffff 0%, #ccc 100%);
-	background:     -ms-linear-gradient(top,  #ffffff 0%, #ccc 100%);
-	background:      -o-linear-gradient(top,  #ffffff 0%, #ccc 100%);
-	background:         linear-gradient(to bottom,  #ffffff 0%, #ccc 100%);
+	background: -webkit-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
+	background:    -moz-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
+	background:     -ms-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
+	background:      -o-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
+	background:         linear-gradient(to bottom,	#ffffff 0%,	#ccc 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ccc',GradientType=0 );
 }
 .widget-head i {
+	font-size: 18px;
 	color: #C5C3C3;
-	text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+	text-shadow: 1px 1px rgb(0, 0, 0);
+	cursor: move;
 }
 .widget-body {
 	padding: 10px;
 }
-.nav-tabs {
-	cursor: default;
+.nav-tabs li>a {
+	cursor: pointer;
 	font-weight: bold;
+	color: #000;
 }
-
+.nav-tabs li>a:hover {
+	background: #bbb;
+	color: #000;
+}
 .article {
 	border: 1px solid #E8E8E8;
 	border-radius: 4px;
@@ -258,7 +287,7 @@ a:hover {
 	color: #D6AE3E;
 }
 .article .icon-star-empty {
-	color: #C5C5C5;
+	color: #ccc;
 }
 
 /* Meta */
@@ -300,24 +329,22 @@ a:hover {
 ----------------------------------------------- */
 .footer {
 	background: #F3F3F3;
-	border-top: 1px solid #C5C5C5;
+	border-top: 1px solid #ccc;
 	clear: both;
 	margin: 0px;
 	padding: 0px;
 	height: 50px;
 	line-height: 50px;
 	width: 100%;
-
     position: fixed;
 	bottom: 0px;
-
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f3f3f3));
-	background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
-	background:    -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 100%);
-	background:     -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
-	background:      -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%);
-	background:         linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0 );
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ccc));
+	background: -webkit-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
+	background:    -moz-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
+	background:     -ms-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
+	background:      -o-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
+	background:         linear-gradient(to bottom,	#ffffff 0%,	#ccc 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ccc',GradientType=0 );
 }
 
 .footer p {
@@ -336,9 +363,10 @@ a:hover {
 	vertical-align: middle;
 }
 .social a {
-	display: block;
-	float: left;
-	margin: 0 4%;
+
+}
+.social a:hover {
+
 }
 .facebook, .google-plus, .twitter {
 	background: url('../img/social-icon.svg') no-repeat;
@@ -371,4 +399,28 @@ a:hover {
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
 
+}
+
+@media (max-width: 980px) {
+	/* Enable use of floated navbar text */
+	.navbar-text.pull-right {
+		float: none;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.main-menu {
+		clear:both;
+	}
+	.main-menu ul {
+		margin: 0px;
+		padding: 0px;
+	}
+	.main-menu li {
+		display: block;
+		height: 50px;
+		border-right: 1px dotted #DCDCDC;
+		line-height: 50px;
+		padding: 0px;
+		vertical-align: middle;
+	}
 }

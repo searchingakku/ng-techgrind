@@ -18,17 +18,37 @@
 <body ng-controller="AppCtrl">
 <header>
 	<div class="header">
-		<nav ng-include="'partials/menu.html'"></nav>
+		<nav ng-include="'partials/__menu.html'"></nav>
 	</div>
 </header>
 <section>
-	<div ng-view class="main"></div>
+	<div class="container-fluid">
+		<div ng-view class="main"></div>
+	</div>
 </section>
 <footer>
 	<div ng-include="'partials/footer.html'" class="footer"></div>
 </footer>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<!--script src="lib/jquery/jquery-1.10.2.min.js"></script-->
+	<!--script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script-->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- All the Bootstrap JavaScripts -->
+	<!--
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+	-->
+	<!-- Other JavaScripts -->
 	<script src="lib/jquery/fullcalendar.js"></script>
 	<script src="lib/jquery/gcal.js"></script>
 	<script src="lib/angular/angular.js"></script>
