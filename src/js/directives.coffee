@@ -1,5 +1,5 @@
 ###
-# /*
+# 
 # 	File: <name>
 # 		Define file purpose: "What does this file do??? Why does it exist???"
 # 
@@ -22,7 +22,7 @@
 # 	See Also:
 #  		links? another file? function? webpage tutorial?
 # 		anything else that can help me understand this file overall? 
-# */
+# 
 ###
 
 directives = angular.module 'TechGrindApp.directives', []
