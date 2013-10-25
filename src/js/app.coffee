@@ -1,3 +1,32 @@
+###
+# /*
+# 	File: <name>
+# 		Define file purpose: "What does this file do??? Why does it exist???"
+# 
+# 	Class: <name>
+# 		Is this a class/object? Define its purpose: its "persona" or "role"
+# 		Define its structure: what data elements, methods, etc does it need?
+# 
+# 	Function: <name>
+# 		Is this a function? Define its purpose.
+# 		Here's an example, lets say its a multiply function...
+# 		Parameters/Inputs:
+# 			x - The first integer.
+# 		 	y - The second integer.
+# 		Returns/Outputs:
+# 		 	The two integers multiplied together.
+# 		Example/Usage:
+# 			var x = <functionName>(a,b);
+# 			input.print tostring(x);
+# 		 
+# 	See Also:
+#  		links? another file? function? webpage tutorial?
+# 		anything else that can help me understand this file overall? 
+# */
+###
+
+# http://docs.angularjs.org/guide/module
+# http://docs.angularjs.org/api/angular.module
 app = angular.module 'TechGrindApp', [
 	'TechGrindApp.filters'
 	'TechGrindApp.services'
@@ -7,6 +36,8 @@ app = angular.module 'TechGrindApp', [
 	'LocalStorageModule'
 ]
 
+# give usage example for setting up a route, explain where each of these components goes and what it does
+# eg: how do i make a route for a dynamic link? what does :name do in a link or path?
 app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/home',
 		templateUrl: 'partials/home.html'
@@ -16,6 +47,10 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/regions.html'
 		controller: 'RegionsCtrl'
 
+	$routeProvider.when '/regions/:region',
+		templateUrl: 'partials/regions.html'
+		controller: 'RegionsCtrl'
+		
 	$routeProvider.when '/calendar',
 		templateUrl: 'partials/calendar.html'
 		controller: 'CalendarCtrl'
@@ -75,8 +110,6 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/activate/:userid/:activationcode',
 		templateUrl: 'partials/activation.html'
 		controller: 'ActivationCtrl'
-
-
 
 	$routeProvider.when '/test-cleanup',
 		templateUrl: 'partials/home.html'

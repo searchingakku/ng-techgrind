@@ -31,7 +31,7 @@
 					li.sub-menu(ng-repeat='resource in resources')
 						a(href="#/{{resource.url}}")
 							i.{{resource.icon}}
-							{{resource.name}}
+							| {{resource.name}}
 
 			li(ng-class="active('/partners')")
 				a(href="#/partners")
