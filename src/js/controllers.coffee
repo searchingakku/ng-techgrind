@@ -273,7 +273,7 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 
 app.controller 'PartnersCtrl', ->
 
-app.controller 'StartupGenomeCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
+app.controller 'StartupGenomeCtrl', ['$scope', '$routeParams', 'steam', (S, rp, steam) ->
 	S.countries = {}
 	S.sgenome = {}
 	S.debug = []
@@ -282,14 +282,16 @@ app.controller 'StartupGenomeCtrl', ['$scope', '$location', 'steam', (S, loc, st
 		for country in data.inventory
 			S.countries[country.name] = country
 
-	S.get_country = (country) ->
-		S.debug.push = [ "getting", country, S.countries[country].path ]
-		steam.get(S.countries[country].path).then((data) ->
+	get_country = (country) ->
+		S.debug.push = [ "getting", country ]
+		steam.get('/home/techgrind/organizations/country/'+country).then((data) ->
 				S.debug.push = "got "+country
 				S.sgenome[country] = data
 				)
 
 	steam.get('/home/techgrind/organizations/country').then(get_countries)
+	if rp.country
+		get_country(rp.country)
 ]
 
 app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
