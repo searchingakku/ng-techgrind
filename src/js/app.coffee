@@ -123,5 +123,9 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/sgenome.html'
 		controller: 'StartupGenomeCtrl'
 
+	$routeProvider.when '/sgenome/:country/:filter',
+		templateUrl: 'partials/sgenome.html'
+		controller: 'StartupGenomeCtrl'
+
 	$routeProvider.otherwise redirectTo: '/home'
 ]

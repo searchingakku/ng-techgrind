@@ -282,16 +282,20 @@ app.controller 'StartupGenomeCtrl', ['$scope', '$routeParams', 'steam', (S, rp, 
 		for country in data.inventory
 			S.countries[country.name] = country
 
-	get_country = (country) ->
-		S.debug.push = [ "getting", country ]
-		steam.get('/home/techgrind/organizations/country/'+country).then((data) ->
+	get_country = (country, filter) ->
+		S.debug.push = [ "getting", country, filter ]
+		if filter
+				filter = "/"+filter
+		else
+				filter = ""
+		steam.get('/home/techgrind/organizations/country/'+country+filter).then((data) ->
 				S.debug.push = "got "+country
 				S.sgenome[country] = data
 				)
 
 	steam.get('/home/techgrind/organizations/country').then(get_countries)
 	if rp.country
-		get_country(rp.country)
+		get_country(rp.country, rp.filter)
 ]
 
 app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
