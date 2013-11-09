@@ -1,0 +1,65 @@
+/* Style Guide
+	body color:   #eee E5E5E5
+	border color: #ccc C5C5C5
+	
+	orange: #FF871E
+	blue: 	#0078E1
+*/
+
+/* CONTENT
+----------------------------------------------- */
+.article {
+	border: 1px solid #E8E8E8;
+	border-radius: 4px;
+	display: inline-block;
+	min-height: 180px;
+	margin: 5px;
+	padding: 10px;
+	vertical-align: top;
+	width: 46%;
+}
+.article:nth-child(odd) {
+	margin-left: 0;
+}
+.article:nth-child(even) {
+	margin-right: 0;
+}
+.article h1 {
+	font-size: 18px;
+	margin: 0;
+}
+
+.article .left, .article .right {
+	float: left;
+}
+
+.article .left {
+	text-align: center;
+	width: 30%;
+}
+.article .right {
+	padding-left: 2%;
+	width: 68%;
+}
+.article img {
+	margin-bottom: 10px;
+}
+.article .icon-star {
+	color: #D6AE3E;
+}
+.article .icon-star-empty {
+	color: #ccc;
+}
+
+/* Meta */
+.meta {
+	font-size: 12px;
+}
+.meta ul {
+	margin: 0;
+	padding: 0;
+}
+.meta ul li {
+	display: inline-block;
+	margin-right: 5px;
+}
