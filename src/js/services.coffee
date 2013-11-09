@@ -29,7 +29,7 @@ services.value 'version', '0.1'
 #      logout: remove login data
 #      loginp: return true if the user is logged in, false otherwise
 #      user: return userdetails if logged in
-#      get(resource): 
+#      get(resource):
 #          make a GET request and return resulting JSON data
 #          resource describes the path to the sTeam object within sTeam
 #          returns the data of the requested object
@@ -37,7 +37,7 @@ services.value 'version', '0.1'
 #          POST data to update existing sTeam objects
 #          resource describes the path to the sTeam object to be updated
 #          returns the data of the updated object
-#      put(resource, data): 
+#      put(resource, data):
 #          PUT data to create new objects
 #          resource is the parent object within which the new object is to be created
 #          returns the data of the updated object

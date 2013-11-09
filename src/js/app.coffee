@@ -42,6 +42,10 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/home',
 		templateUrl: 'partials/home.html'
 		controller: 'HomeCtrl'
+
+	$routeProvider.when '/content',
+		templateUrl: 'partials/content-page.html'
+		controller: 'ContentCtrl'
 		
 	$routeProvider.when '/regions',
 		templateUrl: 'partials/regions.html'

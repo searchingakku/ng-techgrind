@@ -311,7 +311,7 @@ a:hover {
 
 }
 .social a:hover {
-
+	background: none;
 }
 .facebook, .google-plus, .twitter {
 	background: url('../img/social-icon.svg') no-repeat;
