@@ -296,6 +296,7 @@ app.controller 'StartupGenomeCtrl', ['$scope', '$routeParams', 'steam', (S, rp, 
 	steam.get('/home/techgrind/organizations/country').then(get_countries)
 	if rp.country
 		get_country(rp.country, rp.filter)
+
 ]
 
 app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
@@ -322,6 +323,10 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	]
 
 	S.getblog = getblog()
+
+	S.compose = () ->
+		console.log('HE      ::::::    Y')
+		techgrind.richEditor.init()
 
 	S.regionblog = {}
 	S.chatterbox = []
