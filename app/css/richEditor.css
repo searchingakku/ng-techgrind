@@ -1,0 +1,63 @@
+.fiftyPercent {
+    height: 50%;
+}
+.fullHeight {
+    height: 100%;
+}
+.newpostform {
+    padding-top: 20px;
+    margin-bottom: 0;
+    -webkit-user-select: text;
+}
+.tray {
+    margin-bottom: 35px;
+    background: #111;
+    border-bottom: 1px solid #333;
+    color: #eee;
+    text-shadow: 0 0 1px #eee;
+}
+
+.fixed {
+    width: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+.fixed-bottom {
+    top: auto;
+    bottom: 0;
+}
+
+form {
+    margin: 0 0 16px
+}
+.row form .row {
+    margin: 0 -6px
+}
+.row form .row .column, .row form .row .columns {
+    padding: 0 6px
+}
+.row form .row.collapse {
+    margin: 0
+}
+.row form .row.collapse .column, .row form .row.collapse .columns {
+    padding: 0
+}
+.newpostform form {
+    margin-bottom: 20px;
+}
+form {
+    margin: 0 0 16px;
+}
+body, .newpostform .row {
+    position: relative;
+}
+.row {
+}
+.row {
+    width: 1008px;
+    max-width: 100%;
+    min-width: 768px;
+    margin: 0 auto;
+}

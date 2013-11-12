@@ -151,6 +151,11 @@ app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 ]
 
 app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
+	
+	
+	S.compose = ->
+		techgrind.richEditor.init()
+
 	S.countries = [
 		name: 'Cambodia'
 		url: 'cambodia'
@@ -296,6 +301,7 @@ app.controller 'StartupGenomeCtrl', ['$scope', '$routeParams', 'steam', (S, rp, 
 	steam.get('/home/techgrind/organizations/country').then(get_countries)
 	if rp.country
 		get_country(rp.country, rp.filter)
+
 ]
 
 app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
