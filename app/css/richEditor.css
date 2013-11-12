@@ -28,36 +28,3 @@
     top: auto;
     bottom: 0;
 }
-
-form {
-    margin: 0 0 16px
-}
-.row form .row {
-    margin: 0 -6px
-}
-.row form .row .column, .row form .row .columns {
-    padding: 0 6px
-}
-.row form .row.collapse {
-    margin: 0
-}
-.row form .row.collapse .column, .row form .row.collapse .columns {
-    padding: 0
-}
-.newpostform form {
-    margin-bottom: 20px;
-}
-form {
-    margin: 0 0 16px;
-}
-body, .newpostform .row {
-    position: relative;
-}
-.row {
-}
-.row {
-    width: 1008px;
-    max-width: 100%;
-    min-width: 768px;
-    margin: 0 auto;
-}
