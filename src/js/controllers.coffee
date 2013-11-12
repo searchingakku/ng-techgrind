@@ -151,6 +151,11 @@ app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 ]
 
 app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
+	
+	
+	S.compose = ->
+		techgrind.richEditor.init()
+
 	S.countries = [
 		name: 'Cambodia'
 		url: 'cambodia'
@@ -323,10 +328,6 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	]
 
 	S.getblog = getblog()
-
-	S.compose = () ->
-		console.log('HE      ::::::    Y')
-		techgrind.richEditor.init()
 
 	S.regionblog = {}
 	S.chatterbox = []
