@@ -15,7 +15,7 @@ techgrind.richEditor = (function() {"use strict";
 			var $body = $('body');
 			var $div = $('<div>',{
 				'id' : GLOBAL_DIV_ID,
-				'class' : 'fiftyPercent fixed fixed-bottom tray newpostform editor-form js_newpostform'
+				'class' : 'fiftyPercent fixed fixed-bottom tray newpostform'
 			});
 			$body.append($div);
 			$div.load('partials/richEditor.html', function() {
