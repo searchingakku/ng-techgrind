@@ -28,3 +28,34 @@
     top: auto;
     bottom: 0;
 }
+
+.modal.myWindow {
+    width:100%;
+    margin-left:0;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left:0;
+    background-color: black;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.modal.myWindow .container{
+    background-color: white;
+}
+.modal.fade {
+  -webkit-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+     -moz-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+       -o-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+          transition: opacity 0.3s linear, bottom 0.3s ease-out;
+}
+
+.modal.fade.in {
+    top:auto;
+    bottom: 0;
+}
+
+.modal.fade.out {
+  bottom: 0;
+}
