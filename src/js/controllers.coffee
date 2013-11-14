@@ -150,11 +150,10 @@ app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('https://graph.facebook.com/153371304826505/feed?limit=5&access_token=CAACEdEose0cBAOGDpUGu6jvFBkuibxGrHEPEgvDkVEPaomUw1FPMjRbJ408vNYsWiiUSyCfDx3C9cxtM22eph3aokhHc0L02JzwKPnldUN1T3SZBuuTtGI582ahKDgGivN421JINwiygtQGZA62Owc7rlpiPR8cNZA1QZCjeuYcMAMsW8NjYgLbuJrdIMPJgQlsHrmGOnwZDZD').success (data) -> S.facebookFeed = data
 ]
 
-app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
-	
-	
+app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', (S, loc, steam, richEditorService) ->
+
 	S.compose = ->
-		techgrind.richEditor.init()
+		richEditorService.open()
 
 	S.countries = [
 		name: 'Cambodia'

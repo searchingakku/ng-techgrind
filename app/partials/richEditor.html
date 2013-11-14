@@ -1,21 +1,13 @@
-<form class="custom" method="POST">
+<div class="modal-body">
+  <form class="custom" method="POST">
 
 	<div class="container">
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="span11"></div>
-				<div class="span1">
-					<div id="cancelRichEditor" class="btn">
-						Cancel
-					</div>
-				</div>
-			</div>
-		</div>
+		
 
-		<div class="row-fluid newpostform fullHeight">
+		<div class="row-fluid newpostform">
 			<div class="span4">
 				<!--Sidebar content-->
-				<h2> Post Details</h2>
+				<h3> Post Details</h3>
 			</div>
 			<div class="span8">
 				<!--Body content-->
@@ -23,6 +15,19 @@
 				<input id="inputForRichText" type="hidden" name="source" value="wysiwyg" class="js_source fullHeight">
 			</div>
 		</div>
+		
+		<div class="row-fluid newpostform">
+			<div class="span12">
+				<div class="span10"></div>
+				<div class="span1">
+					<button type="button" class="btn" data-ng-click="dialogOptions.close()">{{dialogOptions.closeButtonText}}</button>
+				</div>
+				<div class="span1">
+					<button class="btn btn-primary" data-ng-click="dialogOptions.callback();">{{dialogOptions.actionButtonText}}</button>
+				</div>
+			</div>
+		</div>
 
 	</div>
 </form>
+</div>
