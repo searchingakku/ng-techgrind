@@ -275,8 +275,6 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 
 ]
 
-app.controller 'PartnersCtrl', ->
-
 app.controller 'StartupGenomeCtrl', ['$scope', '$routeParams', 'steam', (S, rp, steam) ->
 	S.countries = {}
 	S.sgenome = {}

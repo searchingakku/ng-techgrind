@@ -32,9 +32,11 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.services'
 	'TechGrindApp.directives'
 	'TechGrindApp.controllers'
+	'TechGrindApp.controllers.partners'
 	'ui.bootstrap'
-	'LocalStorageModule',
+	'LocalStorageModule'
 	'RichEditorModule'
+	
 ]
 
 # give usage example for setting up a route, explain where each of these components goes and what it does
