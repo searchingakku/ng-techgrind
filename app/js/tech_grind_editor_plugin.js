@@ -59,7 +59,7 @@ function($dialog) {
 		d.open();
 		setTimeout(function() {
 			self.activateTinyMce();
-		}, 100);
+		}, 500);
 	};
 
 	this.activateTinyMce = function() {

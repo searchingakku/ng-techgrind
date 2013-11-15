@@ -8,9 +8,43 @@
 				<div class="widget-body">
 					<tabset style="font-color:red">
 						<tab heading="News">
-							hi i am news
+							<div ng-repeat='item in  regionblog["news"]' class="article">
+								<h1>{{item.title}}</h1>
+								<div class="left"><img src="http://placehold.it/120x80"/><div class="clearfix"></div><rating value="item.rate" max="5" readonly="false"></rating>
+								</div>
+								<div class="right">
+									<div class="meta">
+										<ul>
+											<li>
+												{{item.country}}
+											</li>
+											<li>
+												{{item.owner}}
+											</li>
+											<li>
+												{{item.month}} {{item.day}}
+											</li>
+										</ul>
+									</div>
+									<p>
+										{{item.excerpt}}
+									</p>
+									<div class="social-sharing">
+										<ul>
+											<li>
+												<i class="icon-facebook-sign"></i>{{item.fb}}
+											</li>
+											<li>
+												<i class="icon-google-plus-sign"></i>{{item.gp}}
+											</li>
+											<li>
+												<i class="icon-twitter-sign"></i>{{item.tw}}
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
 						</tab>
-						<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
 							<div>
 								<ul class="items">
 									<li ng-repeat="item in regionblog[tab.title]">
@@ -64,11 +98,12 @@
 			</div>
 		</div>
 		<div class="span4">
-			<div class="div widget widget-nopad">
-				<div class="widget-header">
-					<i class="icon-list-alt"></i><span class="break">Techgrind {{articles.country}}</span>
+			<div class="widget widget-nopad">
+				<div class="widget-head">
+					<i class="icon-ellipsis-horizontal"></i>
 				</div>
-				<div class="widget-content">
+				<div class="widget-body">
+					<span class="break">Techgrind {{articles.country}}</span>
 					<center>
 						<table class="table table-hover table-striped">
 							<tbody ng-repeat="profile in profiles">
@@ -87,4 +122,4 @@
 		</div>
 	</div>
 </div>
-<pre>{{ sexpr(rp) }}</pre>
+<pre>{{sexpr(rp)}}</pre>
