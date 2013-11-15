@@ -150,7 +150,21 @@ app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('https://graph.facebook.com/153371304826505/feed?limit=5&access_token=CAACEdEose0cBAOGDpUGu6jvFBkuibxGrHEPEgvDkVEPaomUw1FPMjRbJ408vNYsWiiUSyCfDx3C9cxtM22eph3aokhHc0L02JzwKPnldUN1T3SZBuuTtGI582ahKDgGivN421JINwiygtQGZA62Owc7rlpiPR8cNZA1QZCjeuYcMAMsW8NjYgLbuJrdIMPJgQlsHrmGOnwZDZD').success (data) -> S.facebookFeed = data
 ]
 
-app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', (S, loc, steam, richEditorService) ->
+app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', '$http', '$routeParams', (S, loc, steam, richEditorService, http, rp) ->
+
+	
+	S.getblog = getblog()
+	S.regionblog = {}
+
+	matchregion = (item) ->
+		console.log(sexpr("filter", item.country==rp.region, item.country, rp.region, item))
+		item.country==rp.region
+
+	console.log('route Params:: ',rp)
+	if !!rp.region
+		S.regionblog.news = S.getblog.news.filter(matchregion)
+		S.regionblog.articles = S.getblog.articles.filter(matchregion)
+		S.regionblog.calendar = S.getblog.calendar.filter(matchregion)
 
 	S.compose = ->
 		richEditorService.open()
@@ -165,6 +179,9 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorServic
 		name: 'Indonesia'
 		url: 'indonesia'
 	,
+		name: 'India'
+		url: 'india'
+	,
 		name: 'Malaysia'
 		url: 'malaysia'
 	,
@@ -172,7 +189,7 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorServic
 		url: 'philippines'
 	,
 		name: 'Singapore'
-		url : 'singapore'
+		url : 'singaphore'
 	,
 		name: 'Thailand'
 		url: 'thailand'
@@ -459,6 +476,16 @@ regiongetdetail = ->
 			title: 'Coming soon '
 			content: 'wait'
 		,
+			name: 'Paulo Almeida'
+			mail: 'paulo.almeida @ techgrind.asia'
+			month: 'june'
+			tags: 'developement'
+			country: 'thailand'
+			owner: 'Narp'
+			icon: ''
+			title: 'Angular developer'
+			content: 'On the fly'
+		,
 			name: ' Join Us!'
 			mail: 'contact @ techgrind.asia'
 			month: 'june'
@@ -510,7 +537,7 @@ getblog = ->
 			day: '9'
 			month: 'May'
 			tags: 'developement'
-			country: 'viewtnam'
+			country: 'vietnam'
 			owner: 'Naveen'
 			articlename: 'fashion-incubator'
 			tab: 'news'
@@ -578,7 +605,7 @@ getblog = ->
 			day: '9'
 			month: 'May'
 			tags: 'developement'
-			country: 'viewtnam'
+			country: 'vietnam'
 			owner: 'Naveen'
 			articlename: 'fashion-incubator'
 			tab: 'articles'
@@ -624,6 +651,92 @@ getblog = ->
 
 			excerpt: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community'
 			content: 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+		,
+			title: 'TG Monthly Enter Philippines'
+			day: '16'
+			month: 'June'
+			tags: 'developement'
+			country: 'philippines'
+			owner: 'Narp'
+			articlename: 'tg-monthly-enter-philippines'
+			tab: 'news'
+
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'To all you struggling startups in Philippines, tired of all the noise and fluff, eager to really solve problems and be part of a community'
+			content: 'To all you struggling startups in Philippines, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+		,
+			title: 'TG Monthly Enter Malaysia'
+			day: '2'
+			month: 'May'
+			tags: 'developement'
+			country: 'malaysia'
+			owner: 'Narp'
+			articlename: 'tg-monthly-enter-malaysia'
+			tab: 'news'
+
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'To all you struggling startups in Malaysia, tired of all the noise and fluff, eager to really solve problems and be part of a community'
+			content: 'To all you struggling startups in Malaysia, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+		,
+			title: 'TG Monthly Enter Indonesia'
+			day: '2'
+			month: 'May'
+			tags: 'developement'
+			country: 'indonesia'
+			owner: 'Narp'
+			articlename: 'tg-monthly-enter-indonesia'
+			tab: 'news'
+
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'To all you struggling startups in Indonesia, tired of all the noise and fluff, eager to really solve problems and be part of a community'
+			content: 'To all you struggling startups in Indonesia, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+		,
+			title: 'TG Monthly Enter China'
+			day: '2'
+			month: 'December'
+			tags: 'developement'
+			country: 'china'
+			owner: 'Narp'
+			articlename: 'tg-monthly-enter-china'
+			tab: 'news'
+
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'To all you struggling startups in China, tired of all the noise and fluff, eager to really solve problems and be part of a community'
+			content: 'To all you struggling startups in China, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+		,
+			title: 'TG Monthly Enter Cambodia'
+			day: '2'
+			month: 'May'
+			tags: 'developement'
+			country: 'cambodia'
+			owner: 'Narp'
+			articlename: 'tg-monthly-enter-cambodia'
+			tab: 'news'
+
+			rate: 3
+			fb: 30
+			tw: 5
+			gp: 10
+
+			excerpt: 'To all you struggling startups in Cambodia, tired of all the noise and fluff, eager to really solve problems and be part of a community'
+			content: 'To all you struggling startups in Cambodia, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
+
 		],
 		articles: [
 			title: 'How to Use ng-bind-html-safe'
@@ -665,7 +778,7 @@ getblog = ->
 			day: '9'
 			month: 'May'
 			tags: 'developement'
-			country: 'viewtnam'
+			country: 'vietnam'
 			owner: 'Naveen'
 			articlename: 'fashion-incubator'
 			tab: 'articles'
