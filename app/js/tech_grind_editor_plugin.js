@@ -57,10 +57,21 @@ function($dialog) {
 		}
 		var d = $dialog.dialog(tempDialogDefaults);
 		d.open();
-		setTimeout(function() {
-			self.activateTinyMce();
-		}, 500);
+		self.waitForVisible();
+		// setTimeout(function() {
+			// self.activateTinyMce();
+		// }, 500);
 	};
+
+	this.waitForVisible = function() {
+		if($('.modal.myWindow').is(':visible')){
+			self.activateTinyMce();
+		}else{
+			setTimeout(function(){
+				self.waitForVisible();
+			},100);
+		}
+	}
 
 	this.activateTinyMce = function() {
 		console.log('Activate TinyMce loaded....');
