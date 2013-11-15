@@ -7,11 +7,9 @@
 				</div>
 				<div class="widget-body">
 					<ul class="items nav nav-tabs">
-						<li ng-repeat="item in partners">
-							<div style="height: 100px; width: 200px">
-								<img src="{{item.src}}" style="max-height: 100px; max-width: 200px"/>
-							</div>
-							<h4>{{item.title}}</h4>
+						<li ng-repeat="item in jobs">
+							<h3>{{item.title}}</h3>
+							<span>{{item.description}}</span>
 						</li>
 					</ul>
 				</div>

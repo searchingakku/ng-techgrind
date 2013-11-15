@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="widget">
+				<div class="widget-head">
+					<i class="icon-ellipsis-horizontal"></i>
+				</div>
+				<div class="widget-body">
+					<div class="items nav nav-tabs">
+						<div ng-repeat="item in docs">
+							
+								<div class="span1">
+									<img src="{{item.src}}" style="max-height: 50px; max-width: 50px"/>
+								</div>
+								<div class="span10">
+									<h4>{{item.title}}</h4>
+									<span>{{item.description}}</span>
+								</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
