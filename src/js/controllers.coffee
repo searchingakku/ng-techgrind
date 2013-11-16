@@ -130,7 +130,6 @@ app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, ste
 	steam.post('activate', activationdata).then(handle_activation)
 ]
 
-
 app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
 	S.user = steam.user
@@ -144,30 +143,7 @@ app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	steam.get('login').then(handle_request)
 ]
 
-app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
-	http.get('/mock').success (data) -> S.mock = data
-	S.getblog = getblog()
-	http.get('https://graph.facebook.com/153371304826505/feed?limit=5&access_token=CAACEdEose0cBAOGDpUGu6jvFBkuibxGrHEPEgvDkVEPaomUw1FPMjRbJ408vNYsWiiUSyCfDx3C9cxtM22eph3aokhHc0L02JzwKPnldUN1T3SZBuuTtGI582ahKDgGivN421JINwiygtQGZA62Owc7rlpiPR8cNZA1QZCjeuYcMAMsW8NjYgLbuJrdIMPJgQlsHrmGOnwZDZD').success (data) -> S.facebookFeed = data
-]
-
-app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', '$http', '$routeParams', (S, loc, steam, richEditorService, http, rp) ->
-
-	
-	S.getblog = getblog()
-	S.regionblog = {}
-
-	matchregion = (item) ->
-		console.log(sexpr("filter", item.country==rp.region, item.country, rp.region, item))
-		item.country==rp.region
-
-	console.log('route Params:: ',rp)
-	if !!rp.region
-		S.regionblog.news = S.getblog.news.filter(matchregion)
-		S.regionblog.articles = S.getblog.articles.filter(matchregion)
-		S.regionblog.calendar = S.getblog.calendar.filter(matchregion)
-
-	S.compose = ->
-		richEditorService.open()
+app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
 
 	S.countries = [
 		name: 'Cambodia'
@@ -197,6 +173,55 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorServic
 		name: 'Vietnam'
 		url: 'vietnam'
 	];
+
+
+	S.resources = [
+		name: 'Startup Jobs'
+		url: 'resources/jobs'
+		icon: 'icon-laptop'
+	,
+		name: 'Docs & Templates'
+		url: 'resources/docs'
+		icon: 'icon-file-text'
+	,
+		name: 'Guides & Tutorials'
+		url: 'resources/tutorials'
+		icon: 'icon-lightbulb'
+	,
+		name: 'Photos & Video'
+		url: 'resources/media'
+		icon: 'icon-film'
+	,
+		name: 'TeamSpeak Server'
+		url: 'resources/teamspeak'
+		icon: 'icon-group'
+	];
+]
+
+app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
+	http.get('/mock').success (data) -> S.mock = data
+	S.getblog = getblog()
+	http.get('https://graph.facebook.com/153371304826505/feed?limit=5&access_token=CAACEdEose0cBAOGDpUGu6jvFBkuibxGrHEPEgvDkVEPaomUw1FPMjRbJ408vNYsWiiUSyCfDx3C9cxtM22eph3aokhHc0L02JzwKPnldUN1T3SZBuuTtGI582ahKDgGivN421JINwiygtQGZA62Owc7rlpiPR8cNZA1QZCjeuYcMAMsW8NjYgLbuJrdIMPJgQlsHrmGOnwZDZD').success (data) -> S.facebookFeed = data
+]
+
+app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', '$http', '$routeParams', (S, loc, steam, richEditorService, http, rp) ->
+
+	
+	S.getblog = getblog()
+	S.regionblog = {}
+
+	matchregion = (item) ->
+		console.log(sexpr("filter", item.country==rp.region, item.country, rp.region, item))
+		item.country==rp.region
+
+	console.log('route Params:: ',rp)
+	if !!rp.region
+		S.regionblog.news = S.getblog.news.filter(matchregion)
+		S.regionblog.articles = S.getblog.articles.filter(matchregion)
+		S.regionblog.calendar = S.getblog.calendar.filter(matchregion)
+
+	S.compose = ->
+		richEditorService.open()
 ]
 
 app.controller 'EventsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
@@ -304,6 +329,8 @@ app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	steam.get('login').then(handle_request)
 ]
 
+# nuke this mother fucker
+# this control needs to be redone
 app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', (S, r, loc, rp)  ->
 	S.loc = loc
 	S.rp = rp
@@ -381,6 +408,7 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	S.list2 = []
 ]
 
+# this one too - redo entirely
 app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
 	S.addComment = -> 
 		S.chatterbox.push(S.commenttext);
