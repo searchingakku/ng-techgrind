@@ -33,6 +33,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.directives'
 	'TechGrindApp.controllers'
 	'TechGrindApp.controllers.partners'
+	'TechGrindApp.controllers.resources'
 	'ui.bootstrap'
 	'LocalStorageModule'
 	'RichEditorModule'
