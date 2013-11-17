@@ -31,6 +31,7 @@ app.run(['$rootScope', (root) ->
 	root.sexpr = sexpr
 ])
 
+# COMPLETE: by Martin
 app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.registerdata = {}
 	S.passwordmatch = true
@@ -88,6 +89,7 @@ app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) 
 			steam.get(S.registerdata.userid).then(handle_user))
 ]
 
+# COMPLETE: by Paulo
 app.controller 'LoginCtrl', ['$scope', '$location', '$routeParams', 'steam', (S, loc, rp, steam) ->
 	S.username = ""
 	S.password = ""
@@ -124,6 +126,7 @@ app.controller 'LoginCtrl', ['$scope', '$location', '$routeParams', 'steam', (S,
 	steam.get('login').then(handle_request)
 ]
 
+# COMPLETE: by Martin
 app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, steam) ->
 	handle_activation = (data) ->
 		if data.result == "user is activated"
@@ -141,6 +144,7 @@ app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, ste
 	steam.post('activate', activationdata).then(handle_activation)
 ]
 
+# COMPLETE: by Martin
 app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
 	S.user = steam.user
@@ -154,8 +158,8 @@ app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	steam.get('login').then(handle_request)
 ]
 
+# COMPLETE: by Efraim
 app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
-
 	S.countries = [
 		name: 'Cambodia'
 		url: 'cambodia'
@@ -184,8 +188,6 @@ app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
 		name: 'Vietnam'
 		url: 'vietnam'
 	];
-
-
 	S.resources = [
 		name: 'Startup Jobs'
 		url: 'resources/jobs'
@@ -209,15 +211,18 @@ app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
 	];
 ]
 
+# WIP
+# needs overhaul to manage control of each tab as separate controller
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	http.get('/mock').success (data) -> S.mock = data
 	S.getblog = getblog()
 	http.get('https://graph.facebook.com/153371304826505/feed?limit=5&access_token=CAACEdEose0cBAOGDpUGu6jvFBkuibxGrHEPEgvDkVEPaomUw1FPMjRbJ408vNYsWiiUSyCfDx3C9cxtM22eph3aokhHc0L02JzwKPnldUN1T3SZBuuTtGI582ahKDgGivN421JINwiygtQGZA62Owc7rlpiPR8cNZA1QZCjeuYcMAMsW8NjYgLbuJrdIMPJgQlsHrmGOnwZDZD').success (data) -> S.facebookFeed = data
 ]
 
+# WIP
+# needs overhaul, same as 'home' to manage control of each tab as separate controller
 app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', '$http', '$routeParams', (S, loc, steam, richEditorService, http, rp) ->
 
-	
 	S.getblog = getblog()
 	S.regionblog = {}
 
@@ -235,6 +240,7 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorServic
 		richEditorService.open()
 ]
 
+# WIP
 app.controller 'EventsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 
 	S.events = {}
@@ -266,6 +272,7 @@ app.controller 'EventsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.showEvent = (event) -> loc.path event.url
 ]
 
+# WIP
 app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routeParams', (S,steam,loc,rp) ->
 	S.rp = rp
 	S.user = steam.user
@@ -304,6 +311,7 @@ app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routePar
 
 ]
 
+# COMPLETE: by Martin
 app.controller 'StartupGenomeCtrl', ['$scope', '$routeParams', 'steam', (S, rp, steam) ->
 	S.countries = {}
 	S.sgenome = {}
@@ -430,25 +438,25 @@ regiongetdetail = ->
 		volunteers: [
 			name: 'Nantaprong (House) Leelahongjudha'
 			mail: 'th.house @ techgrind.asia'
-			tags: 'developement'
+			tags: 'growth-hacking'
 			country: 'thailand'
 			owner: 'Naveen'
 		,
 			name: 'Karl Hoffman'
 			mail: 'th.karl @ techgrind.asia'
-			tags: 'developement'
+			tags: 'business'
 			country: 'thailand'
 			owner: 'Naveen'
 		,
 			name: 'Efraim Pettersson'
 			mail: 'th.efraim @ techgrind.asia'
-			tags: 'developement'
+			tags: 'developement, business'
 			country: 'thailand'
 			ownem: 'Naveen'
 		,
 			name: 'Juanita Sabapathy'
 			mail: 'sg.juanita @ techgrind.asia'
-			tags: 'developement'
+			tags: 'business'
 			country: 'singapore'
 			owner: 'Naveen'
 		,
@@ -464,14 +472,6 @@ regiongetdetail = ->
 			tags: 'developement'
 			country: 'china'
 			owner: 'Naveen'
-		,
-			name: 'Worawut Saibua'
-			mail: 'th.worawut @ techgrind.asia'
-			month: 'june'
-			tags: 'developement'
-			country: 'thailand'
-			owner: 'Naveen'
-			icon: ''
 		,
 			name: 'Philippe Dacquet'
 			mail: 'th.philippe @ techgrind.asia'
