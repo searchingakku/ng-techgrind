@@ -6,11 +6,11 @@
 			<br/>
 			<input type="password" ng-model="password" placeholder="password"/>
 			<br/>
-			<button  ng-click="signUp()" class="btn btn-success">
-			Sign up
-			</button>
 			<button id="login-submit" ng-click="login();openlogin=false;$root.openlogin=false" ng-disabled="validateFields()" class="btn btn-primary">
-			Login
+				Login
+			</button>
+			<button  ng-click="signUp()" class="btn btn-success">
+				Sign up
 			</button>
 		</form>
 		<form name="signUpform" method="post" ng-show="showSignIn">
@@ -26,10 +26,10 @@
 			<input type="password" ng-model="repeat_password" placeholder="repeat password"/>
 			<br/>
 			<button ng-click="goToLogin()" class="btn btn-primary">
-			Login
+				Login
 			</button>
 			<button  ng-click="signUpAction()" class="btn btn-success">
-			Sign up
+				Sign up
 			</button>
 		</form>
 	</div>

@@ -1,22 +1,29 @@
 <div class="modal-body">
 	<form class="custom" method="POST">
 		<div class="container">
-			<i class="icon-remove-circle" data-ng-click="dialogOptions.close()"></i>
 			<div class="row-fluid newpostform">
-				<div class="span4">
-					<!--Sidebar content-->
+				<div class="span9">
 					<div class="widget-body">
-						<h2>Post Details</h2>
-						<input id="inputContentTextTitle" type="text" placeholder="Content Title...">
-						<input id="inputContentDatePublish" type="date">
-						<textarea id="inputContentLabels" rows="3" placeholder='enter content labels separated by a comma (",")'></textarea>
+						<!--Body content-->
+						<input id="inputContentRichText" type="hidden" name="source" value="Write your own article, news, or tutorial and publish it now!" class="js_source fullHeight">
 					</div>
 				</div>
-				<div class="span8">
-					<!--Body content-->
-					<input id="inputContentRichText" type="hidden" name="source" value="Write your own article, news, or tutorial and publish it now!" class="js_source fullHeight">
-					<button class="btn btn-danger" data-ng-click="dialogOptions.close()">{{dialogOptions.closeButtonText}}</button>
-					<button class="btn btn-primary" data-ng-click="dialogOptions.callback();">{{dialogOptions.actionButtonText}}</button>
+				<div class="span3">
+					<i class="icon-remove-circle pull-right" data-ng-click="dialogOptions.close()"></i>
+					<!--Sidebar content-->
+					<div class="widget-body">
+						<h4>Content Title<span style="color:red;font-size:medium"> *</span></h4>
+						<input ng-model="dialogOptions.title" style="width: 180px;" placeholder="Enter content title..."/>
+						<input id="inputContentDatePublish" type="date">
+						<h4>Labels</h4>
+						<textarea ng-model="dialogOptions.labels" rows="5" style="width: 170px" placeholder='Enter content labels separated by commas (",")'></textarea>
+ 						<div class="row-fluid">
+ 							<button class="btn btn-danger" data-ng-click="dialogOptions.close()">{{dialogOptions.closeButtonText}}</button>
+							<button class="btn btn-success" ng-show="dialogOptions.loginp()" ng-click="dialogOptions.save();" ng-disabled="!dialogOptions.formValid()">{{dialogOptions.savenButtonText}}</button>
+							<button class="btn btn-primary" ng-show="dialogOptions.loginp()" ng-click="dialogOptions.post();" ng-disabled="!dialogOptions.formValid()">{{dialogOptions.actionButtonText}}</button>
+							<button class="btn btn-primary" ng-hide="dialogOptions.loginp()" ng-click="$root.openlogin=true">{{dialogOptions.loginButtonText}}</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

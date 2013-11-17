@@ -1,8 +1,9 @@
-var myAppModule = angular.module('RichEditorModule', ['ui.bootstrap']);
-myAppModule.service('RichEditorService', ['$dialog',
-function($dialog) {
+var myAppModule = angular.module('RichEditorModule', ['ui.bootstrap','TechGrindApp.controllers']);
+myAppModule.service('RichEditorService', ['$dialog', 'steam','$rootScope',
+function($dialog, steam, $rootScope) {
 
 	var self = this;
+	var elementID = 'inputContentRichText';
 
 	self.isOpen = false;
 
@@ -17,8 +18,16 @@ function($dialog) {
 
 	var dialogOptions = {
 		closeButtonText : 'Cancel',
-		actionButtonText : 'Publish'
+		actionButtonText : 'Publish',
+		saveButtonText : 'Save',
+		loginButtonText : 'Login',
+		isLoged : false,
+		title : '',
+		labels : '',
+		fullText : ''
 	};
+
+	var user = null;
 
 	this.open = function(customDialogDefaults, customDialogOptions) {
 		if (!self.isOpen) {
@@ -26,6 +35,20 @@ function($dialog) {
 			if (!customDialogDefaults) {
 				customDialogDefaults = {};
 			}
+			
+			//$dialog.data = {};
+			//lets check if the user is logged
+			user = steam.loginp();
+			
+			dialogOptions.loginp = steam.loginp;
+			
+			console.log('User ', user);
+			if(!!user){
+				dialogOptions.isLoged = true;
+			}else{
+				dialogOptions.isLoged = false;
+			}
+
 			this.showDialog(customDialogDefaults, customDialogOptions);
 		}
 	};
@@ -44,24 +67,54 @@ function($dialog) {
 		if (!tempDialogDefaults.controller) {
 			tempDialogDefaults.controller = function($scope, dialog) {
 				$scope.dialogOptions = tempDialogOptions;
+				
 				$scope.dialogOptions.close = function(result) {
 					dialog.close(result);
 					self.isOpen = false;
 				};
-				$scope.dialogOptions.callback = function() {
-					dialog.close();
-					self.isOpen = false;
-					customDialogOptions.callback();
+				$scope.dialogOptions.login = function(result) {
+					console.log('Trying to login...');
+					$rootScope.openlogin=true;
+					//loginCtrl.openLogin();
+					
+				};
+				$scope.dialogOptions.save = function(result) {
+					var jsonMsg = {
+						title : $scope.dialogOptions.title,
+						fullText : tinyMCE.get(elementID).getContent(),
+						labels : $scope.dialogOptions.labels
+					};
+
+					//lets steam the information
+					steam.put('news', jsonMsg).then(function(){
+						console.log('Steam posted.....');
+					});
+				};
+				$scope.dialogOptions.post = function() {
+					var jsonMsg = {
+						title : $scope.dialogOptions.title,
+						fullText : tinyMCE.get(elementID).getContent(),
+						labels : $scope.dialogOptions.labels
+					};
+
+					//lets steam the information
+					steam.post('news', jsonMsg).then(function(){
+						console.log('Steam posted.....');
+						dialog.close();
+						self.isOpen = false;
+					});
+				};
+				$scope.dialogOptions.formValid = function() {
+					return $scope.dialogOptions.title.length > 0;
 				};
 			}
 		}
 		var d = $dialog.dialog(tempDialogDefaults);
 		d.open();
 		self.waitForVisible();
-		// setTimeout(function() {
-			// self.activateTinyMce();
-		// }, 500);
+		
 	};
+
 
 	this.waitForVisible = function() {
 		if($('.modal.myWindow').is(':visible')){
@@ -71,43 +124,26 @@ function($dialog) {
 				self.waitForVisible();
 			},100);
 		}
-	}
+	};
 
 	this.activateTinyMce = function() {
 		console.log('Activate TinyMce loaded....');
-		//var leftOver = $('#composeGlobalDiv').find('.row-fluid.newpostform').height();
 		tinymce.init({
-			selector : "#inputContentRichText",
-			//theme : 'advanced',
-			//plugins : 'autoresize',
-			width : '90%',
-			height : 250,
-			//autoresize_min_height: 400,
-			//autoresize_max_height: 800,
+			selector : "#" + elementID,
+			plugins: [
+				"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+				"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+				"save table contextmenu directionality emoticons template paste textcolor"
+			],
+			width : '100%',
+			height : 310,
 			browser_spellcheck : true,
 			statusbar : false,
 			menubar : false,
-			plugins : "paste",
 			paste_as_text : true,
-			//entity_encoding : "raw",
+			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | link image media | bullist | forecolor backcolor", 
 			charLimit : 100000, // this is a default value which can get modified later
-			setup : function(editor) {
-				editor.on('change', function() {
-					//define local variables
-					var tinymax, tinylen;
-					//setting our max character limit
-					tinymax = this.settings.charLimit;
-					//grabbing the length of the curent editors content
-					tinylen = this.getContent({
-						"format" : "raw"
-					}).length;
-					koSpacesDetail.leftCharacters(tinymax - tinylen + ' characters left');
-					if (tinylen > tinymax) {
-						console.log('Html lo long : size: ' + tinylen);
-					}
-				});
-			}
+			
 		});
 	};
-
 }]); 

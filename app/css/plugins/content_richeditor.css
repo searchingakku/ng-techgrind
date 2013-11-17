@@ -4,15 +4,16 @@
 .fullHeight {
     height: 100%;
 }
-.modal [class^="icon-"],
-.modal [class*=" icon-"] {
+.newpostform [class^="icon-"],
+.newpostform [class*=" icon-"] {
     font-size:30px;
     margin:0px;
-    margin-left:5px;
+    margin-right:5px;
+    margin-top:5px;
     color:#d43;
 }
-.modal [class^="icon-"]:hover,
-.modal [class*=" icon-"]:hover {
+.newpostform [class^="icon-"]:hover,
+.newpostform [class*=" icon-"]:hover {
     color:#e54;
     cursor:pointer;
 }
@@ -58,10 +59,14 @@
 .modal.myWindow .container {
     min-height:auto;
     margin-top:10px;
+    margin-bottom:0px;
     color:#eee;
     /*background-color: #444;*/
     background-color:rgb(68,68,68);
     background-color:rgba(68,68,68,0.9);
+}
+.modal.myWindow form {
+    margin-bottom: 0px;
 }
 .modal.fade {
   -webkit-transition: opacity 0.3s linear, bottom 0.3s ease-out;
