@@ -1,0 +1,24 @@
+<div class="modal-body">
+	<form class="custom" method="POST">
+		<div class="container">
+			<i class="icon-remove-circle" data-ng-click="dialogOptions.close()"></i>
+			<div class="row-fluid newpostform">
+				<div class="span4">
+					<!--Sidebar content-->
+					<div class="widget-body">
+						<h2>Post Details</h2>
+						<input id="inputContentTextTitle" type="text" placeholder="Content Title...">
+						<input id="inputContentDatePublish" type="date">
+						<textarea id="inputContentLabels" rows="3" placeholder='enter content labels separated by a comma (",")'></textarea>
+					</div>
+				</div>
+				<div class="span8">
+					<!--Body content-->
+					<input id="inputContentRichText" type="hidden" name="source" value="Write your own article, news, or tutorial and publish it now!" class="js_source fullHeight">
+					<button class="btn btn-danger" data-ng-click="dialogOptions.close()">{{dialogOptions.closeButtonText}}</button>
+					<button class="btn btn-primary" data-ng-click="dialogOptions.callback();">{{dialogOptions.actionButtonText}}</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

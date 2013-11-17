@@ -108,7 +108,8 @@ a:hover {
 	padding: 0px;
 	margin: 0px;
 }
-.dropdown-menu i {
+.dropdown-menu [class^="icon-"],
+.dropdown-menu [class*=" icon-"] {
 	margin-right: 5px;
 }
 .dropdown-menu li.sub-menu {

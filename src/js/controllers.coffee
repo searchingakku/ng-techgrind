@@ -165,7 +165,7 @@ app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
 		url: 'philippines'
 	,
 		name: 'Singapore'
-		url : 'singaphore'
+		url : 'singapore'
 	,
 		name: 'Thailand'
 		url: 'thailand'
@@ -523,7 +523,7 @@ getblog = ->
 			day: '7'
 			month: 'july'
 			tags: 'developement'
-			country: 'singaphore'
+			country: 'singapore'
 			owner: 'Naveen'
 			articlename: 'ssw-winner-announced'
 			tab: 'news'
@@ -575,9 +575,9 @@ getblog = ->
 			day: '2'
 			month: 'May'
 			tags: 'developement'
-			country: 'singaphore'
+			country: 'singapore'
 			owner: 'Naveen'
-			articlename: 'tg-monthly-enter-singaphore'
+			articlename: 'tg-monthly-enter-singapore'
 			tab: 'news'
 
 			rate: 1
@@ -643,9 +643,9 @@ getblog = ->
 			day: '2'
 			month: 'May'
 			tags: 'developement'
-			country: 'singaphore'
+			country: 'singapore'
 			owner: 'Naveen'
-			articlename: 'tg-monthly-enter-singaphore'
+			articlename: 'tg-monthly-enter-singapore'
 			tab: 'news'
 
 			rate: 3
@@ -764,7 +764,7 @@ getblog = ->
 			day: '7'
 			month: 'july'
 			tags: 'developement'
-			country: 'singaphore'
+			country: 'singapore'
 			owner: 'Naveen'
 			articlename: 'ssw-winner-announced'
 			tab: 'articles'
@@ -816,9 +816,9 @@ getblog = ->
 			day: '2'
 			month: 'May'
 			tags: 'developement'
-			country: 'singaphore'
+			country: 'singapore'
 			owner: 'Naveen'
-			articlename: 'tg-monthly-enter-singaphore'
+			articlename: 'tg-monthly-enter-singapore'
 			tab: 'articles'
 
 			rate: 2
@@ -834,7 +834,7 @@ getblog = ->
 			day: '7'
 			month: 'july'
 			tags: 'developement'
-			country: 'Singaphore'
+			country: 'Singapore'
 			owner: 'Naveen'
 			articlename: 'ssw-winner-announced'
 			tab: 'activities'
@@ -859,7 +859,7 @@ getblog = ->
 			day: '7'
 			month: 'july'
 			tags: 'developement'
-			country: 'singaphore'
+			country: 'singapore'
 			owner: 'Naveen'
 			articlename: 'ssw-winner-announced'
 			tab: 'discussion'

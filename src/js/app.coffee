@@ -37,7 +37,6 @@ app = angular.module 'TechGrindApp', [
 	'ui.bootstrap'
 	'LocalStorageModule'
 	'RichEditorModule'
-	
 ]
 
 # give usage example for setting up a route, explain where each of these components goes and what it does
@@ -47,6 +46,7 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/home.html'
 		controller: 'HomeCtrl'
 
+# WIP: incomplete
 	$routeProvider.when '/content',
 		templateUrl: 'partials/content-page.html'
 		controller: 'ContentCtrl'
@@ -58,10 +58,6 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/regions/:region',
 		templateUrl: 'partials/regions.html'
 		controller: 'RegionsCtrl'
-		
-	$routeProvider.when '/calendar',
-		templateUrl: 'partials/calendar.html'
-		controller: 'CalendarCtrl'
 
 	$routeProvider.when '/events',
 		templateUrl: 'partials/events.html'
@@ -91,12 +87,12 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/res-tutorials.html'
 		controller: 'ResourcesCtrl'
 		
-	$routeProvider.when '/resources/teamspeak',
-		templateUrl: 'partials/res-teamspeak.html'
-		controller: 'ResourcesCtrl'
-
 	$routeProvider.when '/resources/media',
 		templateUrl: 'partials/res-media.html'
+		controller: 'ResourcesCtrl'
+
+	$routeProvider.when '/resources/teamspeak',
+		templateUrl: 'partials/res-teamspeak.html'
 		controller: 'ResourcesCtrl'
 
 	$routeProvider.when '/partners',

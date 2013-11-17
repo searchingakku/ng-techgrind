@@ -1,0 +1,78 @@
+.fiftyPercent {
+    height: 50%;
+}
+.fullHeight {
+    height: 100%;
+}
+.modal [class^="icon-"],
+.modal [class*=" icon-"] {
+    font-size:30px;
+    margin:0px;
+    margin-left:5px;
+    color:#d43;
+}
+.modal [class^="icon-"]:hover,
+.modal [class*=" icon-"]:hover {
+    color:#e54;
+    cursor:pointer;
+}
+.newpostform {
+    -webkit-user-select: text;
+    overflow:hidden;
+}
+.newpostform .btn {
+    margin-bottom:5px;
+    margin-top:5px;
+}
+.tray {
+    margin-bottom: 35px;
+    background: #111;
+    border-bottom: 1px solid #333;
+    color: #eee;
+    text-shadow: 0 0 1px #eee;
+}
+.fixed {
+    width: 100%;
+    top:0px;
+    left:0px;
+    position: fixed;
+    z-index: 99;
+}
+.fixed-bottom {
+    top: auto;
+    bottom: 0;
+}
+.modal.myWindow {
+    width:100%;
+    position:fixed;
+    margin:0px;
+    padding:0px;
+    top:auto;
+    bottom:0px;
+    left:0px;
+    min-height:400px;
+    /*background-color: #222;*/
+    background-color:rgb(34,34,34);
+    background-color:rgba(34,34,34,0.5);
+}
+.modal.myWindow .container {
+    min-height:auto;
+    margin-top:10px;
+    color:#eee;
+    /*background-color: #444;*/
+    background-color:rgb(68,68,68);
+    background-color:rgba(68,68,68,0.9);
+}
+.modal.fade {
+  -webkit-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+     -moz-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+       -o-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+          transition: opacity 0.3s linear, bottom 0.3s ease-out;
+}
+.modal.fade.in {
+    top:auto;
+    bottom:0px;
+}
+.modal.fade.out {
+  bottom:0px;
+}

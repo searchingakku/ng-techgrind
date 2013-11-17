@@ -11,7 +11,7 @@ function($dialog) {
 		keyboard : true,
 		backdropClick : true,
 		dialogFade : true,
-		templateUrl : 'partials/richEditor.html',
+		templateUrl : 'partials/plugins/content_richeditor.html',
 		dialogClass : 'modal myWindow'
 	};
 
@@ -77,7 +77,7 @@ function($dialog) {
 		console.log('Activate TinyMce loaded....');
 		//var leftOver = $('#composeGlobalDiv').find('.row-fluid.newpostform').height();
 		tinymce.init({
-			selector : "#inputForRichText",
+			selector : "#inputContentRichText",
 			//theme : 'advanced',
 			//plugins : 'autoresize',
 			width : '90%',
