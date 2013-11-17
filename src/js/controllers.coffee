@@ -91,20 +91,31 @@ app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) 
 app.controller 'LoginCtrl', ['$scope', '$location', '$routeParams', 'steam', (S, loc, rp, steam) ->
 	S.username = ""
 	S.password = ""
+	S.userid  = ""
 
 	if rp.userid
 		S.userid = rp.userid
 
 	S.loginp = steam.loginp
 	S.user = steam.user
+
+	S.showSignIn = false
+
 	S.logout = ->
 		steam.logout().then(handle_request)
-
 	S.login = ->
 		console.log(sexpr("LoginCtrl", S.userid, S.password))
 		steam.login(S.userid, S.password).then(handle_request)
 		S.userid = ""
 		S.password = ""
+	S.signUp = ->
+		S.showSignIn = true
+	S.goToLogin = ->
+		S.showSignIn = false
+	S.signUpAction = ->
+		console.log('still not doing nothing...')
+	S.validateFields = ->
+		return S.userid.length == 0 || S.password.length == 0
 
 	handle_request = (data) ->
 		S.data = data
