@@ -19,7 +19,7 @@
 						<textarea ng-model="dialogOptions.labels" rows="5" style="width: 170px" placeholder='Enter content labels separated by commas (",")'></textarea>
  						<div class="row-fluid">
  							<button class="btn btn-danger" data-ng-click="dialogOptions.close()">{{dialogOptions.closeButtonText}}</button>
-							<button class="btn btn-success" ng-show="dialogOptions.loginp()" ng-click="dialogOptions.save();" ng-disabled="!dialogOptions.formValid()">{{dialogOptions.savenButtonText}}</button>
+							<button class="btn btn-success" ng-show="dialogOptions.loginp()" ng-click="dialogOptions.save();" ng-disabled="!dialogOptions.formValid()">{{dialogOptions.saveButtonText}}</button>
 							<button class="btn btn-primary" ng-show="dialogOptions.loginp()" ng-click="dialogOptions.post();" ng-disabled="!dialogOptions.formValid()">{{dialogOptions.actionButtonText}}</button>
 							<button class="btn btn-primary" ng-hide="dialogOptions.loginp()" ng-click="$root.openlogin=true">{{dialogOptions.loginButtonText}}</button>
 						</div>
