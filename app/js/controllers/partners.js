@@ -13,7 +13,7 @@
 			src : 'http://m.c.lnkd.licdn.com/media/p/4/000/164/05a/3b4537a.png'
 		}, {
 			title : 'Angular',
-			src : 'http://hop.ie/talks/angular-intro/images/angularjs.jpeg'
+			src : 'https://pbs.twimg.com/profile_images/378800000629767461/5c5bac0da24cad68077969a2b5147845.png'
 		}];
 
 	}]);

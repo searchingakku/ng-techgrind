@@ -4,30 +4,6 @@
 .fullHeight {
     height: 100%;
 }
-.newpostform {
-    padding-top: 20px;
-    margin-bottom: 0;
-    -webkit-user-select: text;
-}
-.tray {
-    margin-bottom: 35px;
-    background: #111;
-    border-bottom: 1px solid #333;
-    color: #eee;
-    text-shadow: 0 0 1px #eee;
-}
-
-.fixed {
-    width: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    z-index: 99;
-}
-.fixed-bottom {
-    top: auto;
-    bottom: 0;
-}
 
 .modal.myWindow {
     width:100%;
@@ -39,7 +15,12 @@
     background-color: black;
     padding-left: 0;
     padding-right: 0;
-    min-height: 400px;
+    min-height: 370px;
+    z-index: 1040;
+}
+
+.modal.myWindow form{
+    margin-bottom: 0px;
 }
 
 .modal.myWindow .container{
@@ -60,4 +41,10 @@
 
 .modal.fade.out {
   bottom: 0;
+}
+
+.marginAndHeight {
+    margin-bottom: 0px;
+    height: 100%;
+    max-height: 370px;
 }
