@@ -1,0 +1,36 @@
+<div ng-controller="LoginCtrl" class="row-fluid">
+	<div class="container">
+		<form name="loginform" method="post" ng-hide="showSignIn">
+			<h3>Login</h3>
+			<input type="text" ng-model="userid" placeholder="login name"/>
+			<br/>
+			<input type="password" ng-model="password" placeholder="password"/>
+			<br/>
+			<button id="login-submit" ng-click="login();openlogin=false;$root.openlogin=false" ng-disabled="validateFields()" class="btn btn-primary">
+				Login
+			</button>
+			<button  ng-click="signUp()" class="btn btn-success">
+				Sign up
+			</button>
+		</form>
+		<form name="signUpform" method="post" ng-show="showSignIn">
+			<h3>Sign Up</h3>
+			<input type="text" ng-model="fullName" placeholder="Full Name"/>
+			<br/>
+			<input type="text" ng-model="userid" placeholder="Full Name"/>
+			<br/>
+			<input type="text" ng-model="email" placeholder="email"/>
+			<br />
+			<input type="password" ng-model="password" placeholder="password"/>
+			<br/>
+			<input type="password" ng-model="repeat_password" placeholder="repeat password"/>
+			<br/>
+			<button ng-click="goToLogin()" class="btn btn-primary">
+				Login
+			</button>
+			<button  ng-click="signUpAction()" class="btn btn-success">
+				Sign up
+			</button>
+		</form>
+	</div>
+</div>

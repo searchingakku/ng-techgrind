@@ -1,0 +1,68 @@
+.fiftyPercent {
+    height: 50%;
+}
+.fullHeight {
+    height: 100%;
+}
+.newpostform [class^="icon-"],
+.newpostform [class*=" icon-"] {
+    font-size:30px;
+    margin:0px;
+    margin-right:5px;
+    margin-top:5px;
+    color:#d43;
+}
+.newpostform [class^="icon-"]:hover,
+.newpostform [class*=" icon-"]:hover {
+    color:#e54;
+    cursor:pointer;
+}
+.newpostform {
+    -webkit-user-select: text;
+    overflow:hidden;
+}
+.newpostform .btn {
+    margin-bottom:5px;
+    margin-top:5px;
+}
+
+.modal.myWindow {
+    width:100%;
+    position:fixed;
+    margin:0px;
+    padding:0px;
+    top:auto;
+    bottom:0px;
+    left:0px;
+    min-height:400px;
+    /*background-color: #222;*/
+    background-color:rgb(34,34,34);
+    background-color:rgba(34,34,34,0.5);
+    /* We need to lower the z-index so that the login popup is launched on top of the editor*/
+    z-index: 1040;
+}
+.modal.myWindow .container {
+    min-height:auto;
+    margin-top:10px;
+    margin-bottom:0px;
+    color:#eee;
+    /*background-color: #444;*/
+    background-color:rgb(68,68,68);
+    background-color:rgba(68,68,68,0.9);
+}
+.modal.myWindow form {
+    margin-bottom: 0px;
+}
+.modal.fade {
+  -webkit-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+     -moz-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+       -o-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+          transition: opacity 0.3s linear, bottom 0.3s ease-out;
+}
+.modal.fade.in {
+    top:auto;
+    bottom:0px;
+}
+.modal.fade.out {
+  bottom:0px;
+}
