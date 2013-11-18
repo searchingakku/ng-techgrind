@@ -1,8 +1,8 @@
 (function() {
 
-	var appModule = angular.module('TechGrindApp.controllers.resources', []);
+	var appModule = angular.module('TechGrindApp.controllers.resources.docs', []);
 
-	appModule.controller('ResourcesCtrl', ['$scope', '$location', 'steam', '$filter', 'TypekitService',
+	appModule.controller('ResourcesDocsCtrl', ['$scope', '$location', 'steam', '$filter', 'TypekitService',
 	function($scope, loc, steam, $filter, Typekit) {
 
 		$scope.jobs = [{

@@ -33,8 +33,12 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.directives'
 	'TechGrindApp.controllers'
 	'TechGrindApp.controllers.partners'
-	'TechGrindApp.controllers.resources'
 	'TechGrindApp.controllers.discussion'
+	'TechGrindApp.controllers.resources.jobs'
+	'TechGrindApp.controllers.resources.docs'
+	'TechGrindApp.controllers.resources.media'
+	'TechGrindApp.controllers.resources.teamspeaker'
+	'TechGrindApp.controllers.resources.guides'
 	'ui.bootstrap'
 	'LocalStorageModule'
 	'RichEditorModule'
@@ -74,23 +78,23 @@ app.config ['$routeProvider', ($routeProvider) ->
 
 	$routeProvider.when '/resources/jobs',
 		templateUrl: 'partials/res-jobs.html'
-		controller: 'ResourcesCtrl'
+		controller: 'ResourcesJobsCtrl'
 		
 	$routeProvider.when '/resources/docs',
 		templateUrl: 'partials/res-docs.html'
-		controller: 'ResourcesCtrl'
+		controller: 'ResourcesDocsCtrl'
 		
 	$routeProvider.when '/resources/guides',
 		templateUrl: 'partials/res-guides.html'
-		controller: 'ResourcesCtrl'
+		controller: 'ResourcesGuidesCtrl'
 		
 	$routeProvider.when '/resources/media',
 		templateUrl: 'partials/res-media.html'
-		controller: 'ResourcesCtrl'
+		controller: 'ResourcesMediaCtrl'
 
 	$routeProvider.when '/resources/teamspeak',
 		templateUrl: 'partials/res-teamspeak.html'
-		controller: 'ResourcesCtrl'
+		controller: 'ResourcesTeamSpeakerCtrl'
 
 	$routeProvider.when '/partners',
 		templateUrl: 'partials/partners.html'

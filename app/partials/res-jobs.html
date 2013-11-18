@@ -6,14 +6,11 @@
 					<i class="icon-ellipsis-horizontal"></i>
 				</div>
 				<div class="widget-body">
-					<ul class="items nav nav-tabs">
-						<li ng-repeat="item in jobs">
-							<h3>{{item.title}}</h3>
-							<span>{{item.description}}</span>
-						</li>
-					</ul>
+					<ng-include src="'partials/plugins/list_startups.html'"></ng-include>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<pre>{{ sexpr(rp) }}</pre>
