@@ -12,7 +12,7 @@ function($dialog, steam, $rootScope) {
 		keyboard : true,
 		backdropClick : true,
 		dialogFade : true,
-		templateUrl : 'partials/plugins/content_richeditor.html',
+		templateUrl : 'partials/services/tools_richeditor.html',
 		dialogClass : 'modal myWindow'
 	};
 
@@ -143,7 +143,6 @@ function($dialog, steam, $rootScope) {
 			paste_as_text : true,
 			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | link image media | bullist | forecolor backcolor", 
 			charLimit : 100000, // this is a default value which can get modified later
-			
 		});
 	};
 }]); 
