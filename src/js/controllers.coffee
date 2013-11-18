@@ -210,7 +210,7 @@ app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
 		icon: 'icon-file-text'
 	,
 		name: 'Guides & Tutorials'
-		url: 'resources/tutorials'
+		url: 'resources/guides'
 		icon: 'icon-lightbulb'
 	,
 		name: 'Photos & Video'

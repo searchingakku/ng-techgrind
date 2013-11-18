@@ -72,10 +72,6 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/createactivity.html'
 		controller: 'CreateactivityCtrl'
 
-	$routeProvider.when '/resources',
-		templateUrl: 'partials/resources.html'
-		controller: 'ResourcesCtrl'
-	
 	$routeProvider.when '/resources/jobs',
 		templateUrl: 'partials/res-jobs.html'
 		controller: 'ResourcesCtrl'
@@ -84,8 +80,8 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/res-docs.html'
 		controller: 'ResourcesCtrl'
 		
-	$routeProvider.when '/resources/tutorials',
-		templateUrl: 'partials/res-tutorials.html'
+	$routeProvider.when '/resources/guides',
+		templateUrl: 'partials/res-guides.html'
 		controller: 'ResourcesCtrl'
 		
 	$routeProvider.when '/resources/media',
