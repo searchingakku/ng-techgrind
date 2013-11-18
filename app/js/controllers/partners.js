@@ -64,6 +64,17 @@
 			}
 			pts[pts.length - 1].push(partnersList[i]);
 		}
+		
+		
+		$scope.frmName = '';
+		$scope.frmEmail = '';
+		$scope.frmCountry = '';
+		$scope.frmMessage = '';
+		
+		$scope.send = function() {
+			console.log('some day this will be done....');
+		}; 
+
 
 		return $scope.partners = pts;
 	}]);

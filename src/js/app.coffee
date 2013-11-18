@@ -40,6 +40,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.resources.teamspeak'
 	'TechGrindApp.controllers.resources.guides'
 	'TechGrindApp.controllers.activities'
+	'TechGrindApp.directives.lazy-loading-img'
 	'ui.bootstrap'
 	'LocalStorageModule'
 	'RichEditorModule'

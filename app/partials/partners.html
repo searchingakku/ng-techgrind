@@ -24,6 +24,15 @@
 					<i class="icon-ellipsis-horizontal"></i>
 				</div>
 				<div class="widget-body">
+					<div class="container">
+					<form id="contactform" class="ng-pristine ng-valid">
+							<input class="text" placeholder="Name" ng-model="frmName"><br>
+							<input class="text" placeholder="E-mail" ng-model="frmEmail"><br>
+							<input class="text" placeholder="Country" ng-model="frmCountry"><br>
+							<textarea rows="5" placeholder="Message..." ng-model="frmMessage"></textarea><br>
+							<button class="btn btn-primary"" ng-click="send()">Send</button>
+						</form>
+						</div>
 				</div>
 			</div>
 		</div>
