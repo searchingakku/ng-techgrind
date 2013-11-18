@@ -32,6 +32,95 @@ app.run(['$rootScope', (root) ->
 ])
 
 # COMPLETE: by Martin
+app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
+	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
+	S.user = steam.user
+	S.loginp = steam.loginp
+	S.logout = steam.logout
+	S.data = {}
+
+	handle_request = (data) ->
+		S.data = data
+
+	steam.get('login').then(handle_request)
+]
+
+# COMPLETE: by Efraim
+app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
+	S.countries = [
+		name: 'Cambodia'
+		url: 'cambodia'
+	,
+		name: 'China'
+		url: 'china'
+	,
+		name: 'Indonesia'
+		url: 'indonesia'
+	,
+		name: 'India'
+		url: 'india'
+	,
+		name: 'Malaysia'
+		url: 'malaysia'
+	,
+		name: 'Philippines'
+		url: 'philippines'
+	,
+		name: 'Singapore'
+		url : 'singapore'
+	,
+		name: 'Thailand'
+		url: 'thailand'
+	,
+		name: 'Vietnam'
+		url: 'vietnam'
+	];
+	S.resources = [
+		name: 'Startup Jobs'
+		url: 'resources/jobs'
+		icon: 'icon-laptop'
+	,
+		name: 'Docs & Templates'
+		url: 'resources/docs'
+		icon: 'icon-file-text'
+	,
+		name: 'Guides & Tutorials'
+		url: 'resources/guides'
+		icon: 'icon-lightbulb'
+	,
+		name: 'Photos & Video'
+		url: 'resources/media'
+		icon: 'icon-film'
+	,
+		name: 'TeamSpeak Server'
+		url: 'resources/teamspeak'
+		icon: 'icon-group'
+	];
+	# test menu for list creation
+	S.lists = [
+		name: 'Root'
+		url: 'plugins/list'
+		icon: ''
+	,
+		name: 'Startups'
+		url: 'plugins/list_startups'
+		icon: ''
+	,
+		name: 'Investor'
+		url: 'plugins/list_investors'
+		icon: ''
+	,
+		name: 'Coworking'
+		url: 'plugins/list_coworking'
+		icon: ''
+	,
+		name: 'Thailand'
+		url: 'plugins/list_thailand'
+		icon: ''
+	];
+]
+
+# COMPLETE: by Martin
 app.controller 'RegisterCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	S.registerdata = {}
 	S.passwordmatch = true
@@ -156,122 +245,11 @@ app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, ste
 	steam.post('activate', activationdata).then(handle_activation)
 ]
 
-# COMPLETE: by Martin
-app.controller 'AppCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
-	S.active = (menuItem) -> if loc.path() == menuItem then 'active'
-	S.user = steam.user
-	S.loginp = steam.loginp
-	S.logout = steam.logout
-	S.data = {}
-
-	handle_request = (data) ->
-		S.data = data
-
-	steam.get('login').then(handle_request)
-]
-
-# COMPLETE: by Efraim
-app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
-	S.countries = [
-		name: 'Cambodia'
-		url: 'cambodia'
-	,
-		name: 'China'
-		url: 'china'
-	,
-		name: 'Indonesia'
-		url: 'indonesia'
-	,
-		name: 'India'
-		url: 'india'
-	,
-		name: 'Malaysia'
-		url: 'malaysia'
-	,
-		name: 'Philippines'
-		url: 'philippines'
-	,
-		name: 'Singapore'
-		url : 'singapore'
-	,
-		name: 'Thailand'
-		url: 'thailand'
-	,
-		name: 'Vietnam'
-		url: 'vietnam'
-	];
-	S.resources = [
-		name: 'Startup Jobs'
-		url: 'resources/jobs'
-		icon: 'icon-laptop'
-	,
-		name: 'Docs & Templates'
-		url: 'resources/docs'
-		icon: 'icon-file-text'
-	,
-		name: 'Guides & Tutorials'
-		url: 'resources/guides'
-		icon: 'icon-lightbulb'
-	,
-		name: 'Photos & Video'
-		url: 'resources/media'
-		icon: 'icon-film'
-	,
-		name: 'TeamSpeak Server'
-		url: 'resources/teamspeak'
-		icon: 'icon-group'
-	];
-	# test menu for list creation
-	S.lists = [
-		name: 'Root'
-		url: 'plugins/list'
-		icon: ''
-	,
-		name: 'Startups'
-		url: 'plugins/list_startups'
-		icon: ''
-	,
-		name: 'Investor'
-		url: 'plugins/list_investors'
-		icon: ''
-	,
-		name: 'Coworking'
-		url: 'plugins/list_coworking'
-		icon: ''
-	,
-		name: 'Thailand'
-		url: 'plugins/list_thailand'
-		icon: ''
-	];
-]
-
 # WIP
 # needs overhaul to manage control of each tab as separate controller
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	#http.get('/mock').success (data) -> S.mock = data
-	S.getblog = getblog()
-	http.get('https://graph.facebook.com/153371304826505/feed?limit=5&access_token=CAACEdEose0cBAOGDpUGu6jvFBkuibxGrHEPEgvDkVEPaomUw1FPMjRbJ408vNYsWiiUSyCfDx3C9cxtM22eph3aokhHc0L02JzwKPnldUN1T3SZBuuTtGI582ahKDgGivN421JINwiygtQGZA62Owc7rlpiPR8cNZA1QZCjeuYcMAMsW8NjYgLbuJrdIMPJgQlsHrmGOnwZDZD').success (data) -> S.facebookFeed = data
-]
-
-# WIP
-# needs overhaul, same as 'home' to manage control of each tab as separate controller
-app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', '$http', '$routeParams', (S, loc, steam, richEditorService, http, rp) ->
-
-	S.getblog = getblog()
-	S.regionblog = {}
-
-	matchregion = (item) ->
-		console.log(sexpr("filter", item.country==rp.region, item.country, rp.region, item))
-		item.country==rp.region
-
-	console.log('route Params:: ',rp)
-	if !!rp.region
-		S.regionblog.news = S.getblog.news.filter(matchregion)
-		S.regionblog.articles = S.getblog.articles.filter(matchregion)
-		S.regionblog.calendar = S.getblog.calendar.filter(matchregion)
-
-	S.compose = ->
-		richEditorService.open()
+	#S.getblog = getblog()
 ]
 
 # WIP

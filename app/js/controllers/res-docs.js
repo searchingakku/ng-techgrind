@@ -1,6 +1,6 @@
 (function() {
 
-	var appModule = angular.module('TechGrindApp.controllers.resources.docs', []);
+	var appModule = angular.module('TechGrindApp.controllers.res-docs', []);
 
 	appModule.controller('ResourcesDocsCtrl', ['$scope', '$location', 'steam', '$filter', 'TypekitService',
 	function($scope, loc, steam, $filter, Typekit) {

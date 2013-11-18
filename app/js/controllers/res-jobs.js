@@ -1,6 +1,6 @@
 (function() {
 
-	var appModule = angular.module('TechGrindApp.controllers.resources.jobs', []);
+	var appModule = angular.module('TechGrindApp.controllers.res-jobs', []);
 
 	appModule.controller('ResourcesJobsCtrl', ['$scope', '$location', 'steam', '$filter',
 	function($scope, loc, steam, $filter) {
