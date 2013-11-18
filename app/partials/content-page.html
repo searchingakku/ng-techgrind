@@ -1,57 +1,50 @@
-<div ng-controller="ContentCtrl" class="container">
-	<div class="row">
-		<div class="span7">
-			<div class="item-title">
-				<h2>{{article.articlename}}</h2><span style="font-size:150%;" class="offset5 item-day">{{article.day}}</span><span class="item-month">{{article.month}}</span>
-			</div>
-			<div class="well well-large">
-				<h3>some image</h3>
-			</div>
-			<div class="item-content">
-				{{article.content}}
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span4">
-			<div class="well well-large">
-				<h4>Author:  {{detail.author}}</h4>
-				<h4>Source:  {{detail.source}}</h4>
-				<h4>Date:  {{detail.date}}</h4>
-				<h4>Twitter:  {{detail.twitter}}</h4>
-				<h4>Website:  {{detail.website}}</h4>
-			</div>
-			<div class="well well-large">
-				<div style="margin-top:0px;" class="social-site-links">
-					<h2>
-					<div class="span"><a href="">
-					<div class="i icon-facebook"></div></a></div>
-					<div class="span"><a href="">
-					<div class="i icon-twitter"></div></a></div>
-					<div class="span"><a href="">
-					<div class="i icon-envelope"></div></a></div>
-					<div class="span"><a href="">
-					<div class="i icon-share"></div></a></div>
-					</h2>
-				</div>
-				<br/>
-				<h3>how useful was this content</h3><span class="rating-stars"> 400 votes</span>
-			</div>
-			<div ng-model="chatterbox" style="height:200px;display:table-cell;vertical-align:bottom;" class="well well-large">
-				<li ng-repeat="comment in comments">
-					<h3 ng-model="print">comment.text</h3>
-				</li>
-				<form ng-submit="addComment()">
-					<input type="text" placeholder="add comment. . ." ng-model="commenttext" style="margin-bottom:-30px;align:center;width:240px;"/>
-					<input type="submit" value="post" class="inline"/>
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="well well-large"></div>
 
-<pre>
-<route-params>{{ sexpr(rp) }}</route-params></pre>
-<pre>
-<article>{{ sexpr(article) }}</article></pre>
+<div ng-controller="ContentCtrl" class="container div">
+  <div class="span7 row">
+    <div class="item-title">
+      <h2>{{article.articlename}}</h2><span style="font-size:150%;" class="offset5 item-day">{{article.day}}</span><span class="item-month">{{article.month}}</span>
+    </div>
+    <div class="well well-large">
+      <h3>some image</h3>
+    </div>
+    <div class="item-content">{{article.content}}</div>
+  </div>
+  <div class="span4 row">
+    <div class="well well-large">
+      <h4>Author:  {{detail.author}}</h4>
+      <h4>Source:  {{detail.source}}</h4>
+      <h4>Date:  {{detail.date}}</h4>
+      <h4>Twitter:  {{detail.twitter}}</h4>
+      <h4>Website:  {{detail.website}}</h4>
+    </div>
+    <div class="well well-large">
+      <div style="margin-top:0px;" class="social-site-links">
+        <h2>
+          <div class="span"><a href="">
+              <div class="i icon-facebook"></div></a></div>
+          <div class="span"><a href="">
+              <div class="i icon-twitter"></div></a></div>
+          <div class="span"><a href="">
+              <div class="i icon-envelope"></div></a></div>
+          <div class="span"><a href="">
+              <div class="i icon-share"></div></a></div>
+        </h2>
+      </div><br/>
+      <h3>how useful was this content</h3><span class="rating-stars"> 400 votes</span>
+    </div>
+    <div ng-model="chatterbox" style="height:200px;display:table-cell;vertical-align:bottom;" class="well well-large">
+      <li ng-repeat="comment in comments">
+        <h3 ng-model="print">comment.text</h3>
+      </li>
+      <form ng-submit="addComment()">
+        <input type="text" placeholder="add comment. . ." ng-model="commenttext" style="margin-bottom:-30px;align:center;width:240px;"/>
+        <input type="submit" value="post" class="inline"/>
+      </form>
+    </div>
+    <div class="well well-large"></div>
+    <pre>
+      <route-params>{{ sexpr(rp) }}</route-params></pre>
+    <pre>
+      <article>{{ sexpr(article) }}</article></pre>
+  </div>
 </div>

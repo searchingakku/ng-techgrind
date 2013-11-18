@@ -1,0 +1,10 @@
+
+<h1>account activation</h1>
+<p id="activation" ng-hide="true">{{ activation }}</p>
+<h3 ng-show="activation == 'failed'">activation failed.</h3>
+<h3 ng-show="activation == 'activated'">your account is now activated.</h3>
+<h3 ng-show="activation == 'active'">your account is already active.</h3>
+<div ng-hide="!activation || activation == 'failed'">your userid is
+  <h2>{{ userid }}</h2>and you may <a href="#/login/{{userid}}">log in here</a>
+</div>
+<pre>{{ sexpr(data) }}</pre>
