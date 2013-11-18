@@ -19,18 +19,7 @@
 	var appModule = angular.module('TechGrindApp.controllers.regions', []);
 	appModule.controller('RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', '$http', '$routeParams'
 	
-	function($scope, steam) {
 
-		
-
-		return $scope.xyz = zyx;
-	}
-
-	function($scope, steam) {
-
-
-		return $scope.xyz = zyx;
-	}
 
 	]);
 }).call(this);

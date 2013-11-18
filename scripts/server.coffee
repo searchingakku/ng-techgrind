@@ -49,3 +49,8 @@ app.get /(\/test\/(.+\/)?[^\/]+).js/, (req, res) ->
 app.get '/', (req, res) -> res.render 'index'
 app.get '/:dir?/:file.html', (req, res) ->
 	res.render (req.params.dir || '.') + '/' + req.params.file
+
+app.get '/js/controllers/:script.js', (req, res) ->
+    res.header 'Content-Type', 'application/javascript'
+    res.send coffee.compile fs.readFileSync(
+        "#{src_dir}/js/controllers/#{req.params.script}.coffee", "utf-8")
