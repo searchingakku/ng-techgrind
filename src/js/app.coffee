@@ -133,5 +133,17 @@ app.config ['$routeProvider', ($routeProvider) ->
 		templateUrl: 'partials/sgenome.html'
 		controller: 'StartupGenomeCtrl'
 
+	$routeProvider.when '/lists',
+		templateUrl: 'partials/plugins/lists.html'
+		controller: 'StartupGenomeCtrl'
+
+	$routeProvider.when '/lists/:country',
+		templateUrl: 'partials/plugins/list_:country.html'
+		controller: 'StartupGenomeCtrl'
+
+	$routeProvider.when '/lists/:country/:filter',
+		templateUrl: 'partials/plugins/list_:filter.html'
+		controller: 'StartupGenomeCtrl'		
+
 	$routeProvider.otherwise redirectTo: '/home'
 ]
