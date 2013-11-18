@@ -323,9 +323,9 @@ a:hover {
 	font-size:30px;
 }
 .facebook:hover, .google-plus:hover, .twitter:hover, .instagram:hover {
-	border-bottom:2px dotted #444;
-	border-top:2px dotted #444;
-	color:#555;
+	border-bottom:2px dotted #222;
+	border-top:2px dotted #222;
+	color:#222;
 }
 .facebook {
 	color:#05B;
