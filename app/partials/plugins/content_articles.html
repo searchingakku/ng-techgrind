@@ -1,0 +1,25 @@
+<div ng-controller="ContentArticlesCtrl">
+<div ng-repeat="item in articles" class="article">
+	<h1>{{item.title}}</h1>
+	<div class="left"><img src="http://placehold.it/120x80"/>
+		<div class="clearfix"></div>
+		<rating value="item.rate" max="5" readonly="false"></rating>
+	</div>
+	<div class="right">
+		<div class="meta">
+			<ul>
+				<li>{{item.country}}</li>
+				<li>{{item.owner}}</li>
+				<li>{{item.month}} {{item.day}}</li>
+			</ul>
+		</div>
+		<p>{{item.excerpt}}</p>
+		<div class="social-sharing">
+			<ul>
+				<li><i class="icon-facebook-sign"></i>{{item.fb}}</li>
+				<li><i class="icon-google-plus-sign"></i>{{item.gp}}</li>
+				<li><i class="icon-twitter-sign"></i>{{item.tw}}</li>
+			</ul>
+		</div>
+	</div>
+</div>

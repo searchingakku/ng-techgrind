@@ -1,6 +1,6 @@
 (function() {
 
-	var appModule = angular.module('TechGrindApp.controllers.activities', []);
+	var appModule = angular.module('TechGrindApp.controllers.list.activities', []);
 
 	appModule.controller('ActivitiesCtrl', ['$scope', 'steam',
 	function($scope, steam) {

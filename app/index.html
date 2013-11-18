@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/bootplus-responsive.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/app.css">
-	<link rel="stylesheet" href="css/content.css">
+	<link rel="stylesheet" href="css/plugins/content.css">
 	<link rel="stylesheet" href="css/partners.css">
 	<link rel="stylesheet" href="css/plugins/fullcalendar.css">
 	<link rel="stylesheet" href="css/services/tools_richeditor.css">
@@ -20,14 +20,10 @@
 </head>
 <body ng-controller="AppCtrl">
 <header>
-	<div class="header">
-		<nav ng-include="'partials/__menu.html'"></nav>
-	</div>
+	<div ng-include="'partials/__menu.html'" class="header"></div>
 </header>
 <section>
-	<div class="container-fluid">
-		<div ng-view class="main"></div>
-	</div>
+	<div ng-view class="main"></div>
 </section>
 <footer>
 	<div ng-include="'partials/__footer.html'" class="footer"></div>
@@ -61,19 +57,20 @@
 	<script src="lib/angular/localStorageModule.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/services.js"></script>
-	<script src="js/controllers-extras.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script>
 	<script src="js/controllers.js"></script>
-	<script src="js/controllers/partners.js"></script>
+	<script src="js/controllers/regions.js"></script>
 	<script src="js/controllers/res-docs.js"></script>
 	<script src="js/controllers/res-guides.js"></script>
 	<script src="js/controllers/res-jobs.js"></script>
 	<script src="js/controllers/res-media.js"></script>
 	<script src="js/controllers/res-teamspeak.js"></script>
-	<script src="js/controllers/discussion.js"></script>
-	<script src="js/controllers/activities.js"></script>
-	<script src="js/filters.js"></script>
-	<script src="js/directives.js"></script>
+	<script src="js/controllers/partners.js"></script>
 	<script src="js/s-expr-log.js"></script>
+	<script src="js/plugins/content_news.js"></script>
+	<script src="js/plugins/content_articles.js"></script>
+	<script src="js/plugins/list_activities.js"></script>
 	<script src="js/services/tools_richtexteditor.js"></script>
 </body>
 </html>

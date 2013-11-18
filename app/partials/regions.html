@@ -6,75 +6,23 @@
 					<i class="icon-ellipsis-horizontal"></i>
 				</div>
 				<div class="widget-body">
-					<tabset style="font-color:red">
-						<tab heading="News">
-							<div ng-repeat='item in  regionblog["news"]' class="article">
-								<h1>{{item.title}}</h1>
-								<div class="left"><img src="http://placehold.it/120x80"/><div class="clearfix"></div><rating value="item.rate" max="5" readonly="false"></rating>
-								</div>
-								<div class="right">
-									<div class="meta">
-										<ul>
-											<li>
-												{{item.country}}
-											</li>
-											<li>
-												{{item.owner}}
-											</li>
-											<li>
-												{{item.month}} {{item.day}}
-											</li>
-										</ul>
-									</div>
-									<p>
-										{{item.excerpt}}
-									</p>
-									<div class="social-sharing">
-										<ul>
-											<li>
-												<i class="icon-facebook-sign"></i>{{item.fb}}
-											</li>
-											<li>
-												<i class="icon-google-plus-sign"></i>{{item.gp}}
-											</li>
-											<li>
-												<i class="icon-twitter-sign"></i>{{item.tw}}
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</tab>
-						<tab heading="Articles">
-							<div>
-								<ul class="items">
-									<li ng-repeat="item in regionblog[tab.title]">
-										<a href="#/{{item.tab}}/{{item.articlename}}" style="text-decoration:none;">{{item.title}}</a>
-										<div id="topcontent" ng-click="toggle=!toggle" class="item-detail">
-											<div class="item-title">
-												<h3>{{item.title}}</h3>
-											</div>
-											<div class="item-date">
-												<span style="font-size:200%" class="offset9 item-day">{{item.day}}</span><span class="item-month">{{item.month}}</span>
-											</div>
-											<p ng-class="{showall:toggle,showless:!toggle}" ng-bind-html-unsafe="item.content" class="item-preview"></p>
-											<p align="left" ng-show="!toggle">
-												<a href="#/{{item.url||&quot;empty&quot;}}" style="text-decoration:none;">click to expand</a>
-											</p>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</tab>
+					<tabset>
+			            <tab heading="News">
+			              <div ng-include="'partials/plugins/content_news.html'"></div>
+			            </tab>
+			            <tab heading="Articles">
+			              <div ng-include="'partials/plugins/content_articles.html'"></div>
+			            </tab>
+			            <tab heading="Activities">
+			              <div ng-include="'partials/plugins/list_activities.html'"></div>
+			            </tab>
+
 						<tab heading="Calendar" select="rendercal()">
 							<div id="calendar" calendar="'rp.region'" region="rp"></div>
 						</tab>
-						 <tab heading="Activities">
-							<ng-include src="'partials/plugins/content_activities.html'"></ng-include>
-						</tab>
-						<tab heading="Discussion">
-							<ng-include src="'partials/content-discussion.html'" />
-						</tab>
+            			<tab heading="Discussion">
+              				<div ng-include="'partials/plugins/social_facebookgroup.html'"></div>
+            			</tab>
 						<div>
 							<div style="float:right;" ng-click="compose()" class="btn">
 								Compose

@@ -55,8 +55,7 @@
 			title : 'TiE',
 			src : 'img/logos_partners/intl_tie.jpg',
 			url : 'http://www.tie.org/'
-		}
-		];
+		}];
 
 		for (var i = 0; i < partnersList.length; i++) {
 			if (i % 3 == 0){
@@ -66,6 +65,7 @@
 		}
 
 		return $scope.partners = pts;
-	}]);
+	}
+	]);
 
 }).call(this);
