@@ -1,19 +1,29 @@
 <div class="container">
 	<div class="row">
-		<div class="span12">
+		<div class="span8">
+			<div class="widget">
+				<div class="widget-head">
+					<i class="icon-globe"></i>
+				</div>
+				<div class="widget-body">
+					<table cellpadding="10" class="table-partners">
+						<tbody>
+							<tr ng-repeat="items in partners">
+								<td ng-repeat="item in items"><a href="{{item.url}}" target="_new"> <img class="logo-small" src="{{item.src}}"/><br /> {{item.title}} </a></td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+					<a target="_new" href="http://www.theeidos.com"><img src="./img/logos_partners/th_eidos.png" class="logo-small"></a><b>TechGrind</b> is a proud user of <a target="_new" href="http://www.theeidos.com"><b>Eidos</b></a> project management tool.
+				</div>
+			</div>
+		</div>
+		<div class="span4">
 			<div class="widget">
 				<div class="widget-head">
 					<i class="icon-ellipsis-horizontal"></i>
 				</div>
 				<div class="widget-body">
-					<ul class="items nav nav-tabs">
-						<li ng-repeat="item in partners">
-							<div style="height: 100px; width: 200px">
-								<img src="{{item.src}}" style="max-height: 100px; max-width: 200px"/>
-							</div>
-							<h4>{{item.title}}</h4>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</div>
