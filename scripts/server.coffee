@@ -37,6 +37,10 @@ app.get '/js/:script.js', (req, res) ->
 	res.header 'Content-Type', 'application/javascript'
 	res.send coffee.compile fs.readFileSync(
 		"#{src_dir}/js/#{req.params.script}.coffee", "utf-8")
+app.get '/js/controllers/:script.js', (req, res) ->
+	res.header 'Content-Type', 'application/javascript'
+	res.send coffee.compile fs.readFileSync(
+		"#{src_dir}/js/controllers/#{req.params.script}.coffee", "utf-8")
 app.get /(\/test\/(.+\/)?[^\/]+).js/, (req, res) ->
 	res.header 'Content-Type', 'application/javascript'
 	res.send coffee.compile fs.readFileSync(
