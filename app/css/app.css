@@ -304,31 +304,50 @@ a:hover {
 	padding: 0;
 }
 .social li {
-	display: inline-block;
-	text-align: right;
-	vertical-align: middle;
+	display:inline-block;
+	text-align:right;
+	vertical-align:middle;
+	font-weight:bold;
 }
 .social a {
-
+	outline:none;
 }
 .social a:hover {
-	background: none;
+	background:none;
+	text-decoration:none;
 }
-.facebook, .google-plus, .twitter {
-	background: url('../img/social-icon.svg') no-repeat;
+.facebook, .google-plus, .twitter, .instagram {
 	display: block;
 	height: 30px;
 	width: 30px;
+	font-size:30px;
+}
+.facebook:hover, .google-plus:hover, .twitter:hover, .instagram:hover {
+	border-bottom:2px dotted #444;
+	border-top:2px dotted #444;
+	color:#555;
 }
 .facebook {
-	background-position: 0 0;
+	color:#05B;
 }
 .google-plus {
-	background-position: -30px 0;
+	color:#C21;
 }
 .twitter {
-	background-position: -60px 0;
+	color:#07C;
 }
+.instagram {
+	color:#965;
+}
+/*.facebook:hover {
+	color:#16D;
+}.google-plus:hover {
+	color:#E32;
+}.twitter:hover {
+	color:#08E;
+}.instagram:hover {
+	color:#A76;
+}*/
 
 /* Styling for responsive layout
 ----------------------------------------------- */
