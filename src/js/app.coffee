@@ -37,8 +37,9 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.resources.jobs'
 	'TechGrindApp.controllers.resources.docs'
 	'TechGrindApp.controllers.resources.media'
-	'TechGrindApp.controllers.resources.teamspeaker'
+	'TechGrindApp.controllers.resources.teamspeak'
 	'TechGrindApp.controllers.resources.guides'
+	'TechGrindApp.controllers.activities'
 	'ui.bootstrap'
 	'LocalStorageModule'
 	'RichEditorModule'
@@ -94,7 +95,7 @@ app.config ['$routeProvider', ($routeProvider) ->
 
 	$routeProvider.when '/resources/teamspeak',
 		templateUrl: 'partials/res-teamspeak.html'
-		controller: 'ResourcesTeamSpeakerCtrl'
+		controller: 'ResourcesTeamSpeakCtrl'
 
 	$routeProvider.when '/partners',
 		templateUrl: 'partials/partners.html'
