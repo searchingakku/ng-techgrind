@@ -119,6 +119,18 @@ app.controller 'LoginCtrl', ['$scope', '$location', '$routeParams', 'steam', (S,
 	S.validateFields = ->
 		return S.userid.length == 0 || S.password.length == 0
 
+	S.signUp = ->
+		S.showSignIn = true
+
+	S.goToLogin = ->
+		S.showSignIn = false
+
+	S.signUpAction = ->
+		console.log('still not doing nothing...')
+
+	S.validateFields = ->
+		return S.userid.length == 0 || S.password.length == 0
+
 	handle_request = (data) ->
 		S.data = data
 		console.log(sexpr("LoginCtrl", "handle_request", S.user(), data))

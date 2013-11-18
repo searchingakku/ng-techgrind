@@ -45,6 +45,7 @@
 								</div>
 							</div>
 						</tab>
+						<tab heading="Articles">
 							<div>
 								<ul class="items">
 									<li ng-repeat="item in regionblog[tab.title]">
@@ -67,6 +68,9 @@
 						</tab>
 						<tab heading="Calendar" select="rendercal()">
 							<div id="calendar" calendar="'rp.region'" region="rp"></div>
+						</tab>
+						<tab heading="Discussion">
+							<ng-include src="'partials/content-discussion.html'" />
 						</tab>
 						<div>
 							<div style="float:right;" ng-click="compose()" class="btn">

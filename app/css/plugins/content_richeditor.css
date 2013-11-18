@@ -25,24 +25,7 @@
     margin-bottom:5px;
     margin-top:5px;
 }
-.tray {
-    margin-bottom: 35px;
-    background: #111;
-    border-bottom: 1px solid #333;
-    color: #eee;
-    text-shadow: 0 0 1px #eee;
-}
-.fixed {
-    width: 100%;
-    top:0px;
-    left:0px;
-    position: fixed;
-    z-index: 99;
-}
-.fixed-bottom {
-    top: auto;
-    bottom: 0;
-}
+
 .modal.myWindow {
     width:100%;
     position:fixed;
@@ -55,6 +38,8 @@
     /*background-color: #222;*/
     background-color:rgb(34,34,34);
     background-color:rgba(34,34,34,0.5);
+    /* We need to lower the z-index so that the login popup is launched on top of the editor*/
+    z-index: 1040;
 }
 .modal.myWindow .container {
     min-height:auto;

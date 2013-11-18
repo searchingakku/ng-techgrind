@@ -34,6 +34,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers'
 	'TechGrindApp.controllers.partners'
 	'TechGrindApp.controllers.resources'
+	'TechGrindApp.controllers.discussion'
 	'ui.bootstrap'
 	'LocalStorageModule'
 	'RichEditorModule'
