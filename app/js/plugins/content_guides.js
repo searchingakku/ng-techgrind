@@ -32,20 +32,6 @@
 			var media = [];
 			
 			//TODO Steam call to obtain list of media for 1 category
-			/*
-			for (var i = 0; i < listOfContent.length; i++) {
-				if (i % 3 == 0){
-					photos.push([]);
-				}
-				photos[photos.length - 1].push({
-						id : listOfContent[i].id,
-						title : listOfContent[i].title,
-						src : listOfContent[i].src,
-						type : listOfContent[i].type,
-						description : listOfContent[i].description
-					});
-			}*/
-
 			$.each(listOfContent, function(key, value){
 				media.push({
 						id : value.id,

@@ -66,9 +66,9 @@
 
 	var listOfCategories = [
 		{
-		'title':'Architectural patterns',
+		'title':'Logos',
 		'id':'0',
-		'description' : 'An architectural pattern is a standard design in the field of software architecture. The concept of an architectural pattern has a broader scope than the concept of design pattern. The architectural patterns address various issues in software engineering, such as computer hardware performance limitations, high availability and minimization of a business risk. Some architectural patterns have been implemented within software frameworks.'
+		'description' : 'All the logos in the world.'
 		},
 		{
 		'title':'Seed Round',
@@ -105,25 +105,25 @@
 		{
 		'id' : '0',
 		'rootId' : '0',
-		'src' : 'http://gogreenplus.org/wp-content/uploads/2011/10/startup1.jpg',
+		'src' : 'http://blog.heartland.org/wp-content/uploads/2013/07/Google.jpg',
 		'type' : 'img',
-		'title' : 'Logo',
+		'title' : 'Google',
 		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
 		},
 		{
 		'id' : '1',
 		'rootId' : '0',
-		'src' : 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
-		'type' : 'video',
-		'title' : 'Marketing',
+		'src' : 'http://cdn.osxdaily.com/wp-content/uploads/2012/01/apple-logo.gif',
+		'type' : 'img',
+		'title' : 'Apple',
 		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
 		},
 		{
 		'id' : '3',
 		'rootId' : '1',
-		'src' : 'http://gogreenplus.org/wp-content/uploads/2011/10/startup1.jpg',
+		'src' : 'http://www.computing.co.uk/IMG/109/255109/ibm-logo--370x229.jpg?1372410530',
 		'type' : 'img',
-		'title' : 'Patern',
+		'title' : 'IBM',
 		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
 		},
 		{

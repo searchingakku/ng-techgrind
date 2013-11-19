@@ -34,11 +34,11 @@ img[ bn-lazy-src ] {
 }
 .media {
     display: inline-block;
-    min-height: 180px;
+    min-height: 220px;
     margin: 5px;
     padding: 10px;
     vertical-align: top;
-    width: 29%;
+    width: 47%;
 }
 .media:nth-child(odd) {
     margin-left: 0;
@@ -47,29 +47,20 @@ img[ bn-lazy-src ] {
     margin-right: 0;
 }
 .media h1 {
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
 }
 
-.media .left, .media .right {
-    float: left;
-}
-
-.media .left {
-    text-align: center;
-    width: 30%;
-}
-.media .right {
-    padding-left: 2%;
-    width: 68%;
-}
-.media img {
+.media img{
     margin-bottom: 10px;
+}
+.media video{
+    margin-bottom: 4px;
 }
 
 .media-title {
     padding: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
@@ -242,3 +233,8 @@ img[ bn-lazy-src ] {
     max-height: 100%
 }
 
+.media-card-body img{
+    width: 250px;
+    height: 200px;
+    max-height: 200px;
+}

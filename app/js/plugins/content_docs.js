@@ -21,7 +21,7 @@
 			console.log('ACTIVE TITLE: ',$scope.activeTitle);
 			$scope.activeId =listOfCategories[id].id;
 			$scope.activeDescription =listOfCategories[id].description;
-			$scope.media = buildPhotoSet(listOfCategories[id].id);
+			$scope.docs = buildPhotoSet(listOfCategories[id].id);
 		}
 		
 
@@ -66,12 +66,12 @@
 
 	var listOfCategories = [
 		{
-		'title':'Architectural patterns',
+		'title':'Seed Round',
 		'id':'0',
-		'description' : 'An architectural pattern is a standard design in the field of software architecture. The concept of an architectural pattern has a broader scope than the concept of design pattern. The architectural patterns address various issues in software engineering, such as computer hardware performance limitations, high availability and minimization of a business risk. Some architectural patterns have been implemented within software frameworks.'
+		'description' : 'Viverra malesuada nunc, orci turpis, interdum vitae felis volutpat'
 		},
 		{
-		'title':'Seed Round',
+		'title':'First Round',
 		'id':'1',
 		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
 		},
@@ -105,32 +105,32 @@
 		{
 		'id' : '0',
 		'rootId' : '0',
-		'src' : 'http://gogreenplus.org/wp-content/uploads/2011/10/startup1.jpg',
-		'type' : 'img',
+		'type' : 'pdf',
+		'src' : 'http://press.canva.com/wp-content/uploads/2013/03/CanvaPressRelease.pdf',
 		'title' : 'Logo',
 		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
 		},
 		{
 		'id' : '1',
 		'rootId' : '0',
-		'src' : 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
-		'type' : 'video',
+		'type' : 'doc',
+		'src' : 'http://www.cdc.gov/leanworks/downloads/Sample_Budget.doc',
 		'title' : 'Marketing',
 		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
 		},
 		{
 		'id' : '3',
 		'rootId' : '1',
-		'src' : 'http://gogreenplus.org/wp-content/uploads/2011/10/startup1.jpg',
-		'type' : 'img',
+		'type' : 'pdf',
+		'src' : 'http://press.canva.com/wp-content/uploads/2013/03/CanvaPressRelease.pdf',
 		'title' : 'Patern',
 		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
 		},
 		{
 		'id' : '4',
 		'rootId' : '1',
-		'src' : 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
-		'type' : 'video',
+		'type' : 'pdf',
+		'src' : 'http://press.canva.com/wp-content/uploads/2013/03/CanvaPressRelease.pdf',
 		'title' : 'How to...',
 		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
 		}

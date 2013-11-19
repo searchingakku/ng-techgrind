@@ -1,18 +1,18 @@
 img[ bn-lazy-src ] {
-    background-image: url( "img/plugins/content_media/loading-blue.gif" );
+    background-image: url( "img/plugins/content_docs/loading-blue.gif" );
 }
-.media-fluid {
+.docs-fluid {
     width: 100%;
 }
-.media-fluid:before, .media-fluid:after {
+.docs-fluid:before, .docs-fluid:after {
     display: table;
     line-height: 0;
     content: ""
 }
-.media-fluid:after {
+.docs-fluid:after {
     clear: both
 }
-.media-fluid [class*="media-blocks"] {
+.docs-fluid [class*="docs-blocks"] {
     display: block;
     float: left;
     width: 100%;
@@ -22,52 +22,52 @@ img[ bn-lazy-src ] {
     -moz-box-sizing: border-box;
     box-sizing: border-box
 }
-.media-fluid [class*="media-blocks"]:first-child {
+.docs-fluid [class*="docs-blocks"]:first-child {
     margin-left: 0
 }
 
-.media-fluid .media-blocks3 {
+.docs-fluid .docs-blocks3 {
     width:23.404255319148934%;
 }
-.media-fluid .media-blocks9 {
+.docs-fluid .docs-blocks9 {
     width: 74.46808510638297%;
 }
-.media {
+.docs {
     display: inline-block;
-    min-height: 180px;
+    min-height: 40px;
     margin: 5px;
-    padding: 10px;
+    padding: 0px;
     vertical-align: top;
-    width: 29%;
+    width: 90%;
 }
-.media:nth-child(odd) {
+.docs:nth-child(odd) {
     margin-left: 0;
 }
-.media:nth-child(even) {
+.docs:nth-child(even) {
     margin-right: 0;
 }
-.media h1 {
+.docs h1 {
     font-size: 18px;
     margin: 0;
 }
 
-.media .left, .media .right {
+.docs .left, .docs .right {
     float: left;
 }
 
-.media .left {
+.docs .left {
     text-align: center;
     width: 30%;
 }
-.media .right {
+.docs .right {
     padding-left: 2%;
     width: 68%;
 }
-.media img {
+.docs img {
     margin-bottom: 10px;
 }
 
-.media-title {
+.docs-title {
     padding: 60px;
     margin-bottom: 30px;
     font-size: 18px;
@@ -79,42 +79,42 @@ img[ bn-lazy-src ] {
     -moz-border-radius: 6px;
     border-radius: 6px
 }
-.media-title h1 {
+.docs-title h1 {
     margin-bottom: 0;
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
     color: inherit
 }
-.media-title li {
+.docs-title li {
     line-height: 30px
 }
 
 
-.media-nav {
+.docs-nav {
     margin-bottom: 20px;
     margin-left: 0;
     list-style: none;
 }
 
-.media-nav > li > a {
+.docs-nav > li > a {
     display: block
 }
-.media-nav > li > a:hover, .media-nav > li > a:focus {
+.docs-nav > li > a:hover, .docs-nav > li > a:focus {
     text-decoration: none;
     background-color: #f5f5f5
 }
-.media-nav > li > a > img {
+.docs-nav > li > a > img {
     max-width: none
 }
 
-.media-nav-list {
+.docs-nav-list {
     padding-right: 15px;
     padding-left: 15px;
     margin-bottom: 0;
 }
 
-.media-nav-list {
+.docs-nav-list {
     background-color: #f5f5f5;
     border: 1px solid #d8d8d8;
     border-bottom: 1px solid #d5d5d5;
@@ -125,7 +125,7 @@ img[ bn-lazy-src ] {
     border-radius: 3px;
 }
 
-.media-nav-header {
+.docs-nav-header {
     display: block;
     padding: 3px 15px;
     font-size: 11px;
@@ -136,17 +136,17 @@ img[ bn-lazy-src ] {
     text-transform: uppercase;
 }
 
-.media-nav-list > li > a, .media-nav-list .media-nav-header {
+.docs-nav-list > li > a, .docs-nav-list .docs-nav-header {
     margin-right: -15px;
     margin-left: -15px;
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
-.media-nav-list > li {
+.docs-nav-list > li {
     background-color: #fff;
 }
 
 
-.media-nav-list > li > a, .media-nav-list .media-nav-header {
+.docs-nav-list > li > a, .docs-nav-list .docs-nav-header {
     padding: 9px 18px;
     margin-top: 1px;
     overflow: hidden;
@@ -163,26 +163,26 @@ img[ bn-lazy-src ] {
     transition: border .218s;
 }
 
-.media-nav-list .media-nav-header {
+.docs-nav-list .docs-nav-header {
     color: #4d90fe;
 }
 
-.media-nav-list > li > a:hover, .media-nav-list > li > a:focus, .media-nav-list > .active > a, .media-nav-list > .active > a:hover, .media-nav-list > .active > a:focus {
+.docs-nav-list > li > a:hover, .docs-nav-list > li > a:focus, .docs-nav-list > .active > a, .docs-nav-list > .active > a:hover, .docs-nav-list > .active > a:focus {
     color: #262626;
     text-shadow: none;
     background-color: #f5f5f5;
     border-color: #427fed
 }
-.media-nav-list .divider {
+.docs-nav-list .divider {
     display: none
 }
 
-.media-card {
-    padding-top: 20px;
-    margin: 10px 0 20px 0;
+.docs-card {
+    margin: 10px 0 0 0;
     background-color: #fff;
     border: 1px solid #d8d8d8;
     border-top-width: 0;
+    border-right-width: 0;
     border-bottom-width: 2px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -194,17 +194,17 @@ img[ bn-lazy-src ] {
     -moz-box-sizing: border-box;
     box-sizing: border-box
 }
-.media-card .media-card-heading {
+.docs-card .docs-card-heading {
     padding: 0 20px;
     margin: 0
 }
-.media-card .media-card-heading.simple {
+.docs-card .docs-card-heading.simple {
     font-size: 20px;
     font-weight: 300;
     color: #777;
     border-bottom: 1px solid #e5e5e5
 }
-.media-card .media-card-heading.image img {
+.docs-card .docs-card-heading.image img {
     display: inline-block;
     width: 46px;
     height: 46px;
@@ -215,30 +215,25 @@ img[ bn-lazy-src ] {
     -moz-border-radius: 50%;
     border-radius: 50%
 }
-.media-card .media-card-heading.image .media-card-heading-header {
-    display: inline-block;
-    vertical-align: top
-}
-.media-card .media-card-heading.image .media-card-heading-header h3 {
-    margin: 0;
-    font-size: 14px;
-    line-height: 16px;
-    color: #262626
-}
-.media-card .media-card-heading.image .media-card-heading-header span {
-    font-size: 12px;
-    color: #999
-}
-.media-card .media-card-body {
+
+.docs-card .docs-card-body {
     padding: 0 20px;
     margin-top: 20px
 }
-.media-card .media-card-media {
+.docs-card .docs-card-docs {
     padding: 0 20px;
     margin: 0 -14px
 }
-.media-card .media-card-media img {
-    max-width: 100%;
-    max-height: 100%
+.docs-card-body img {
+    width: 30px;
+    height: 30px;
 }
 
+.docs-card-body a {
+    
+}
+.docs-card-body a:hover {
+    color:#0161fd;
+    background: #fff;
+    font-weight: bold;
+}
