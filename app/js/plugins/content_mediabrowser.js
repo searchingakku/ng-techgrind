@@ -47,7 +47,7 @@
 
 (function() {
 
-	var app = angular.module('TechGrindApp.controllers.content.media', []);
+	var app = angular.module('TechGrindApp.controllers.content.mediabrowser', []);
 
 	// I control the root of the application.
 	app.controller("ContentMediaCtrl", ['$scope', '$location', 'steam',

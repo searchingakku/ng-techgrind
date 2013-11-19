@@ -30,9 +30,9 @@
 
 (function() {
 
-	var appModule = angular.module('TechGrindApp.controllers.list.activities', []);
+	var appModule = angular.module('TechGrindApp.controllers.list.tableview', []);
 
-	appModule.controller('ActivitiesCtrl', ['$scope', 'steam',
+	appModule.controller('ListActivitiesCtrl', ['$scope', 'steam',
 	function($scope, steam) {
 
 		var pts = [];

@@ -27,3 +27,14 @@
 		example-place -> displayed information ==> action-on-interaction:
 			coworking/office/incubator -> large thumbnail image + detailed info ==> profile page
 */
+
+(function() {
+
+	var appModule = angular.module('TechGrindApp.controllers.list.places', []);
+	
+	appModule.controller('ListCoworkingCtrl', ['$scope', 'steam',
+	function($scope, steam) {
+
+	}]);
+
+}).call(this);

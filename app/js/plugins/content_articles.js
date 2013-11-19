@@ -1,3 +1,36 @@
+/*
+	content_articles:
+		display-style___________
+		this content display plugin should display "news cards" for each bit of content
+			including the following information:
+		* title
+		* location
+		* author
+		* date-time
+		* content-snippet
+		* thumbnail (3 different sizes, can be specified as parameter, eg: 120x80, 180x120, 240x160)
+		* rank (1 to 5 stars)
+		* social-sharing-data (fb/gplus/twitter likes/shares/etc)
+		
+		example:
+		* SSW Winner Announced!
+		* Thailand
+		* Karl Hoffmann
+		* July 7, 18:26
+		* Winner of SSW Bangkok, Splashpost, has received a gigantic prize ticket to Switzerland where ....
+		* <thumbnail image>
+		* 2
+		* {FB:10, GP:6, TW:19}
+ 
+		functional goal___________
+		this plugin should display content cards in a "news-card" fashion, and allow simple
+			interaction via clicking on the card itself, which will send the user to
+			the full content page to view the entire article/content/guide/tutorial/etc
+			
+		example-content -> displayed information ==> action-on-interaction:
+			news/article/tutorial/guide -> detailed info ==> full-content-page
+*/
+
 (function() {
 
 	var appModule = angular.module('TechGrindApp.controllers.content.articles', []);
