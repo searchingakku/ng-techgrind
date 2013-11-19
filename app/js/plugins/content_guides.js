@@ -1,9 +1,9 @@
 (function() {
 
-	var app = angular.module('TechGrindApp.controllers.content.media', []);
+	var app = angular.module('TechGrindApp.controllers.content.guides', []);
 
 	// I control the root of the application.
-	app.controller("ContentMediaCtrl", ['$scope', '$location', 'steam',
+	app.controller("ContentGuidesCtrl", ['$scope', '$location', 'steam',
 	function($scope, loc, steam) {
 
 		// I flag the visibility of the big box.
@@ -21,7 +21,7 @@
 			console.log('ACTIVE TITLE: ',$scope.activeTitle);
 			$scope.activeId =listOfCategories[id].id;
 			$scope.activeDescription =listOfCategories[id].description;
-			$scope.media = buildPhotoSet(listOfCategories[id].id);
+			$scope.guides = buildPhotoSet(listOfCategories[id].id);
 		}
 		
 
