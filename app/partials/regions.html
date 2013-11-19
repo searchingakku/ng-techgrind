@@ -7,22 +7,21 @@
 				</div>
 				<div class="widget-body">
 					<tabset>
-			            <tab heading="News">
-			              <div ng-include="'partials/plugins/content_news.html'"></div>
-			            </tab>
-			            <tab heading="Articles">
-			              <div ng-include="'partials/plugins/content_articles.html'"></div>
-			            </tab>
-			            <tab heading="Activities">
-			              <div ng-include="'partials/plugins/list_activities.html'"></div>
-			            </tab>
+						<tab heading="News">
+							<div ng-controller="ContentNewsCtrl">
+								<div ng-include="'partials/plugins/content_articles.html'"></div>
+							</div>
+						</tab>
+						<tab heading="Activities">
+							<div ng-include="'partials/plugins/list_activities.html'"></div>
+						</tab>
 
 						<tab heading="Calendar" select="rendercal()">
 							<div id="calendar" calendar="'rp.region'" region="rp"></div>
 						</tab>
-            			<tab heading="Discussion">
-              				<div ng-include="'partials/plugins/social_facebookgroup.html'"></div>
-            			</tab>
+						<tab heading="Discussion">
+							<div ng-include="'partials/plugins/social_facebookgroup.html'"></div>
+						</tab>
 						<div>
 							<div style="float:right;" ng-click="compose()" class="btn">
 								Compose

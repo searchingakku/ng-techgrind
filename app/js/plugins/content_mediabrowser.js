@@ -53,6 +53,7 @@
 	app.controller("ContentMediaCtrl", ['$scope', '$location', 'steam',
 	function($scope, loc, steam) {
 
+		//Galleria.loadTheme('lib/galleria/themes/twelve/galleria.twelve.min.js');
 		Galleria.loadTheme('lib/galleria/themes/classic/galleria.classic.min.js');
 		Galleria.configure({
 			transition : 'fadeslide',
