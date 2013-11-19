@@ -261,14 +261,11 @@ a:hover {
 .social-sharing i {
 	margin-right: 5px;
 }
-.social-sharing .icon-facebook-sign {
-	color: #315D99;
-}
-.social-sharing .icon-google-plus-sign {
-	color: #C12D21;
-}
-.social-sharing .icon-twitter-sign {
-	color: #00ACDE;
+.social-sharing [class*=" icon-"],
+.social-sharing [class^="icon-"] {
+	height:20px;
+	width:20px;
+	font-size:20px;
 }
 
 /* Footer
@@ -311,33 +308,32 @@ a:hover {
 }
 .social a {
 	outline:none;
+	height:30px;
+	width:30px;
+	font-size:30px;
 }
 .social a:hover {
 	background:none;
 	text-decoration:none;
 }
 .facebook, .google-plus, .twitter, .instagram {
-	display: block;
-	height: 30px;
-	width: 30px;
-	font-size:30px;
+	display:inline-block;
+	text-align:center;
 }
 .facebook:hover, .google-plus:hover, .twitter:hover, .instagram:hover {
-	border-bottom:2px dotted #222;
-	border-top:2px dotted #222;
-	color:#222;
+	color:#444;
 }
 .facebook {
-	color:#05B;
+	color:#315D99;
 }
 .google-plus {
-	color:#C21;
+	color:#C12D21;
 }
 .twitter {
-	color:#07C;
+	color:#00ACDE;
 }
 .instagram {
-	color:#965;
+	color:#865;
 }
 /*.facebook:hover {
 	color:#16D;
