@@ -6,46 +6,43 @@
 	app.controller("ContentMediaCtrl", ['$scope', '$location', 'steam',
 	function($scope, loc, steam) {
 
-		$scope.medias = listOfContent;
-
 		Galleria.loadTheme('lib/galleria/themes/classic/galleria.classic.min.js');
-		Galleria.run('[ng-controller="ContentMediaCtrl"] .galleria');
+		Galleria.configure({
+			transition : 'fadeslide',
+			imageCrop : true,
+			clicknext : true
+		}); 
+		Galleria.run('[ng-controller="ContentMediaCtrl"] .galleria', { dataSource: listOfContent });
 
 	}]);
 
-	var listOfContent = [
-		{
-		'id' : '0',
-		'rootId' : '0',
-		'src' : 'http://blog.heartland.org/wp-content/uploads/2013/07/Google.jpg',
-		'type' : 'img',
-		'title' : 'Google',
-		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
-		},
-		{
-		'id' : '1',
-		'rootId' : '0',
-		'src' : 'http://cdn.osxdaily.com/wp-content/uploads/2012/01/apple-logo.gif',
-		'type' : 'img',
-		'title' : 'Apple',
-		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
-		},
-		{
-		'id' : '3',
-		'rootId' : '1',
-		'src' : 'http://www.computing.co.uk/IMG/109/255109/ibm-logo--370x229.jpg?1372410530',
-		'type' : 'img',
-		'title' : 'IBM',
-		'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
-		}
-		// ,{
-		// 'id' : '4',
-		// 'rootId' : '1',
-		// 'src' : 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
-		// 'type' : 'video',
-		// 'title' : 'How to...',
-		// 'description' : 'Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, '
-		// }
+	var listOfContent = [{
+		thumb : 'http://www.staff.com/blog/wp-content/uploads/2013/01/Staff-infograph_billion-dollar-startups-a.png',
+		image : 'http://www.staff.com/blog/wp-content/uploads/2013/01/Staff-infograph_billion-dollar-startups-a.png',
+		title : 'My title',
+		description : 'My description',
+	}, {
+		video : 'http://www.youtube.com/watch?v=GCZrz8siv4Q',
+		title : 'My second title',
+		description : 'My second description'
+	}, {
+		thumb : 'http://omoii.com/wp/wp-content/uploads/2012/12/startups.jpg',
+		image : 'http://omoii.com/wp/wp-content/uploads/2012/12/startups.jpg',
+		title : 'My title',
+		description : 'My description',
+	}, {
+		thumb : 'http://www.briefmine.com/blog/wp-content/uploads/2013/04/startups-image.jpg',
+		image : 'http://www.briefmine.com/blog/wp-content/uploads/2013/04/startups-image.jpg',
+	}, {
+		thumb : 'http://siliconflorist.com/wp-content/uploads/2011/05/meet-the-startup.png',
+		image : 'http://siliconflorist.com/wp-content/uploads/2011/05/meet-the-startup.png',
+	}, {
+		thumb : 'http://brazilianbubble.com/wp-content/uploads/2012/02/startups5.jpg',
+		image : 'http://brazilianbubble.com/wp-content/uploads/2012/02/startups5.jpg',
+	}, {
+		thumb : 'http://timoelliott.com/blog/wp-content/uploads/2012/09/SAP-and-Startups.jpg',
+		image : 'http://timoelliott.com/blog/wp-content/uploads/2012/09/SAP-and-Startups.jpg',
+	}
 	];
 
 }).call(this);
