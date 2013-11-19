@@ -6,19 +6,19 @@
         <div class="widget-body">
           <tabset>
             <tab heading="News">
-              <div ng-include="'partials/plugins/content_news.html'"></div>
+              <div ng-include="'partials/plugins/content_articles.html'"></div>
             </tab>
             <tab heading="Articles">
               <div ng-include="'partials/plugins/content_articles.html'"></div>
             </tab>
             <tab heading="Activities">
-              <div ng-include="'partials/plugins/list_activities.html'"></div>
+              <div ng-include="'partials/plugins/list_tableview.html'"></div>
             </tab>
             <tab heading="Calendar">
               <div calendar="'all'"></div>
             </tab>
             <tab heading="Discussion">
-              <div ng-include="'partials/plugins/social_facebookgroup.html'"></div>
+              <div ng-include="'partials/plugins/social_facebook.html'"></div>
             </tab>
           </tabset>
         </div>
@@ -38,7 +38,7 @@
           <div calendar="calendar"></div>
         </div>
       </div>
-      <div ng-include="'partials/plugins/social_twitterfeed.html'"></div>
+      <div ng-include="'partials/plugins/social_twitter.html'"></div>
     </div>
   </div>
 </div>
