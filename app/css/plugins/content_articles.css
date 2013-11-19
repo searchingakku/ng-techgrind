@@ -1,0 +1,278 @@
+/*
+	content_articles:
+		display-style___________
+		this content display plugin should display "news cards" for each bit of content
+			including the following information:
+		* title
+		* location
+		* author
+		* date-time
+		* content-snippet
+		* thumbnail (3 different sizes, can be specified as parameter, eg: 120x80, 180x120, 240x160)
+		* rank (1 to 5 stars)
+		* social-sharing-data (fb/gplus/twitter likes/shares/etc)
+		
+		example:
+		* SSW Winner Announced!
+		* Thailand
+		* Karl Hoffmann
+		* July 7, 18:26
+		* Winner of SSW Bangkok, Splashpost, has received a gigantic prize ticket to Switzerland where ....
+		* <thumbnail image>
+		* 2
+		* {FB:10, GP:6, TW:19}
+ 
+		functional goal___________
+		this plugin should display content cards in a "news-card" fashion, and allow simple
+			interaction via clicking on the card itself, which will send the user to
+			the full content page to view the entire article/content/guide/tutorial/etc
+			
+		example-content -> displayed information ==> action-on-interaction:
+			news/article/tutorial/guide -> detailed info ==> full-content-page
+*/
+
+
+img[ bn-lazy-src ] {
+    background-image: url( "img/plugins/content_media/loading-blue.gif" );
+}
+.guides-fluid {
+    width: 100%;
+}
+.guides-fluid:before, .guides-fluid:after {
+    display: table;
+    line-height: 0;
+    content: ""
+}
+.guides-fluid:after {
+    clear: both
+}
+.guides-fluid [class*="guides-blocks"] {
+    display: block;
+    float: left;
+    width: 100%;
+    min-height: 30px;
+    margin-left: 2.127659574468085%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+.guides-fluid [class*="guides-blocks"]:first-child {
+    margin-left: 0
+}
+
+.guides-fluid .guides-blocks3 {
+    width:23.404255319148934%;
+}
+.guides-fluid .guides-blocks9 {
+    width: 74.46808510638297%;
+}
+.guides {
+    display: inline-block;
+    min-height: 180px;
+    margin: 5px;
+    padding: 10px;
+    vertical-align: top;
+    width: 29%;
+}
+.guides:nth-child(odd) {
+    margin-left: 0;
+}
+.guides:nth-child(even) {
+    margin-right: 0;
+}
+.guides h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.guides .left, .media .right {
+    float: left;
+}
+
+.guides .left {
+    text-align: center;
+    width: 30%;
+}
+.guides .right {
+    padding-left: 2%;
+    width: 68%;
+}
+.guides img {
+    margin-bottom: 10px;
+}
+
+.guides-title {
+    padding: 60px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    color: inherit;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px
+}
+.guides-title h1 {
+    margin-bottom: 0;
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: inherit
+}
+.guides-title li {
+    line-height: 30px
+}
+
+
+.guides-nav {
+    margin-bottom: 20px;
+    margin-left: 0;
+    list-style: none;
+}
+
+.guides-nav > li > a {
+    display: block
+}
+.guides-nav > li > a:hover, .guides-nav > li > a:focus {
+    text-decoration: none;
+    background-color: #f5f5f5
+}
+.guides-nav > li > a > img {
+    max-width: none
+}
+
+.guides-nav-list {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-bottom: 0;
+}
+
+.guides-nav-list {
+    background-color: #f5f5f5;
+    border: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d5d5d5;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.guides-nav-header {
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #999;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    text-transform: uppercase;
+}
+
+.guides-nav-list > li > a, .guides-nav-list .guides-nav-header {
+    margin-right: -15px;
+    margin-left: -15px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+.guides-nav-list > li {
+    background-color: #fff;
+}
+
+
+.guides-nav-list > li > a, .guides-nav-list .guides-nav-header {
+    padding: 9px 18px;
+    margin-top: 1px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #737373;
+    text-overflow: ellipsis;
+    text-shadow: none;
+    background-color: #fff;
+    border-left: 2px solid transparent;
+    -webkit-transition: border .218s;
+    -moz-transition: border .218s;
+    -o-transition: border .218s;
+    transition: border .218s;
+}
+
+.guides-nav-list .guides-nav-header {
+    color: #4d90fe;
+}
+
+.guides-nav-list > li > a:hover, .guides-nav-list > li > a:focus, .guides-nav-list > .active > a, .guides-nav-list > .active > a:hover, .guides-nav-list > .active > a:focus {
+    color: #262626;
+    text-shadow: none;
+    background-color: #f5f5f5;
+    border-color: #427fed
+}
+.guides-nav-list .divider {
+    display: none
+}
+
+.guides-card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+.guides-card .guides-card-heading {
+    padding: 0 20px;
+    margin: 0
+}
+.guides-card .guides-card-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5
+}
+.guides-card .guides-card-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%
+}
+.guides-card .guides-card-heading.image .guides-card-heading-header {
+    display: inline-block;
+    vertical-align: top
+}
+.guides-card .guides-card-heading.image .guides-card-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626
+}
+.guides-card .guides-card-heading.image .guides-card-heading-header span {
+    font-size: 12px;
+    color: #999
+}
+.guides-card .guides-card-body {
+    padding: 0 20px;
+    margin-top: 20px
+}
+.guides-card .guides-card-media {
+    padding: 0 20px;
+    margin: 0 -14px
+}
+.guides-card .guides-card-media img {
+    max-width: 100%;
+    max-height: 100%
+}
+

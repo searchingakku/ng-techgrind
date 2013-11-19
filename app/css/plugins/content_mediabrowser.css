@@ -1,18 +1,71 @@
+/*
+	content_mediabrowser:
+		display-style___________
+		this content display plugin acts as a media browser. it should be a fully built-in
+			media browser with navigation inside of the media itself (when and if possible).
+			the media browser will handle video and photos, which also serve as navigation.
+			there are 2 types of elements to display in this plugin.
+		
+		1) media, which sould include:
+		* video / photo thumbnail
+		* text-title
+		* author
+		
+		2) category, which should include:
+		* photo thumbnail
+		* text-title
+		
+		example #1:
+		* <thumbnail>
+		* eKita @ SLAP.BKK#2 Pitching!
+		* Efraim Pettersson
+		
+		example #1 - when clicked on, full-scale-view:
+		* <thumbnail>
+		* eKita @ SLAP.BKK#2 Pitching!
+		* Efraim Pettersson
+		* July 2, 19:07
+		* {FB:10, GP:6, TW:19}
+		
+		example #2:
+		* <techgrind-logo>
+		* TechGrind
+		
+		example #2.2: (a sub-category)
+		* <thumbnail>
+		* TechGrind.Events
+		
+		functional goal___________
+		this plugin should display media in a media browser as thumbnails.
+			when clicking on a thumbnail, 1 of 2 things happens:
+			1) if thumbnail is a category, media browser navigates to the category, adding a "breadcrumb" to a navigation element
+			2) if thumbnail is an image/video, media browser expands view to full-scale for the specified media object
+			
+		example-media -> displayed information ==> action-on-interaction:
+			photo/video/image -> thumbnail-view ==> full-scale view
+*/
+
+.galleria {
+    width: 100%;
+    height: 500px;
+    background: #000
+}
+
 img[ bn-lazy-src ] {
     background-image: url( "img/plugins/content_media/loading-blue.gif" );
 }
-.guides-fluid {
+.media-fluid {
     width: 100%;
 }
-.guides-fluid:before, .guides-fluid:after {
+.media-fluid:before, .media-fluid:after {
     display: table;
     line-height: 0;
     content: ""
 }
-.guides-fluid:after {
+.media-fluid:after {
     clear: both
 }
-.guides-fluid [class*="guides-blocks"] {
+.media-fluid [class*="media-blocks"] {
     display: block;
     float: left;
     width: 100%;
@@ -22,54 +75,45 @@ img[ bn-lazy-src ] {
     -moz-box-sizing: border-box;
     box-sizing: border-box
 }
-.guides-fluid [class*="guides-blocks"]:first-child {
+.media-fluid [class*="media-blocks"]:first-child {
     margin-left: 0
 }
 
-.guides-fluid .guides-blocks3 {
+.media-fluid .media-blocks3 {
     width:23.404255319148934%;
 }
-.guides-fluid .guides-blocks9 {
+.media-fluid .media-blocks9 {
     width: 74.46808510638297%;
 }
-.guides {
+.media {
     display: inline-block;
-    min-height: 180px;
+    min-height: 220px;
     margin: 5px;
     padding: 10px;
     vertical-align: top;
-    width: 29%;
+    width: 47%;
 }
-.guides:nth-child(odd) {
+.media:nth-child(odd) {
     margin-left: 0;
 }
-.guides:nth-child(even) {
+.media:nth-child(even) {
     margin-right: 0;
 }
-.guides h1 {
-    font-size: 18px;
+.media h1 {
+    font-size: 16px;
     margin: 0;
 }
 
-.guides .left, .media .right {
-    float: left;
-}
-
-.guides .left {
-    text-align: center;
-    width: 30%;
-}
-.guides .right {
-    padding-left: 2%;
-    width: 68%;
-}
-.guides img {
+.media img{
     margin-bottom: 10px;
 }
+.media video{
+    margin-bottom: 4px;
+}
 
-.guides-title {
+.media-title {
     padding: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
@@ -79,42 +123,42 @@ img[ bn-lazy-src ] {
     -moz-border-radius: 6px;
     border-radius: 6px
 }
-.guides-title h1 {
+.media-title h1 {
     margin-bottom: 0;
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
     color: inherit
 }
-.guides-title li {
+.media-title li {
     line-height: 30px
 }
 
 
-.guides-nav {
+.media-nav {
     margin-bottom: 20px;
     margin-left: 0;
     list-style: none;
 }
 
-.guides-nav > li > a {
+.media-nav > li > a {
     display: block
 }
-.guides-nav > li > a:hover, .guides-nav > li > a:focus {
+.media-nav > li > a:hover, .media-nav > li > a:focus {
     text-decoration: none;
     background-color: #f5f5f5
 }
-.guides-nav > li > a > img {
+.media-nav > li > a > img {
     max-width: none
 }
 
-.guides-nav-list {
+.media-nav-list {
     padding-right: 15px;
     padding-left: 15px;
     margin-bottom: 0;
 }
 
-.guides-nav-list {
+.media-nav-list {
     background-color: #f5f5f5;
     border: 1px solid #d8d8d8;
     border-bottom: 1px solid #d5d5d5;
@@ -125,7 +169,7 @@ img[ bn-lazy-src ] {
     border-radius: 3px;
 }
 
-.guides-nav-header {
+.media-nav-header {
     display: block;
     padding: 3px 15px;
     font-size: 11px;
@@ -136,17 +180,17 @@ img[ bn-lazy-src ] {
     text-transform: uppercase;
 }
 
-.guides-nav-list > li > a, .guides-nav-list .guides-nav-header {
+.media-nav-list > li > a, .media-nav-list .media-nav-header {
     margin-right: -15px;
     margin-left: -15px;
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
-.guides-nav-list > li {
+.media-nav-list > li {
     background-color: #fff;
 }
 
 
-.guides-nav-list > li > a, .guides-nav-list .guides-nav-header {
+.media-nav-list > li > a, .media-nav-list .media-nav-header {
     padding: 9px 18px;
     margin-top: 1px;
     overflow: hidden;
@@ -163,21 +207,21 @@ img[ bn-lazy-src ] {
     transition: border .218s;
 }
 
-.guides-nav-list .guides-nav-header {
+.media-nav-list .media-nav-header {
     color: #4d90fe;
 }
 
-.guides-nav-list > li > a:hover, .guides-nav-list > li > a:focus, .guides-nav-list > .active > a, .guides-nav-list > .active > a:hover, .guides-nav-list > .active > a:focus {
+.media-nav-list > li > a:hover, .media-nav-list > li > a:focus, .media-nav-list > .active > a, .media-nav-list > .active > a:hover, .media-nav-list > .active > a:focus {
     color: #262626;
     text-shadow: none;
     background-color: #f5f5f5;
     border-color: #427fed
 }
-.guides-nav-list .divider {
+.media-nav-list .divider {
     display: none
 }
 
-.guides-card {
+.media-card {
     padding-top: 20px;
     margin: 10px 0 20px 0;
     background-color: #fff;
@@ -194,17 +238,17 @@ img[ bn-lazy-src ] {
     -moz-box-sizing: border-box;
     box-sizing: border-box
 }
-.guides-card .guides-card-heading {
+.media-card .media-card-heading {
     padding: 0 20px;
     margin: 0
 }
-.guides-card .guides-card-heading.simple {
+.media-card .media-card-heading.simple {
     font-size: 20px;
     font-weight: 300;
     color: #777;
     border-bottom: 1px solid #e5e5e5
 }
-.guides-card .guides-card-heading.image img {
+.media-card .media-card-heading.image img {
     display: inline-block;
     width: 46px;
     height: 46px;
@@ -215,30 +259,35 @@ img[ bn-lazy-src ] {
     -moz-border-radius: 50%;
     border-radius: 50%
 }
-.guides-card .guides-card-heading.image .guides-card-heading-header {
+.media-card .media-card-heading.image .media-card-heading-header {
     display: inline-block;
     vertical-align: top
 }
-.guides-card .guides-card-heading.image .guides-card-heading-header h3 {
+.media-card .media-card-heading.image .media-card-heading-header h3 {
     margin: 0;
     font-size: 14px;
     line-height: 16px;
     color: #262626
 }
-.guides-card .guides-card-heading.image .guides-card-heading-header span {
+.media-card .media-card-heading.image .media-card-heading-header span {
     font-size: 12px;
     color: #999
 }
-.guides-card .guides-card-body {
+.media-card .media-card-body {
     padding: 0 20px;
     margin-top: 20px
 }
-.guides-card .guides-card-media {
+.media-card .media-card-media {
     padding: 0 20px;
     margin: 0 -14px
 }
-.guides-card .guides-card-media img {
+.media-card .media-card-media img {
     max-width: 100%;
     max-height: 100%
 }
 
+.media-card-body img{
+    width: 250px;
+    height: 200px;
+    max-height: 200px;
+}
