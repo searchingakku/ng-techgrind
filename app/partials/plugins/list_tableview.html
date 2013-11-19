@@ -1,0 +1,67 @@
+<!--/*
+	list_tableview:
+		display-style___________
+		this list object should display elements in a vertical 1-column list with:
+		* type
+		* location (city)
+		* name / abbreviation
+		* short-description
+		* date-time
+		* price
+		
+		example:
+		* Event
+		* Bangkok, Thailand
+		* SLAP
+		* Speak, Learn, and Pitch:
+			Practice pitching with fellow startups!
+		* Thursday, 21-11-2013
+			18:00 - 22:00
+		* FREE!
+ 
+		functional goal___________
+		this list object should display in a narrow/compact height+full width table-type grid.
+			it should serve as a quick-information listing of actionable items and should
+			send the user to a full-profile page or handling page for the item on interaction.
+			
+		example-item -> displayed information ==> action-on-interaction:
+			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
+*/-->
+<div ng-repeat="item in getblog['activities']" class="article">
+	<h1>{{item.title}}</h1>
+	<div class="left"><img src="http://placehold.it/120x80"/>
+		<div class="clearfix"></div>
+		<rating value="item.rate" max="5" readonly="false"></rating>
+	</div>
+	<div class="right">
+		<div class="meta">
+			<ul>
+				<li>
+					{{item.country}}
+				</li>
+				<li>
+					{{item.owner}}
+				</li>
+				<li>
+					{{item.month}} {{item.day}}
+				</li>
+			</ul>
+		</div>
+		<p>
+			{{item.excerpt}}
+		</p>
+		<div class="social-sharing">
+			<ul>
+				<li>
+					<i class="icon-facebook-sign"></i>{{item.fb}}
+				</li>
+				<li>
+					<i class="icon-google-plus-sign"></i>{{item.gp}}
+				</li>
+				<li>
+					<i class="icon-twitter-sign"></i>{{item.tw}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

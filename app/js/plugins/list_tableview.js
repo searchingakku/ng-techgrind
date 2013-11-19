@@ -1,3 +1,33 @@
+/*
+	list_tableview:
+		display-style___________
+		this list object should display elements in a vertical 1-column list with:
+		* type
+		* location (city)
+		* name / abbreviation
+		* short-description
+		* date-time
+		* price
+		
+		example:
+		* Event
+		* Bangkok, Thailand
+		* SLAP
+		* Speak, Learn, and Pitch:
+			Practice pitching with fellow startups!
+		* Thursday, 21-11-2013
+			18:00 - 22:00
+		* FREE!
+ 
+		functional goal___________
+		this list object should display in a narrow/compact height+full width table-type grid.
+			it should serve as a quick-information listing of actionable items and should
+			send the user to a full-profile page or handling page for the item on interaction.
+			
+		example-item -> displayed information ==> action-on-interaction:
+			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
+*/
+
 (function() {
 
 	var appModule = angular.module('TechGrindApp.controllers.list.activities', []);
