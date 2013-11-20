@@ -23,4 +23,7 @@ app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorServic
 
 	$scope.compose = ->
 		richEditorService.open()
+
+	$scope.tabCalendarSelect = ->
+		$('#calendar').fullCalendar 'render'
 ]

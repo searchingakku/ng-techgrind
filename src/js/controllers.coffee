@@ -250,6 +250,8 @@ app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, ste
 app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
 	#http.get('/mock').success (data) -> S.mock = data
 	#S.getblog = getblog()
+	S.tabCalendarSelect = ->
+		$('#calendar').fullCalendar 'render'
 ]
 
 # WIP

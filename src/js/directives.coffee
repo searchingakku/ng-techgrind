@@ -78,15 +78,20 @@ directives.directive 'calendar', ($parse) ->
 				cal = regions['thailand'].concat(regions['singapore'])
 			else
 				cal = regions[calendar]
-	
-			element.fullCalendar(
-				header:
+
+			if calendar == "calendar"
+				headerCalendar =
 					left: 'title'
 					center: ''
 					right: 'today'
-					# left: 'prev,next today'
-					# center: 'title'
-					# right: 'month,basicWeek,basicDay'
+			else
+				headerCalendar =
+					left: 'prev,next today'
+					center: 'title'
+					right: 'month,basicWeek,basicDay'
+
+			element.fullCalendar(
+				header: headerCalendar
 				eventSources: cal
 				eventClick: (event) ->
 					window.open(event.url, 'gcalevent', 'width=700,height=600')

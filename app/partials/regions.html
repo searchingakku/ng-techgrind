@@ -13,11 +13,11 @@
 							</div>
 						</tab>
 						<tab heading="Activities">
-							<div ng-include="'partials/plugins/list_activities.html'"></div>
+							<div ng-include="'partials/plugins/list_tableview.html'"></div>
 						</tab>
 
-						 <tab heading="Calendar">
-							<div calendar="{{rp.region}}" region="{{rp}}"></div>
+						 <tab heading="Calendar" select="tabCalendarSelect()">
+							<div id="calendar" calendar="{{rp.region}}" region="{{rp}}"></div>
 						</tab>
 						<tab heading="Discussion">
 							<div ng-include="'partials/plugins/social_facebook.html'"></div>
