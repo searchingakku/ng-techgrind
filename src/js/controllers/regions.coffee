@@ -17,8 +17,10 @@
 
 app = angular.module 'TechGrindApp.controllers.regions', []
 
-app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', '$http', '$routeParams', (S, loc, steam, richEditorService, http, rp) ->
+app.controller 'RegionsCtrl', ['$scope', '$location', 'steam', 'RichEditorService', '$http', '$routeParams', ($scope, loc, steam, richEditorService, http, rp) ->
 
-	S.compose = ->
+	$scope.rp = rp;
+
+	$scope.compose = ->
 		richEditorService.open()
 ]
