@@ -61,7 +61,7 @@ directives.directive 'calendar', ($parse) ->
 
 		#We need to make it an observeble 
 		attrs.$observe "calendar", (actual_value_from_calendar_attr) ->
-			calendar = actual_value
+			calendar = actual_value_from_calendar_attr
 
 			console.log(sexpr("calendar-directive", calendar))
 			regions = 
@@ -74,7 +74,7 @@ directives.directive 'calendar', ($parse) ->
 					# Singaporean Holidays 
 					'https://www.google.com/calendar/feeds/en.singapore%23holiday%40group.v.calendar.google.com/public/basic' ]
 	
-			if calendar == "all"
+			if calendar == "'all'"
 				cal = regions['thailand'].concat(regions['singapore'])
 			else
 				cal = regions[calendar]
