@@ -33,7 +33,7 @@
 
 
 <div ng-repeat="item in articles" class="article">
-	<h1>{{item.title}}</h1>
+	<a href="#/article/{{item.id}}"><h1>{{item.title}}</h1></a>
 	<div class="left"><img src="http://placehold.it/120x80"/>
 		<div class="clearfix"></div>
 		<rating value="item.rate" max="5" readonly="false"></rating>

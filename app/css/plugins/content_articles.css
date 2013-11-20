@@ -276,3 +276,7 @@ img[ bn-lazy-src ] {
     max-height: 100%
 }
 
+.article a:hover {
+    color: #4d90fe;
+    cursor: pointer;
+}

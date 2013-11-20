@@ -33,6 +33,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.directives'
 	'TechGrindApp.controllers'
 	'TechGrindApp.controllers.regions'
+	'TechGrindApp.controllers.article'
 	'TechGrindApp.controllers.res-jobs'
 	'TechGrindApp.controllers.res-docs'
 	'TechGrindApp.controllers.res-guides'
@@ -106,6 +107,10 @@ app.config ['$routeProvider', ($routeProvider) ->
 	$routeProvider.when '/partners',
 		templateUrl: 'partials/partners.html'
 		controller: 'PartnersCtrl'
+
+	$routeProvider.when '/article/:id',
+		templateUrl: 'partials/article.html'
+		controller: 'ArticleCtrl'
 	
 	$routeProvider.when '/register',
 		templateUrl: 'partials/register.html'

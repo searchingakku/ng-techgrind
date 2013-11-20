@@ -52,7 +52,7 @@
 
 		return $scope.articles;
 	}]);
-	
+
 	appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams',
 	function($scope, steam, rp) {
 
@@ -64,6 +64,7 @@
 }).call(this);
 
 var news = [{
+	id : '7834',
 	title : 'How to Use ng-bind-html-safe',
 	day : '20',
 	month : 'june',
@@ -79,6 +80,7 @@ var news = [{
 	excerpt : 'Creates a binding that will innerHTML the result of evaluating the expression into the current element The innerHTML-ed content',
 	content : 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
 }, {
+	id : '7834',
 	title : 'SSW Winner Announced',
 	day : '7',
 	month : 'july',
@@ -95,6 +97,7 @@ var news = [{
 	content : 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.',
 	url : 'news/article2',
 }, {
+	id : '7834',
 	title : 'Fashion Incubator Looking for Talent',
 	day : '9',
 	month : 'May',
@@ -110,6 +113,7 @@ var news = [{
 	excerpt : 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs',
 	content : 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!',
 }, {
+	id : '7834',
 	title : 'Founder Equity Calculator',
 	day : '8',
 	month : 'May',
@@ -125,6 +129,7 @@ var news = [{
 	excerpt : 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator',
 	content : 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator that was presented at TechGrind Co-founder dating event in April.',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Singaphore',
 	day : '2',
 	month : 'May',
@@ -140,6 +145,7 @@ var news = [{
 	excerpt : 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'FAP.BKK#1, WSR, a very busy week!',
 	day : '27',
 	month : 'April',
@@ -155,6 +161,7 @@ var news = [{
 	excerpt : 'Thank-you everyone for a great week full of events! This last week was incredibly busy and productive for Bangkok startups.',
 	content : 'Thank-you everyone for a great week full of events! This last week was incredibly busy and productive for Bangkok startups. Thanks to all who contributed and helped make TechGrind explode onto the scene with such success.',
 }, {
+	id : '7834',
 	title : 'Fashion Incubator Looking for Talent',
 	day : '9',
 	month : 'May',
@@ -170,6 +177,7 @@ var news = [{
 	excerpt : 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs',
 	content : 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!',
 }, {
+	id : '7834',
 	title : 'How to Use ng-bind-html-safe',
 	day : '20',
 	month : 'june',
@@ -185,6 +193,7 @@ var news = [{
 	excerpt : 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content',
 	content : 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Singaphore',
 	day : '2',
 	month : 'May',
@@ -200,6 +209,7 @@ var news = [{
 	excerpt : 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Philippines',
 	day : '16',
 	month : 'June',
@@ -215,6 +225,7 @@ var news = [{
 	excerpt : 'To all you struggling startups in Philippines, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Philippines, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Malaysia',
 	day : '2',
 	month : 'May',
@@ -230,6 +241,7 @@ var news = [{
 	excerpt : 'To all you struggling startups in Malaysia, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Malaysia, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Indonesia',
 	day : '2',
 	month : 'May',
@@ -245,6 +257,7 @@ var news = [{
 	excerpt : 'To all you struggling startups in Indonesia, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Indonesia, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter China',
 	day : '2',
 	month : 'December',
@@ -260,6 +273,7 @@ var news = [{
 	excerpt : 'To all you struggling startups in China, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in China, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Cambodia',
 	day : '2',
 	month : 'May',
@@ -277,7 +291,9 @@ var news = [{
 }];
 
 var guides = [{
-	title : 'How to Use ng-bind-html-safe',
+	id : '7834',
+	id : '7834',
+	title : 'Laying the Startup Groundwork',
 	day : '20',
 	month : 'june',
 	tags : 'developement',
@@ -289,10 +305,11 @@ var guides = [{
 	fb : 30,
 	tw : 5,
 	gp : 10,
-	excerpt : 'Creates a binding that will innerHTML the result of evaluating the expression into the current element The innerHTML-ed content',
-	content : 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.'
+	excerpt : 'Starting your own business is not just about having a dream. There are real steps to ensure your business a successful start. So what are all of the things you should consider when launching your new brainchild?',
+	content : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia pulvinar mi eu egestas. Sed pharetra vestibulum blandit. Suspendisse id erat vitae orci condimentum ultricies. Nulla fringilla id sapien quis tincidunt. Nullam quis pretium turpis. Phasellus varius felis non interdum tempus. Nullam mi lacus, elementum non nunc pulvinar, posuere ullamcorper mi. Aliquam et dui ipsum.'
 }, {
-	title : 'SSW Winner Announced',
+	id : '7834',
+	title : 'Planning for a Successful Start',
 	day : '7',
 	month : 'july',
 	tags : 'developement',
@@ -304,11 +321,12 @@ var guides = [{
 	fb : 30,
 	tw : 5,
 	gp : 10,
-	excerpt : 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European',
-	content : 'Winner of SSW Bangkok, SplashPost, has received a gigantic prize ticket to Switzerland where he will pitch for $500,000 in funding from the European investor community and Sandbox Network.',
+	excerpt : 'The old adage goes: failure to plan is a plan for failure. Your business plan does not need to be complex or convoluted, but it is necessary. If you are having a hard time pulling your plan together, our experts can help.',
+	content : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia pulvinar mi eu egestas. Sed pharetra vestibulum blandit. Suspendisse id erat vitae orci condimentum ultricies. Nulla fringilla id sapien quis tincidunt. Nullam quis pretium turpis. Phasellus varius felis non interdum tempus. Nullam mi lacus, elementum non nunc pulvinar, posuere ullamcorper mi. Aliquam et dui ipsum.',
 	url : 'news/article2',
 }, {
-	title : 'Fashion Incubator Looking for Talent',
+	id : '7834',
+	title : 'Raising Capital',
 	day : '9',
 	month : 'May',
 	tags : 'developement',
@@ -320,9 +338,10 @@ var guides = [{
 	fb : 30,
 	tw : 5,
 	gp : 10,
-	excerpt : 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs',
-	content : 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!',
+	excerpt : 'You\'ve got the idea and you\'ve got a plan. But you can\'t start a business without a little cold hard cash. If you have it, you can always invest your own funds, but if you\'re like most, you\'ll need a little help.',
+	content : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia pulvinar mi eu egestas. Sed pharetra vestibulum blandit. Suspendisse id erat vitae orci condimentum ultricies. Nulla fringilla id sapien quis tincidunt. Nullam quis pretium turpis. Phasellus varius felis non interdum tempus. Nullam mi lacus, elementum non nunc pulvinar, posuere ullamcorper mi. Aliquam et dui ipsum.',
 }, {
+	id : '7834',
 	title : 'Founder Equity Calculator',
 	day : '8',
 	month : 'May',
@@ -336,8 +355,9 @@ var guides = [{
 	tw : 5,
 	gp : 10,
 	excerpt : 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator',
-	content : 'Sorry about that everyone - meant to put this up immediately after the session over a week ago. Click here to view the founder-equity calculator that was presented at TechGrind Co-founder dating event in April.',
+	content : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia pulvinar mi eu egestas. Sed pharetra vestibulum blandit. Suspendisse id erat vitae orci condimentum ultricies. Nulla fringilla id sapien quis tincidunt. Nullam quis pretium turpis. Phasellus varius felis non interdum tempus. Nullam mi lacus, elementum non nunc pulvinar, posuere ullamcorper mi. Aliquam et dui ipsum.',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Singaphore',
 	day : '2',
 	month : 'May',
@@ -353,6 +373,7 @@ var guides = [{
 	excerpt : 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'FAP.BKK#1, WSR, a very busy week!',
 	day : '27',
 	month : 'April',
@@ -368,6 +389,7 @@ var guides = [{
 	excerpt : 'Thank-you everyone for a great week full of events! This last week was incredibly busy and productive for Bangkok startups.',
 	content : 'Thank-you everyone for a great week full of events! This last week was incredibly busy and productive for Bangkok startups. Thanks to all who contributed and helped make TechGrind explode onto the scene with such success.',
 }, {
+	id : '7834',
 	title : 'Fashion Incubator Looking for Talent',
 	day : '9',
 	month : 'May',
@@ -383,6 +405,7 @@ var guides = [{
 	excerpt : 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs',
 	content : 'If you are a talented designer looking for support and infrastructure to build your own fashion brand - a group of Singapore-based women entrepreneurs are looking to help you do just that!',
 }, {
+	id : '7834',
 	title : 'How to Use ng-bind-html-safe',
 	day : '20',
 	month : 'june',
@@ -396,8 +419,9 @@ var guides = [{
 	tw : 5,
 	gp : 10,
 	excerpt : 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content',
-	content : 'Creates a binding that will innerHTML the result of evaluating the expression into the current element. The innerHTML-ed content will not be sanitized! You should use this directive only if ngBindHtml directive is too restrictive.',
+	content : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia pulvinar mi eu egestas. Sed pharetra vestibulum blandit. Suspendisse id erat vitae orci condimentum ultricies. Nulla fringilla id sapien quis tincidunt. Nullam quis pretium turpis. Phasellus varius felis non interdum tempus. Nullam mi lacus, elementum non nunc pulvinar, posuere ullamcorper mi. Aliquam et dui ipsum.',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Singaphore',
 	day : '2',
 	month : 'May',
@@ -413,6 +437,7 @@ var guides = [{
 	excerpt : 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Singapore, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Philippines',
 	day : '16',
 	month : 'June',
@@ -428,6 +453,7 @@ var guides = [{
 	excerpt : 'To all you struggling startups in Philippines, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Philippines, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Malaysia',
 	day : '2',
 	month : 'May',
@@ -443,6 +469,7 @@ var guides = [{
 	excerpt : 'To all you struggling startups in Malaysia, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Malaysia, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Indonesia',
 	day : '2',
 	month : 'May',
@@ -458,6 +485,7 @@ var guides = [{
 	excerpt : 'To all you struggling startups in Indonesia, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in Indonesia, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!'
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter China',
 	day : '2',
 	month : 'December',
@@ -473,6 +501,7 @@ var guides = [{
 	excerpt : 'To all you struggling startups in China, tired of all the noise and fluff, eager to really solve problems and be part of a community',
 	content : 'To all you struggling startups in China, tired of all the noise and fluff, eager to really solve problems and be part of a community supportive of eachother --- get on over to Hackerspace.SG this Saturday, May 4th!!!',
 }, {
+	id : '7834',
 	title : 'TG Monthly Enter Cambodia',
 	day : '2',
 	month : 'May',
