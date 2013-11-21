@@ -37,6 +37,8 @@ a:hover {
 /* This class makes the element behave like a button with :hover and :active styling
 */
 .borderboxbutton {
+	padding-left:2px;
+	padding-right:2px;
 	border:1px solid #DDD;
 	box-shadow:0px 0px 1px #444;
 	background-color:rgb(255,255,255);

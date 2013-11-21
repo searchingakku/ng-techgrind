@@ -10,7 +10,7 @@
 	<!-- Collapsable Navbar -->
 	<div class="nav-collapse collapse in">
 		<!-- Main Menu -->
-		<ul class="main-menu">
+		<ul class="main-menu unselectable">
 			<li ng-class="active('/home')"><a data-target="#/home" href="#"><i class="icon-home"></i><span>Home</span></a></li>
 			<li ng-class="active('/regions')" class="dropdown"><a><i class="icon-globe icon-white"></i><span>Regions</span><b class="caret"></b></a>
 			<ul ng-controller="MenuCtrl" class="dropdown-menu">
@@ -28,7 +28,7 @@
 			</ul></li>
 		</ul>
 		<!-- User Menu -->
-		<ul class="user-setting pull-right">
+		<ul class="user-setting pull-right unselectable">
 			<li id="show-settings" ng-show="loginp()" class="dropdown"><a><i class="icon-cog"></i>Settings</a>
 			<ul class="dropdown-menu">
 				<li class="sub-menu"><a href="javascript:;">Account Settings</a></li>

@@ -1,0 +1,41 @@
+.articlefullpage {
+	width:80%;
+	height:80%;
+	border:1px solid orange;
+	left:10%;
+	margin:0px;
+	padding:0px;
+}
+.content-btn-close {
+	display:block;
+	font-size:20px;
+	height:0.5em;
+	width:2em;
+	float:right;
+}
+.article-header {
+	margin:0px;
+	padding:0px;
+	padding:10px;
+}
+.article-body {
+	width:95%;
+	height:100%;
+	padding:0px;
+	margin:0px;
+	margin-left:2.5%;
+	text-align:left;
+	vertical-align:top;
+}
+.article-content {
+	width:65%;
+	height:100%;
+	padding:1px;
+	margin:1px;
+}
+.article-info {
+	width:30%;
+	padding:1px;
+	margin:1px;
+	vertical-align:top;
+}
