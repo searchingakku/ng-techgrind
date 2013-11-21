@@ -9,7 +9,9 @@
 /* CONTENT
 ----------------------------------------------- */
 .article {
-	border: 1px solid #E8E8E8;
+	border:1px solid #E8E8E8;
+	box-shadow:1px #000;
+	background-color:rgba(255,255,255,1);
 	border-radius: 4px;
 	display: inline-block;
 	min-height: 180px;
@@ -17,6 +19,16 @@
 	padding: 10px;
 	vertical-align: top;
 	width: 46%;
+}
+.article:hover {
+	border:1px outset #DDD;
+	box-shadow:1px #FFF;
+	background-color:rgba(220,220,220,0.8);
+}
+.article:active {
+	border:1px inset #DDD;
+	box-shadow:1px #FFF;
+	background-color:rgba(180,180,180,0.6);
 }
 .article:nth-child(odd) {
 	margin-left: 0;

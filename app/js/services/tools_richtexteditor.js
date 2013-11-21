@@ -23,9 +23,16 @@ function($dialog, steam, $rootScope) {
 		loginButtonText : 'Login',
 		isLoged : false,
 		title : '',
+		category : '',
 		labels : '',
 		fullText : ''
 	};
+
+	var dialogCategories = [
+		'news',
+		'guides',
+		'tutorials'
+	];
 
 	var user = null;
 
