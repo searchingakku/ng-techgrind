@@ -1,6 +1,6 @@
 /* Style Guide
 	body color:   #eee E5E5E5
-	border color: #ccc C5C5C5
+	border color: #ddd
 	
 	orange: #FF871E
 	blue: 	#0078E1
@@ -9,8 +9,9 @@
 /* CONTENT
 ----------------------------------------------- */
 .article {
-	border:1px solid #E8E8E8;
+	border:1px solid #DDD;
 	box-shadow:1px #000;
+	background-color:rgb(255,255,255);
 	background-color:rgba(255,255,255,1);
 	border-radius: 4px;
 	display: inline-block;
@@ -19,6 +20,7 @@
 	padding: 10px;
 	vertical-align: top;
 	width: 46%;
+	cursor:pointer;
 	/* disable text-selection on clicking article card element */
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -28,13 +30,15 @@
 	user-select: none;
 }
 .article:hover {
-	border:1px outset #DDD;
-	box-shadow:1px #FFF;
+	border:1px outset #CCC;
+	box-shadow:1px #000;
+	background-color:rgb(220,220,220);
 	background-color:rgba(220,220,220,0.8);
 }
 .article:active {
-	border:1px inset #DDD;
-	box-shadow:1px #FFF;
+	border:1px inset #BBB;
+	box-shadow:1px #000;
+	background-color:rgb(180,180,180);
 	background-color:rgba(180,180,180,0.6);
 }
 .article:nth-child(odd) {
