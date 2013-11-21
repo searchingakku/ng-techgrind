@@ -1,5 +1,5 @@
-var myAppModule = angular.module('FullPageModule', ['ui.bootstrap','TechGrindApp.controllers']);
-myAppModule.service('FullPageService', ['$dialog', 'steam','$rootScope',
+var myAppModule = angular.module('ContentFullPageModal', ['ui.bootstrap','TechGrindApp.controllers']);
+myAppModule.service('ContentFullPageModalService', ['$dialog', 'steam','$rootScope',
 function($dialog, steam, $rootScope) {
 
 	this.open = function(id) {
@@ -13,9 +13,10 @@ function($dialog, steam, $rootScope) {
 			keyboard : true,
 			backdropClick : true,
 			dialogFade : true,
-			templateUrl : 'partials/content_article_fullpage.html',
+			templateUrl : 'partials/services/content_article_fullpage.html',
 			dialogClass : 'modal FullPage'
 		};
+		
 		dialogDefaults.controller = function($scope, dialog) {
 			$scope.dialogOptions = dialogOptions;
 			$scope.dialogOptions.close = function(result) {

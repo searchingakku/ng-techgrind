@@ -1,5 +1,5 @@
-var myAppModule = angular.module('RichEditorModule', ['ui.bootstrap','TechGrindApp.controllers']);
-myAppModule.service('RichEditorService', ['$dialog', 'steam','$rootScope',
+var myAppModule = angular.module('ToolsRichEditor', ['ui.bootstrap','TechGrindApp.controllers']);
+myAppModule.service('ToolsRichEditorService', ['$dialog', 'steam','$rootScope',
 function($dialog, steam, $rootScope) {
 
 	var self = this;

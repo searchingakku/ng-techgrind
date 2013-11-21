@@ -35,7 +35,7 @@
 
 	var appModule = angular.module('TechGrindApp.controllers.content.articles', []);
 
-	appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams','FullPageService',
+	appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams','ContentFullPageModalService',
 	function($scope, steam, rp, fullPageService) {
 
 		var matchregion = function(item) {
@@ -58,7 +58,7 @@
 		return $scope;
 	}]);
 
-	appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams','FullPageService',
+	appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams','ContentFullPageModalService',
 	function($scope, steam, rp, fullPageService) {
 
 		$scope.articles = guides;

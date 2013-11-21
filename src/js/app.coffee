@@ -31,9 +31,9 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.filters'
 	'TechGrindApp.services'
 	'TechGrindApp.directives'
+	'TechGrindApp.directives.lazy-loading-img'
 	'TechGrindApp.controllers'
 	'TechGrindApp.controllers.regions'
-	'TechGrindApp.controllers.article'
 	'TechGrindApp.controllers.res-jobs'
 	'TechGrindApp.controllers.res-docs'
 	'TechGrindApp.controllers.res-guides'
@@ -46,11 +46,10 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.list.tableview'
 	'TechGrindApp.controllers.list.entities'
 	'TechGrindApp.controllers.list.places'
-	'TechGrindApp.directives.lazy-loading-img'
 	'ui.bootstrap'
 	'LocalStorageModule'
-	'RichEditorModule'
-	'FullPageModule'
+	'ToolsRichEditor'
+	'ContentFullPageModal'
 ]
 
 # give usage example for setting up a route, explain where each of these components goes and what it does

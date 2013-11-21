@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="css/app.css">
 	<link rel="stylesheet" href="css/regions.css">
 	<link rel="stylesheet" href="css/events.css">
-	<link rel="stylesheet" href="css/article.css">
 	<link rel="stylesheet" href="css/partners.css">
 	<link rel="stylesheet" href="css/plugins/content.css">
 	<link rel="stylesheet" href="css/plugins/content_articles.css">
@@ -28,7 +27,7 @@
 	<link rel="stylesheet" href="css/plugins/social_twitter.css">
 	<link rel="stylesheet" href="css/plugins/fullcalendar.css">
 	<link rel="stylesheet" href="css/services/tools_richeditor.css">
-	<link rel="stylesheet" href="css/plugins/content_article_fullpage.css">
+	<link rel="stylesheet" href="css/services/content_article_fullpage.css">
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -36,17 +35,17 @@
 
 </head>
 <body ng-controller="AppCtrl">
-<header>
-	<div ng-include="'partials/__menu.html'" class="header"></div>
-</header>
-<section>
-	<div ng-view class="main"></div>
-</section>
-<footer>
-	<div ng-include="'partials/__footer.html'" class="footer"></div>
-</footer>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<!--script src="lib/jquery/jquery-1.10.2.min.js"></script-->
+	<header>
+		<div ng-include="'partials/__menu.html'" class="header"></div>
+	</header>
+	<section>
+		<div ng-view class="main"></div>
+	</section>
+	<footer>
+		<div ng-include="'partials/__footer.html'" class="footer"></div>
+	</footer>
+	<!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script-->
+	<script src="lib/jquery/jquery-1.10.2.min.js"></script>
 	<!--script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script-->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- All the Bootstrap JavaScripts -->
@@ -65,19 +64,23 @@
     <script src="../assets/js/bootstrap-typeahead.js"></script>
 	-->
 	<!-- Other JavaScripts -->
-	
+	<!-- Third-Party Plugins/Tools -->
 	<script src="lib/jquery/fullcalendar.js"></script>
 	<script src="lib/jquery/gcal.js"></script>
 	<script src="lib/tinymce/tinymce.min.js"></script>
 	<script src="lib/galleria/galleria-1.3.2.min.js"></script>
+	<!-- Angular -->
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular/ui-bootstrap-tpls-0.4.0.js"></script>
 	<script src="lib/angular/localStorageModule.js"></script>
+	<!-- TechGrind.ng-app -->
 	<script src="js/app.js"></script>
 	<script src="js/services.js"></script>
 	<script src="js/filters.js"></script>
 	<script src="js/directives.js"></script>
 	<script src="js/controllers.js"></script>
+	<script src="js/s-expr-log.js"></script>
+	<!-- TechGrind.ng-app.controllers [MAIN PAGES] -->
 	<script src="js/controllers/regions.js"></script>
 	<script src="js/controllers/res-docs.js"></script>
 	<script src="js/controllers/res-guides.js"></script>
@@ -85,8 +88,7 @@
 	<script src="js/controllers/res-media.js"></script>
 	<script src="js/controllers/res-teamspeak.js"></script>
 	<script src="js/controllers/partners.js"></script>
-	<script src="js/controllers/article.js"></script>
-	<script src="js/s-expr-log.js"></script>
+	<!-- TechGrind.ng-app.controllers [PLUGIN PAGES] -->
 	<script src="js/plugins/content_articles.js"></script>
 	<script src="js/plugins/content_docbrowser.js"></script>
 	<script src="js/plugins/content_mediabrowser.js"></script>
@@ -96,8 +98,10 @@
 	<script src="js/plugins/social_facebook.js"></script>
 	<script src="js/plugins/social_google.js"></script>
 	<script src="js/plugins/social_twitter.js"></script>
+	<!-- TechGrind.ng-app.services -->
 	<script src="js/services/tools_richtexteditor.js"></script>
+	<script src="js/services/content_article_fullpage.js"></script>
+	<!-- TechGrind.ng-app.directives -->
 	<script src="js/directives/lazy-loading-img.js"></script>
-	<script src="js/plugins/content_article_fullpage.js"></script>
 </body>
 </html>

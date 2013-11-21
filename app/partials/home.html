@@ -4,22 +4,26 @@
       <div class="widget">
         <div class="widget-head"><i class="icon-ellipsis-horizontal"></i></div>
         <div class="widget-body">
-          <tabset>
-            <tab heading="News">
-              <div ng-controller="ContentNewsCtrl">
-				<div ng-include="'partials/plugins/content_articles.html'"></div>
-			</div>
-            </tab>
-            <tab heading="Activities">
+        <tabset>
+          <tab heading="News">
+            <div ng-controller="ContentNewsCtrl">
+			        <div ng-include="'partials/plugins/content_articles.html'"></div>
+		        </div>
+          </tab>
+          <tab heading="Activities">
+            <div ng-controller="ListActivitiesCtrl">
               <div ng-include="'partials/plugins/list_tableview.html'"></div>
-            </tab>
-            <tab heading="Calendar" select="tabCalendarSelect()">
-              <div id='calendar' calendar="all"></div>
-            </tab>
-            <tab heading="Discussion">
+            </div>
+          </tab>
+          <tab heading="Calendar" select="tabCalendarSelect()">
+            <div id='calendar' calendar="all"></div>
+          </tab>
+          <tab heading="Discussion">
+            <div ng-controller="SocialFacebookCtrl">
               <div ng-include="'partials/plugins/social_facebook.html'"></div>
-            </tab>
-          </tabset>
+            </div>
+          </tab>
+        </tabset>
         </div>
       </div>
     </div>
