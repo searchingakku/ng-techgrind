@@ -9,11 +9,6 @@
 /* CONTENT
 ----------------------------------------------- */
 .article {
-	border:1px solid #DDD;
-	box-shadow:1px #000;
-	background-color:rgb(255,255,255);
-	background-color:rgba(255,255,255,1);
-	border-radius: 4px;
 	display: inline-block;
 	min-height: 180px;
 	margin: 5px;
@@ -21,18 +16,6 @@
 	vertical-align: top;
 	width: 46%;
 	cursor:pointer;
-}
-.article:hover {
-	border:1px outset #CCC;
-	box-shadow:1px #000;
-	background-color:rgb(220,220,220);
-	background-color:rgba(220,220,220,0.8);
-}
-.article:active {
-	border:1px inset #BBB;
-	box-shadow:1px #000;
-	background-color:rgb(180,180,180);
-	background-color:rgba(180,180,180,0.6);
 }
 .article:nth-child(odd) {
 	margin-left: 0;
@@ -44,7 +27,6 @@
 	font-size: 18px;
 	margin: 0;
 }
-
 .article .left, .article .right {
 	float: left;
 }
