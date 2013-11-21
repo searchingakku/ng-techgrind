@@ -50,6 +50,7 @@ app = angular.module 'TechGrindApp', [
 	'ui.bootstrap'
 	'LocalStorageModule'
 	'RichEditorModule'
+	'FullPageModule'
 ]
 
 # give usage example for setting up a route, explain where each of these components goes and what it does

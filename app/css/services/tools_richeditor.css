@@ -53,16 +53,16 @@
 .modal.myWindow form {
     margin-bottom: 0px;
 }
-.modal.fade {
+.modal.myWindow.fade {
   -webkit-transition: opacity 0.3s linear, bottom 0.3s ease-out;
      -moz-transition: opacity 0.3s linear, bottom 0.3s ease-out;
        -o-transition: opacity 0.3s linear, bottom 0.3s ease-out;
           transition: opacity 0.3s linear, bottom 0.3s ease-out;
 }
-.modal.fade.in {
+.modal.myWindow.fade.in {
     top:auto;
     bottom:0px;
 }
-.modal.fade.out {
+.modal.myWindow.fade.out {
   bottom:0px;
 }
