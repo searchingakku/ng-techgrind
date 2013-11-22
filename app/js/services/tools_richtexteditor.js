@@ -1,6 +1,6 @@
 var myAppModule = angular.module('ToolsRichEditor', ['ui.bootstrap','TechGrindApp.controllers']);
-myAppModule.service('ToolsRichEditorService', ['$dialog', 'steam','$rootScope',
-function($dialog, steam, $rootScope) {
+myAppModule.service('ToolsRichEditorService', ['$modal', 'steam','$rootScope',
+function($modal, steam, $rootScope) {
 
 	var self = this;
 	var elementID = 'inputContentRichText';
@@ -43,7 +43,7 @@ function($dialog, steam, $rootScope) {
 				customDialogDefaults = {};
 			}
 			
-			//$dialog.data = {};
+			//$modal.data = {};
 			//lets check if the user is logged
 			user = steam.loginp();
 			
@@ -65,18 +65,18 @@ function($dialog, steam, $rootScope) {
 		var tempDialogDefaults = {};
 		var tempDialogOptions = {};
 
-		//Map angular-ui dialog custom defaults to dialog defaults defined in this service
+		//Map angular-ui modal custom defaults to modal defaults defined in this service
 		angular.extend(tempDialogDefaults, dialogDefaults, customDialogDefaults);
 
-		//Map dialog.html $scope custom properties to defaults defined in this service
+		//Map modal.html $scope custom properties to defaults defined in this service
 		angular.extend(tempDialogOptions, dialogOptions, customDialogOptions);
 
 		if (!tempDialogDefaults.controller) {
-			tempDialogDefaults.controller = function($scope, dialog) {
+			tempDialogDefaults.controller = function($scope, modal) {
 				$scope.dialogOptions = tempDialogOptions;
 				
 				$scope.dialogOptions.close = function(result) {
-					dialog.close(result);
+					modal.close(result);
 					self.isOpen = false;
 				};
 				$scope.dialogOptions.login = function(result) {
@@ -107,7 +107,7 @@ function($dialog, steam, $rootScope) {
 					//lets steam the information
 					steam.post('news', jsonMsg).then(function(){
 						console.log('Steam posted.....');
-						dialog.close();
+						modal.close();
 						self.isOpen = false;
 					});
 				};
@@ -116,7 +116,7 @@ function($dialog, steam, $rootScope) {
 				};
 			}
 		}
-		var d = $dialog.dialog(tempDialogDefaults);
+		var d = $modal.modal(tempDialogDefaults);
 		d.open();
 		self.waitForVisible();
 		

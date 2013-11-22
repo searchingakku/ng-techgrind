@@ -26,6 +26,26 @@
 			
 		example-item -> displayed information ==> action-on-interaction:
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
+
+	<div class="tableview tableview-linked">
+		<div class="tableview-header tableview-row">
+			<span class="tableview-column">Type</span>
+			<span class="tableview-column">Location</span>
+			<span class="tableview-column">Name</span>
+			<span class="tableview-column">Date</span>
+			<span class="tableview-column">Time</span>
+			<span class="tableview-column">Price</span>
+		</div>
+		<div class="tableview-body tableview-row list-body" ng-click="'#/events/{{activity.name}}'" ng-repeat="activity in activities"  ng-mouseover="popover(activity.descriptionshort)">
+			<span class="tableview-column">{{activity.type}}</span>
+			<span class="tableview-column">{{activity.location}}</span>
+			<span class="tableview-column">{{activity.name}}</span>
+			<span class="tableview-column">{{activity.date}}</span>
+			<span class="tableview-column">{{activity.time}}</span>
+			<span class="tableview-column">{{activity.price}}</span>
+		</div>
+	</div>
+
 */-->
 <head>
 	<link rel="stylesheet" href="css/plugins/list.css">
@@ -33,12 +53,13 @@
 </head>
 
 <div ng-controller="ListActivitiesCtrl">
+
 	<table class="table table-striped table-condensed table-hover">
 	<thead class="list-header">
 		<td>Type<td>Location<td>Name<td>Date<td>Time<td>Price
 	</thead>
 	<tbody>
-		<tr class="list-body" ng-click="#/events/{{activity.name}}" ng-repeat="activity in activities"  ng-mouseover="popover(activity.descriptionshort)">
+		<tr class="list-body" ng-click="listClickLink('#/events/{{activity.name}}')" ng-repeat="activity in activities"  tooltip="{{activity.descriptionshort}}">
 			<td>{{activity.type}}</td>
 			<td>{{activity.location}}</td>
 			<td>{{activity.name}}</td>
@@ -48,4 +69,5 @@
 		</tr>
 	</tbody>
 	</table>
+
 </div>

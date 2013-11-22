@@ -36,7 +36,7 @@
 	font-weight:bold;
 }
 .list-body:hover {
-	color:#FF871E;
+	color:#00F;
 }
 .list-body:active {
 
@@ -46,4 +46,11 @@
 }
 .list-body tr:nth-child(even) {
 	color:#0f0;
+}
+.table-striped tbody tr:nth-child(odd)>td {
+	background-color: #FF871E;
+}
+.table-striped tbody tr:hover>td {
+	background-color: #444;
+	color:#EEE;
 }

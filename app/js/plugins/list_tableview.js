@@ -32,8 +32,14 @@
 
 	var appModule = angular.module('TechGrindApp.controllers.list.tableview', []);
 
-	appModule.controller('ListActivitiesCtrl', ['$scope', 'steam',
-	function($scope, steam) {
+	appModule.controller('ListActivitiesCtrl', ['$scope', 'steam', '$http',
+	function($scope, steam, http) {
+
+		$scope.listClickLink = function(url) {
+		  if(url !== undefined) {
+		   	return document.location = url;
+			}
+		};
 
 		var activities = [{
 			type: 'Event',
@@ -66,23 +72,8 @@
 			date: '27/12/2013',
 			time: '18:00',
 			price: 'FREE',
-			descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
+			descriptionshort: 'Come get a job at a startup!'
 		}];
-
-		this.popover = function(msg) {
-			var listPopOverOptions = {
-				animation : true,
-				html : false,
-				placement : top,
-				selector : false,
-				trigger : hover,
-				title : '',
-				content : msg,
-				delay : { show: 500, hide: 100},
-				container : false
-			};
-			$scope.popover(listPopOverOptions);
-		}
 
 		return $scope.activities = activities;
 	}]);
