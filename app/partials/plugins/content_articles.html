@@ -38,6 +38,7 @@
 <!--button ng-click="compose()" class="btn btn-compose btn-success pull-right">
 	<i class="icon-edit"></i>Compose
 </button-->
+<div ng-controller="ContentNewsCtrl">
 <div ng-repeat="item in articles" class="article unselectable borderboxbutton">
 	<div ng-click="gotoFullPage(item.id)">
 		<h1>{{item.title}}</h1>
@@ -63,4 +64,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>

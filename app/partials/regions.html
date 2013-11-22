@@ -13,14 +13,10 @@
 				<div class="widget-body">
 					<tabset class="unselectable">
 						<tab heading="News">
-							<div ng-controller="ContentNewsCtrl">
-								<div ng-include="'partials/plugins/content_articles.html'"></div>
-							</div>
+							<div ng-include="'partials/plugins/content_articles.html'"></div>
 						</tab>
 						<tab heading="Activities">
-							<div ng-controller="ListActivitiesCtrl">
-								<div ng-include="'partials/plugins/list_tableview.html'"></div>
-							</div>
+							<div ng-include="'partials/plugins/list_tableview.html'"></div>
 						</tab>
 					 	<tab heading="Calendar" select="tabCalendarSelect()">
 							<div id="calendar" calendar="{{rp.region}}" region="{{rp}}"></div>
