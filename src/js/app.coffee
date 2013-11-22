@@ -48,6 +48,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.list.entities'
 	'TechGrindApp.controllers.list.places'
 	'ui.bootstrap'
+	'ngRoute'
 	'LocalStorageModule'
 	'ToolsRichEditor'
 	'ContentFullPageModal'

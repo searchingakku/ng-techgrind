@@ -14,7 +14,7 @@
 
 	var appModule = angular.module('TechGrindApp.controllers.list.calendar', []);
 
-	appModule.controller('ListCalendarCtrl', ['$scope', 'steam', '$http', '$routeParams'
+	appModule.controller('ListCalendarCtrl', ['$scope', 'steam', '$http', '$routeParams',
 	function($scope, steam, http, rp) {
 
 		this.rendercal = function(msg) {

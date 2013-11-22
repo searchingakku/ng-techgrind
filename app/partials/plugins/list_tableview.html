@@ -38,7 +38,7 @@
 		<td>Type<td>Location<td>Name<td>Date<td>Time<td>Price
 	</thead>
 	<tbody>
-		<tr class="list-body unselectable" ng-click="#/events/{{activity.name}}" ng-repeat="activity in activities"  ng-mouseover="popover({{activity.descriptionshort}})">
+		<tr class="list-body" ng-click="#/events/{{activity.name}}" ng-repeat="activity in activities"  ng-mouseover="popover(activity.descriptionshort)">
 			<td>{{activity.type}}</td>
 			<td>{{activity.location}}</td>
 			<td>{{activity.name}}</td>
