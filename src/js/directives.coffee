@@ -65,6 +65,36 @@ directives.directive 'calendar', ($parse) ->
 
 			console.log(sexpr("calendar-directive", calendar))
 			regions = 
+				cambodia: [
+					# techgrindkh
+					'https://www.google.com/calendar/feeds/6h7qonee0sdiff0j61q4u735fk%40group.calendar.google.com/public/basic',
+					# Cambodian Holidays
+					'https://www.google.com/calendar/feeds/en.cambodian%23holiday%40group.v.calendar.google.com/public/basic']
+				china: [
+					# techgrindcn
+					'https://www.google.com/calendar/feeds/ii2mb6mqth39l45v6trjveeu78%40group.calendar.google.com/public/basic',
+					# China Holidays
+					'https://www.google.com/calendar/feeds/en.china%23holiday%40group.v.calendar.google.com/public/basic']
+				india: [
+					# techgrindin
+					# 'https://www.google.com/calendar/feeds/s360o3fokjhdhr7f0bhsodur3o%40group.calendar.google.com/public/basic',
+					# Indian Holidays
+					'https://www.google.com/calendar/feeds/en.indian%23holiday%40group.v.calendar.google.com/public/basic']
+				indonesia: [
+					# techgrindid
+					#'https://www.google.com/calendar/feeds/3quou77ckk7kk8ab60fbqda97c%40group.calendar.google.com/public/basic',
+					# Indonesia Holidays
+					'https://www.google.com/calendar/feeds/en.indonesia%23holiday%40group.v.calendar.google.com/public/basic']
+				malaysia: [
+					# techgrindmy
+					'https://www.google.com/calendar/feeds/3quou77ckk7kk8ab60fbqda97c%40group.calendar.google.com/public/basic',
+					# Malaysia Holidays
+					'https://www.google.com/calendar/feeds/en.malaysia%23holiday%40group.v.calendar.google.com/public/basic']
+				philippines: [
+					# techgrindph
+					'https://www.google.com/calendar/feeds/33hmu7k26e89o9bh7uevp6mql4%40group.calendar.google.com/public/basic',
+					# Philippine Holidays
+					'https://www.google.com/calendar/feeds/en.philippines%23holiday%40group.v.calendar.google.com/public/basic']
 				thailand: [ # techgrindth 
 					'https://www.google.com/calendar/feeds/7rd1tlnke94kh99ub6vta9ov34%40group.calendar.google.com/public/basic',
 					# Thai Holidays
@@ -72,10 +102,21 @@ directives.directive 'calendar', ($parse) ->
 				singapore: [ # techgrindsg 
 					'https://www.google.com/calendar/feeds/c6itotjtf79b07k42qqo5ngqu4%40group.calendar.google.com/public/basic', 
 					# Singaporean Holidays 
-					'https://www.google.com/calendar/feeds/en.singapore%23holiday%40group.v.calendar.google.com/public/basic' ]
+					'https://www.google.com/calendar/feeds/en.singapore%23holiday%40group.v.calendar.google.com/public/basic']
+				vietnam: [
+					# techgrindvn
+					'https://www.google.com/calendar/feeds/rj7m24n82jaihk6k1mefe89jko%40group.calendar.google.com/public/basic',
+					# Vietnam Holidays
+					'https://www.google.com/calendar/feeds/en.vietnamese%23holiday%40group.v.calendar.google.com/public/basic']
 	
 			if calendar == "all"
 				cal = regions['thailand'].concat(regions['singapore'])
+				cal = cal.concat(regions['cambodia'])
+				cal = cal.concat(regions['china'])
+				cal = cal.concat(regions['vietnam'])
+				cal = cal.concat(regions['malaysia'])
+				cal = cal.concat(regions['philippines'])
+				cal = cal.concat(regions['india'])
 			else
 				cal = regions[calendar]
 
