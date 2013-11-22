@@ -10,63 +10,31 @@
 	</div>
 	-->
 	<div class="modal-header article-header">
-		<button class="btn btn-inverse content-btn-close" ng-click="dialogOptions.close()"> × </button>
-		<h3>{{contentdata.title}}qwdqwdwdqwdwqd</h3>
+		<button class="pull-right btn-close" ng-click="dialogOptions.close()">
+			<i class="icon-remove"></i>
+		</button>
+		<h3>{{dialogOptions.title}}</h3>
 	</div>
 	<div class="modal-body"> <!-- the CONTENT -->		
 		<table class="article-body">
 		<tr><td class="article-content">
 			<div class="well">
-				{{contentdata.content}}qwdqdwwewe2e2e2e2e2
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
-				wowiejf oiwaj foijw efoij aw;ofj ;oiwaej fowaj oefj ;oweaj fowaf
+				{{dialogOptions.content}}
+				{{dialogOptions.content}}
+				{{dialogOptions.content}}
+				{{dialogOptions.content}}
+				{{dialogOptions.content}}
+				{{dialogOptions.content}}
 			</div>
 		</td>
 		<td class="article-info">
 			<div class="well">
-				<h5>Author:   {{contentdata.author}}</h5>
-				<h5>Source:   {{contentdata.source}}</h5>
-				<h5>Date:     {{contentdata.datetime}}</h5>
+				<h4>Author</h4><a href="#/users/{{dialogOptions.authorid}}">{{dialogOptions.author}}</a>
+				<h4>Source</h4><a href="{{dialogOptions.source}}" target="_blank">{{dialogOptions.source}}</a>
+				<div class="clearfix"></div>
+				<span class="pull-left muted">Date<br>{{dialogOptions.date}}</span>
+				<span class="pull-right muted">Time<br>{{dialogOptions.time}}</span>
+				<div class="clearfix"></div>
 				<div class="social pull-left">
 					Share Content
 					<ul>
@@ -77,10 +45,11 @@
 				</div>
 				<div class="pull-right">
 					Rate Content
-					<rating value="contentdata.rating" max="5" readonly="false"></rating>
+					<div class="clearfix"></div>
+					<rating value="dialogOptions.rating" max="5" readonly="false"></rating>
 				</div>
+				<div class="clearfix"></div>
 			</div>
-			<div class="clearfix"></div>
 			<div class="well">
 				discuss here.........
 			</div>

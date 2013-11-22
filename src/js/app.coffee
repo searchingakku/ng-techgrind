@@ -34,6 +34,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.directives.lazy-loading-img'
 	'TechGrindApp.controllers'
 	'TechGrindApp.controllers.regions'
+	'TechGrindApp.controllers.events'
 	'TechGrindApp.controllers.res-jobs'
 	'TechGrindApp.controllers.res-docs'
 	'TechGrindApp.controllers.res-guides'

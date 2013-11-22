@@ -1,14 +1,18 @@
+<head>
+  <link rel="stylesheet" href="css/events.css">
+</head>
 
-<div class="main-inner">
-  <div class="container-fluid">
-    <div class="row">
-      <div id="events" class="span10 offset1">
-        <div class="widget">
-          <div class="widget-header"><i class="icon-cogs"> </i><span class="break"></span>
-            <h3>Events</h3>
-          </div>
-          <div class="widget-content">
-            <table class="table table-striped table-condensed">
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <div class="widget">
+        <div class="widget-head">
+          <i class="icon-ellipsis-horizontal"></i>
+        </div>
+        <div class="widget-body">
+          <tabset class="unselectable">
+            <tab heading="Events">
+              <table class="table table-striped table-condensed">
               <thead>
                 <tr>
                   <td></td>
@@ -24,27 +28,9 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-      </div>
-      <div id="activity" class="span4">
-        <div class="widget">
-          <div class="widget-header">
-            <h3>Your activities</h3>
-          </div>
-          <div class="widget-content"><a href="" class="btn">
-              <h4>login to create new activities</h4></a></div>
-        </div>
-      </div>
-      <div id="create_activity" class="span2 offset2"><a href="#/events/new" class="btn">
-          <h4>Create Activity</h4></a></div>
-      <div id="workshops" class="span10 offset1">
-        <div class="widget">
-          <div class="widget-header"><i class="icon-bullhorn"></i><span class="break"></span>
-            <h3>Workshops</h3>
-          </div>
-          <div class="widget-content">
-            <table class="table table-striped table-condensed">
+            </tab>
+            <tab heading="Workshops">
+              <table class="table table-striped table-condensed">
               <thead>
                 <tr>
                   <td></td>
@@ -59,17 +45,10 @@
                   <td><a href="#/events/{{event.name}}">{{event.description}}</a></td>
                 </tr>
               </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div id="conferences" class="span10 offset1">
-        <div class="widget">
-          <div class="widget-header"><i class="icon-upload-alt"></i><span class="break"></span>
-            <h3>Conferences</h3>
-          </div>
-          <div class="widget-content">
-            <table class="table table-striped table-condensed">
+              </table>
+            </tab>
+            <tab heading="Conferences">
+              <table class="table table-striped table-condensed">
               <thead>
                 <tr>
                   <td></td>
@@ -84,11 +63,30 @@
                   <td><a href="#/events/{{event.name}}">{{event.description}}</a></td>
                 </tr>
               </tbody>
-            </table>
-          </div>
+              </table>
+            </tab>
+            <tab></tab>
+            <tab heading="Discussion">
+              <div ng-include="'partials/plugins/social_facebook.html'"></div>
+            </tab>
+            <tab></tab>
+            <tab heading="Submit An Event">
+              
+            </tab>
+          </tabset>
         </div>
       </div>
     </div>
-    <pre>{{ sexpr(data) }}</pre>
+    <div class="span4">
+      <div class="widget widget-nopad">
+        <div class="widget-head">
+          <i class="icon-ellipsis-horizontal"></i>
+        </div>
+        <div class="widget-body">
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<pre>{{sexpr(rp)}}</pre>

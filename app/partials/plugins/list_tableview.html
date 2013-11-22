@@ -27,41 +27,25 @@
 		example-item -> displayed information ==> action-on-interaction:
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
 */-->
-<div ng-repeat="item in getblog['activities']" class="article">
-	<h1>{{item.title}}</h1>
-	<div class="left"><img src="http://placehold.it/120x80"/>
-		<div class="clearfix"></div>
-		<rating value="item.rate" max="5" readonly="false"></rating>
-	</div>
-	<div class="right">
-		<div class="meta">
-			<ul>
-				<li>
-					{{item.country}}
-				</li>
-				<li>
-					{{item.owner}}
-				</li>
-				<li>
-					{{item.month}} {{item.day}}
-				</li>
-			</ul>
-		</div>
-		<p>
-			{{item.excerpt}}
-		</p>
-		<div class="social-sharing">
-			<ul>
-				<li>
-					<i class="icon-facebook-sign"></i>{{item.fb}}
-				</li>
-				<li>
-					<i class="icon-google-plus-sign"></i>{{item.gp}}
-				</li>
-				<li>
-					<i class="icon-twitter-sign"></i>{{item.tw}}
-				</li>
-			</ul>
-		</div>
-	</div>
+<head>
+	<link rel="stylesheet" href="css/plugins/list.css">
+	<link rel="stylesheet" href="css/plugins/list_tableview.css">
+</head>
+
+<div class="ListActivitiesCtrl">
+	<table class="table table-striped table-condensed table-hover">
+	<thead class="list-header">
+		<td>Type<td>Location<td>Name<td>Date<td>Time<td>Price
+	</thead>
+	<tbody>
+		<tr class="list-body unselectable" ng-click="#/events/{{activity.name}}" ng-repeat="activity in activities"  ng-mouseover="popover({{activity.descriptionshort}})">
+			<td>{{activity.type}}</td>
+			<td>{{activity.location}}</td>
+			<td>{{activity.name}}</td>
+			<td>{{activity.date}}</td>
+			<td>{{activity.time}}</td>
+			<td>{{activity.price}}</td>
+		</tr>
+	</tbody>
+	</table>
 </div>

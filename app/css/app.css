@@ -34,8 +34,7 @@ a:hover {
 	-ms-user-select: none;
 	user-select: none;
 }
-/* This class makes the element behave like a button with :hover and :active styling
-*/
+/* This class makes the element behave like a button with :hover and :active styling */
 .borderboxbutton {
 	padding-left:2px;
 	padding-right:2px;
@@ -48,14 +47,41 @@ a:hover {
 .borderboxbutton:hover {
 	border:1px outset #CCC;
 	box-shadow:1px 1px 1px #444;
-	background-color:rgb(220,220,220);
-	background-color:rgba(220,220,220,0.8);
+	background-color:rgb(235,235,235);
+	background-color:rgba(235,235,235,0.8);
 }
 .borderboxbutton:active {
 	border:1px inset #BBB;
 	box-shadow:1px 1px 1px #444;
-	background-color:rgb(180,180,180);
-	background-color:rgba(180,180,180,0.6);
+	background-color:rgb(210,210,210);
+	background-color:rgba(210,210,210,0.6);
+}
+.btn-close {
+	margin:3px;
+	padding:0px;
+	padding-left:3px;
+	padding-right:3px;
+	display:block;
+	font-size:20px;
+	height:1.5em;
+	width:2em;
+	border:1px solid #DDD;
+	box-shadow:0px 0px 1px #444;
+	background-color:rgb(255,255,255);
+	background-color:rgba(255,255,255,1);
+}
+.btn-close:hover {
+	border:1px outset #CCC;
+	box-shadow:1px 1px 0px #444;
+	/* #D94947 */
+	background-color:rgb(217,73,71);
+	background-color:rgba(217,73,71,0.8);
+}
+.btn-close:active {
+	border:0px inset #BBB;
+	box-shadow:1px 1px 0px #444;
+	background-color:rgb(210,63,61);
+	background-color:rgba(210,63,61,0.6);
 }
 
 /* HEADER

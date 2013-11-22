@@ -30,14 +30,20 @@
 		example-content -> displayed information ==> action-on-interaction:
 			news/article/tutorial/guide -> detailed info ==> full-content-page
 */-->
+<head>
+	<link rel="stylesheet" href="css/plugins/content.css">
+	<link rel="stylesheet" href="css/plugins/content_articles.css">
+</head>
 
-
+<!--button ng-click="compose()" class="btn btn-compose btn-success pull-right">
+	<i class="icon-edit"></i>Compose
+</button-->
 <div ng-repeat="item in articles" class="article unselectable borderboxbutton">
 	<div ng-click="gotoFullPage(item.id)">
 		<h1>{{item.title}}</h1>
 		<div class="left"><img src="http://placehold.it/120x80"/>
 			<div class="clearfix"></div>
-			<rating value="item.rate" max="5" readonly="false"></rating>
+			<rating value="item.rate" max="5" readonly="true"></rating>
 		</div>
 		<div class="right">
 			<div class="meta">

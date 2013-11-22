@@ -5,18 +5,18 @@
 		* type
 		* location (city)
 		* name / abbreviation
-		* short-description
-		* date-time
+		* date
+		* time
 		* price
+		* {short-description}
 		
 		example:
 		* Event
-		* Bangkok, Thailand
+		* Thailand
 		* SLAP
 		* Speak, Learn, and Pitch:
-			Practice pitching with fellow startups!
 		* Thursday, 21-11-2013
-			18:00 - 22:00
+		*	18:00 - 22:00
 		* FREE!
  
 		functional goal___________
@@ -35,67 +35,56 @@
 	appModule.controller('ListActivitiesCtrl', ['$scope', 'steam',
 	function($scope, steam) {
 
-		var pts = [];
-		
-		var partnersList = [{
-			title : '3 Day Startup',
-			src : 'img/logos_partners/intl_3ds.png',
-			url : 'http://www.3daystartup.org'
+		var activities = [{
+			type: 'Event',
+			location: 'Thailand',
+			name: 'Speak.Learn.And.Pitch',
+			date: '18/12/2013',
+			time: '18:00',
+			price: 'FREE',
+			descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
 		}, {
-			title : 'Sandbox Network',
-			src : 'img/logos_partners/intl_sandbox.png',
-			url : 'http://www.sandbox-network.com/'
+			type: 'Workshop',
+			location: 'Thailand',
+			name: 'CFF',
+			date: '20/12/2013',
+			time: '18:00',
+			price: 'FREE',
+			descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 		}, {
-			title : 'LeanStartupCircle',
-			src : 'img/logos_partners/intl_lsc.png',
-			url : 'http://www.leanstartupcircle.com/'
+			type: 'Event',
+			location: 'Thailand',
+			name: 'CFF',
+			date: '24/12/2013',
+			time: '18:00',
+			price: 'FREE',
+			descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 		}, {
-			title : 'NetDNA',
-			src : 'img/logos_partners/intl_netdna.png',
-			url : 'http://www.netdna.com/'
-		}, {
-			title : 'Rackspace',
-			src : 'img/logos_partners/intl_rackspace.png',
-			url : 'http://www.rackspacestartups.com/'
-		}, {
-			title : 'TNW',
-			src : 'img/logos_partners/intl_tnw.png',
-			url : 'http://thenextweb.com/'
-		}, {
-			title : 'Startup Club',
-			src : 'img/logos_partners/th_suc.png',
-			url : 'http://www.startupclubhq.com'
-		}, {
-			title : 'StartupJobs.Asia',
-			src : 'img/logos_partners/sg_startupjobs.png',
-			url : 'http://www.startupjobs.asia/'
-		}, {
-			title : 'Dreamstake',
-			src : 'img/logos_partners/intl_dreamstake.png',
-			url : 'http://www.dreamstake.net/'
-		}, {
-			title : 'Seedcamp',
-			src : 'img/logos_partners/intl_seedcamp.png',
-			url : 'http://www.seedcamp.com/'
-		}, {
-			title : 'StartupBootcamp',
-			src : 'img/logos_partners/intl_startupbootcamp.png',
-			url : 'http://www.startupbootcamp.org/'
-		}, {
-			title : 'TiE',
-			src : 'img/logos_partners/intl_tie.jpg',
-			url : 'http://www.tie.org/'
-		}
-		];
+			type: 'Conferece',
+			location: 'Singapore',
+			name: 'StartupJobz Job Fair @ National University of Singapore',
+			date: '27/12/2013',
+			time: '18:00',
+			price: 'FREE',
+			descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
+		}];
 
-		for (var i = 0; i < partnersList.length; i++) {
-			if (i % 3 == 0){
-				pts.push([]);
-			}
-			pts[pts.length - 1].push(partnersList[i]);
+		this.popover = function(msg) {
+			var listPopOverOptions = {
+				animation : true,
+				html : false,
+				placement : top,
+				selector : false,
+				trigger : hover,
+				title : '',
+				content : msg,
+				delay : { show: 500, hide: 100},
+				container : false
+			};
+			$scope.popover(listPopOverOptions);
 		}
 
-		return $scope.partners = pts;
+		return $scope.activities = activities;
 	}]);
 
 }).call(this);

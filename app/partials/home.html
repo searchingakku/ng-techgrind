@@ -4,7 +4,7 @@
       <div class="widget">
         <div class="widget-head"><i class="icon-ellipsis-horizontal"></i></div>
         <div class="widget-body">
-        <tabset>
+        <tabset class="unselectable">
           <tab heading="News">
             <div ng-controller="ContentNewsCtrl">
 			        <div ng-include="'partials/plugins/content_articles.html'"></div>
@@ -23,6 +23,9 @@
               <div ng-include="'partials/plugins/social_facebook.html'"></div>
             </div>
           </tab>
+          <button ng-click="compose()" class="btn btn-compose btn-success pull-right">
+            <i class="icon-edit"></i>Compose
+          </button>
         </tabset>
         </div>
       </div>

@@ -41,7 +41,7 @@ img[ bn-lazy-src ] {
 .guides-fluid:before, .guides-fluid:after {
     display: table;
     line-height: 0;
-    content: ""
+    content: "";
 }
 .guides-fluid:after {
     clear: both
@@ -54,10 +54,10 @@ img[ bn-lazy-src ] {
     margin-left: 2.127659574468085%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 .guides-fluid [class*="guides-blocks"]:first-child {
-    margin-left: 0
+    margin-left: 0;
 }
 
 .guides-fluid .guides-blocks3 {

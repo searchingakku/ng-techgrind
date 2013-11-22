@@ -6,12 +6,26 @@
 	margin:0px;
 	padding:0px;
 }
-.content-btn-close {
-	display:block;
+.article-info h4 {
+	padding:0px;
+	margin:0px;	
+}
+.article-info .icon-star {
+	color: #D6AE3E;
 	font-size:20px;
-	height:0.5em;
-	width:2em;
-	float:right;
+	display:inline-block;
+	height:20px;
+	width:20px;
+}
+.article-info .icon-star:hover,
+.article-info .icon-star:before,
+.article-info .icon-star:after,
+.article-info .icon-star:active {
+	color: #D6AE3E;
+	font-size:20px;
+	display:inline-block;
+	height:20px;
+	width:20px;
 }
 .article-header {
 	margin:0px;

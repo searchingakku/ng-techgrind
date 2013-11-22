@@ -35,7 +35,7 @@
 
 	var appModule = angular.module('TechGrindApp.controllers.content.articles', []);
 
-	appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams','ContentFullPageModalService',
+	appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
 	function($scope, steam, rp, fullPageService) {
 
 		var matchregion = function(item) {
@@ -50,24 +50,29 @@
 			$scope.articles = news;
 		}
 
-		$scope.gotoFullPage = function(id){
+		$scope.gotoFullPage = function(id) {
 			console.log(' ID TO GO: ',id);
 			return fullPageService.open();
-
 		}
+		/*$scope.compose = function() {
+			return richEditor.open();
+		}*/
+
 		return $scope;
 	}]);
 
-	appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams','ContentFullPageModalService',
+	appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
 	function($scope, steam, rp, fullPageService) {
 
 		$scope.articles = guides;
 
-		$scope.gotoFullPage = function(id){
+		$scope.gotoFullPage = function(id) {
 			console.log(' ID TO GO: ',id);
 			return fullPageService.open();
-
 		}
+		/*$scope.compose = function() {
+			return richEditor.open();
+		}*/
 
 		return $scope.articles;
 	}]);

@@ -6,6 +6,32 @@
 	blue: 	#0078E1
 */
 
+/* GENERAL
+----------------------------------------------- */
+.btn-compose {
+	margin:0px;
+	padding:0px;
+	padding-left:5px;
+	padding-right:5px;
+	font-size:13px;
+	line-height:2em;
+}
+.btn-compose:hover {
+	border:1px outset #CCC;
+	box-shadow:1px 1px 1px #444;
+}
+.btn-compose:active {
+	border:1px inset #AAA;
+	box-shadow:1px 1px 1px #444;
+}
+.btn-compose [class*="icon-"],
+.btn-compose [class^="icon-"] {
+	padding-right:5px;
+	padding-left:5px;
+	font-size:20px;
+	vertical-align:bottom;
+}
+
 /* CONTENT
 ----------------------------------------------- */
 .article {

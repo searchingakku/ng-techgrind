@@ -4,28 +4,10 @@
 .fullHeight {
     height: 100%;
 }
-.newpostform [class^="icon-"],
-.newpostform [class*=" icon-"] {
-    font-size:30px;
-    margin:0px;
-    margin-right:5px;
-    margin-top:5px;
-    color:#d43;
-}
-.newpostform [class^="icon-"]:hover,
-.newpostform [class*=" icon-"]:hover {
-    color:#e54;
-    cursor:pointer;
-}
 .newpostform {
     -webkit-user-select: text;
     overflow:hidden;
 }
-.newpostform .btn {
-    margin-bottom:5px;
-    margin-top:5px;
-}
-
 .modal.myWindow {
     width:100%;
     position:fixed;

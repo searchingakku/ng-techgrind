@@ -27,3 +27,23 @@
 		example-item -> displayed information ==> action-on-interaction:
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
 */
+.list-header {
+	font-weight:bold;
+	font-size:14px;
+}
+.list-body {
+	cursor:pointer;
+	font-weight:bold;
+}
+.list-body:hover {
+	color:#FF871E;
+}
+.list-body:active {
+
+}
+.list-body tr:nth-child(odd) {
+	color:#f00;
+}
+.list-body tr:nth-child(even) {
+	color:#0f0;
+}

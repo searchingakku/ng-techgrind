@@ -247,82 +247,15 @@ app.controller 'ActivationCtrl', ['$scope', '$routeParams', 'steam', (S, rp, ste
 
 # WIP
 # needs overhaul to manage control of each tab as separate controller
-app.controller 'HomeCtrl', ['$scope', '$http', (S, http) ->
+app.controller 'HomeCtrl', ['$scope', '$http', 'ToolsRichEditorService', (S, http, richEditor) ->
 	#http.get('/mock').success (data) -> S.mock = data
 	#S.getblog = getblog()
+
+	S.compose = ->
+		richEditor.open()
+
 	S.tabCalendarSelect = ->
 		$('#calendar').fullCalendar 'render'
-]
-
-# WIP
-app.controller 'EventsCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
-
-	S.events = {}
-	allevents = []
-	list_events_by_category = (category) ->
-		S.events[category] = allevents.filter((item) -> item.category==category)
-		console.log(sexpr("list_events_by_category", category, S.events))
-
-	get_events = (data) ->
-		S.data = data
-		allevents = data.events
-		list_events_by_category('event')
-		list_events_by_category('workshop')
-		list_events_by_category('conference')
-
-	steam.get('techgrind.events').then(get_events)
-
-	S.createactivity = [
-		path: 'partials/createactivity.html'
-	]
-
-	S.past = [
-		title: 'World.Startup.Report'
-		name: 'WSR'
-		path: '/events/wsr'
-	]
-
-
-	S.showEvent = (event) -> loc.path event.url
-]
-
-# WIP
-app.controller 'CreateactivityCtrl', ['$scope', 'steam', '$location', '$routeParams', (S,steam,loc,rp) ->
-	S.rp = rp
-	S.user = steam.user
-
-	S.categories = categories
-
-	handle_event = (data) ->
-		S.data = data
-		S.event = data.event
-		console.log(sexpr("handle_event", data))
-
-	if rp.name
-		console.log(sexpr("rp.name", rp))
-		steam.get('techgrind.events.'+rp.name).then(handle_event)
-	else
-		S.event =
-			name: 'SHORT-NAME'
-			title: 'Event Title'
-			description: 'Event description'
-			events: []
-
-	S.submit_event = ->
-		console.log(sexpr("submit_event", S.event))
-		if S.event.eventid
-			steam.post(S.event.eventid, S.event).then(handle_event)
-		else
-			steam.put('techgrind.events', S.event).then(handle_event)
-
-#		steam.post('event', event).then(handle_event)
-#
-#	S.create_eventtype = ->
-#		handle_eventtype = -> (data) ->
-#			S.data = data
-#			S.eventtype = data.eventtype
-#		steam.post('eventtype', S.eventtype).then(handle_eventtype)
-
 ]
 
 # COMPLETE: by Martin
