@@ -1,10 +1,10 @@
-<div ng-controller="LoginCtrl" class="row-fluid">
+<div ng-controller="LoginCtrl">
 	<div class="container">
 		<form name="loginform" method="post" ng-hide="showSignIn">
 			<h3>Login</h3>
 			<input type="text" ng-model="userid" placeholder="User ID"/>
 			<br/>
-			<input type="password" ng-model="password" placeholder="password"/>
+			<input type="password" ng-model="password" placeholder="Password"/>
 			<br/>
 			<button id="login-submit" ng-click="login();openlogin=false;$root.openlogin=false" ng-disabled="validateFields()" class="btn btn-primary">
 				Login
@@ -12,24 +12,30 @@
 			<button  ng-click="signUp()" class="btn btn-success">
 				Sign up
 			</button>
+			<button  ng-click="cancel();openlogin=false;$root.openlogin=false" class="btn btn-warning">
+				Close
+			</button>
 		</form>
 		<form name="signUpform" method="post" ng-show="showSignIn">
 			<h3>Sign Up</h3>
 			<input type="text" ng-model="fullName" placeholder="Full Name"/>
 			<br/>
-			<input type="text" ng-model="userid" placeholder="User ID"/>
+			<input type="text" ng-model="userid" placeholder="User ID" ng-required="true"/><span ng-show="user_checking()">checking availability...</span><span ng-show="user_available()">userid is available!</span><span ng-show="user_taken()">userid is taken!</span>
 			<br/>
-			<input type="text" ng-model="email" placeholder="email"/>
+			<input type="text" ng-model="email" placeholder="EMail"/>
 			<br />
-			<input type="password" ng-model="password" placeholder="password"/>
+			<input type="password" ng-model="password" placeholder="Password" ng-required="true" ng-valid="passwordmatch"/>
 			<br/>
-			<input type="password" ng-model="repeat_password" placeholder="repeat password"/>
+			<input type="password" ng-model="repeat_password" placeholder="Repeat Password" ng-required="true" ng-valid="passwordmatch"/><span ng-show="!passwordmatch" ng-hide="passwordmatch">&nbsp;passwords don't match!</span>
 			<br/>
 			<button ng-click="goToLogin()" class="btn btn-primary">
-				Login
+				<i class="icon-arrow-left"></i>&nbsp;Login
 			</button>
-			<button  ng-click="signUpAction()" class="btn btn-success">
+			<button  ng-click="signUpAction();openlogin=false;$root.openlogin=false" class="btn btn-success">
 				Sign up
+			</button>
+			<button  ng-click="cancel();openlogin=false;$root.openlogin=false" class="btn btn-warning">
+				Close
 			</button>
 		</form>
 	</div>
