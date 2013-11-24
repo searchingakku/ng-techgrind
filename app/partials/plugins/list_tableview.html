@@ -50,16 +50,21 @@
 <head>
 	<link rel="stylesheet" href="css/plugins/list.css">
 	<link rel="stylesheet" href="css/plugins/list_tableview.css">
+	<script type="text/javascript" src="lib/angular/ng-grid-flexible-height.js"></script>
 </head>
 
 <div ng-controller="ListActivitiesCtrl">
 
+	<div class="gridstyle unselectable" ng-grid="gridOptions" ng-click="listClickLink()">
+	</div>
+
+	<!--
 	<table class="table table-striped table-condensed table-hover">
 	<thead class="list-header">
 		<td>Type<td>Location<td>Name<td>Date<td>Time<td>Price
 	</thead>
 	<tbody>
-		<tr class="list-body" ng-click="listClickLink('#/events/{{activity.name}}')" ng-repeat="activity in activities"  tooltip="{{activity.descriptionshort}}">
+		<tr class="list-body" ng-click="listClickLink(activity.name)" ng-repeat="activity in activities" tooltip="{{activity.descriptionshort}}" tooltip-placement="right">
 			<td>{{activity.type}}</td>
 			<td>{{activity.location}}</td>
 			<td>{{activity.name}}</td>
@@ -69,5 +74,6 @@
 		</tr>
 	</tbody>
 	</table>
+	-->
 
 </div>

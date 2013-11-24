@@ -5,11 +5,21 @@
 jade/coffee source code is stored in src/
 static files are placed in app/
 
-app/ is the docroot from which the website is served
+app/ is the docroot from which the website is served.
+native html, css, & js go here.
 
-    http://localhost:8000/page.html <-- src/page.jade
-    http://localhost:8000/dir/page.html <-- src/dir/page.jade
-    http://localhost:8000/dir/js/code.js <-- src/js/code.coffee
+    http://localhost:8000/page.html <-- app/page.html
+    http://localhost:8000/dir/page.html <-- app/dir/page.html
+    http://localhost:8000/js/code.js <-- src/js/code.coffee
+    http://localhost:8000/css/style.css <-- app/css/style.css
+
+src/ is the docroot where jade, coffee, stylus is pre-compiled.
+these are pre-compiled before the webserver serves them out of app/
+
+    http://localhost:8000/page.jade <-- src/page.jade
+    http://localhost:8000/dir/page.jade <-- src/dir/page.jade
+    http://localhost:8000/js/code.coffee <-- src/js/code.coffee
+    http://localhost:8000/css/style.stylus <-- src/css/style.stylus
 
 Usage:
 
@@ -24,7 +34,7 @@ For E2E testing under the `http://localhost:8000/test/e2e/runner.html` url, the 
 TODO: compile script for deployment
 
 
-# angular-seed — the seed for AngularJS apps
+# angular-seed — for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 You can use it to quickly bootstrap your angular webapp projects and dev environment for these

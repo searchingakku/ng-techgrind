@@ -28,54 +28,77 @@
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
 */
 
-(function() {
+var appModule = angular.module('TechGrindApp.controllers.list.tableview', []);
 
-	var appModule = angular.module('TechGrindApp.controllers.list.tableview', []);
+appModule.controller('ListActivitiesCtrl', ['$scope', 'steam', '$http',
+function($scope, steam, http) {
 
-	appModule.controller('ListActivitiesCtrl', ['$scope', 'steam', '$http',
-	function($scope, steam, http) {
+	$scope.activities = [{
+		type: 'Event',
+		location: 'Thailand',
+		name: 'Speak.Learn.And.Pitch',
+		date: '18/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
+	}, {
+		type: 'Workshop',
+		location: 'Thailand',
+		name: 'CFF',
+		date: '20/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
+	}, {
+		type: 'Event',
+		location: 'Thailand',
+		name: 'CFF',
+		date: '24/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
+	}, {
+		type: 'Conferece',
+		location: 'Singapore',
+		name: 'StartupJobz Job Fair @ National University of Singapore',
+		date: '27/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Come get a job at a startup!'
+	}];
 
-		$scope.listClickLink = function(url) {
-		  if(url !== undefined) {
-		   	return document.location = url;
-			}
-		};
+	$scope.cols = [{field:'type', displayName:'Type'},
+							{field:'location', displayName:'Location'}, 
+							{field:'name', displayName:'Name'}, 
+							{field:'date', displayName:'Date'}, 
+							{field:'time', displayName:'Time'}, 
+							{field:'price', displayName:'Price'}];
+	$scope.gridOptions = {
+		data: 'activities',
+		columnDefs: 'cols',
+		multiSelect: false,
+		plugins: [new ngGridFlexibleHeightPlugin()],
+		minHeight: 600
+	};
 
-		var activities = [{
-			type: 'Event',
-			location: 'Thailand',
-			name: 'Speak.Learn.And.Pitch',
-			date: '18/12/2013',
-			time: '18:00',
-			price: 'FREE',
-			descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
-		}, {
-			type: 'Workshop',
-			location: 'Thailand',
-			name: 'CFF',
-			date: '20/12/2013',
-			time: '18:00',
-			price: 'FREE',
-			descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
-		}, {
-			type: 'Event',
-			location: 'Thailand',
-			name: 'CFF',
-			date: '24/12/2013',
-			time: '18:00',
-			price: 'FREE',
-			descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
-		}, {
-			type: 'Conferece',
-			location: 'Singapore',
-			name: 'StartupJobz Job Fair @ National University of Singapore',
-			date: '27/12/2013',
-			time: '18:00',
-			price: 'FREE',
-			descriptionshort: 'Come get a job at a startup!'
-		}];
+	$scope.listClickLink = function(url) {
 
-		return $scope.activities = activities;
-	}]);
+	  if(url !== undefined) {
+	   	return document.location = "#/events/" + url;
+		}
+	};
 
-}).call(this);
+/*
+	$scope.updatedTab = function(tab) {
+		console.log(tab);
+		$scope.currentTab = tab;
+		$scope.percentTabs = ($scope.currentTab+1)/$scope.tabs.length * 100;
+
+		window.setTimeout(function(){
+			$(window).resize();
+			$(window).resize();
+		}, 1000);
+	};
+*/
+
+}]);

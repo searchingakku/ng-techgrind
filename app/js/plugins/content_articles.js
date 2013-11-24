@@ -31,53 +31,49 @@
  news/article/tutorial/guide -> detailed info ==> full-content-page
  */
 
-(function() {
+var appModule = angular.module('TechGrindApp.controllers.content.articles', ['ngRoute']);
 
-	var appModule = angular.module('TechGrindApp.controllers.content.articles', []);
+appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
+function($scope, steam, rp, fullPageService) {
 
-	appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
-	function($scope, steam, rp, fullPageService) {
+	var matchregion = function(item) {
+		console.log(sexpr("filter", item.country == rp.region, item.country, rp.region, item));
+		return item.country == rp.region;
+	}
 
-		var matchregion = function(item) {
-			console.log(sexpr("filter", item.country == rp.region, item.country, rp.region, item));
-			return item.country == rp.region;
-		}
+	console.log('route Params:: ', rp)
+	if (!!rp.region) {
+		$scope.articles = news.filter(matchregion);
+	} else {
+		$scope.articles = news;
+	}
 
-		console.log('route Params:: ', rp)
-		if (!!rp.region) {
-			$scope.articles = news.filter(matchregion);
-		} else {
-			$scope.articles = news;
-		}
+	$scope.gotoFullPage = function(id) {
+		console.log(' ID TO GO: ',id);
+		return fullPageService.open();
+	}
+	/*$scope.openCompose = function() {
+		return richEditor.open();
+	}*/
 
-		$scope.gotoFullPage = function(id) {
-			console.log(' ID TO GO: ',id);
-			return fullPageService.open();
-		}
-		/*$scope.compose = function() {
-			return richEditor.open();
-		}*/
+	return $scope;
+}]);
 
-		return $scope;
-	}]);
+appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
+function($scope, steam, rp, fullPageService) {
 
-	appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
-	function($scope, steam, rp, fullPageService) {
+	$scope.articles = guides;
 
-		$scope.articles = guides;
+	$scope.gotoFullPage = function(id) {
+		console.log(' ID TO GO: ',id);
+		return fullPageService.open();
+	}
+	/*$scope.compose = function() {
+		return richEditor.open();
+	}*/
 
-		$scope.gotoFullPage = function(id) {
-			console.log(' ID TO GO: ',id);
-			return fullPageService.open();
-		}
-		/*$scope.compose = function() {
-			return richEditor.open();
-		}*/
-
-		return $scope.articles;
-	}]);
-
-}).call(this);
+	return $scope.articles;
+}]);
 
 var news = [{
 	id : '7834',

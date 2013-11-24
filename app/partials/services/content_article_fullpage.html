@@ -10,7 +10,7 @@
 	</div>
 	-->
 	<div class="modal-header article-header">
-		<button class="pull-right btn-close" ng-click="dialogOptions.close()">
+		<button class="pull-right btn-close" ng-click="close()">
 			<i class="icon-remove"></i>
 		</button>
 		<h3>{{dialogOptions.title}}</h3>
@@ -46,7 +46,7 @@
 				<div class="pull-right">
 					Rate Content
 					<div class="clearfix"></div>
-					<rating value="dialogOptions.rating" max="5" readonly="false"></rating>
+					<rating value="dialogOptions.rating" max="5" readonly="loginp()"></rating>
 				</div>
 				<div class="clearfix"></div>
 			</div>

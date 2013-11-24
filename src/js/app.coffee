@@ -49,14 +49,15 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.list.places'
 	'ui.bootstrap'
 	'ngRoute'
+	'ngGrid'
 	'LocalStorageModule'
-	'ToolsRichEditor'
 	'ContentFullPageModal'
+	'ToolsRichEditor'
 ]
 
 # give usage example for setting up a route, explain where each of these components goes and what it does
 # eg: how do i make a route for a dynamic link? what does :name do in a link or path?
-app.config ['$routeProvider', ($routeProvider) ->
+app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
 	$routeProvider.when '/home',
 		templateUrl: 'partials/home.html'
 		controller: 'HomeCtrl'

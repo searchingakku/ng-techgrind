@@ -34,18 +34,7 @@
 .list-body {
 	cursor:pointer;
 	font-weight:bold;
-}
-.list-body:hover {
-	color:#00F;
-}
-.list-body:active {
-
-}
-.list-body tr:nth-child(odd) {
-	color:#f00;
-}
-.list-body tr:nth-child(even) {
-	color:#0f0;
+	font-size:14px;
 }
 .table-striped tbody tr:nth-child(odd)>td {
 	background-color: #FF871E;
@@ -53,4 +42,10 @@
 .table-striped tbody tr:hover>td {
 	background-color: #444;
 	color:#EEE;
+}
+.gridstyle {
+  border:1px solid rgb(212,212,212);
+  width:99%;
+  height:100%;
+  overflow:hidden;
 }
