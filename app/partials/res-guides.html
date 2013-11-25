@@ -4,8 +4,8 @@
 			<i class="icon-ellipsis-horizontal"></i>
 		</div>
 		<div class="widget-body">
-
 			<div class="row-fluid">
+
 				<div class="span3">
 					<div class="sidebar-nav">
 						<ul class="nav nav-list">
@@ -21,17 +21,16 @@
 
 				<div class="span9">
 					<div class="title">
-						<h1 >{{activeTitle}}</h1>
-						<p>
-							{{activeDescription}}
-						</p>
+						<h1>{{activeTitle}}</h1>
+						<p>{{activeDescription}}</p>
 					</div>
-
 					<div ng-controller="ContentGuidesCtrl">
 						<div ng-include="'partials/plugins/content_articles.html'"></div>
 					</div>
 				</div>
-			</div>
+
+			</div> <!-- //row-fluid -->
 		</div>
 	</div>
 </div>
+<pre>{{sexpr(rp)}}</pre>

@@ -47,6 +47,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.list.tableview'
 	'TechGrindApp.controllers.list.entities'
 	'TechGrindApp.controllers.list.places'
+	'TechGrindApp.controllers.info.userprofile'
 	'ui.bootstrap'
 	'ngRoute'
 	'ngGrid'
@@ -58,34 +59,45 @@ app = angular.module 'TechGrindApp', [
 # give usage example for setting up a route, explain where each of these components goes and what it does
 # eg: how do i make a route for a dynamic link? what does :name do in a link or path?
 app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
+
+
+# GENERAL FUNCTION PAGES
+	$routeProvider.when '/register',
+		templateUrl: 'partials/register.html'
+		controller: 'RegisterCtrl'
+	
+	$routeProvider.when '/login',
+		templateUrl: 'partials/login.html'
+		controller: 'LoginCtrl'
+
+	$routeProvider.when '/login/:userid',
+		templateUrl: 'partials/login.html'
+		controller: 'LoginCtrl'
+
+	$routeProvider.when '/activate/:userid/:activationcode',
+		templateUrl: 'partials/activation.html'
+		controller: 'ActivationCtrl'
+
+	$routeProvider.when '/people',
+		templateUrl: 'partials/plugins/info_userprofile.html'
+		controller: 'InfoUserProfileCtrl'
+
+	$routeProvider.when '/people/:userid',
+		templateUrl: 'partials/plugins/info_userprofile.html'
+		controller: 'InfoUserProfileCtrl'
+
+# MAIN MENU PAGES
 	$routeProvider.when '/home',
 		templateUrl: 'partials/home.html'
 		controller: 'HomeCtrl'
 
-# WIP: incomplete
-	$routeProvider.when '/content',
-		templateUrl: 'partials/content-page.html'
-		controller: 'ContentCtrl'
-		
 	$routeProvider.when '/regions',
-		templateUrl: 'partials/regions.html'
-		controller: 'RegionsCtrl'
-
-	$routeProvider.when '/regions/:region',
 		templateUrl: 'partials/regions.html'
 		controller: 'RegionsCtrl'
 
 	$routeProvider.when '/events',
 		templateUrl: 'partials/events.html'
 		controller: 'EventsCtrl'
-
-	$routeProvider.when '/events/new',
-		templateUrl: 'partials/createactivity.html'
-		controller: 'CreateactivityCtrl'
-
-	$routeProvider.when '/events/:name',
-		templateUrl: 'partials/createactivity.html'
-		controller: 'CreateactivityCtrl'
 
 	$routeProvider.when '/resources/jobs',
 		templateUrl: 'partials/res-jobs.html'
@@ -111,25 +123,22 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/partners.html'
 		controller: 'PartnersCtrl'
 
+# API CALL PAGES
+	$routeProvider.when '/regions/:region',
+		templateUrl: 'partials/regions.html'
+		controller: 'RegionsCtrl'
+
+	$routeProvider.when '/events/new',
+		templateUrl: 'partials/createactivity.html'
+		controller: 'CreateactivityCtrl'
+
+	$routeProvider.when '/events/:name',
+		templateUrl: 'partials/createactivity.html'
+		controller: 'CreateactivityCtrl'
+
 	$routeProvider.when '/article/:id',
 		templateUrl: 'partials/article.html'
 		controller: 'ArticleCtrl'
-	
-	$routeProvider.when '/register',
-		templateUrl: 'partials/register.html'
-		controller: 'RegisterCtrl'
-	
-	$routeProvider.when '/login',
-		templateUrl: 'partials/login.html'
-		controller: 'LoginCtrl'
-
-	$routeProvider.when '/login/:userid',
-		templateUrl: 'partials/login.html'
-		controller: 'LoginCtrl'
-
-	$routeProvider.when '/activate/:userid/:activationcode',
-		templateUrl: 'partials/activation.html'
-		controller: 'ActivationCtrl'
 
 	$routeProvider.when '/test-cleanup',
 		templateUrl: 'partials/home.html'
@@ -147,6 +156,7 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/sgenome.html'
 		controller: 'StartupGenomeCtrl'
 
+# PLUGINS AND SERVICES PAGES
 	$routeProvider.when '/lists',
 		templateUrl: 'partials/plugins/lists.html'
 		controller: 'StartupGenomeCtrl'
@@ -158,6 +168,11 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 	$routeProvider.when '/lists/:country/:filter',
 		templateUrl: 'partials/plugins/list_:filter.html'
 		controller: 'StartupGenomeCtrl'		
+
+# WIP: incomplete
+	$routeProvider.when '/content',
+		templateUrl: 'partials/content-page.html'
+		controller: 'ContentCtrl'
 
 	$routeProvider.otherwise redirectTo: '/home'
 ]

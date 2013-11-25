@@ -22,10 +22,10 @@
 				<li ng-repeat="resource in resources" class="sub-menu"><a href="#/{{resource.url}}"><i class="{{resource.icon}}"></i>{{resource.name}}</a></li>
 			</ul></li>
 			<li ng-class="active('/partners')"><a href="#/partners"><i class="icon-star"></i><span>Partners</span></a></li>
-			<li ng-class="active('/lists')" class="dropdown"><a><i class="icon-list"></i><span>TEST:Lists</span><b class="caret"></b></a>
+			<!--li ng-class="active('/lists')" class="dropdown"><a><i class="icon-list"></i><span>TEST:Lists</span><b class="caret"></b></a>
 			<ul ng-controller="MenuCtrl" class="dropdown-menu">
 				<li ng-repeat="list in lists" class="sub-menu"><a href="#/{{list.url}}"><i class="{{list.icon}}"></i>{{list.name}}</a></li>
-			</ul></li>
+			</ul></li-->
 		</ul>
 		<!-- User Menu -->
 		<ul class="user-setting pull-right unselectable">
@@ -37,8 +37,9 @@
 			</ul></li>
 			<li ng-show="loginp()" class="dropdown"><a><i class="icon-user"></i><span id="show-user-name">{{ user().fullname }}</span></a>
 			<ul class="dropdown-menu">
-				<li class="sub-menu"><a href="javascript:;">My Profile</a></li>
+				<li class="sub-menu"><a href="#/people/{{userid}}">My Profile</a></li>
 				<li class="sub-menu"><a href="javascript:;">My Groups</a></li>
+				<li class="sub-menu"><a href="javascript:;">My Startups</a></li>
 				<li class="divider"></li>
 				<li class="sub-menu"><a ng-click="logout();$root.openlogin=false">Logout</a></li>
 			</ul></li>

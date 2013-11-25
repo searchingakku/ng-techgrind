@@ -82,10 +82,20 @@ function($scope, steam, http) {
 	};
 
 	$scope.listClickLink = function(url) {
-
 	  if(url !== undefined) {
 	   	return document.location = "#/events/" + url;
 		}
+	};
+
+	$scope.filterByLocation = function(location) {
+		// location can be an array or a single value
+		var newData;
+		for(i = activities.length; i < activities.length; i++) {
+			if(location in activities.location) {
+				newData += activities[i];
+			}
+		}
+		$scope.gridOptions.data	= newData;
 	};
 
 /*

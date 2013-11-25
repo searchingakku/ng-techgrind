@@ -1,0 +1,100 @@
+/*
+	info_userprofile:
+		display-style___________
+		the top element should be a "user info card" spanning the width of the screen.
+			it should contain the following elements:
+		* 
+		*
+		*
+		*
+
+		the bottom element should be a 2-column tab-display customized by the user,
+			with elements
+		
+		example:
+		
+		functional goal___________
+		this plugin should display content cards in a "news-card" fashion, and allow simple
+			interaction via clicking on the card itself, which will send the user to
+			the full content page to view the entire article/content/guide/tutorial/etc
+			
+		example-content -> displayed information ==> action-on-interaction:
+			news/article/tutorial/guide -> detailed info ==> full-content-page
+*/
+.info-profile {
+	width:auto;
+	display:block;
+	border:1px dotted #444;
+	background-color:#fff;
+	margin-top:10px;
+}
+.info-profile-card {
+	background-color:rgb(255,255,255);
+	background-color:rgba(255,255,255,0.8);
+	box-shadow:1px 1px 1px #444;
+	max-width:300px;
+	max-height:10em;
+	height:9em;
+	font-size:13px;
+	display:inline-block;
+	padding:5px;
+	bottom:0px;
+	vertical-align:bottom;
+}
+.info-profile-card .well {
+	padding:0px;
+	margin:0px;
+	margin-bottom:1px;
+}
+.info-profile-card-name {
+
+}
+.info-profile-card-name img {
+	max-height:100px;
+	max-width:120px;
+	margin-right:2px;
+	height:100px;
+	width:120px;
+}
+.info-profile-card-name h4 {
+	font-size:22px;
+	word-spacing:100px;
+	max-width:150px;
+	width:150px;
+	padding:0px;
+	margin:0px;
+	top:0px;
+}
+.info-profile-card-scores {
+	width:80px;
+	font-weight:bold;
+	text-align:center;
+}
+.info-profile-card-scores h4 {
+	font-size:20px;
+	padding:0px;
+	padding-top:3px;
+	margin:0px;
+}
+.info-profile-card-scores p {
+	font-size:11px;
+	padding:0px;
+	margin:0px;
+}
+.info-profile-card-links {
+	
+}
+.info-profile-card-links tr>td {
+	padding:1px;
+	margin:0px;
+	padding-left:10px;
+}
+.info-profile-card-links table {
+	margin-bottom:3px;
+}
+.info-profile-maintabs {
+
+}
+.info-profile-sidetabs {
+
+}

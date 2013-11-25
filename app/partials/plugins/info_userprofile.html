@@ -1,0 +1,108 @@
+<!--/*
+	info_userprofile:
+		display-style___________
+		the top element should be a "user info card" spanning the width of the screen.
+			it should contain the following elements:
+		* 
+		*
+		*
+		*
+
+		the bottom element should be a 2-column tab-display customized by the user,
+			with elements
+		
+		example:
+		
+		functional goal___________
+		this plugin should display content cards in a "news-card" fashion, and allow simple
+			interaction via clicking on the card itself, which will send the user to
+			the full content page to view the entire article/content/guide/tutorial/etc
+			
+		example-content -> displayed information ==> action-on-interaction:
+			news/article/tutorial/guide -> detailed info ==> full-content-page
+*/-->
+<head>
+	<!--link rel="stylesheet" href="css/plugins/info.css"-->
+	<link rel="stylesheet" href="css/plugins/info_userprofile.css">
+</head>
+
+<!--button ng-click="compose()" class="btn btn-compose btn-success pull-right">
+	<i class="icon-edit"></i>Compose
+</button-->
+<div ng-controller="InfoUserProfileCtrl">
+<div class="container">
+<div class="row">
+	<div class="span12">
+		<div class="info-profile">
+			<div class="info-profile-card info-profile-card-name">
+				<div class="pull-left"><img src="{{userprofile.image}}"/></div>
+				<div class="pull-left"><h4>{{userprofile.name}}</h4></div>
+				<div class="clearfix"></div>
+				<a href="{{userprofile.link}}">techgrind.asia/#/people/{{userprofile.userid}}</a>
+			</div>
+			<div class="info-profile-card info-profile-card-scores">
+				<div class="well">
+					<h4>{{userprofile.merit}}</h4>
+					<p>merit</p>
+				</div>
+				<div class="well">
+					<h4>{{userprofile.followers}}</h4>
+					<p>followers</p>
+				</div>
+				<button class="btn btn-success" ng-show="!isFollowing()" ng-toggle="followme">Follow</button>
+				<button class="btn" ng-show="isFollowing()" ng-toggle="followme">Following</button>
+			</div>
+			<div class="info-profile-card">
+				<h4>{{userprofile.position}} @ <a href="{{userprofile.companylink}}">{{userprofile.company}}</a></h4>
+				<h4><i>{{userprofile.bioshort}}</i></h4>
+				<h4>{{userprofile.location}}</h4>
+			</div>
+			<div class="info-profile-card info-profile-card-links">
+				<table>
+					<tr>
+						<td><a href="{{userprofile.github}}" target="_new">Github</a></td>
+						<td><a href="{{userprofile.portfolio}}" target="_new">Portfolio</a></td>
+					</tr>
+					<tr>
+						<td><a href="{{userprofile.facebook}}" target="_new">Facebook</a></td>
+						<td><a href="{{userprofile.gplus}}" target="_new">Google+</a></td>
+					</tr>
+					<tr>
+						<td><a href="{{userprofile.twitter}}" target="_new">Twitter</a></td>
+						<td><a href="{{userprofile.linkedin}}" target="_new">LinkedIn</a></td>
+					</tr>
+					<tr>
+						<td><a href="{{userprofile.blogurl}}" target="_new">Blog</a></td>
+						<td><a href="{{userprofile.website}}" target="_new">Website</a></td>
+					</tr>
+				</table>
+				<button class="btn btn-primary pull-right" ng-toggle="messageboxdropdown">Message Me&nbsp;<i class="icon-chevron-down"></i></button>
+			</div>
+		</div>
+		<div class="span8">
+			<div class="info-profile-maintabs">
+				<div class="widget">
+					<div class="widget-body">
+						<tabset>
+							<tab ng-repeat="tab in maintabs" heading="{{tab}}">{{tab}}{{tab}}{{tab}}</tab>
+						</tabset>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="info-profile-sidetabs">
+				<div class="widget">
+					<div class="widget-body">
+						<tabset>
+							<tab ng-repeat="tab in sidetabs" heading="{{tab}}">{{tab}}{{tab}}{{tab}}</tab>
+						</tabset>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<pre>{{sexpr(rp)}}</pre>

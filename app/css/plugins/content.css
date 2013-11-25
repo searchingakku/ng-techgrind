@@ -25,9 +25,12 @@
 	box-shadow:1px 1px 1px #444;
 }
 .btn-compose [class*="icon-"],
-.btn-compose [class^="icon-"] {
-	padding-right:5px;
-	padding-left:5px;
+.btn-compose [class^="icon-"],
+.btn-compose [class*="icon-"]:before,
+.btn-compose [class^="icon-"]:before {
+	padding:0px;
+	padding-bottom:0.2em;
+	padding-right:0.2em;
 	font-size:20px;
 	vertical-align:bottom;
 }
