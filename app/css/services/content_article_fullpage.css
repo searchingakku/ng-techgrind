@@ -8,7 +8,14 @@
 }
 .article-info h4 {
 	padding:0px;
-	margin:0px;	
+	margin:0px;
+	display:inline;
+}
+.article-info {
+	height:100%;
+	width:100%;
+	padding:0px;
+	margin:0px;
 }
 .article-info .icon-star {
 	color: #D6AE3E;
@@ -29,7 +36,7 @@
 }
 .article-header {
 	margin:0px;
-	padding:0px;
+	margin-left:4em;
 	padding:10px;
 }
 .article-body {
@@ -37,8 +44,7 @@
 	height:100%;
 	padding:0px;
 	margin:0px;
-	margin-left:2.5%;
-	text-align:left;
+	margin-left:5px;
 	vertical-align:top;
 }
 .article-content {
@@ -48,8 +54,18 @@
 	margin:1px;
 }
 .article-info {
-	width:30%;
+	width:32%;
 	padding:1px;
 	margin:1px;
 	vertical-align:top;
+}
+.article-social {
+	width:32%;
+	padding:1px;
+	margin:1px;
+	vertical-align:top;
+}
+.article-body .well {
+	padding:8px;
+	margin:8px;
 }

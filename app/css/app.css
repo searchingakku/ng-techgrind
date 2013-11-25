@@ -62,13 +62,15 @@ a:hover {
 	padding-left:3px;
 	padding-right:3px;
 	display:block;
-	font-size:20px;
-	height:1.5em;
-	width:2em;
+	height:2em;
+	width:3em;
 	border:1px solid #DDD;
 	box-shadow:0px 0px 1px #444;
 	background-color:rgb(255,255,255);
 	background-color:rgba(255,255,255,1);
+}
+.btn-close i {
+	font-size:20px;
 }
 .btn-close:hover {
 	border:1px outset #CCC;
