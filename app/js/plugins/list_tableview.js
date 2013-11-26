@@ -65,6 +65,70 @@ function($scope, steam, http) {
 		time: '18:00',
 		price: 'FREE',
 		descriptionshort: 'Come get a job at a startup!'
+	}, {
+		type: 'Event',
+		location: 'Philippines',
+		name: 'Speak.Learn.And.Pitch',
+		date: '18/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
+	}, {
+		type: 'Workshop',
+		location: 'Philippines',
+		name: 'CFF',
+		date: '20/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
+	}, {
+		type: 'Event',
+		location: 'Philippines',
+		name: 'CFF',
+		date: '24/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
+	}, {
+		type: 'Conferece',
+		location: 'Philippines',
+		name: 'StartupJobz Job Fair @ National University of Singapore',
+		date: '27/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Come get a job at a startup!'
+	}, {
+		type: 'Event',
+		location: 'Cambodia',
+		name: 'Speak.Learn.And.Pitch',
+		date: '18/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
+	}, {
+		type: 'Workshop',
+		location: 'Cambodia',
+		name: 'CFF',
+		date: '20/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
+	}, {
+		type: 'Event',
+		location: 'Cambodia',
+		name: 'CFF',
+		date: '24/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
+	}, {
+		type: 'Conferece',
+		location: 'Cambodia',
+		name: 'StartupJobz Job Fair @ National University of Singapore',
+		date: '27/12/2013',
+		time: '18:00',
+		price: 'FREE',
+		descriptionshort: 'Come get a job at a startup!'
 	}];
 
 	$scope.cols = [{field:'type', displayName:'Type'},
