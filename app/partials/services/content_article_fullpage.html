@@ -3,14 +3,8 @@
 </head>
 
 <div class="modal articlefullpage">
-	<!-- the "BACK" button -->
-	<!--
-	<div class="span1">
-		<button class="content-btn-back btn btn-large unselectable borderboxbutton" data-dismiss="modal"><i class="icon-arrow-left"></i></button>
-	</div>
-	-->
 	<div class="modal-header article-header">
-		<button class="pull-right btn-close" ng-click="close()">
+		<button class="pull-right btn-close" ng-click="close()" tooltip="(ESC)" tooltip-placement="bottom">
 			<i class="icon-remove"></i>
 		</button>
 		<h3>{{dialogData.title}}</h3>
@@ -49,7 +43,7 @@
 				<div class="pull-right">
 					Rate Content
 					<div class="clearfix"></div>
-					<rating value="dialogData.rating" max="5" readonly="loginp()"></rating>
+					<rating value="dialogData.rating" max="5" readonly="!loginp()"></rating>
 				</div>
 				<div class="clearfix"></div>
 			</div>

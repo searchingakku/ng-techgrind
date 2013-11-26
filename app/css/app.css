@@ -4,12 +4,25 @@
 	
 	orange: #FF871E
 	blue: 	#0078E1
+
+	// Lets define some font-size rules
+	base size: 13px;
+	// ALL other font-size changes should use fractions of "em" units
+	buttons: 1.1em;
+	button icons: 1.5em;
+	headers: 1.5em;
+	large-headers: 2em;
+	sub-text: 0.9em;
+	small-text: 0.8em;
+	super-large-text: 4em;
 */
 
 /* GENERAL
 ----------------------------------------------- */
 /* Prevent any object from being highlighted upon touch event */
 * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+/* Set global font size */
+* { font-size:13px; }
 /* Prevent link focus outline, eg: little dotted line */
 a:focus { outline: 0; }
 html, body {
@@ -56,6 +69,8 @@ a:hover {
 	background-color:rgb(210,210,210);
 	background-color:rgba(210,210,210,0.6);
 }
+
+/* Buttons */
 .btn-close {
 	margin:3px;
 	padding:0px;
@@ -70,12 +85,11 @@ a:hover {
 	background-color:rgba(255,255,255,1);
 }
 .btn-close i {
-	font-size:20px;
+	font-size:1.5em;
 }
 .btn-close:hover {
 	border:1px outset #CCC;
 	box-shadow:1px 1px 0px #444;
-	/* #D94947 */
 	background-color:rgb(217,73,71);
 	background-color:rgba(217,73,71,0.8);
 }
@@ -84,6 +98,31 @@ a:hover {
 	box-shadow:1px 1px 0px #444;
 	background-color:rgb(210,63,61);
 	background-color:rgba(210,63,61,0.6);
+}
+.btn-compose {
+	margin:0px;
+	padding:0px;
+	padding-left:5px;
+	padding-right:5px;
+	line-height:2em;
+}
+.btn-compose:hover {
+	border:1px outset #CCC;
+	box-shadow:1px 1px 1px #444;
+}
+.btn-compose:active {
+	border:1px inset #AAA;
+	box-shadow:1px 1px 1px #444;
+}
+.btn-compose [class*="icon-"],
+.btn-compose [class^="icon-"],
+.btn-compose [class*="icon-"]:before,
+.btn-compose [class^="icon-"]:before {
+	padding:0px;
+	padding-bottom:0.1em;
+	padding-right:0.2em;
+	font-size:1.4em;
+	vertical-align:bottom;
 }
 
 /* HEADER
@@ -94,7 +133,6 @@ a:hover {
 	height: 50px;
 	line-height: 50px;
 }
-
 .navbar-inner {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#ddd));
 	background: -webkit-linear-gradient(top,	#fff 0%,	#ddd 100%);
@@ -155,8 +193,8 @@ a:hover {
 	font-weight: bold;
 }
 .main-menu i {
-	font-size: 18px;
-	margin-right: 5px;
+	font-size:1.4em;
+	margin-right:5px;
 }
 
 /* Sub-Menu */
@@ -244,15 +282,15 @@ a:hover {
 	background: #444;
 }
 .user-setting li.divider {
-	height: 1px;
-	line-height: 1px;
-	font-size: 0px;
-	padding: 0px;
-	margin: 0px;
-	border: none;
+	height:1px;
+	line-height:1px;
+	font-size:0em;
+	padding:0px;
+	margin:0px;
+	border:none;
 }
 .user-setting i {
-	font-size: 18px;
+	font-size:1.4em;
 	margin-right: 5px;
 }
 
@@ -291,7 +329,7 @@ a:hover {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ccc',GradientType=0 );
 }
 .widget-head i {
-	font-size: 18px;
+	font-size:1.4em;
 	color: #C5C3C3;
 	text-shadow: 1px 1px rgb(0, 0, 0);
 	cursor: move;
@@ -325,7 +363,7 @@ a:hover {
 .social-sharing [class^="icon-"] {
 	height:20px;
 	width:20px;
-	font-size:20px;
+	font-size:1.5em;
 }
 
 /* Footer
@@ -349,7 +387,6 @@ a:hover {
 	background:         linear-gradient(to bottom,	#ffffff 0%,	#ccc 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ccc',GradientType=0 );
 }
-
 .footer p {
 	margin: 0;
 	padding: 0;
@@ -366,11 +403,11 @@ a:hover {
 	vertical-align:middle;
 	font-weight:bold;
 }
-.social a {
+.social a>i {
 	outline:none;
 	height:30px;
 	width:30px;
-	font-size:30px;
+	font-size:2.5em;
 }
 .social a:hover {
 	background:none;

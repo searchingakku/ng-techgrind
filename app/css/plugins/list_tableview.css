@@ -29,12 +29,12 @@
 */
 .list-header {
 	font-weight:bold;
-	font-size:14px;
+	font-size:1.2em;
 }
 .list-body {
 	cursor:pointer;
 	font-weight:bold;
-	font-size:14px;
+	font-size:1.2em;
 }
 .table-striped tbody tr:nth-child(odd)>td {
 	background-color: #FF871E;

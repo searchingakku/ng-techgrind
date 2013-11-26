@@ -32,8 +32,12 @@ tab.template
 
 var appModule = angular.module('TechGrindApp.controllers.info.userprofile', []);
 
-appModule.controller('InfoUserProfileCtrl', ['$scope', 'steam', '$http',
-function($scope, steam, http) {
+appModule.controller('InfoUserProfileCtrl', ['$scope', 'steam', '$http', '$rootScope',
+function($scope, steam, http, $rootScope) {
+
+	var user = steam.loginp();
+	var loginp = steam.loginp;
+	var isFollowing = false;
 
 	$scope.userprofile = {
 		userid: 'efraimip',
@@ -72,15 +76,22 @@ function($scope, steam, http) {
 		'Offering'
 	];
 
-	$scope.messageMe = function() {
-	  // popup messagebox modal and handle modalInstance message contents + sending()
+	$scope.followMeStart = function() {
+		if(loginp) {
+			$scope.isFollowing = true;
+		} else {
+			$rootScope.openlogin = true;
+		}
+	};
+	$scope.followMeStop = function() {
+		if(loginp) {
+			$scope.isFollowing = false;
+		} else {
+			$rootScope.openlogin = true;
+		}
 	};
 
-	$scope.followMe = function() {
-		if ($rootScope.loginp) {
-			// add this userID to current-user follow-list
-		} else {
-			// popup user login modal
-		}
+	$scope.messageMe = function() {
+	  // popup messagebox modal and handle modalInstance message contents + sending()
 	};
 }]);

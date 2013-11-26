@@ -81,7 +81,7 @@ img[ bn-lazy-src ] {
     margin-right: 0;
 }
 .guides h1 {
-    font-size: 18px;
+    font-size:1.5em;
     margin: 0;
 }
 
@@ -104,7 +104,7 @@ img[ bn-lazy-src ] {
 .guides-title {
     padding: 60px;
     margin-bottom: 30px;
-    font-size: 18px;
+    font-size:1.5em;
     font-weight: 200;
     line-height: 30px;
     color: inherit;
@@ -115,7 +115,7 @@ img[ bn-lazy-src ] {
 }
 .guides-title h1 {
     margin-bottom: 0;
-    font-size: 60px;
+    font-size:4em;
     line-height: 1;
     letter-spacing: -1px;
     color: inherit
@@ -162,7 +162,7 @@ img[ bn-lazy-src ] {
 .guides-nav-header {
     display: block;
     padding: 3px 15px;
-    font-size: 11px;
+    font-size:0.9em;
     font-weight: bold;
     line-height: 20px;
     color: #999;
@@ -184,7 +184,7 @@ img[ bn-lazy-src ] {
     padding: 9px 18px;
     margin-top: 1px;
     overflow: hidden;
-    font-size: 14px;
+    font-size:1.1em;
     line-height: 1.4;
     color: #737373;
     text-overflow: ellipsis;
@@ -233,7 +233,7 @@ img[ bn-lazy-src ] {
     margin: 0
 }
 .guides-card .guides-card-heading.simple {
-    font-size: 20px;
+    font-size:1.5em;
     font-weight: 300;
     color: #777;
     border-bottom: 1px solid #e5e5e5
@@ -255,12 +255,12 @@ img[ bn-lazy-src ] {
 }
 .guides-card .guides-card-heading.image .guides-card-heading-header h3 {
     margin: 0;
-    font-size: 14px;
+    font-size:1.1em;
     line-height: 16px;
     color: #262626
 }
 .guides-card .guides-card-heading.image .guides-card-heading-header span {
-    font-size: 12px;
+    font-size:0.9em;
     color: #999
 }
 .guides-card .guides-card-body {
