@@ -62,7 +62,7 @@ function($scope, steam, http) {
 			//pageSize: currently selected page size. 
 			pageSize: 10,
 			//totalServerItems: Total items are on the server. 
-			totalServerItems: 0,
+			totalServerItems: 50,
 			//currentPage: the uhm... current page.
 			currentPage: 1
 		},
@@ -70,6 +70,10 @@ function($scope, steam, http) {
 		headerRowHeight: 30,
 		//Row height of rows in grid.
 		rowHeight: 30,
+		//Define a row template to customize output. See github wiki for more details.
+		rowTemplate: undefined,
+		//Define a header row template for further customization. See github wiki for more details.
+		headerRowTemplate: undefined,
 		//Enables cell editing.
 		enableCellEdit: false,
 		//Enables cell selection.
@@ -82,14 +86,14 @@ function($scope, steam, http) {
 
 	$scope.listClickLink = function(url) {
 	  if(url !== undefined) {
-	   	return document.location = "#/events/" + url;
+	   	
 		}
 	};
 
 	var afterSelectionChangeFunc = function() {
 		var newLoc = '#/events/';
-		newLoc += data.name;
-		$scope.location = newLoc;
+		newLoc += $scope.selected.name;
+		return document.location = "#/events/" + url;
 	};
 
 	$scope.filterByLocation = function(location) {

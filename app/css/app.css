@@ -33,7 +33,7 @@ html, body {
 }
 [class*="span"] {
 	padding:0px;
-	margin:5px;
+	margin:0px;
 }
 a {
 	color: #444;

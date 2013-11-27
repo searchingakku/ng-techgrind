@@ -17,22 +17,16 @@
 	padding:0px;
 	margin:0px;
 }
-.article-info .icon-star {
-	color: #D6AE3E;
-	font-size:1.8em;
-	display:inline-block;
-	height:20px;
-	width:20px;
-}
+.article-info .icon-star,
 .article-info .icon-star:hover,
 .article-info .icon-star:before,
 .article-info .icon-star:after,
 .article-info .icon-star:active {
 	color: #D6AE3E;
-	font-size:1.8em;
+	font-size:1.1em;
 	display:inline-block;
-	height:20px;
-	width:20px;
+	height:1.1em;
+	width:1.1em;
 }
 .article-header {
 	margin:0px;

@@ -77,7 +77,6 @@
 				
 				modalInstance.opened.then(function (selectedItem) {
 					console.log('modal opened');
-					self.waitForVisible()
 				});
 			};
 

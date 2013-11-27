@@ -22,13 +22,10 @@
 			news/article/tutorial/guide -> detailed info ==> full-content-page
 */
 /*
-
 tab.header
 tab.type
 tab.template
-
 */
-
 
 var appModule = angular.module('TechGrindApp.controllers.info.userprofile', []);
 
