@@ -28,6 +28,12 @@ a:focus { outline: 0; }
 html, body {
 	height: 100%;
 	width: 100%;
+	padding:0px;
+	margin:0px;
+}
+[class*="span"] {
+	padding:0px;
+	margin:5px;
 }
 a {
 	color: #444;
@@ -310,16 +316,20 @@ a:hover {
 	background: white;
 	border: 1px solid #ccc;
 	border-radius: 4px;
-	margin: 20px 0;
+	margin:0px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-left:5px;
+	margin-right:5px;
 }
 .widget-head {
-	background: #ccc;
-	border-bottom: 1px solid #ccc;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	height: 15px;
-	line-height: 15px;
-	padding-left: 5px;
+	background:#ccc;
+	border-bottom:1px solid #ccc;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
+	height:15px;
+	line-height:15px;
+	padding-left:5px;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ccc));
 	background: -webkit-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
 	background:    -moz-linear-gradient(top,	#ffffff 0%,	#ccc 100%);
@@ -330,34 +340,34 @@ a:hover {
 }
 .widget-head i {
 	font-size:1.4em;
-	color: #C5C3C3;
-	text-shadow: 1px 1px rgb(0, 0, 0);
-	cursor: move;
+	color:#C5C3C3;
+	text-shadow:1px 1px rgb(0, 0, 0);
+	cursor:move;
 }
 .widget-body {
-	padding: 10px;
+	padding:10px;
 }
 .nav-tabs li>a {
-	cursor: pointer;
-	font-weight: bold;
-	color: #000;
+	cursor:pointer;
+	font-weight:bold;
+	color:#000;
 }
 .nav-tabs li>a:hover {
-	background: #bbb;
-	color: #000;
+	background:#bbb;
+	color:#000;
 }
 
 /* Social Sharing */
 .social-sharing ul {
-	margin: 0;
-	padding: 0;
+	margin:0;
+	padding:0;
 }
 .social-sharing ul li {
 	display: inline-block;
-	margin-right: 5px;
+	margin-right:5px;
 }
 .social-sharing i {
-	margin-right: 5px;
+	margin-right:5px;
 }
 .social-sharing [class*=" icon-"],
 .social-sharing [class^="icon-"] {

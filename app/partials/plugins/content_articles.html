@@ -39,7 +39,7 @@
 	<i class="icon-edit"></i>Compose
 </button-->
 <div ng-controller="ContentNewsCtrl">
-<div ng-repeat="item in articles" class="article unselectable borderboxbutton">
+<div ng-repeat="item in articles track by $index" id="{{index}}" class="article unselectable borderboxbutton">
 	<div ng-click="gotoFullPage(item.id)">
 		<h1>{{item.title}}</h1>
 		<div class="left"><img src="http://placehold.it/120x80"/>

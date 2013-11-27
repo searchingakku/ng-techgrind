@@ -31,7 +31,7 @@
  news/article/tutorial/guide -> detailed info ==> full-content-page
  */
 
-var appModule = angular.module('TechGrindApp.controllers.content.articles', ['ngRoute']);
+var appModule = angular.module('TechGrindApp.controllers.content.articles', []);
 
 appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
 function($scope, steam, rp, fullPageService) {
@@ -56,7 +56,7 @@ function($scope, steam, rp, fullPageService) {
 		return richEditor.open();
 	}*/
 
-	return $scope;
+	return $scope.articles;
 }]);
 
 appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',

@@ -1,0 +1,68 @@
+<head>
+<style>
+.table-cowork {
+	width: 100%;
+}
+
+.table-cowork thead td { 
+	text-align: center;
+	vertical-align: middle;
+}
+
+.table-cowork tbody td { 
+	text-align: center;
+	vertical-align: middle;
+	width: 6em;
+	border-top: 0px;
+}
+
+.table-cowork tbody td:first-child { 
+	max-width: 1px;
+}
+
+.table-cowork .break-icon {
+	border-right: 1px solid #bbb;
+	padding-left: 0.5em;
+	padding-right: 0em;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.table-cowork [class^="icon-"], .table-cowork [class*=" icon-"] a:hover{
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	font-size: 20px;
+	vertical-align: middle;
+	text-decoration: none;
+}
+</style>
+</head>
+
+<div ng-controller="ListPlacesCoworking" class="widget-content">
+<table class="table table-condensed">
+<tbody>
+<tr><td>
+	<table ng-repeat="item in coworkingspaces" class="table-cowork">
+	<tbody>
+		<tr>
+			<td><img class="logo" src="{{item.imglogofile}}"/>
+			<td><h3>{{item.name}}</h3>
+			<td><p class="muted uppercase">{{item.city}}<br>{{item.publictransit1}}<br>{{item.publictransit2}}</p>
+			<td><a target=_blank href="{{item.urlmap}}">{{item.address}}<br></a>
+			<td><b>{{item.opendays}}</b>&nbsp;{{item.openhours}}
+		</tr><tr>
+			<td><img class="logo" src="{{item.imgpicfile}}"/>
+			<td>
+			<td><b>{{item.priceday}}</b>/day<br><b>{{item.pricemonth}}</b>/month
+			<td><a href="{{item.urlwebsite}}" target="_new">Website</a>
+			<td><a href="{{item.urlfacebook}}" target="_new"><i class="icon-facebook-sign facebook"></i></a>
+			<a href="{{item.urltwitter}}" target="_new"><i class="icon-twitter-sign twitter"></i></a>
+			<a href="{{item.urlgplus}}" target="_new"><i class="icon-google-plus-sign google-plus"></i></a>
+		</tr>
+	</tbody>
+	</table>
+</tbody>
+</table>
+</div> <!-- /widget-content -->
