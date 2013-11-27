@@ -40,11 +40,28 @@ function($scope, steam, http) {
 							{field:'date', displayName:'Date'}, 
 							{field:'time', displayName:'Time'}, 
 							{field:'price', displayName:'Price'}];
+
+	var afterSelectionChangeFunc = function(rowItem, event) {
+		document.location = '#/events/'+ $scope.mySelections[0].linkid;
+	};
+
+	$scope.filterByLocation = function(location) {
+		// location can be an array or a single value
+		var newData = {};
+		for(i = activities.length; i < activities.length; i++) {
+			if(location in activities.location) {
+				newData += activities[i];
+			}
+		}
+		$scope.gridOptions.data	= newData;
+	};
+	$scope.mySelections = [];
 	$scope.gridOptions = {
 		data: 'activities',
 		columnDefs: 'cols',
 		multiSelect: false,
 		showGroupPanel: true,
+		selectedItems: $scope.mySelections,
 		afterSelectionChange: afterSelectionChangeFunc,
 		plugins: [new ngGridFlexibleHeightPlugin()],
 		minHeight: 600,
@@ -56,6 +73,7 @@ function($scope, steam, http) {
 		keepLastSelected: true,
 		//Enables the server-side paging feature
 		enablePaging: true,
+		showFooter: true,
 		pagingOptions: {
 			// pageSizes: list of available page sizes.
 			pageSizes: [10, 25, 50], 
@@ -71,7 +89,7 @@ function($scope, steam, http) {
 		//Row height of rows in grid.
 		rowHeight: 30,
 		//Define a row template to customize output. See github wiki for more details.
-		rowTemplate: undefined,
+		rowTemplate: '<style>.ngRow:hover { background-color:#FF871E; }</style><div ng-style="{ \'cursor\': pointer; }" ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngCell {{col.cellClass}}"><div class="ngVerticalBar" ng-style="{height: rowHeight}" ng-class="{ ngVerticalBarVisible: !$last }">&nbsp;</div><div ng-cell></div></div>',
 		//Define a header row template for further customization. See github wiki for more details.
 		headerRowTemplate: undefined,
 		//Enables cell editing.
@@ -83,30 +101,6 @@ function($scope, steam, http) {
 		//Enable or disable reordering of columns
 		enableColumnReordering: false
 	};
-
-	$scope.listClickLink = function(url) {
-	  if(url !== undefined) {
-	   	
-		}
-	};
-
-	var afterSelectionChangeFunc = function() {
-		var newLoc = '#/events/';
-		newLoc += $scope.selected.name;
-		return document.location = "#/events/" + url;
-	};
-
-	$scope.filterByLocation = function(location) {
-		// location can be an array or a single value
-		var newData = {};
-		for(i = activities.length; i < activities.length; i++) {
-			if(location in activities.location) {
-				newData += activities[i];
-			}
-		}
-		$scope.gridOptions.data	= newData;
-	};
-
 /*
 	$scope.updatedTab = function(tab) {
 		console.log(tab);
@@ -123,6 +117,7 @@ function($scope, steam, http) {
 }]);
 
 var activities = [{
+		linkid: 'SLAP',
 		type: 'Event',
 		location: 'Thailand',
 		name: 'Speak.Learn.And.Pitch',
@@ -131,6 +126,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
 	}, {
+		linkid: 'CFF',
 		type: 'Workshop',
 		location: 'Thailand',
 		name: 'CFF',
@@ -139,6 +135,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
+		linkid: 'CFF',
 		type: 'Event',
 		location: 'Thailand',
 		name: 'CFF',
@@ -147,6 +144,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
+		linkid: 'SUJ-Fair',
 		type: 'Conferece',
 		location: 'Singapore',
 		name: 'StartupJobz Job Fair @ National University of Singapore',
@@ -155,6 +153,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Come get a job at a startup!'
 	}, {
+		linkid: 'SLAP',
 		type: 'Event',
 		location: 'Philippines',
 		name: 'Speak.Learn.And.Pitch',
@@ -163,6 +162,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
 	}, {
+		linkid: 'CFF',
 		type: 'Workshop',
 		location: 'Philippines',
 		name: 'CFF',
@@ -171,6 +171,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
+		linkid: 'CFF',
 		type: 'Event',
 		location: 'Philippines',
 		name: 'CFF',
@@ -179,6 +180,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
+		linkid: 'SUJ-Fair',
 		type: 'Conferece',
 		location: 'Philippines',
 		name: 'StartupJobz Job Fair @ National University of Singapore',
@@ -187,6 +189,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Come get a job at a startup!'
 	}, {
+		linkid: 'SLAP',
 		type: 'Event',
 		location: 'Cambodia',
 		name: 'Speak.Learn.And.Pitch',
@@ -195,6 +198,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
 	}, {
+		linkid: 'CFF',
 		type: 'Workshop',
 		location: 'Cambodia',
 		name: 'CFF',
@@ -203,6 +207,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
+		linkid: 'CFF',
 		type: 'Event',
 		location: 'Cambodia',
 		name: 'CFF',
@@ -211,6 +216,7 @@ var activities = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
+		linkid: 'SUJ-Fair',
 		type: 'Conferece',
 		location: 'Cambodia',
 		name: 'StartupJobz Job Fair @ National University of Singapore',
