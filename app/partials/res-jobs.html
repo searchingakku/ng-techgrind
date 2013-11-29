@@ -1,10 +1,16 @@
 <div class="container">
 	<div class="widget">
-		<div class="widget-head">
-			<i class="icon-ellipsis-horizontal"></i>
-		</div>
 		<div class="widget-body">
-			<div ng-include="'partials/plugins/list_entities.html'"></div>
+			<tabset>
+				<tab heading="Jobs">
+					<div ng-include="''"></div>
+				</tab>
+				<tab heading="HR Services">
+					<div ng-include="'partials/plugins/list_entities.html'"></div>
+				</tab>
+				<tab heading="Employment & Legal">
+					<div ng-include="'partials/inserts/res-jobs_startupjobs_employment.html'"></div>
+				</tab>
 		</div>
 	</div>
 </div>
