@@ -1,0 +1,18 @@
+<div ng-controller="MenuAccordionCtrl">
+	<accordion close-others="true" >
+
+		<accordion-group  ng-repeat="group in groups">
+			<accordion-heading>
+				{{group.title}}
+			</accordion-heading>
+
+				<ul class="nav nav-pills nav-stacked">
+					<li ng-repeat="items in group.items" >
+						<a ng-click="" class="ng-binding">{{items.name}}</a>
+					</li>
+				</ul>
+				
+		</accordion-group>
+
+	</accordion>
+</div>
