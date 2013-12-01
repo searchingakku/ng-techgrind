@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('ToolsRichEditor', [ 'ui.bootstrap' ]);
+	var app = angular.module('ToolsRichEditor', [ 'ui.bootstrap','TechGrindApp.directives.ui.tinymce' ]);
 	app.service('ToolsRichEditorService',
 		['$modal', 'steam', '$rootScope',
 		 function($modal, steam, $rootScope) {
@@ -9,63 +9,88 @@
 			self.isLogged = false;
 			self.user = steam.loginp();
 			self.loginp = steam.loginp;
+			self.tinymceOptions = {
+					selector : "#inputContentRichText",
+					plugins : [
+							"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+							"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+							"save table contextmenu directionality emoticons template paste textcolor" ],
+					width : '100%',
+					height : 310,
+					browser_spellcheck : true,
+					statusbar : false,
+					menubar : false,
+					paste_as_text : true,
+					toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | link image media | bullist | forecolor backcolor",
+					charLimit : 1000000, // this is a
+										// default
+										// value
+										// which can
+										// get
+										// modified
+										// later
+				};
 
-//			self.dialogCategories = [ {
-//				name : 'news'
-//			}, {
-//				name : 'guides'
-//			}, {
-//				name : 'tutorials'
-//			} ];
+			self.tinymce = 'Write your own article, news, or tutorial and publish it now!';
+			self.labels = '';
 			self.dialogCategories = ['news','guides','tutorials'];
 			var user = null;
 
 			this.open = function() {
-
-				self.isOpen = true;
-				// lets check if the user is logged
-				self.user = steam.loginp();
-				self.loginp = steam.loginp;
-
-				var modalInstance = $modal.open({
-					backdrop : false,
-					keyboard : true,
-					backdropClick : true,
-					dialogFade : true,
-					templateUrl : 'partials/services/tools_richeditor.html',
-					controller : ModalInstanceCtrl,
-					windowClass : 'modal myWindow',
-					resolve : {
-						dialogCategories : function() {
-							return self.dialogCategories;
-						},
-						user : function() {
-							return self.user;
-						},
-						loginp : function() {
-							return self.loginp;
+				if(!self.isOpen){
+					self.isOpen = true;
+					// lets check if the user is logged
+					self.user = steam.loginp();
+					self.loginp = steam.loginp;
+	
+					//open main modal window
+					var modalInstance = $modal.open({
+						backdrop : false,
+						keyboard : false,
+						backdropClick : true,
+						dialogFade : true,
+						templateUrl : 'partials/services/tools_richeditor.html',
+						controller : ModalInstanceCtrl,
+						windowClass : 'modal myWindow',
+						resolve : {//We need to pass this values from scope into modal has required by Angular-UI
+							dialogCategories : function() {
+								return self.dialogCategories;
+							},
+							user : function() {
+								return self.user;
+							},
+							loginp : function() {
+								return self.loginp;
+							},
+							tinymce : function() {
+								return self.tinymce;
+							},
+							tinymceOptions : function() {
+								return self.tinymceOptions;
+							},
+							labels : function() {
+								return self.labels;
+							}
 						}
-					}
-				});
-				
-				modalInstance.result.then(function (selectedItem) {
-					
-				}, function () {
-					console.info('Modal dismissed at: ' + new Date());
-					self.isOpen = false;
-				});
-				
-				modalInstance.opened.then(function (selectedItem) {
-					console.log('modal opened');
-					self.waitForVisible()
-				});
+					});
+					modalInstance.result.then(function (selectedItem) {
+						console.log('Modal dismissed at: ' + new Date());
+						self.isOpen = false;
+					});
+					modalInstance.opened.then(function (selectedItem) {
+						console.log('modal opened');
+					});
+				}
 			};
-			var ModalInstanceCtrl = function($scope,$modalInstance, dialogCategories, user, loginp) {
+			var ModalInstanceCtrl = function($scope,$modalInstance, dialogCategories, user, loginp, tinymce, tinymceOptions, labels) {
 				$scope.dialogCategories = dialogCategories;
 				$scope.selectedCategory = $scope.dialogCategories[0];
 
 				$scope.user = user;
 				$scope.loginp = loginp;
+				$scope.tinymceOptions = tinymceOptions;
+				$scope.tinymce = tinymce;
+				$scope.labels = labels;
 
 				$scope.close = function(result) {
 					try{
@@ -81,7 +106,7 @@
 				$scope.save = function(result) {
 					var jsonMsg = {
 						title : this.title,
-						fullText : tinyMCE.get('inputContentRichText').getContent(),
+						fullText : this.tinymce,
 						labels : this.labels,
 						category : this.selectedCategory
 					};
@@ -93,7 +118,7 @@
 				$scope.post = function() {
 					var jsonMsg = {
 						title : this.title,
-						fullText : tinyMCE.get('inputContentRichText').getContent(),
+						fullText : this.tinymce,
 						labels : this.labels,
 						category : this.selectedCategory
 					};
@@ -108,40 +133,8 @@
 						}
 					});
 				};
-			};
-
-			self.waitForVisible = function() {
-				if($('.modal.myWindow').is(':visible')){
-					self.activateTinyMce();
-				}else{
-					setTimeout(function(){
-						self.waitForVisible();
-					},100);
-				}
-			};
-			self.activateTinyMce = function() {
-				console.log('Activate TinyMce loaded....');
-				tinymce.init({
-							selector : "#inputContentRichText",
-							plugins : [
-									"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-									"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-									"save table contextmenu directionality emoticons template paste textcolor" ],
-							width : '100%',
-							height : 310,
-							browser_spellcheck : true,
-							statusbar : false,
-							menubar : false,
-							paste_as_text : true,
-							toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | link image media | bullist | forecolor backcolor",
-							charLimit : 100000, // this is a
-												// default
-												// value
-												// which can
-												// get
-												// modified
-												// later
-						});
+				
+				
 			};
 		}]);
 }).call(this);
