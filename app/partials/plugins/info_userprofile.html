@@ -33,54 +33,56 @@
 <div class="container">
 <div class="row">
 	<div class="span12">
-		<div class="info-profile">
-			<div class="info-profile-card info-profile-card-name">
-				<div class="pull-left"><img src="{{userprofile.image}}"/></div>
-				<div class="pull-left"><h4>{{userprofile.name}}</h4></div>
-				<div class="clearfix"></div>
-				<a href="{{userprofile.link}}">techgrind.asia/#/people/{{userprofile.userid}}</a>
-			</div>
-			<div class="info-profile-card info-profile-card-scores">
-				<div class="well">
-					<h4>{{userprofile.merit}}</h4>
-					<p>merit</p>
+		<div class="widget">
+			<div class="widget-body">
+				<div class="info-profile-card info-profile-card-name">
+					<div class="pull-left"><img src="{{userprofile.image}}"/></div>
+					<div class="pull-left"><h4>{{userprofile.name}}</h4></div>
+					<div class="clearfix"></div>
+					<a href="{{userprofile.link}}">techgrind.asia/#/people/{{userprofile.userid}}</a>
 				</div>
-				<div class="well">
-					<h4>{{userprofile.followers}}</h4>
-					<p>followers</p>
+				<div class="info-profile-card info-profile-card-scores">
+					<div class="well">
+						<h4>{{userprofile.merit}}</h4>
+						<p>merit</p>
+					</div>
+					<div class="well">
+						<h4>{{userprofile.followers}}</h4>
+						<p>followers</p>
+					</div>
+					<!--button class="btn btn-primary btnfollow" ng-show="isFollowing()" ng-click="followMe()">Follow</button>
+					<button class="btn btn-success btnfollow" ng-show="!isFollowing()" ng-mouseover="toggleFollowOff()"><i class="icon-remove" ng-show="
+						toggleFollowBtn">&nbsp;</i>Following</button-->
+					<!--button class="btn btn-primary btnfollowing">Follow</button-->
+					<button class="btn btn-success" ng-click="followMeStart()" ng-hide="isFollowing">Follow</button>
+					<button class="btn btn-primary" ng-click="followMeStop()" ng-show="isFollowing">Following</button>
 				</div>
-				<!--button class="btn btn-primary btnfollow" ng-show="isFollowing()" ng-click="followMe()">Follow</button>
-				<button class="btn btn-success btnfollow" ng-show="!isFollowing()" ng-mouseover="toggleFollowOff()"><i class="icon-remove" ng-show="
-					toggleFollowBtn">&nbsp;</i>Following</button-->
-				<!--button class="btn btn-primary btnfollowing">Follow</button-->
-				<button class="btn btn-success" ng-click="followMeStart()" ng-hide="isFollowing">Follow</button>
-				<button class="btn btn-primary" ng-click="followMeStop()" ng-show="isFollowing">Following</button>
-			</div>
-			<div class="info-profile-card">
-				<h4>{{userprofile.position}} @ <a href="{{userprofile.companylink}}">{{userprofile.company}}</a></h4>
-				<h4><i>{{userprofile.bioshort}}</i></h4>
-				<h4>{{userprofile.location}}</h4>
-			</div>
-			<div class="info-profile-card info-profile-card-links">
-				<table>
-					<tr>
-						<td><a href="{{userprofile.github}}" target="_new">Github</a></td>
-						<td><a href="{{userprofile.portfolio}}" target="_new">Portfolio</a></td>
-					</tr>
-					<tr>
-						<td><a href="{{userprofile.facebook}}" target="_new">Facebook</a></td>
-						<td><a href="{{userprofile.gplus}}" target="_new">Google+</a></td>
-					</tr>
-					<tr>
-						<td><a href="{{userprofile.twitter}}" target="_new">Twitter</a></td>
-						<td><a href="{{userprofile.linkedin}}" target="_new">LinkedIn</a></td>
-					</tr>
-					<tr>
-						<td><a href="{{userprofile.blogurl}}" target="_new">Blog</a></td>
-						<td><a href="{{userprofile.website}}" target="_new">Website</a></td>
-					</tr>
-				</table>
-				<button class="btn btn-primary pull-right" ng-toggle="messageboxdropdown">Message Me&nbsp;<i class="icon-chevron-down"></i></button>
+				<div class="info-profile-card">
+					<h4>{{userprofile.position}} @ <a href="{{userprofile.companylink}}">{{userprofile.company}}</a></h4>
+					<h4><i>{{userprofile.bioshort}}</i></h4>
+					<h4>{{userprofile.location}}</h4>
+				</div>
+				<div class="info-profile-card info-profile-card-links">
+					<table>
+						<tr>
+							<td><a href="{{userprofile.github}}" target="_new">Github</a></td>
+							<td><a href="{{userprofile.portfolio}}" target="_new">Portfolio</a></td>
+						</tr>
+						<tr>
+							<td><a href="{{userprofile.facebook}}" target="_new">Facebook</a></td>
+							<td><a href="{{userprofile.gplus}}" target="_new">Google+</a></td>
+						</tr>
+						<tr>
+							<td><a href="{{userprofile.twitter}}" target="_new">Twitter</a></td>
+							<td><a href="{{userprofile.linkedin}}" target="_new">LinkedIn</a></td>
+						</tr>
+						<tr>
+							<td><a href="{{userprofile.blogurl}}" target="_new">Blog</a></td>
+							<td><a href="{{userprofile.website}}" target="_new">Website</a></td>
+						</tr>
+					</table>
+					<button class="btn btn-primary pull-right" ng-toggle="messageboxdropdown">Message Me&nbsp;<i class="icon-chevron-down"></i></button>
+				</div>
 			</div>
 		</div>
 		<div class="span8">

@@ -165,27 +165,27 @@ a:hover {
 
 /* Main Menu */
 .main-menu {
-	float: left;
+	float:left;
 }
 .main-menu ul {
-	margin: 0;
-	padding: 0;
+	margin:0px;
+	padding:0px;
 }
 .main-menu li {
-	display: inline-block;
-	border-right: 1px dotted #bbb;
-	padding: 0px;
-	margin: 0px;
+	display:inline-block;
+	border-right:1px dotted #bbb;
+	padding:0px;
+	margin:0px;
 }
 .main-menu a {
-	display: inline-block;
-	height: 4em;
-	line-height: 4em;
-	padding-right: 1em;
-	padding-left: 1em;
-	vertical-align: middle;
-	cursor: pointer;
-	text-decoration: none;
+	display:inline-block;
+	height:4em;
+	line-height:4em;
+	padding-right:1em;
+	padding-left:1em;
+	vertical-align:middle;
+	cursor:pointer;
+	text-decoration:none;
 }
 .main-menu li:hover, .main-menu li.active:hover {
 	background: #444;
@@ -207,7 +207,6 @@ a:hover {
 .caret {
 	margin-top: 2px !important; /* figure out how to do this without implicit overriding */
 }
-
 .dropdown-menu {
 	padding: 0px;
 	margin: 0px;
@@ -318,9 +317,9 @@ a:hover {
 	border-radius: 4px;
 	margin:0px;
 	margin-top:10px;
-	margin-bottom:10px;
-	margin-left:5px;
-	margin-right:5px;
+	margin-bottom:3px;
+	margin-left:3px;
+	margin-right:3px;
 }
 .widget-head {
 	background:#ccc;
