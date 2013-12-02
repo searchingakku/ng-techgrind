@@ -1,0 +1,8 @@
+#menu_accordion .accordion-body  .accordion-inner{
+	padding : 0;
+	margin : 0;
+}
+
+#menu_accordion .accordion-body  .accordion-inner li{
+	cursor: pointer;
+}
