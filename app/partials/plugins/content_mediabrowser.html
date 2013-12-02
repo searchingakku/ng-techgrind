@@ -48,40 +48,9 @@
 	<link rel="stylesheet" href="css/plugins/content_mediabrowser.css">
 </head>
 <div ng-controller="ContentMediaCtrl" class='container-fluid'>
-	<div ng-show="level == 0" class="row">
+	<div ng-show="level == 0" class="row-fluid">
 
-		<!-- <center>
-					<div ng-repeat="items in categories" class="row-fluid">
-						<div ng-repeat="item in items" class="article unselectable borderboxbutton span4">
-							<div>
-								<img src="{{item.thumb}}" height="120px" width="240px" style="height:120px !important; width:100% !important;"/>
-							</div>
-							<div class="right">
-								{{item.title}}
-								<div class="meta">
-									{{item.author}}
-								</div>
-								
-							</div>
-						</div>
-					</div>
-		</center> -->
-		
-		
-		
-		<!-- <div class="card media article unselectable borderboxbutton " ng-repeat="item in categoriesUniqueLevel" >
-			<div class="card-top white">
-				<a href="#"> <img src="{{item.thumb}}" alt="" /> </a>
-			</div>
-			<div class="card-info">
-				<a class="title" href="#">{{item.title}}</a>
-				<div class="desc">
-					{{item.author}}
-				</div>
-			</div>
-			
-		</div> -->
-		
+		<div class="center">
 		<div class="card media stack" ng-repeat="item in categories" ng-click="goToSubLevel(item.id)">
 			<div class="frameImageContainer">
 			<div class="framedImage" style="position: absolute; left: 0px; top: 0px; width: 249px; height: 194px; z-index: 1;">
@@ -118,7 +87,7 @@
 				</div>
 			</div>
 		</div>
-		
+		</div>
 	</div>
 	<div ng-show="level == 1" class="row">
 		<button class="btn btn-danger" ng-click="goBack()">Back</button>
