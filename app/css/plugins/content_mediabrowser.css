@@ -75,11 +75,15 @@
 	position: relative;
 	display: inline-block;
 	width: 249px;
-	height: 200px;
+	height: 240px;
 	padding-top: 0;
 	margin: 20px;
 	border: none;
 	cursor: pointer;
+}
+.card.media.stack .frameImageContainer{
+	position: relative;
+	height: 200px;
 }
 .card.media.stack img{
 	width: 240px;

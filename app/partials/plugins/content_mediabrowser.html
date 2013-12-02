@@ -82,37 +82,49 @@
 			
 		</div> -->
 		
-		<div class="card media stack" ng-repeat="item in categoriesUniqueLevel" >
+		<div class="card media stack" ng-repeat="item in categories" ng-click="goToSubLevel(item.id)">
+			<div class="frameImageContainer">
 			<div class="framedImage" style="position: absolute; left: 0px; top: 0px; width: 249px; height: 194px; z-index: 1;">
 				<div id="gridEntry0" style="overflow: hidden; position: absolute; left: 9px; top: 10px; width: 240px; height: 165px;" >
 					<img src="{{item.thumb}}" style="position: absolute; left: -13px; top: 0px; width: 247px; height: 165px;">
 				</div>
-				<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/ul.png" style="position: absolute; left: 0px; top: 0px; width: 74px; height: 15px;z-index: 2;">
-				<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/ll.png" style="position: absolute; left: 0px; top: 152px; width: 74px; height: 42px;z-index: 2;">
-				<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/ur.png" style="position: absolute; left: 170px; top: 0px; width: 79px; height: 15px;z-index: 2;">
-				<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/lr.png" style="position: absolute; left: 170px; top: 152px; width: 79px; height: 42px;z-index: 2;">
+				<img src="/img/plugins/content_media/ul.png" style="position: absolute; left: 0px; top: 0px; width: 74px; height: 15px;z-index: 2;">
+				<img src="/img/plugins/content_media/ll.png" style="position: absolute; left: 0px; top: 152px; width: 74px; height: 42px;z-index: 2;">
+				<img src="/img/plugins/content_media/ur.png" style="position: absolute; left: 170px; top: 0px; width: 79px; height: 15px;z-index: 2;">
+				<img src="/img/plugins/content_media/lr.png" style="position: absolute; left: 170px; top: 152px; width: 79px; height: 42px;z-index: 2;">
 				
 				<div style="position: absolute; left: 0px; top: 15px; width: 74px; height: 137px;overflow: hidden; ">
-					<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/left.png" style="position: absolute; left: 0px; top: 0px; width: 74px; height: 126px;z-index: 2;">
-					<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/left.png" style="position: absolute; left: 0px; top: 126px; width: 74px; height: 126px;z-index: 2;">
+					<img src="/img/plugins/content_media/left.png" style="position: absolute; left: 0px; top: 0px; width: 74px; height: 126px;z-index: 2;">
+					<img src="/img/plugins/content_media/left.png" style="position: absolute; left: 0px; top: 126px; width: 74px; height: 126px;z-index: 2;">
 				</div>
 				<div style="position: absolute; left: 170px; top: 15px; width: 79px; height: 137px;overflow: hidden; ">
-					<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/right.png" style="position: absolute; left: 0px; top: 0px; width: 79px; height: 130px;z-index: 2;">
-					<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/right.png" style="position: absolute; left: 0px; top: 130px; width: 79px; height: 130px;z-index: 2;">
+					<img src="/img/plugins/content_media/right.png" style="position: absolute; left: 0px; top: 0px; width: 79px; height: 130px;z-index: 2;">
+					<img src="/img/plugins/content_media/right.png" style="position: absolute; left: 0px; top: 130px; width: 79px; height: 130px;z-index: 2;">
 				</div>
 				<div style="position: absolute; left: 74px; top: 0px; width: 96px; height: 15px;overflow: hidden; ">
-					<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/top.png" style="position: absolute; left: 0px; top: 0px; width: 60px; height: 15px;z-index: 2;">
-					<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/top.png" style="position: absolute; left: 60px; top: 0px; width: 60px; height: 15px;z-index: 2;">
+					<img src="/img/plugins/content_media/top.png" style="position: absolute; left: 0px; top: 0px; width: 60px; height: 15px;z-index: 2;">
+					<img src="/img/plugins/content_media/top.png" style="position: absolute; left: 60px; top: 0px; width: 60px; height: 15px;z-index: 2;">
 				</div>
 				<div style="position: absolute; left: 74px; top: 152px; width: 96px; height: 42px;overflow: hidden; ">
-					<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/bottom.png" style="position: absolute; left: 0px; top: 0px; width: 60px; height: 42px;z-index: 2;">
-					<img src="http://elositobkk.com/EL_Osito_Sandwiches_and_Tapas/Photos/Photos_files/bottom.png" style="position: absolute; left: 60px; top: 0px; width: 60px; height: 42px;z-index: 2;">
+					<img src="/img/plugins/content_media/bottom.png" style="position: absolute; left: 0px; top: 0px; width: 60px; height: 42px;z-index: 2;">
+					<img src="/img/plugins/content_media/bottom.png" style="position: absolute; left: 60px; top: 0px; width: 60px; height: 42px;z-index: 2;">
 				</div>
 			</div>
-		</div> 
-		<!-- 
-		<div class="row">
-			<div class="col-sm-6 col-md-4 article unselectable borderboxbutton" ng-repeat="item in categoriesUniqueLevel" >
+			</div>
+			<div class="card-info">
+				<a class="title" href="#">{{item.title}}</a>
+				<div class="desc">
+					{{item.author}}
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div ng-show="level == 1" class="row">
+		<button class="btn btn-danger" ng-click="goBack()">Back</button>
+		<div class="">
+			
+			<div class="card media stack" ng-repeat="item in listOfMedia" ng-click="goToGallery($index)">
 				<div class="thumbnail">
 					<img src="{{item.thumb}}" style="height:120px !important; width:100% !important;">
 					<div class="caption">
@@ -124,6 +136,26 @@
 				</div>
 			</div>
 		</div>
--->
+	</div>
+	<div ng-show="level == 2" class="row">
+		<button class="btn btn-danger" ng-click="exitGallery()">Back</button>
+
+
+
+
+		<carousel interval="myInterval" style="margin-top:40px;">
+			<slide ng-repeat="slide in slides" active="slide.active" style="min-height:580px;">
+				<img ng-src="{{slide.thumb}}" style="margin:auto;	">
+				<div class="carousel-caption">
+					<h4>Slide {{$index}}</h4>
+					<p>
+						{{slide.title}}
+					</p>
+				</div>
+			</slide>
+		</carousel>
+
+
+
 	</div>
 </div>
