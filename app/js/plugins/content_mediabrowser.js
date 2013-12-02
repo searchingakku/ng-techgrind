@@ -54,42 +54,71 @@
 	function($scope, loc, steam) {
 
 		//Galleria.loadTheme('lib/galleria/themes/twelve/galleria.twelve.min.js');
-		Galleria.loadTheme('lib/galleria/themes/classic/galleria.classic.min.js');
-		Galleria.configure({
-			transition : 'fadeslide',
-			imageCrop : true,
-			clicknext : true
-		}); 
-		Galleria.run('[ng-controller="ContentMediaCtrl"] .galleria', { dataSource: listOfContent });
+//		Galleria.loadTheme('lib/galleria/themes/classic/galleria.classic.min.js');
+//		Galleria.configure({
+//			transition : 'fadeslide',
+//			imageCrop : true,
+//			clicknext : true
+//		}); 
+//		Galleria.run('[ng-controller="ContentMediaCtrl"] .galleria', { dataSource: listOfContent });
+		
+		var cts = [];
+		
+		for (var i = 0; i < listOfContent.length; i++) {
+			if (i % 3 == 0){
+				cts.push([]);
+			}
+			cts[cts.length - 1].push(listOfContent[i]);
+		}
+		
+		$scope.level = 0;
+		$scope.categories = cts;
+		$scope.categoriesUniqueLevel = listOfContent;
 
 	}]);
 
 	var listOfContent = [{
-		thumb : 'http://www.staff.com/blog/wp-content/uploads/2013/01/Staff-infograph_billion-dollar-startups-a.png',
-		image : 'http://www.staff.com/blog/wp-content/uploads/2013/01/Staff-infograph_billion-dollar-startups-a.png',
-		title : 'My title',
+		thumb : 'http://gainesvillebizreport.com/wp-content/themes/AllNews/timthumb.php?src=http://gainesvillebizreport.com/wp-content/uploads/2013/07/IMG_2268.jpg&h=140&w=240&zc=1&q=100',
+		image : 'http://gainesvillebizreport.com/wp-content/themes/AllNews/timthumb.php?src=http://gainesvillebizreport.com/wp-content/uploads/2013/07/IMG_2268.jpg&h=140&w=240&zc=1&q=100',
+		title : 'StartUps',
 		description : 'My description',
+		author : 'Narp Dev'
 	}, {
-		video : 'http://www.youtube.com/watch?v=GCZrz8siv4Q',
-		title : 'My second title',
-		description : 'My second description'
+		thumb : 'http://www.microgiving.com/blog/wp-content/uploads/2008/08/ida.gif',
+		image : 'http://www.microgiving.com/blog/wp-content/uploads/2008/08/ida.gif',
+		title : 'Ideas',
+		description : 'My second description',
+		author : 'Narp Dev'
 	}, {
 		thumb : 'http://omoii.com/wp/wp-content/uploads/2012/12/startups.jpg',
 		image : 'http://omoii.com/wp/wp-content/uploads/2012/12/startups.jpg',
 		title : 'My title',
 		description : 'My description',
+		author : 'Narp Dev'
 	}, {
 		thumb : 'http://www.briefmine.com/blog/wp-content/uploads/2013/04/startups-image.jpg',
 		image : 'http://www.briefmine.com/blog/wp-content/uploads/2013/04/startups-image.jpg',
+		title : 'My title',
+		description : 'My description',
+		author : 'Narp Dev'
 	}, {
-		thumb : 'http://siliconflorist.com/wp-content/uploads/2011/05/meet-the-startup.png',
-		image : 'http://siliconflorist.com/wp-content/uploads/2011/05/meet-the-startup.png',
+		thumb : 'http://www.cfel.jbs.cam.ac.uk/news/news/images/tim_robin_flittercab.jpg',
+		image : 'http://www.cfel.jbs.cam.ac.uk/news/news/images/tim_robin_flittercab.jpg',
+		title : 'My title',
+		description : 'My description',
+		author : 'Narp Dev'
 	}, {
-		thumb : 'http://brazilianbubble.com/wp-content/uploads/2012/02/startups5.jpg',
-		image : 'http://brazilianbubble.com/wp-content/uploads/2012/02/startups5.jpg',
+		thumb : 'http://farm9.staticflickr.com/8043/8135076781_383dbe6e7f_m.jpg',
+		image : 'http://farm9.staticflickr.com/8043/8135076781_383dbe6e7f_m.jpg',
+		title : 'My title',
+		description : 'My description',
+		author : 'Narp Dev'
 	}, {
 		thumb : 'http://timoelliott.com/blog/wp-content/uploads/2012/09/SAP-and-Startups.jpg',
 		image : 'http://timoelliott.com/blog/wp-content/uploads/2012/09/SAP-and-Startups.jpg',
+		title : 'My title',
+		description : 'My description',
+		author : 'Narp Dev'
 	}
 	];
 

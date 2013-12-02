@@ -50,3 +50,40 @@
     height: 500px;
     background: #000
 }
+
+.card.media {
+	position: relative;
+	display: inline-block;
+	width: 170px;
+	height: 200px;
+	padding-top: 0;
+	margin: 20px;
+	overflow: hidden;
+	vertical-align: top;
+}
+.card.media img{
+	height: 140px;
+	width: 100%;
+	background-color: white;
+}
+.card.media .card-info{
+	left:0px;
+	background: white;
+}
+
+.card.media.stack {
+	position: relative;
+	display: inline-block;
+	width: 249px;
+	height: 200px;
+	padding-top: 0;
+	margin: 20px;
+	border: none;
+	cursor: pointer;
+}
+.card.media.stack img{
+	width: 240px;
+	width: 100%;
+	background-color: white;
+	z-index: 9999;
+}
