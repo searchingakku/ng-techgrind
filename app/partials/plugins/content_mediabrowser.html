@@ -105,10 +105,10 @@
 	
 		<div class="jumbotron">
 			<div class="span10">
-			<h1>Title of the categorie</h1>
+				<h1>Title of the categorie</h1>
 			</div>
 			<div class="span2"> 
-			<button class="btn btn-danger pull-right" ng-click="goBack()">Back</button>
+				<button class="btn btn-danger pull-right" ng-click="goBack()">Back</button>
 			</div>
 			<div class="span12">
 				<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
@@ -131,20 +131,17 @@
 		</div>
 	</div>
 
-
-
-
 	<div ng-show="level == 2" class="row-fluid">
-		<div class="span10">
-			<h2>Title of the categorie</h2>
-		</div>
-		<div class="span2">
-			<button class="btn btn-danger" ng-click="exitGallery()">
-				Back
-			</button>
+		<div class="jumbotron">
+			<div class="span10">
+				<h2>Title of the categorie</h2>
+			</div>
+			<div class="span2">
+				<button class="btn btn-danger pull-right" ng-click="exitGallery()">Back</button>
+			</div>
 		</div>
 
-		<div class="span12">
+		<div class="center">
 			<carousel interval="myInterval" style="margin-top:40px;">
 				<slide ng-repeat="slide in slides" active="slide.active" style="min-height:580px;">
 					<img ng-src="{{slide.thumb}}" style="margin:auto;	">
@@ -157,6 +154,9 @@
 				</slide>
 			</carousel>
 		</div>
-
 	</div>
+
+
+
+
 </div>
