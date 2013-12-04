@@ -95,6 +95,14 @@
 			$scope.slides = [];
 		};
 
+		//Pagination for categories
+		$scope.totalItemsCategories = 64;
+		$scope.currentPageCategories = 3;
+
+		//Pagination for Photos and videos
+		$scope.totalItemsFV = 64;
+		$scope.currentPageFV = 3;
+
 	}]);
 	
 	

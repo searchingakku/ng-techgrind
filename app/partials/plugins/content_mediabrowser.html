@@ -49,8 +49,13 @@
 </head>
 <div ng-controller="ContentMediaCtrl" class='container-fluid'>
 	<div ng-show="level == 0" class="row-fluid">
-
 		<div class="center">
+		
+		<h2>Photos & Video</h2>
+		<p class="lead">Find out our best material for startups...</br> All you need...</p>
+
+
+		
 		<div class="card media stack" ng-repeat="item in categories" ng-click="goToSubLevel(item.id)">
 			<div class="frameImageContainer">
 			<div class="framedImage" style="position: absolute; left: 0px; top: 0px; width: 249px; height: 194px; z-index: 1;">
@@ -87,11 +92,29 @@
 				</div>
 			</div>
 		</div>
+		
+		<pagination direction-links="false" boundary-links="true" total-items="totalItemsCategories" page="currentPageCategories"></pagination>
+		
 		</div>
 	</div>
-	<div ng-show="level == 1" class="row">
-		<button class="btn btn-danger" ng-click="goBack()">Back</button>
-		<div class="">
+
+
+
+
+	<div ng-show="level == 1" class="row-fluid">
+	
+		<div class="jumbotron">
+			<div class="span10">
+			<h1>Title of the categorie</h1>
+			</div>
+			<div class="span2"> 
+			<button class="btn btn-danger pull-right" ng-click="goBack()">Back</button>
+			</div>
+			<div class="span12">
+				<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+			</div>
+		</div>
+		<div class="center">
 			
 			<div class="card media stack" ng-repeat="item in listOfMedia" ng-click="goToGallery($index)">
 				<div class="thumbnail">
@@ -104,27 +127,36 @@
 					</div>
 				</div>
 			</div>
+			<pagination direction-links="false" boundary-links="true" total-items="totalItemsFV" page="currentPageFV"></pagination>
 		</div>
 	</div>
-	<div ng-show="level == 2" class="row">
-		<button class="btn btn-danger" ng-click="exitGallery()">Back</button>
 
 
 
 
-		<carousel interval="myInterval" style="margin-top:40px;">
-			<slide ng-repeat="slide in slides" active="slide.active" style="min-height:580px;">
-				<img ng-src="{{slide.thumb}}" style="margin:auto;	">
-				<div class="carousel-caption">
-					<h4>Slide {{$index}}</h4>
-					<p>
-						{{slide.title}}
-					</p>
-				</div>
-			</slide>
-		</carousel>
+	<div ng-show="level == 2" class="row-fluid">
+		<div class="span10">
+			<h2>Title of the categorie</h2>
+		</div>
+		<div class="span2">
+			<button class="btn btn-danger" ng-click="exitGallery()">
+				Back
+			</button>
+		</div>
 
-
+		<div class="span12">
+			<carousel interval="myInterval" style="margin-top:40px;">
+				<slide ng-repeat="slide in slides" active="slide.active" style="min-height:580px;">
+					<img ng-src="{{slide.thumb}}" style="margin:auto;	">
+					<div class="carousel-caption">
+						<h4>Slide {{$index}}</h4>
+						<p>
+							{{slide.title}}
+						</p>
+					</div>
+				</slide>
+			</carousel>
+		</div>
 
 	</div>
 </div>
