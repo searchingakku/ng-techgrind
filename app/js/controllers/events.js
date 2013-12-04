@@ -13,9 +13,6 @@
 		example-item -> displayed information ==> action-on-interaction:
 			
 */
-
-(function() {
-
 var appModule = angular.module('TechGrindApp.controllers.events', []);
 
 appModule.controller('EventsCtrl', ['$scope', '$location', 'steam',
@@ -55,7 +52,7 @@ appModule.controller('EventsCtrl', ['$scope', '$location', 'steam',
   }
 ]);
 
-appModule.controller('CreateactivityCtrl', ['$scope', 'steam', '$location', '$routeParams',
+appModule.controller('CreateActivityCtrl', ['$scope', 'steam', '$location', '$routeParams',
   function(S, steam, loc, rp) {
     var handle_event;
     S.rp = rp;
@@ -87,8 +84,6 @@ appModule.controller('CreateactivityCtrl', ['$scope', 'steam', '$location', '$ro
     };
   }
 ]);
-
-}).call(this);
 
 /*
 # WIP
