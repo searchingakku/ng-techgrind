@@ -2,12 +2,12 @@
 	<accordion close-others="true" >
 
 		<accordion-group  ng-repeat="group in groups">
-			<accordion-heading>
+			<accordion-heading is-open="{{selectedCat == group.id}}">
 				<h4>{{group.title}}</h4>
 			</accordion-heading>
 				<ul class="nav nav-list">
 					<li ng-repeat="items in group.items" >
-						<a ng-click="subItemCLick()" class="ng-binding">{{items.name}}</a>
+						<a href="{{items.url}}" class="ng-binding">{{items.name}}</a>
 					</li>
 				</ul>
 		</accordion-group>

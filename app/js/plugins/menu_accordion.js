@@ -6,6 +6,7 @@
 
 		$scope.groups = $rootScope.listOfCategories;
 		
+		$scope.selectedCat = 0;
 		
 	}]);
 }).call(this);

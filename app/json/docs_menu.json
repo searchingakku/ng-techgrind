@@ -5,13 +5,16 @@
 		"content" : "An architectural pattern is a standard design in the field of software architecture. The concept of an architectural pattern has a broader scope than the concept of design pattern. The architectural patterns address various issues in software engineering, such as computer hardware performance limitations, high availability and minimization of a business risk. Some architectural patterns have been implemented within software frameworks.",
 		"items" : [{
 			"id" : "0",
-			"name" : "Paterns"
+			"name" : "Paterns",
+			"url" : "/#/resources/docs/0/0"
 		}, {
 			"id" : "1",
-			"name" : "Seed Round"
+			"name" : "Seed Round",
+			"url" : "/#/resources/docs/0/1"
 		}, {
 			"id" : "2",
-			"name" : "Must have..."
+			"name" : "Must have...",
+			"url" : "/#/resources/docs/0/2"
 		}]
 
 	}, {
@@ -20,13 +23,16 @@
 		"content" : "Cras orci turpis, interdum vitae felis volutpat, viverra malesuada nunc. Fusce magna dolor, ",
 		"items" : [{
 			"id" : "3",
-			"name" : "All Pdf"
+			"name" : "All Pdf",
+			"url" : "/#/resources/docs/1/3"
 		}, {
 			"id" : "4",
-			"name" : "All Doc"
+			"name" : "All Doc",
+			"url" : "/#/resources/docs/1/4"
 		}, {
 			"id" : "5",
-			"name" : "All Xls"
+			"name" : "All Xls",
+			"url" : "/#/resources/docs/1/5"
 		}]
 	}, {
 		"title" : "Investors",

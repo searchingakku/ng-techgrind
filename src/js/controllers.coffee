@@ -81,7 +81,7 @@ app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
 		icon: 'icon-laptop'
 	,
 		name: 'Docs & Templates'
-		url: 'resources/docs'
+		url: 'resources/docs/0/0'
 		icon: 'icon-file-text'
 	,
 		name: 'Guides & Tutorials'

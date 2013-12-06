@@ -1,0 +1,21 @@
+{
+	"title" : "Paterns",
+	"id" : "0",
+	"description" : "Some description",
+	"files" : [
+		{
+		"id" : "0",
+		"title" : "Patern A.doc",
+		"src" : "https://googledrive.com/host/0B2YSgad5pD5QUkJoUkFWSWRnU0k/Patern A.doc",
+		"type" : "doc",
+		"description" : "anyway"
+		},{
+		"id" : "1",
+		"title" : "Patern A + B.doc",
+		"src" : "https://googledrive.com/host/0B2YSgad5pD5QUkJoUkFWSWRnU0k/Patern A + B.doc",
+		"type" : "doc",
+		"description" : "anyway"
+		}
+		
+	]
+}

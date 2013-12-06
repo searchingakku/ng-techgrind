@@ -6,6 +6,7 @@
 
 
 		var listOfCatFromJson = $http.get('/json/docs_menu.json');
+		
 		listOfCatFromJson.success(function(data){
 			console.warn('data:',data);
 			$rootScope.listOfCategories = data;
