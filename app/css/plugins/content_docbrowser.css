@@ -118,7 +118,7 @@
 }
 
 #gdriveContainer li:hover{
-	background: -webkit-linear-gradient(right, #eee, rgba(243, 191, 189,0), #eee);
+	background: -webkit-linear-gradient(right, #fff, rgba(243, 191, 189,0), #fff);
 }
 #gdriveContainer #log {
   display: block;
