@@ -5,14 +5,6 @@
 	appModule.controller('ResourcesDocsCtrl', ['$scope', '$location', 'steam', '$rootScope', '$http', function($scope, loc, steam, $rootScope, $http) {
 
 
-		var listOfCatFromJson = $http.get('/json/docs_menu.json');
-		
-		listOfCatFromJson.success(function(data){
-			console.warn('data:',data);
-			$rootScope.listOfCategories = data;
-		});
-
-
 
 	}]);
 

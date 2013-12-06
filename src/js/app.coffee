@@ -109,7 +109,7 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/res-docs.html'
 		controller: 'ResourcesDocsCtrl'
 		
-	$routeProvider.when '/resources/guides',
+	$routeProvider.when '/resources/guides/:cat/:list',
 		templateUrl: 'partials/res-guides.html'
 		controller: 'ResourcesGuidesCtrl'
 		
