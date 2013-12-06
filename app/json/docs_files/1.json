@@ -8,13 +8,17 @@
 		"title" : "Seed Round A.doc",
 		"src" : "https://googledrive.com/host/0B2YSgad5pD5QUkJoUkFWSWRnU0k/Patern A.doc",
 		"type" : "doc",
-		"description" : "anyway"
+		"description" : "anyway",
+		"size" : "200Mb",
+		"updatedDate" : "09/05/2013"
 		},{
 		"id" : "1",
 		"title" : "Seed Round A + B.doc",
 		"src" : "https://googledrive.com/host/0B2YSgad5pD5QUkJoUkFWSWRnU0k/Patern A + B.doc",
 		"type" : "doc",
-		"description" : "anyway"
+		"description" : "anyway",
+		"size" : "75kb",
+		"updatedDate" : "16/06/2010"
 		}
 		
 	]

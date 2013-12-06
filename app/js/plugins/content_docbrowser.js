@@ -73,13 +73,7 @@
 			var media = [];
 			
 			$.each(files, function(key, value){
-				media.push({
-						id : value.id,
-						title : value.title,
-						src : value.src,
-						type : value.type,
-						description : value.description
-					});
+				media.push(value);
 			});
 
 			return (media);

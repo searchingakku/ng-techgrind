@@ -8,14 +8,18 @@
 		"title" : "Patern A.doc",
 		"src" : "https://googledrive.com/host/0B2YSgad5pD5QUkJoUkFWSWRnU0k/Patern A.doc",
 		"type" : "doc",
-		"description" : "anyway"
+		"description" : "anyway",
+		"size" : "34kb",
+		"updatedDate" : "23/11/2013"
 		},
 		{
 		"id" : "1",
 		"title" : "Patern A + B.doc",
 		"src" : "https://googledrive.com/host/0B2YSgad5pD5QUkJoUkFWSWRnU0k/Patern A + B.doc",
 		"type" : "doc",
-		"description" : "anyway"
+		"description" : "anyway",
+		"size" : "290kb",
+		"updatedDate" : "09/05/2013"
 		}
 		
 	]

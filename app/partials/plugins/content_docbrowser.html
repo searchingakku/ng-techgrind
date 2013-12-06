@@ -41,21 +41,27 @@
 		example-object -> displayed information ==> action-on-interaction:
 			doc/template/file -> object thumbnail + name ==> full-content-view // download to user
 */-->
-
-<div ng-controller="ContentDocsCtrl">
+<head>
+	<link rel="stylesheet" href="css/plugins/content_docbrowser.css">
+</head>
+<div id='gdriveContainer' ng-controller="ContentDocsCtrl">
 	
-		<div class="docs-title">
-			<h1 >{{activeTitle}}</h1>
-			<p>{{activeDescription}}</p>
-		</div>
-
-		<div ng-repeat="item in docs" class="docs">
-			<div class="docs-card docs-card-docs">
-				<div class="docs-card-body">
-					<img ng-show="item.type == 'doc'" src="./img/plugins/content_docs/doc.png"/>
-					<img ng-show="item.type == 'pdf'" src="./img/plugins/content_docs/pdf.png"/>
-					<a href="{{item.src}}" target="_blank">{{item.title}}</a>
-				</div>
-			</div>
-		</div>
+	<div class="docs-title">
+		<h1 >{{activeTitle}}</h1>
+		<p>{{activeDescription}}</p>
 	</div>
+
+		<ul>
+			
+			<a href="{{doc.src}}" data-ng-repeat="doc in docs">
+			<li>
+				
+				<img ng-show="doc.type == 'doc'" src="./img/plugins/content_docs/doc.png"/>
+				<img ng-show="doc.type == 'pdf'" src="./img/plugins/content_docs/pdf.png"/>
+				{{doc.title}} {{doc.size}}
+				<span class="date">{{doc.updatedDate}}</span>
+				
+			</li>
+			</a>
+		</ul>
+</div>
