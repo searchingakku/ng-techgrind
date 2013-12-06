@@ -87,7 +87,7 @@
 
 		//need to think in where I'm going to catch this id
 		if(!!$routeParams.cat){
-			$scope.activateSection($routeParams.cat);
+			$scope.activateSection($routeParams.list);
 		}
 
 	}]);

@@ -1,0 +1,21 @@
+{
+	"title" : "Must have...",
+	"id" : "4",
+	"description" : "Some description",
+	"files" : [
+		{
+		"id" : "0",
+		"title" : "Must have.doc",
+		"src" : "https://googledrive.com/host/0B2YSgad5pD5QUkJoUkFWSWRnU0k/Patern A.doc",
+		"type" : "doc",
+		"description" : "anyway"
+		},{
+		"id" : "1",
+		"title" : "Many Links.doc",
+		"src" : "https://googledrive.com/host/0B2YSgad5pD5QUkJoUkFWSWRnU0k/Patern A + B.doc",
+		"type" : "doc",
+		"description" : "anyway"
+		}
+		
+	]
+}
