@@ -120,7 +120,11 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 	$routeProvider.when '/resources/guides/:cat/:list',
 		templateUrl: 'partials/res-guides.html'
 		controller: 'ResourcesGuidesCtrl'
-		
+
+  $routeProvider.when '/resources/media/:cat',
+    templateUrl: 'partials/res-media.html'
+    controller: 'ResourcesMediaCtrl'
+
 	$routeProvider.when '/resources/media',
 		templateUrl: 'partials/res-media.html'
 		controller: 'ResourcesMediaCtrl'

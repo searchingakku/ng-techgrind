@@ -50,58 +50,40 @@
 	var app = angular.module('TechGrindApp.controllers.content.mediabrowser', []);
 
 	// I control the root of the application.
-	app.controller("ContentMediaCtrl", ['$scope', '$location', 'steam',
-	function($scope, loc, steam) {
+	app.controller("ContentMediaCtrl", ['$scope', '$location', 'steam', '$routeParams',
+	function($scope, loc, steam, $routeParams) {
 		
-		$scope.level = 0;
-		$scope.categories = listOfCat;
-		$scope.myInterval = 5000;
-		$scope.slides = [];
-		
-		$scope.goToSubLevel = function(id){
+		if(!!$routeParams.cat){
 			$scope.level = 1;
-			//TODO call steam to give us the full information for a categorie
 			$scope.listOfMedia = shuffle(mockListOfMedia);
-
-		};
-
-		
-		$scope.goToGallery = function(index){
-
-			$.each($scope.listOfMedia, function(key, value){
-				var newWidth = 200 + (($scope.slides.length + (25 * $scope.slides.length)) % 150);
-				$scope.slides.push({
-					thumb : value.image,
-					title : value.title,
-					active : (key == index)
-				});
-				
-			});
-			
-			//Lets move into level 2
-			$scope.level = 2;
-		};
-
-
-		$scope.goBack = function(){
+		} else {
 			$scope.level = 0;
-			// lets clean the level 1
-			$scope.listOfMedia = [];
-		};
+		}
 		
-		$scope.exitGallery= function(){
-			$scope.level = 1;
-			// lets clean the level 2
-			$scope.slides = [];
+		$scope.categories = listOfCat;
+
+		$scope.goToSubLevel = function(path){
+			window.location.href = path.replace('/home/techgrind/','/#/');
 		};
 
-		//Pagination for categories
-		$scope.totalItemsCategories = 64;
-		$scope.currentPageCategories = 3;
 
-		//Pagination for Photos and videos
-		$scope.totalItemsFV = 64;
-		$scope.currentPageFV = 3;
+//		$scope.myInterval = 5000;
+//		$scope.slides = [];
+//		$scope.goToGallery = function(index){
+//
+//			$.each($scope.listOfMedia, function(key, value){
+//				var newWidth = 200 + (($scope.slides.length + (25 * $scope.slides.length)) % 150);
+//				$scope.slides.push({
+//					thumb : value.image,
+//					title : value.title,
+//					active : (key == index)
+//				});
+//				
+//			});
+//			
+//			//Lets move into level 2
+//			$scope.level = 2;
+//		};
 
 	}]);
 	
@@ -127,43 +109,50 @@
 		image : 'http://gainesvillebizreport.com/wp-content/themes/AllNews/timthumb.php?src=http://gainesvillebizreport.com/wp-content/uploads/2013/07/IMG_2268.jpg&h=140&w=240&zc=1&q=100',
 		title : 'StartUps',
 		description : 'My description',
-		author : 'Narp Dev'
+		author : 'Narp Dev',
+		path: "/home/techgrind/resources/media/startups"
 	}, {
 		thumb : 'http://www.trianglecoalition.org/wp-content/uploads/2011/05/CONFERENCE-ILLUSTRATION-2.jpg',
 		image : 'http://www.trianglecoalition.org/wp-content/uploads/2011/05/CONFERENCE-ILLUSTRATION-2.jpg',
 		title : 'Ideas',
 		description : 'My second description',
-		author : 'Narp Dev'
+		author : 'Narp Dev',
+		path: "/home/techgrind/resources/media/ideas"
 	}, {
 		thumb : 'http://t1.gstatic.com/images?q=tbn:ANd9GcTqD0NbMSeAtiPWgWDsZw-GiwPQcHw-5I-oUPHOLUNQxSSLTwZyYw',
 		image : 'http://us.123rf.com/400wm/400/400/dwphotos/dwphotos1107/dwphotos110700001/9954493-concert-crowd.jpg',
-		title : 'My title',
+		title : 'Morning',
 		description : 'My description',
-		author : 'Narp Dev'
+		author : 'Narp Dev',
+		path: "/home/techgrind/resources/media/morning"
 	}, {
 		thumb : 'http://selleo.com/blog/wp-content/uploads/2013/03/04-zed.jpg',
 		image : 'http://selleo.com/blog/wp-content/uploads/2013/03/04-zed.jpg',
-		title : 'My title',
+		title : 'Seed Round',
 		description : 'My description',
-		author : 'Narp Dev'
+		author : 'Narp Dev',
+		path: "/home/techgrind/resources/media/seedround"
 	}, {
 		thumb : 'http://www.cfel.jbs.cam.ac.uk/news/news/images/tim_robin_flittercab.jpg',
 		image : 'http://www.cfel.jbs.cam.ac.uk/news/news/images/tim_robin_flittercab.jpg',
-		title : 'My title',
+		title : 'Myitle',
 		description : 'My description',
-		author : 'Narp Dev'
+		author : 'Narp Dev',
+		path: "/home/techgrind/resources/media/myitle"
 	}, {
 		thumb : 'http://farm9.staticflickr.com/8043/8135076781_383dbe6e7f_m.jpg',
 		image : 'http://farm9.staticflickr.com/8043/8135076781_383dbe6e7f_m.jpg',
-		title : 'My title',
+		title : 'My',
 		description : 'My description',
-		author : 'Narp Dev'
+		author : 'Narp Dev',
+		path: "/home/techgrind/resources/media/my"
 	}, {
 		thumb : 'http://i.telegraph.co.uk/multimedia/archive/02492/mwc-board_2492220k.jpg',
 		image : 'http://i.telegraph.co.uk/multimedia/archive/02492/mwc-board_2492220k.jpg',
-		title : 'My title',
+		title : 'Lol',
 		description : 'My description',
-		author : 'Narp Dev'
+		author : 'Narp Dev',
+		path: "/home/techgrind/resources/media/lol"
 	}
 	];
 	
