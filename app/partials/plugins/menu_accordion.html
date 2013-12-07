@@ -1,13 +1,13 @@
 <div id="menu_accordion" ng-controller="MenuAccordionCtrl">
 	<accordion close-others="true" >
 
-		<accordion-group  ng-repeat="group in groups" is-open="{{selectedCat == group.id}}">
+		<accordion-group  ng-repeat="item in menuItems" is-open="{{selectedCat == item.oid}}">
 			<accordion-heading>
-				<h4>{{group.title}}</h4>
+				<h4>{{item.title}}</h4>
 			</accordion-heading>
 				<ul class="nav nav-list">
-					<li ng-repeat="items in group.items" ng-class="{active : selectedList == items.id}">
-						<a href="{{items.url}}" class="ng-binding" >{{items.name}}</a>
+					<li ng-repeat="items in item.inventory" ng-class="{active : selectedList == items.oid}">
+						<a href="{{items.path}}" class="ng-binding" >{{items.title}}</a>
 					</li>
 				</ul>
 		</accordion-group>
