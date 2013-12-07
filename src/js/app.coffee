@@ -105,6 +105,10 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/res-jobs.html'
 		controller: 'ResourcesJobsCtrl'
 
+  $routeProvider.when '/resources/docs/:cat',
+    templateUrl: 'partials/res-docs.html'
+    controller: 'ResourcesDocsCtrl'
+
 	$routeProvider.when '/resources/docs/:cat/:list',
 		templateUrl: 'partials/res-docs.html'
 		controller: 'ResourcesDocsCtrl'
