@@ -81,11 +81,11 @@ app.controller 'MenuCtrl', ['$scope', '$http', (S, http) ->
 		icon: 'icon-laptop'
 	,
 		name: 'Docs & Templates'
-		url: 'resources/docs/product-development'
+		url: 'resources/docs'
 		icon: 'icon-file-text'
 	,
 		name: 'Guides & Tutorials'
-		url: 'resources/guides/product-development'
+		url: 'resources/guides'
 		icon: 'icon-lightbulb'
 	,
 		name: 'Photos & Video'
