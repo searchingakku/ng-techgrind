@@ -3,7 +3,9 @@
 
 		<accordion-group  ng-repeat="item in menuItems" is-open="{{selectedCat == item.name}}">
 			<accordion-heading>
-				<h4>{{item.title}}</h4>
+				<div ng-click="goto(item.path)">
+					<h4>{{item.title}}</h4>
+				</div>
 			</accordion-heading>
 				<ul class="nav nav-list">
 					<li ng-repeat="items in item.inventory" ng-class="{active : selectedList == items.name}">

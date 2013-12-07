@@ -55,14 +55,14 @@
 		// ---
 		$scope.activateSection = function(id){
 			
-			var docFromJson = $http.get('/json/docs_files/'+id+'.json');
-			docFromJson.success(function(data){
-				console.log('data:',data);
-				$scope.activeTitle = data.title;
-				$scope.activeId =data.id;
-				$scope.activeDescription =data.description;
-				$scope.docs = buildPhotoSet(data.files);
-			});
+//			var docFromJson = $http.get('/json/docs_files/'+id+'.json');
+//			docFromJson.success(function(data){
+//				console.log('data:',data);
+//				$scope.activeTitle = data.title;
+//				$scope.activeId =data.id;
+//				$scope.activeDescription =data.description;
+//				$scope.docs = buildPhotoSet(data.files);
+//			});
 		};
 		
 
