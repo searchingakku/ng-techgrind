@@ -10,7 +10,7 @@
 			</accordion-heading>
 				<ul class="nav nav-list">
 					<li ng-repeat="items in item.inventory" ng-class="{active : selectedList == items.oid}">
-						<a href="" ng-click="modifyUrl(items.oid, item.oid)" class="ng-binding" >{{items.title}}</a>
+						<a href="" ng-click="modifyUrl(items)" class="ng-binding" >{{items.title}}</a>
 					</li>
 				</ul>
 		</accordion-group>

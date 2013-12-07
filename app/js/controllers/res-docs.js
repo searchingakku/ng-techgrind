@@ -8,6 +8,8 @@
 
 
 	}]);
-
+	appModule.factory('DocsSharedData', function(){
+		return {oidActive : ''}
+	});
 
 }).call(this);

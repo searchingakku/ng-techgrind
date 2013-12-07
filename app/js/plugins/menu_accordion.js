@@ -2,8 +2,8 @@
 
 	var appModule = angular.module('TechGrindApp.plugins.menu.accordion', []);
 
-	appModule.controller('MenuAccordionCtrl', ['$scope', '$rootScope', '$routeParams', '$http', '$location', 'localStorageService',
-	function($scope, $rootScope, $routeParams, $http, $location, localStorageService) {
+	appModule.controller('MenuAccordionCtrl', ['$scope', '$rootScope', '$routeParams', '$http', '$location', 'localStorageService', 'GuidesSharedData', 'DocsSharedData',
+	function($scope, $rootScope, $routeParams, $http, $location, localStorageService,GuidesSharedData,DocsSharedData) {
 
 		var listOfCatFromJson = null;
 		// lets find were we are in the app
@@ -32,8 +32,13 @@
 		}
 
 //		$scope.isopen = false;
-		$scope.modifyUrl = function(id){
-			$scope.selectedList = id;
+		$scope.modifyUrl = function(item){
+			$scope.selectedList = item.oid;
+			if(lokky == 'docs'){
+				DocsSharedData.iodActive = item.oid;
+			}else{
+				GuidesSharedData.iodActive = item.oid;
+			}
 //			console.log('$scope.selectedCat: ',$scope.selectedCat);
 //			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
@@ -49,8 +54,13 @@
 			} else {
 				item.open = false;
 			}
-			console.log('$scope.selectedCat: ',$scope.selectedCat);
-			console.log('$scope.selectedList: ',$scope.selectedList);
+			if(lokky == 'docs'){
+				DocsSharedData.iodActive = item.oid;
+			}else{
+				GuidesSharedData.iodActive = item.oid;
+			}
+//			console.log('$scope.selectedCat: ',$scope.selectedCat);
+//			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
 
 	}]);

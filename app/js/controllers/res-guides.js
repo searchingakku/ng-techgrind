@@ -2,9 +2,10 @@
 
 	var appModule = angular.module('TechGrindApp.controllers.res-guides', []);
 
-	appModule.controller('ResourcesGuidesCtrl', ['$scope', '$location', 'steam', '$filter', '$rootScope', '$http', 
-	function($scope, loc, steam, $filter, $rootScope, $http) {
+	appModule.controller('ResourcesGuidesCtrl', ['$scope', '$location', 'steam', '$filter', '$rootScope', '$http', 'GuidesSharedData', 
+	function($scope, loc, steam, $filter, $rootScope, $http, guidesSharedData) {
 
+		$scope.data = guidesSharedData;
 		// ---
 		// PUBLIC METHODS.
 		// ---
@@ -29,5 +30,8 @@
 
 	}]);
 
+	appModule.factory('GuidesSharedData', function(){
+		return {oidActive : ''}
+	});
 
 }).call(this);

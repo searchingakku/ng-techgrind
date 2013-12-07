@@ -47,9 +47,10 @@
 	var app = angular.module('TechGrindApp.controllers.content.docbrowser', []);
 
 	// I control the root of the application.
-	app.controller("ContentDocsCtrl", ['$scope', '$location', 'steam','$routeParams', '$http',
-	function($scope, loc, steam, $routeParams, $http) {
+	app.controller("ContentDocsCtrl", ['$scope', '$location', 'steam','$routeParams', '$http', 'DocsSharedData',
+	function($scope, loc, steam, $routeParams, $http, DocsSharedData) {
 
+		$scope.data = DocsSharedData;
 		// ---
 		// PUBLIC METHODS.
 		// ---
