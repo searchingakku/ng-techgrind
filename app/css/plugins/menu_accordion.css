@@ -9,7 +9,6 @@
 
 #menu_accordion a.accordion-heading-click{
 	height: 100%;
-	width: 95%;
 	display: block;
 	padding: 8px 15px;
 	text-decoration: none;
@@ -27,7 +26,7 @@
 	text-decoration: none;
 }
 #menu_accordion a:active {
-	color: #444;
+	color: #fff;
 }
 
 .accordion-heading .accordion-toggle {
