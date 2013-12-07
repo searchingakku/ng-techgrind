@@ -1,8 +1,16 @@
-#menu_accordion .accordion-body  .accordion-inner{
+#menu_accordion .accordion-body .accordion-inner{
 	padding : 0;
 	margin : 0;
 }
 
-#menu_accordion .accordion-body  .accordion-inner li{
+#menu_accordion .accordion-body .accordion-inner li{
 	cursor: pointer;
+}
+
+.collapse-notransition {
+  -webkit-transition: height 0.001s;
+  -moz-transition: height 0.001s;
+  -ms-transition: height 0.001s;
+  -o-transition: height 0.001s;
+  transition: height 0.001s;
 }

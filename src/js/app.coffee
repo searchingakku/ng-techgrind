@@ -104,15 +104,27 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 	$routeProvider.when '/resources/jobs',
 		templateUrl: 'partials/res-jobs.html'
 		controller: 'ResourcesJobsCtrl'
-		
+
+  $routeProvider.when '/resources/docs/:cat',
+    templateUrl: 'partials/res-docs.html'
+    controller: 'ResourcesDocsCtrl'
+
 	$routeProvider.when '/resources/docs/:cat/:list',
 		templateUrl: 'partials/res-docs.html'
 		controller: 'ResourcesDocsCtrl'
-		
+
+  $routeProvider.when '/resources/guides/:cat',
+    templateUrl: 'partials/res-guides.html'
+    controller: 'ResourcesGuidesCtrl'
+
 	$routeProvider.when '/resources/guides/:cat/:list',
 		templateUrl: 'partials/res-guides.html'
 		controller: 'ResourcesGuidesCtrl'
-		
+
+  $routeProvider.when '/resources/media/:cat',
+    templateUrl: 'partials/res-media.html'
+    controller: 'ResourcesMediaCtrl'
+
 	$routeProvider.when '/resources/media',
 		templateUrl: 'partials/res-media.html'
 		controller: 'ResourcesMediaCtrl'
