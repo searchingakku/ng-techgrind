@@ -1,0 +1,47 @@
+.articlefullpage {
+	border:1px solid orange;
+}
+.article-header {
+	margin:0px;
+	padding:1em;
+}
+.article-header h3 {
+	margin:2px;
+	margin-left:2em;
+}
+.article-body {
+	padding:0px;
+	margin:0px;
+}
+.article-content {
+	padding:2px;
+	margin:2px;
+}
+.article-content .article-img {
+	float:right;
+	height:200px;
+	width:300px;
+}
+.article-info {
+	padding:1em;
+}
+.article-info h4 {
+	padding:0px;
+	margin:0px;
+	display:inline;
+}
+.article-info .icon-star,
+.article-info .icon-star:hover,
+.article-info .icon-star:before,
+.article-info .icon-star:after,
+.article-info .icon-star:active {
+	color: #D6AE3E;
+	font-size:1.1em;
+	display:inline-block;
+	height:1.1em;
+	width:1.1em;
+}
+.article-social {
+	padding:1px;
+	margin:1px;
+}

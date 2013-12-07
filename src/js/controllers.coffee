@@ -283,7 +283,6 @@ app.controller 'TestCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
 	steam.get('login').then(handle_request)
 ]
 
-# nuke this mother fucker
 # this control needs to be redone
 app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', (S, r, loc, rp)  ->
 	S.loc = loc
@@ -360,11 +359,4 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 		name: 'Articles'
 	]
 	S.list2 = []
-]
-
-# this one too - redo entirely
-app.controller 'ContentPageCtrl', ['$scope', '$location', '$routeParams', (S, loc, rp)  ->
-	S.addComment = -> 
-		S.chatterbox.push(S.commenttext);
-		S.commenttext="";
 ]

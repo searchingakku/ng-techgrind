@@ -1,0 +1,67 @@
+<head>
+	<link rel="stylesheet" href="css/plugins/content_article_fullpage.css">
+</head>
+
+<div class="container" ng-controller="ContentArticleFullPageCtrl">
+	<div class="row">
+
+		<div class="span8">
+			<div class="widget articlefullpage">
+				<button class="pull-left btn-back btn-warning" onclick="history.go(-1);" tooltip="(BACK)" tooltip-placement="bottom">
+					<i class="icon-arrow-left"></i>
+				</button>
+				<div class="article-header">
+					<h3>{{article.title}}</h3>
+				</div>
+				<div class="article-body"> <!-- the CONTENT -->		
+					<div class="article-content">
+						<img class="article-img img-polaroid" src="http://placehold.it/300x200"/>
+						{{article.content}}
+						{{article.content}}
+						{{article.content}}
+						{{article.content}}
+						{{article.content}}
+						{{article.content}}
+					</div>
+				</div>
+			</div>
+		</div> <!-- /span -->
+
+		<div class="span4">
+			<div class="widget article-info">
+				<span class="pull-right"><a class="btn btn-inverse" href="{{article.source}}" target="_blank">source</a></span>
+				<span class="pull-left"><h4>Author:&nbsp;&nbsp;</h4><a href="#/users/{{article.authorid}}">{{article.author}}</a>
+					<br/>
+					<span class="muted">
+						<h4>Date:&nbsp;&nbsp;</h4>{{article.date}}
+						<br/>
+						<h4>Time:&nbsp;&nbsp;</h4>{{article.time}}
+					</span>
+				</span>
+				<div class="clearfix"></div>
+				<div class="social pull-left">
+					Share Content
+					<ul>
+						<li class="borderboxbutton"><a href=""><i class="icon-facebook-sign facebook"></i></a></li>
+						<li class="borderboxbutton"><a href=""><i class="icon-google-plus-sign google-plus"></i></a></li>
+						<li class="borderboxbutton"><a href=""><i class="icon-twitter-sign twitter"></i></a></li>
+					</ul>
+				</div>
+				<div class="pull-right">
+					Rate Content
+					<div class="clearfix"></div>
+					<rating value="article.rating" max="5" readonly="!loginp()"></rating>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="article-social">
+				<div class="well">
+					discuss here.........<br>add social plugin
+				</div>
+			</div>
+		</div> <!-- /span -->
+
+		
+	</div>
+	</div> <!-- /row -->
+</div> <!-- /container -->

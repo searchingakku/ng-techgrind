@@ -43,6 +43,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.res-teamspeak'
 	'TechGrindApp.controllers.partners'
 	'TechGrindApp.controllers.content.articles'
+	'TechGrindApp.controllers.content.articles.fullpage'
 	'TechGrindApp.controllers.content.docbrowser'
 	'TechGrindApp.controllers.content.mediabrowser'
 	'TechGrindApp.controllers.list.tableview'
@@ -54,7 +55,6 @@ app = angular.module 'TechGrindApp', [
 	'ngRoute'
 	'ngGrid'
 	'LocalStorageModule'
-	'ContentFullPageModal'
 	'ToolsRichEditor'
 ]
 
@@ -138,10 +138,6 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/createactivity.html'
 		controller: 'CreateactivityCtrl'
 
-	$routeProvider.when '/article/:id',
-		templateUrl: 'partials/article.html'
-		controller: 'ArticleCtrl'
-
 	$routeProvider.when '/test-cleanup',
 		templateUrl: 'partials/home.html'
 		controller: 'TestCtrl'
@@ -172,9 +168,9 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		controller: 'StartupGenomeCtrl'		
 
 # WIP: incomplete
-	$routeProvider.when '/content',
-		templateUrl: 'partials/content-page.html'
-		controller: 'ContentCtrl'
+	$routeProvider.when '/content/:title',
+		templateUrl: 'partials/plugins/content_article_fullpage.html'
+		controller: 'ContentArticleFullPageCtrl'
 
 	$routeProvider.otherwise redirectTo: '/home'
 ]

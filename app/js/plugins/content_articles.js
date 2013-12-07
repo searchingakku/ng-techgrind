@@ -33,8 +33,12 @@
 
 var appModule = angular.module('TechGrindApp.controllers.content.articles', []);
 
-appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
-function($scope, steam, rp, fullPageService) {
+appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams',
+function($scope, steam, rp) {
+
+	var goToArticle = function(articleID) {
+		return document.location = '#/content/' + articleID;
+	}
 
 	var matchregion = function(item) {
 		console.log(sexpr("filter", item.country == rp.region, item.country, rp.region, item));
@@ -48,10 +52,10 @@ function($scope, steam, rp, fullPageService) {
 		$scope.articles = news;
 	}
 
-	$scope.gotoFullPage = function(id) {
+	/*$scope.gotoFullPage = function(id) {
 		console.log(' ID TO GO: ',id);
 		return fullPageService.open();
-	}
+	}*/
 	/*$scope.openCompose = function() {
 		return richEditor.open();
 	}*/
@@ -59,19 +63,23 @@ function($scope, steam, rp, fullPageService) {
 	return $scope.articles;
 }]);
 
-appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams', 'ContentFullPageModalService',
-function($scope, steam, rp, fullPageService) {
+appModule.controller('ContentGuidesCtrl', ['$scope', 'steam', '$routeParams',
+function($scope, steam, rp) {
 
 	$scope.articles = guides;
 
-	$scope.gotoFullPage = function(id) {
+	/*$scope.gotoFullPage = function(id) {
 		console.log(' ID TO GO: ',id);
 		return fullPageService.open();
-	}
+	}*/
 	/*$scope.compose = function() {
 		return richEditor.open();
 	}*/
 
+	var goToArticle = function(articleID) {
+		return document.location = '#/content/' + articleID;
+	}
+	
 	return $scope.articles;
 }]);
 
