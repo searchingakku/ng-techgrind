@@ -26,9 +26,22 @@
 				console.log('Data for menu...', data.inventory);
 				$scope.menuItems = data.inventory;
 				localStorageService.add(lokky+'Menu', JSON.stringify(data.inventory));
+				
+				$scope.selectedCat = $scope.menuItems[0].oid;
+				if(lokky == 'docs'){
+					DocsSharedData.iodActive = $scope.menuItems[0].oid;
+				}else{
+					GuidesSharedData.iodActive = $scope.menuItems[0].oid;
+				}
 			});
 		}else{
 			$scope.menuItems = JSON.parse(menuSaved);
+			$scope.selectedCat = $scope.menuItems[0].oid;
+			if(lokky == 'docs'){
+				DocsSharedData.iodActive = $scope.menuItems[0].oid;
+			}else{
+				GuidesSharedData.iodActive = $scope.menuItems[0].oid;
+			}
 		}
 
 //		$scope.isopen = false;
@@ -43,6 +56,7 @@
 //			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
 		$scope.selectCat = function(item){
+			$scope.selectedList = null;
 			if(item.oid != $scope.selectedCat && !item.open){
 				$scope.selectedCat = item.oid;
 				$.each($scope.menuItems, function(k,v){
