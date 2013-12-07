@@ -39,29 +39,27 @@
 	<i class="icon-edit"></i>Compose
 </button-->
 <div ng-controller="ContentNewsCtrl">
-<div ng-repeat="item in articles track by $index" class="article unselectable borderboxbutton">
-	<div ng-click="goToArticle(item.id)">
-		<h1>{{item.title}}</h1>
-		<div class="left"><img src="http://placehold.it/120x80"/>
-			<div class="clearfix"></div>
-			<rating value="item.rate" max="5" readonly="true"></rating>
+<div ng-repeat="item in articles track by $index" class="article unselectable borderboxbutton" ng-click="goToArticle(item.id)">
+	<h1>{{item.title}}</h1>
+	<div class="left"><img src="http://placehold.it/120x80"/>
+		<div class="clearfix"></div>
+		<rating value="item.rate" max="5" readonly="true"></rating>
+	</div>
+	<div class="right">
+		<div class="meta">
+			<ul>
+				<li>{{item.country}}</li>
+				<li>{{item.owner}}</li>
+				<li>{{item.month}} {{item.day}}</li>
+			</ul>
 		</div>
-		<div class="right">
-			<div class="meta">
-				<ul>
-					<li>{{item.country}}</li>
-					<li>{{item.owner}}</li>
-					<li>{{item.month}} {{item.day}}</li>
-				</ul>
-			</div>
-			<p>{{item.excerpt}}</p>
-			<div class="social-sharing">
-				<ul>
-					<li><i class="icon-facebook-sign facebook pull-right"></i>{{item.fb}}</li>
-					<li><i class="icon-google-plus-sign google-plus pull-right"></i>{{item.gp}}</li>
-					<li><i class="icon-twitter-sign twitter pull-right"></i>{{item.tw}}</li>
-				</ul>
-			</div>
+		<p>{{item.excerpt}}</p>
+		<div class="social-sharing">
+			<ul>
+				<li><i class="icon-facebook-sign facebook pull-right"></i>{{item.fb}}</li>
+				<li><i class="icon-google-plus-sign google-plus pull-right"></i>{{item.gp}}</li>
+				<li><i class="icon-twitter-sign twitter pull-right"></i>{{item.tw}}</li>
+			</ul>
 		</div>
 	</div>
 </div>

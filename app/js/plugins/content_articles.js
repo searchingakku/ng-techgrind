@@ -33,11 +33,11 @@
 
 var appModule = angular.module('TechGrindApp.controllers.content.articles', []);
 
-appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams',
-function($scope, steam, rp) {
+appModule.controller('ContentNewsCtrl', ['$scope', 'steam', '$routeParams', '$location',
+function($scope, steam, rp, loc) {
 
-	var goToArticle = function(articleID) {
-		return document.location = '#/content/' + articleID;
+	$scope.goToArticle = function(articleID) {
+		loc.path('content/' + articleID);
 	}
 
 	var matchregion = function(item) {
@@ -79,7 +79,7 @@ function($scope, steam, rp) {
 	var goToArticle = function(articleID) {
 		return document.location = '#/content/' + articleID;
 	}
-	
+
 	return $scope.articles;
 }]);
 

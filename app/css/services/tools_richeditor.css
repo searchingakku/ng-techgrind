@@ -24,7 +24,6 @@
     z-index: 1040;
 }
 .modal.myWindow .container {
-    min-height:auto;
     margin-top:10px;
     margin-bottom:0px;
     color:#eee;

@@ -42,7 +42,7 @@ function($scope, steam, http) {
 							{field:'price', displayName:'Price'}];
 
 	var afterSelectionChangeFunc = function(rowItem, event) {
-		document.location = '#/events/'+ $scope.mySelections[0].linkid;
+		document.location = '#/events/' + $scope.mySelections[0].linkid;
 	};
 
 	$scope.filterByLocation = function(location) {
@@ -89,7 +89,7 @@ function($scope, steam, http) {
 		//Row height of rows in grid.
 		rowHeight: 30,
 		//Define a row template to customize output. See github wiki for more details.
-		rowTemplate: '<style>.ngRow:hover, ngRow>*:hover { background-color:#FF871E; cursor: pointer; }</style><div ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngCell {{col.cellClass}}"><div class="ngVerticalBar" ng-style="{height: rowHeight}" ng-class="{ ngVerticalBarVisible: !$last }">&nbsp;</div><div ng-cell></div></div>',
+		rowTemplate: '<style>.ngRow:hover, .ngRow>*:hover { background-color:#FF871E; cursor: pointer; }</style><div ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngCell {{col.cellClass}}"><div class="ngVerticalBar" ng-style="{height: rowHeight}" ng-class="{ ngVerticalBarVisible: !$last }">&nbsp;</div><div ng-cell></div></div>',
 		//Define a header row template for further customization. See github wiki for more details.
 		headerRowTemplate: undefined,
 		//Enables cell editing.
