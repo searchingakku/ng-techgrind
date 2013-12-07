@@ -4,8 +4,10 @@
 
 	appModule.controller('ResourcesDocsCtrl', ['$scope', '$location', 'steam', '$rootScope', '$http', function($scope, loc, steam, $rootScope, $http) {
 
+		
 
 
 	}]);
+
 
 }).call(this);

@@ -1,15 +1,16 @@
 <div id="menu_accordion" ng-controller="MenuAccordionCtrl">
 	<accordion close-others="true" >
 
-		<accordion-group  ng-repeat="item in menuItems" is-open="{{selectedCat == item.name}}">
-			<accordion-heading>
-				<div ng-click="goto(item.path)">
-					<h4>{{item.title}}</h4>
-				</div>
+		<accordion-group  ng-repeat="item in menuItems">
+			<accordion-heading >
+				<a ng-click="selectCat(item)" class="accordion-heading-click">
+				{{item.title}}
+				 <i class="pull-right" ng-class="{'icon-chevron-down': item.open, 'icon-chevron-right': !item.open}"></i>
+				</a>
 			</accordion-heading>
 				<ul class="nav nav-list">
-					<li ng-repeat="items in item.inventory" ng-class="{active : selectedList == items.name}">
-						<a href="{{modifyUrl(items.path)}}" class="ng-binding" >{{items.title}}</a>
+					<li ng-repeat="items in item.inventory" ng-class="{active : selectedList == items.oid}">
+						<a href="" ng-click="modifyUrl(items.oid, item.oid)" class="ng-binding" >{{items.title}}</a>
 					</li>
 				</ul>
 		</accordion-group>

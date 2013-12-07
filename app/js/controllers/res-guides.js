@@ -25,7 +25,9 @@
 //			
 //			return $scope.activateSection(0);
 //		});
+		
 
 	}]);
+
 
 }).call(this);

@@ -7,10 +7,30 @@
 	cursor: pointer;
 }
 
-.collapse-notransition {
-  -webkit-transition: height 0.001s;
-  -moz-transition: height 0.001s;
-  -ms-transition: height 0.001s;
-  -o-transition: height 0.001s;
-  transition: height 0.001s;
+#menu_accordion a.accordion-heading-click{
+	height: 100%;
+	width: 95%;
+	display: block;
+	padding: 8px 15px;
+	text-decoration: none;
+}
+#menu_accordion a{
+	text : none;
+}
+#menu_accordion a a{
+	background: none;
+}
+#menu_accordion a:hover {
+	color: #fff;
+	background: #444;
+	font-weight: bold;
+	text-decoration: none;
+}
+#menu_accordion a:active {
+	color: #444;
+}
+
+.accordion-heading .accordion-toggle {
+	display: block;
+	padding: 0px 0px;
 }

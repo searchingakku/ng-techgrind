@@ -8,6 +8,7 @@
 		var listOfCatFromJson = null;
 		// lets find were we are in the app
 		var lokky = $location.$$url.split('/')[2];
+		//var lokky = sharedData;
 		
 		//lets verify we havent save the information into localstorage
 		var menuSaved = localStorageService.get(lokky+'Menu');
@@ -29,21 +30,27 @@
 		}else{
 			$scope.menuItems = JSON.parse(menuSaved);
 		}
-		//lets try a trick to place back the transition on open and close
-//		$.each($('#menu_accordion').find('.collapse'), function(key, value){
-//			$(value).css({transition:"height .35s ease"});
-//		});
-		
 
-		$scope.selectedCat = $routeParams.cat;
-		$scope.selectedList = $routeParams.list;
-		$scope.modifyUrl = function(url){
-			return url.replace('/home/techgrind/','/#/');
+//		$scope.isopen = false;
+		$scope.modifyUrl = function(id){
+			$scope.selectedList = id;
+//			console.log('$scope.selectedCat: ',$scope.selectedCat);
+//			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
-		$scope.goto = function(url){
-			console.log('clicking');
-			window.location.href = url.replace('/home/techgrind/','/#/');
-			//$location.path(url.replace('/home/techgrind/','/#/'));
+		$scope.selectCat = function(item){
+			if(item.oid != $scope.selectedCat && !item.open){
+				$scope.selectedCat = item.oid;
+				$.each($scope.menuItems, function(k,v){
+					v.open = false;
+				});
+				item.open = true;
+			} else if(item.oid == $scope.selectedCat && !item.open){
+				item.open = true;
+			} else {
+				item.open = false;
+			}
+			console.log('$scope.selectedCat: ',$scope.selectedCat);
+			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
 
 	}]);
