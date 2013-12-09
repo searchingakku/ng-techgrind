@@ -33,3 +33,8 @@
 	display: block;
 	padding: 0px 0px;
 }
+
+.accordion .accordion {
+	margin-bottom: 0;
+	background : #FFFFD6
+}

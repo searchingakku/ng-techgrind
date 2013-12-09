@@ -3,17 +3,36 @@
 
 		<accordion-group  ng-repeat="item in menuItems">
 			<accordion-heading >
-				<a ng-click="selectCat(item)" class="accordion-heading-click">
-				{{item.title}}
-				 <i class="pull-right" ng-class="{'icon-chevron-down': item.open, 'icon-chevron-right': !item.open}"></i>
-				</a>
+				<a ng-click="selectCat(item)" class="accordion-heading-click"> {{item.title}} <i class="pull-right" ng-class="{'icon-chevron-down': item.open, 'icon-chevron-right': !item.open}"></i> </a>
 			</accordion-heading>
-				<ul class="nav nav-list">
-					<li ng-repeat="items in item.inventory" ng-class="{active : selectedList == items.oid}">
-						<a href="" ng-click="modifyUrl(items)" class="ng-binding" >{{items.title}}</a>
-					</li>
-				</ul>
-		</accordion-group>
 
+			<ng-repeat ng-repeat="subitem in item.inventory">
+
+				<div ng-show="subitem.inventory.length == 0">
+					<ul class="nav nav-list">
+						<li ng-class="{active : selectedList == subitem.oid}">
+							<a href="" ng-click="modifyUrl(subitem)" class="ng-binding" >{{subitem.title}}</a>
+						</li>
+					</ul>
+				</div>
+
+				<div ng-show="subitem.inventory.length != 0">
+					<accordion>
+						<accordion-group>
+							<accordion-heading >
+								<a ng-click="selectSubCat(subitem)" class="accordion-heading-click"> {{subitem.title}} <i class="pull-right" ng-class="{'icon-chevron-down': subitem.open, 'icon-chevron-right': !subitem.open}"></i> </a>
+							</accordion-heading>
+							<ul class="nav nav-list">
+								<li ng-repeat="items in subitem.inventory" ng-class="{active : selectedList == items.oid}">
+									<a href="" ng-click="modifyUrl(items)" class="ng-binding" >{{items.title}}</a>
+								</li>
+							</ul>
+						</accordion-group>
+					</accordion>
+				</div>
+
+			</ng-repeat>
+
+		</accordion-group>
 	</accordion>
 </div>
