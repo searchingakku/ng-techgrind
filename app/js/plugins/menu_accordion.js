@@ -28,17 +28,17 @@
 				localStorageService.add(lokky+'Menu', JSON.stringify(data.inventory));
 				
 				$scope.selectedCat = $scope.menuItems[0].oid;
-				updateIOActive($scope.menuItems[0].path);
+				updateIOActive($scope.menuItems[0].path, $scope.menuItems[0].title);
 			});
 		}else{
 			$scope.menuItems = JSON.parse(menuSaved);
 			$scope.selectedCat = $scope.menuItems[0].oid;
-			updateIOActive($scope.menuItems[0].path);
+			updateIOActive($scope.menuItems[0].path, $scope.menuItems[0].title);
 		}
 
 		$scope.modifyUrl = function(item){
 			$scope.selectedList = item.oid;
-			updateIOActive(item.path);
+			updateIOActive(item.path, item.title);
 //			console.log('$scope.selectedCat: ',$scope.selectedCat);
 //			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
@@ -56,7 +56,7 @@
 				item.open = false;
 			}
 
-			updateIOActive(item.path);
+			updateIOActive(item.path, item.title);
 //			console.log('$scope.selectedCat: ',$scope.selectedCat);
 //			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
@@ -72,14 +72,14 @@
 			} else {
 				item.open = false;
 			}
-			updateIOActive(item.path);
+			updateIOActive(item.path, item.title);
 		};
 		
-		function updateIOActive(id){
+		function updateIOActive(id, title){
 			if(lokky == 'docs'){
-				DocsSharedData.iodActive = id;
+				DocsSharedData.itemShared = {'id' : id, 'title' : title};
 			}else{
-				GuidesSharedData.iodActive = id;
+				GuidesSharedData.itemShared = {'id' : id, 'title' : title};
 			}
 			$rootScope.$broadcast('iodActive',id);
 		}

@@ -50,15 +50,15 @@
 	app.controller("ContentDocsCtrl", ['$scope', '$location', 'steam','$routeParams', '$http', 'DocsSharedData',
 	function($scope, loc, steam, $routeParams, $http, DocsSharedData) {
 
-		$scope.data = DocsSharedData;
-		var oldData = $scope.data.iodActive;
+		$scope.data = DocsSharedData.itemShared;
+		var oldData = $scope.data.id;
 		callHttp();
 
 		$scope.$on('iodActive', function(event, x) {
 			if(x != oldData){
 				$scope.docs = [];
-				$scope.data = DocsSharedData;
-				oldData = $scope.data.iodActive;
+				$scope.data = DocsSharedData.itemShared;
+				oldData = $scope.data.id;
 				callHttp();
 			}
 		});
@@ -68,7 +68,7 @@
 		};
 
 		function callHttp(){
-			var listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/'+$scope.data.iodActive);
+			var listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/'+$scope.data.id);
 			listOfCatFromJson.success(function(data){
 				console.log('Data for menu...', data.inventory);
 				$scope.docs = data.inventory;

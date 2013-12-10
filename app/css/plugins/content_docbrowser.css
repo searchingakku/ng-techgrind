@@ -41,13 +41,6 @@
 		example-object -> displayed information ==> action-on-interaction:
 			doc/template/file -> object thumbnail + name ==> full-content-view // download to user
 */
-#gdriveContainer @font-face {
-  font-family: 'Droid Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Droid Sans'), local('DroidSans'), url(DroidSans.woff) format('woff');
-}
-
 
 #gdriveContainer ::-webkit-scrollbar {
   height: 16px;
@@ -85,7 +78,6 @@
   background: url(/img/plugins/content_docs/google_drive_bg.png) no-repeat center center,
               -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));
   background-size: 270px 215px, 100%;
-  font-family: 'Droid Sans', sans-serif;
 }
 
 #gdriveContainer.dropping > #main {

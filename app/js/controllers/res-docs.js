@@ -9,7 +9,7 @@
 
 	}]);
 	appModule.factory('DocsSharedData', function(){
-		return {oidActive : ''}
+		return {itemShared : {}}
 	});
 
 }).call(this);

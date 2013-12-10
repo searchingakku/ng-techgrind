@@ -5,7 +5,16 @@
 	appModule.controller('ResourcesGuidesCtrl', ['$scope', '$location', 'steam', '$filter', '$rootScope', '$http', 'GuidesSharedData', 
 	function($scope, loc, steam, $filter, $rootScope, $http, guidesSharedData) {
 
-		$scope.data = guidesSharedData;
+		$scope.data = guidesSharedData.itemShared;
+		var oldData = $scope.data.id;
+
+		$scope.$on('iodActive', function(event, x) {
+			if(x != oldData){
+				$scope.data = guidesSharedData.itemShared;
+				oldData = $scope.data.id;
+			}
+		});
+		
 		// ---
 		// PUBLIC METHODS.
 		// ---
@@ -31,7 +40,7 @@
 	}]);
 
 	appModule.factory('GuidesSharedData', function(){
-		return {oidActive : ''}
+		return {itemShared : {}}
 	});
 
 }).call(this);

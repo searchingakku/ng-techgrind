@@ -1,3 +1,6 @@
+<head>
+	<link rel="stylesheet" href="css/res-guides.css">
+</head>
 <div class="container">
 	<div class="row-fluid">
 		<div class="span3">
@@ -12,11 +15,9 @@
 				<div class="widget-body">
 
 					<div class="title">
-						<h1>{{activeTitle}}</h1>
-						<p>
-							{{activeDescription}}
-						</p>
-						<p>{{data.iodActive}}</p>
+						<h1>{{data.title}}</h1>
+						<p>{{data.id}}</p>
+						<p>{{activeDescription}}</p>
 					</div>
 					<div ng-controller="ContentGuidesCtrl">
 						<div ng-include="'partials/plugins/content_articles.html'"></div>
