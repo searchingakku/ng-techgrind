@@ -28,29 +28,17 @@
 				localStorageService.add(lokky+'Menu', JSON.stringify(data.inventory));
 				
 				$scope.selectedCat = $scope.menuItems[0].oid;
-				if(lokky == 'docs'){
-					DocsSharedData.iodActive = $scope.menuItems[0].oid;
-				}else{
-					GuidesSharedData.iodActive = $scope.menuItems[0].oid;
-				}
+				updateIOActive($scope.menuItems[0].path);
 			});
 		}else{
 			$scope.menuItems = JSON.parse(menuSaved);
 			$scope.selectedCat = $scope.menuItems[0].oid;
-			if(lokky == 'docs'){
-				DocsSharedData.iodActive = $scope.menuItems[0].oid;
-			}else{
-				GuidesSharedData.iodActive = $scope.menuItems[0].oid;
-			}
+			updateIOActive($scope.menuItems[0].path);
 		}
 
 		$scope.modifyUrl = function(item){
 			$scope.selectedList = item.oid;
-			if(lokky == 'docs'){
-				DocsSharedData.iodActive = item.oid;
-			}else{
-				GuidesSharedData.iodActive = item.oid;
-			}
+			updateIOActive(item.path);
 //			console.log('$scope.selectedCat: ',$scope.selectedCat);
 //			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
@@ -67,25 +55,15 @@
 			} else {
 				item.open = false;
 			}
-			if(lokky == 'docs'){
-				DocsSharedData.iodActive = item.oid;
-			}else{
-				GuidesSharedData.iodActive = item.oid;
-			}
+
+			updateIOActive(item.path);
 //			console.log('$scope.selectedCat: ',$scope.selectedCat);
 //			console.log('$scope.selectedList: ',$scope.selectedList);
 		};
 
 		$scope.selectedSubCat = -666;
 		$scope.selectSubCat = function(item){
-//			if(item.inventory.length === 0){
-//				console.log('Lets grab the remain obj');
-//				listOfSubCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request='+item.path+'/tree');
-//				listOfSubCatFromJson.success(function(data){
-//					console.log('Data for menu...', data.inventory);
-//					item.inventory = data.inventory;
-//				});
-//			}
+
 			if(item.oid != $scope.selectedSubCat && !item.open){
 				$scope.selectedSubCat = item.oid;
 				item.open = true;
@@ -94,12 +72,17 @@
 			} else {
 				item.open = false;
 			}
-			if(lokky == 'docs'){
-				DocsSharedData.iodActive = item.oid;
-			}else{
-				GuidesSharedData.iodActive = item.oid;
-			}
+			updateIOActive(item.path);
 		};
+		
+		function updateIOActive(id){
+			if(lokky == 'docs'){
+				DocsSharedData.iodActive = id;
+			}else{
+				GuidesSharedData.iodActive = id;
+			}
+			$rootScope.$broadcast('iodActive',id);
+		}
 
 	}]);
 }).call(this);

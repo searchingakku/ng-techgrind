@@ -51,39 +51,29 @@
 	function($scope, loc, steam, $routeParams, $http, DocsSharedData) {
 
 		$scope.data = DocsSharedData;
-		// ---
-		// PUBLIC METHODS.
-		// ---
-		$scope.activateSection = function(id){
-			
-//			var docFromJson = $http.get('/json/docs_files/'+id+'.json');
-//			docFromJson.success(function(data){
-//				console.log('data:',data);
-//				$scope.activeTitle = data.title;
-//				$scope.activeId =data.id;
-//				$scope.activeDescription =data.description;
-//				$scope.docs = buildPhotoSet(data.files);
-//			});
+		var oldData = $scope.data.iodActive;
+		callHttp();
+
+		$scope.$on('iodActive', function(event, x) {
+			if(x != oldData){
+				$scope.docs = [];
+				$scope.data = DocsSharedData;
+				oldData = $scope.data.iodActive;
+				callHttp();
+			}
+		});
+
+		$scope.modifyUrlForFiles = function(path){
+			return 'http://dev-back1.techgrind.asia/'+path;
 		};
-		
 
-		// ---
-		// PRIVATE METHODS.
-		// ---
-		function buildPhotoSet(files) {
-			var media = [];
-			
-			$.each(files, function(key, value){
-				media.push(value);
+		function callHttp(){
+			var listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/'+$scope.data.iodActive);
+			listOfCatFromJson.success(function(data){
+				console.log('Data for menu...', data.inventory);
+				$scope.docs = data.inventory;
 			});
-
-			return (media);
-		}
-
-		//need to think in where I'm going to catch this id
-		if(!!$routeParams.cat){
-			$scope.activateSection($routeParams.list);
-		}
+		};
 
 	}]);
 

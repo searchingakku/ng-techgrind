@@ -49,20 +49,21 @@
 	<div class="docs-title">
 		<h1 >{{activeTitle}}</h1>
 		<p>{{activeDescription}}</p>
-		<p>{{data.iodActive}}</p>
 	</div>
 
 		<ul>
+			<div ng-repeat="doc in docs" ng-hide="doc.class == 'Room'">
 			
-			<a href="{{doc.src}}" data-ng-repeat="doc in docs">
-			<li>
+					<a href="{{modifyUrlForFiles(doc.path)}}" >
+						<li>
+							<img ng-show="doc.mime_type == 'application/msword'" src="./img/plugins/content_docs/doc.png"/>
+							<img ng-show="doc.mime_type == 'application/pdf'" src="./img/plugins/content_docs/pdf.png"/>
+							{{doc.name}} {{doc.size}}
+							<span class="date">{{doc.updatedDate}}</span>
+							
+						</li>
+					</a>
 				
-				<img ng-show="doc.type == 'doc'" src="./img/plugins/content_docs/doc.png"/>
-				<img ng-show="doc.type == 'pdf'" src="./img/plugins/content_docs/pdf.png"/>
-				{{doc.title}} {{doc.size}}
-				<span class="date">{{doc.updatedDate}}</span>
-				
-			</li>
-			</a>
+			</div>
 		</ul>
 </div>
