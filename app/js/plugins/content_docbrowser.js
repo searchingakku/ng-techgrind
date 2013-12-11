@@ -54,6 +54,7 @@
 		var oldData = $scope.data.id;
 		callHttp();
 
+		//lets be on watch for broadcast from menuAccordion
 		$scope.$on('iodActive', function(event, x) {
 			if(x != oldData){
 				$scope.docs = [];
@@ -65,6 +66,14 @@
 
 		$scope.modifyUrlForFiles = function(path){
 			return 'http://dev-back1.techgrind.asia/'+path;
+		};
+
+		$scope.modifySizesForKb = function(size){
+			return Math.round(size/1024) + " Kb";
+		};
+
+		$scope.uploadFiles = function(){
+			//call controller to upload
 		};
 
 		function callHttp(){

@@ -46,24 +46,37 @@
 </head>
 <div id='gdriveContainer' ng-controller="ContentDocsCtrl">
 	
-	<div class="title">
-		<h1 >{{data.title}}</h1>
-		<p>{{activeDescription}}</p>
+	<div class="title row-fluid">
+		<div class="span10">
+			<h1 >{{data.title}}</h1>
+		</div>
+		<div class="span2">
+			<button ng-click="uploadFiles()" class="btn btn-compose btn-success pull-right">
+				<i class="icon-edit"></i>Upload
+			</button>
+		</div>
 	</div>
 
 		<ul>
-			<div ng-repeat="doc in docs" ng-hide="doc.class == 'Room'">
-			
-					<a href="{{modifyUrlForFiles(doc.path)}}" >
+			<div ng-repeat="doc in docs" ng-hide="doc.class == 'Room'" class="row-fluid">
+				<div class="span1">
+					<a href="{{modifyUrlForFiles(doc.path)}}" target="_blank">
+						<button class="btn btn-success">
+							<i class="icon-download"></i>
+						</button>
+					</a>
+				</div>
+				<div class="span11" style="margin-left:0;">
+					<a href="" >
 						<li>
 							<img ng-show="doc.mime_type == 'application/msword'" src="./img/plugins/content_docs/doc.png"/>
 							<img ng-show="doc.mime_type == 'application/pdf'" src="./img/plugins/content_docs/pdf.png"/>
-							{{doc.name}} {{doc.size}}
-							<span class="date">{{doc.updatedDate}}</span>
+							{{doc.name}} 
+							<span class="date">{{modifySizesForKb(doc.size)}}</span>
 							
 						</li>
 					</a>
-				
+				</div>
 			</div>
 		</ul>
 </div>
