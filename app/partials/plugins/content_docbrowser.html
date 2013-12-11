@@ -43,6 +43,7 @@
 */-->
 <head>
 	<link rel="stylesheet" href="css/plugins/content_docbrowser.css">
+	
 </head>
 <div id='gdriveContainer' ng-controller="ContentDocsCtrl">
 	<div ng-show="level == 'list'" class="drive-background">
@@ -51,7 +52,7 @@
 				<h1 >{{data.title}}</h1>
 			</div>
 			<div class="span2">
-				<button ng-click="uploadFiles()" class="btn btn-compose btn-success pull-right">
+				<button ng-show="!!loginp()" ng-click="uploadFiles()" class="btn btn-compose btn-success pull-right">
 					<i class="icon-edit"></i>Upload
 				</button>
 			</div>
@@ -98,12 +99,17 @@
 				<h2 >Upload your files...</h2>
 			</div>
 			<div class="span2">
+				
 				<button ng-click="goBackToList()" class="btn btn-danger pull-right">
 					<i class="icon-back"></i>Back
 				</button>
 			</div>
 		</div>
 		<div class="upload-container">
+			
+			<div ng-include="'partials/plugins/tools_upload.html'">
+			</div>
+		
 		</div>
 	</div>
 </div>

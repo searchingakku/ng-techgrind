@@ -44,7 +44,7 @@
 
 (function() {
 
-	var app = angular.module('TechGrindApp.controllers.content.docbrowser', []);
+	var app = angular.module('TechGrindApp.controllers.content.docbrowser', ['TechGrindApp.plugins.toolsUpload']);
 
 	// I control the root of the application.
 	app.controller("ContentDocsCtrl", ['$scope', '$location', 'steam','$routeParams', '$http', 'DocsSharedData',
@@ -66,7 +66,7 @@
 				callHttp();
 			}
 		});
-		
+
 		$scope.itemActive = {};
 		$scope.gotoView = function(doc){
 			console.log('view item id: ',doc.oid);
