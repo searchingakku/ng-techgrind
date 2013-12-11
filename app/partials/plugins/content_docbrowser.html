@@ -48,32 +48,33 @@
 <div id='gdriveContainer' ng-controller="ContentDocsCtrl">
 	<div ng-show="level == 'list'" class="drive-background">
 		<div class="title row-fluid">
-			<div class="span10">
+			<div class="span8">
 				<h1 >{{data.title}}</h1>
 			</div>
-			<div class="span2">
-				<button ng-show="!!loginp()" ng-click="uploadFiles()" class="btn btn-compose btn-success pull-right">
-					<i class="icon-edit"></i>Upload
+			<div class="span4 pull-right">
+				<button ng-show="!!loginp()" ng-click="myList()" class="btn btn-primary">
+					<i class="icon-list"></i>Your List
+				</button>
+				<button ng-show="!!loginp()" ng-click="uploadFiles()" class="btn btn-success">
+					<i class="icon-cloud-upload"></i>Upload New
 				</button>
 			</div>
 		</div>
 		<ul>
 			<div ng-repeat="doc in docs" ng-hide="doc.class == 'Room'" class="row-fluid">
-				<div class="span1">
-					<a href="{{modifyUrlForFiles(doc.path)}}" target="_blank">
-					<button class="btn btn-success">
-						<i class="icon-download"></i>
-					</button> </a>
-				</div>
-				<div class="span11" style="margin-left:0;">
-					<a href="" ng-click="gotoView(doc)">
-					<li>
+				<div class="span12">
+					<li ng-click="gotoView(doc)">
+						<button ng-show="myListActivated()" class="btn btn-danger" ng-click="deleteFile(doc,$event)">
+							<i class="icon-minus"></i>
+						</button>
+						<button class="btn btn-info" ng-click="downloadFile(doc,$event)" style="margin-right:15px;">
+							<i class="icon-cloud-download"></i>
+						</button>
 						<img ng-show="doc.mime_type == 'application/msword'" src="./img/plugins/content_docs/doc.png"/>
 						<img ng-show="doc.mime_type == 'application/pdf'" src="./img/plugins/content_docs/pdf.png"/>
 						{{doc.name}}
 						<span class="date">{{modifySizesForKb(doc.size)}} Kb</span>
-	
-					</li> </a>
+					</li>
 				</div>
 			</div>
 		</ul>

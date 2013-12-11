@@ -63,9 +63,22 @@
 				$scope.docs = [];
 				$scope.data = DocsSharedData.itemShared;
 				oldData = $scope.data.id;
+				isMylistActivated = false;
 				callHttp();
+				
 			}
 		});
+		
+		var isMylistActivated = false;
+		$scope.myListActivated = function(){
+			return isMylistActivated;
+		};
+		$scope.myList = function(){
+			$scope.docs = tempListMyFiles;
+			$scope.data = {'title':'Your files uploaded'}
+			oldData = -1;
+			isMylistActivated = true;
+		};
 
 		$scope.itemActive = {};
 		$scope.gotoView = function(doc){
@@ -78,8 +91,16 @@
 			$scope.level = 'list';
 		};
 		
-		$scope.modifyUrlForFiles = function(path){
-			return 'http://dev-back1.techgrind.asia/'+path;
+		
+		$scope.deleteFile = function(doc, $event){
+			//TODO we wanrt to call steam to delete here
+			console.log('Lets delete the doc oid: ',doc.oid);
+			$event.stopPropagation();
+		};
+
+		$scope.downloadFile = function(doc,$event){
+			$event.stopPropagation();
+			window.open('http://dev-back1.techgrind.asia/'+doc.path);
 		};
 
 		$scope.modifySizesForKb = function(size){
@@ -100,6 +121,7 @@
 			});
 		};
 
+		var tempListMyFiles = [{"oid":6078,"mime_type":"application/msword","class":"Document","path":"/home/techgrind/resources/docs/product-development/technology/backend-stacks/No way we can miss this.doc","name":"No way we can miss this.doc","title":"","size":17920},{"oid":6079,"mime_type":"application/msword","class":"Document","path":"/home/techgrind/resources/docs/product-development/technology/backend-stacks/piece of information.doc","name":"piece of information.doc","title":"","size":17920}];
 	}]);
 
 
