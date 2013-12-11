@@ -54,6 +54,9 @@
 		var oldData = $scope.data.id;
 		callHttp();
 
+		//lets start with level list
+		$scope.level = 'list';
+
 		//lets be on watch for broadcast from menuAccordion
 		$scope.$on('iodActive', function(event, x) {
 			if(x != oldData){
@@ -63,18 +66,31 @@
 				callHttp();
 			}
 		});
+		
+		$scope.itemActive = {};
+		$scope.gotoView = function(doc){
+			console.log('view item id: ',doc.oid);
+			$scope.level = 'view';
+			$scope.itemActive = doc;
+		};
 
+		$scope.goBackToList = function(){
+			$scope.level = 'list';
+		};
+		
 		$scope.modifyUrlForFiles = function(path){
 			return 'http://dev-back1.techgrind.asia/'+path;
 		};
 
 		$scope.modifySizesForKb = function(size){
-			return Math.round(size/1024) + " Kb";
+			return Math.round(size/1024);
 		};
 
 		$scope.uploadFiles = function(){
 			//call controller to upload
+			$scope.level = 'upload';
 		};
+
 
 		function callHttp(){
 			var listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/'+$scope.data.id);

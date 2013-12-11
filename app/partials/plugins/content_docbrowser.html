@@ -45,38 +45,65 @@
 	<link rel="stylesheet" href="css/plugins/content_docbrowser.css">
 </head>
 <div id='gdriveContainer' ng-controller="ContentDocsCtrl">
-	
-	<div class="title row-fluid">
-		<div class="span10">
-			<h1 >{{data.title}}</h1>
+	<div ng-show="level == 'list'" class="drive-background">
+		<div class="title row-fluid">
+			<div class="span10">
+				<h1 >{{data.title}}</h1>
+			</div>
+			<div class="span2">
+				<button ng-click="uploadFiles()" class="btn btn-compose btn-success pull-right">
+					<i class="icon-edit"></i>Upload
+				</button>
+			</div>
 		</div>
-		<div class="span2">
-			<button ng-click="uploadFiles()" class="btn btn-compose btn-success pull-right">
-				<i class="icon-edit"></i>Upload
-			</button>
-		</div>
-	</div>
-
 		<ul>
 			<div ng-repeat="doc in docs" ng-hide="doc.class == 'Room'" class="row-fluid">
 				<div class="span1">
 					<a href="{{modifyUrlForFiles(doc.path)}}" target="_blank">
-						<button class="btn btn-success">
-							<i class="icon-download"></i>
-						</button>
-					</a>
+					<button class="btn btn-success">
+						<i class="icon-download"></i>
+					</button> </a>
 				</div>
 				<div class="span11" style="margin-left:0;">
-					<a href="" >
-						<li>
-							<img ng-show="doc.mime_type == 'application/msword'" src="./img/plugins/content_docs/doc.png"/>
-							<img ng-show="doc.mime_type == 'application/pdf'" src="./img/plugins/content_docs/pdf.png"/>
-							{{doc.name}} 
-							<span class="date">{{modifySizesForKb(doc.size)}}</span>
-							
-						</li>
-					</a>
+					<a href="" ng-click="gotoView(doc)">
+					<li>
+						<img ng-show="doc.mime_type == 'application/msword'" src="./img/plugins/content_docs/doc.png"/>
+						<img ng-show="doc.mime_type == 'application/pdf'" src="./img/plugins/content_docs/pdf.png"/>
+						{{doc.name}}
+						<span class="date">{{modifySizesForKb(doc.size)}} Kb</span>
+	
+					</li> </a>
 				</div>
 			</div>
 		</ul>
+	</div>
+	<div ng-show="level == 'view'">
+		<div class="title row-fluid">
+			<div class="span10">
+				<h2 >{{itemActive.name}}</h2>
+			</div>
+			<div class="span2">
+				<button ng-click="goBackToList()" class="btn btn-danger pull-right">
+					<i class="icon-back"></i>Back
+				</button>
+			</div>
+		</div>
+		<div class="view-container">
+			<p> This will be the view still not sure how will we do it....</p>
+		</div>
+	</div>
+	<div ng-show="level == 'upload'" class="drive-background">
+		<div class="title row-fluid">
+			<div class="span10">
+				<h2 >Upload your files...</h2>
+			</div>
+			<div class="span2">
+				<button ng-click="goBackToList()" class="btn btn-danger pull-right">
+					<i class="icon-back"></i>Back
+				</button>
+			</div>
+		</div>
+		<div class="upload-container">
+		</div>
+	</div>
 </div>

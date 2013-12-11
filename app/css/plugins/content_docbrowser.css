@@ -75,9 +75,11 @@
 #gdriveContainer {
   padding: 0 15px 15px 15px;
   overflow: hidden;
-  background: url(/img/plugins/content_docs/google_drive_bg.png) no-repeat center center,
-              -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));
   background-size: 270px 215px, 100%;
+}
+#gdriveContainer .drive-background{
+	background: url(/img/plugins/content_docs/google_drive_bg.png) no-repeat center center,
+      -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));
 }
 
 #gdriveContainer.dropping > #main {
@@ -94,7 +96,7 @@
   pointer-events: all;
 }
 
-#gdriveContainer ul {
+#gdriveContainer ul,#gdriveContainer .view-container,#gdriveContainer .upload-container {
   margin: 0;
   height: 525px;
   overflow: auto;
