@@ -56,7 +56,7 @@
 
 
 		
-		<div class="card media stack" ng-repeat="item in categories" ng-click="goToSubLevel(item.path)">
+		<div class="card media stack" ng-repeat="item in categories" ng-click="goToSubLevel(item)">
 			<div class="frameImageContainer">
 			<div class="framedImage" style="position: absolute; left: 0px; top: 0px; width: 249px; height: 194px; z-index: 1;">
 				<div id="gridEntry0" style="overflow: hidden; position: absolute; left: 9px; top: 10px; width: 240px; height: 165px;" >
@@ -86,7 +86,7 @@
 			</div>
 			</div>
 			<div class="card-info">
-				<a class="title" href="#">{{item.title}}</a>
+				<a class="title" href="#">{{item.name}}</a>
 				<div class="desc">
 					{{item.author}}
 				</div>
@@ -102,7 +102,7 @@
 	
 		<div class="title row-fluid">
 			<div class="span10">
-				<h1>Title of the categorie</h1>
+				<h1>{{titleCatActive}}</h1>
 			</div>
 			<div class="span2">
 				<button ng-click="goBackToList()" class="btn btn-danger pull-right">

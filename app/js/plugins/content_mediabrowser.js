@@ -54,18 +54,29 @@
 	function($scope, loc, steam, $routeParams, $http) {
 		
 		
-		$scope.level = 0;
-		callHttpForListOfCats();
+		$scope.level = -1;
+		$scope.titleCatActive = '';
 		
-		$scope.goToSubLevel = function(path){
+		$scope.goToSubLevel = function(item){
 			$scope.level = 1;
-			callHttpForListOfMedia(path);
+			$scope.titleCatActive = item.title;
+			callHttpForListOfMedia(item.path);
+		};
+		$scope.modifiUrlForSrc = function(path){
+			return 'http://dev-back1.techgrind.asia'+path;
+		};
+		
+		$scope.goBackToList = function(){
+			$scope.level = '0';
+			$scope.listOfMedia = [];
+			$scope.titleCatActive = '';
 		};
 		function callHttpForListOfCats(){
 			var listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/home/techgrind/resources/media/tree');
 			listOfCatFromJson.success(function(data){
 				console.log('Data for menu...', data.inventory);
 				$scope.categories = data.inventory;
+				$scope.level = 0;
 			});
 		};
 
@@ -76,15 +87,8 @@
 				$scope.listOfMedia = data.inventory;
 			});
 		};
-		$scope.modifiUrlForSrc = function(path){
-			return 'http://dev-back1.techgrind.asia/'+path;
-		};
 		
-		$scope.goBackToList = function(){
-			$scope.level = '0';
-			$scope.listOfMedia = [];
-		};
-		
+		callHttpForListOfCats();
 
 
 
