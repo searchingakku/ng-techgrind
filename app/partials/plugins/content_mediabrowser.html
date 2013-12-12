@@ -60,7 +60,7 @@
 			<div class="frameImageContainer">
 			<div class="framedImage" style="position: absolute; left: 0px; top: 0px; width: 249px; height: 194px; z-index: 1;">
 				<div id="gridEntry0" style="overflow: hidden; position: absolute; left: 9px; top: 10px; width: 240px; height: 165px;" >
-					<img src="{{item.thumb}}" style="position: absolute; left: -13px; top: 0px; width: 247px; height: 165px;">
+					<img src="{{modifiUrlForSrc(item.icon.path)}}" style="position: absolute; left: -13px; top: 0px; width: 247px; height: 165px;">
 				</div>
 				<img src="/img/plugins/content_media/ul.png" style="position: absolute; left: 0px; top: 0px; width: 74px; height: 15px;z-index: 2;">
 				<img src="/img/plugins/content_media/ll.png" style="position: absolute; left: 0px; top: 152px; width: 74px; height: 42px;z-index: 2;">
@@ -100,19 +100,21 @@
 
 	<div ng-show="level == 1" class="row-fluid">
 	
-		<div class="jumbotron">
-			<div class="span12">
+		<div class="title row-fluid">
+			<div class="span10">
 				<h1>Title of the categorie</h1>
 			</div>
-			<div class="span12">
-				<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+			<div class="span2">
+				<button ng-click="goBackToList()" class="btn btn-danger pull-right">
+					<i class="icon-back"></i>Back
+				</button>
 			</div>
 		</div>
 		<div class="center">
 			
 			<div class="card media stack" ng-repeat="item in listOfMedia" ng-click="goToGallery($index)">
 				<div class="thumbnail">
-					<img src="{{item.thumb}}" style="height:120px !important; width:100% !important;">
+					<img src="{{modifiUrlForSrc(item.path)}}" style="height:120px !important; width:100% !important;">
 					<div class="caption">
 						<h3>{{item.title}}</h3>
 						<p>

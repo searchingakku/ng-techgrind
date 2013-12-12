@@ -50,44 +50,48 @@
 	var app = angular.module('TechGrindApp.controllers.content.mediabrowser', []);
 
 	// I control the root of the application.
-	app.controller("ContentMediaCtrl", ['$scope', '$location', 'steam', '$routeParams',
-	function($scope, loc, steam, $routeParams) {
+	app.controller("ContentMediaCtrl", ['$scope', '$location', 'steam', '$routeParams', '$http',
+	function($scope, loc, steam, $routeParams, $http) {
 		
-		if(!!$routeParams.cat){
-			$scope.level = 1;
-			$scope.listOfMedia = shuffle(mockListOfMedia);
-		} else {
-			$scope.level = 0;
-		}
 		
-		$scope.categories = listOfCat;
-
+		$scope.level = 0;
+		callHttpForListOfCats();
+		
 		$scope.goToSubLevel = function(path){
-			window.location.href = path.replace('/home/techgrind/','/#/');
+			$scope.level = 1;
+			callHttpForListOfMedia(path);
+		};
+		function callHttpForListOfCats(){
+			var listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/home/techgrind/resources/media/tree');
+			listOfCatFromJson.success(function(data){
+				console.log('Data for menu...', data.inventory);
+				$scope.categories = data.inventory;
+			});
 		};
 
+		function callHttpForListOfMedia(cat){
+			var listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request='+cat);
+			listOfCatFromJson.success(function(data){
+				console.log('Data for menu...', data.inventory);
+				$scope.listOfMedia = data.inventory;
+			});
+		};
+		$scope.modifiUrlForSrc = function(path){
+			return 'http://dev-back1.techgrind.asia/'+path;
+		};
+		
+		$scope.goBackToList = function(){
+			$scope.level = '0';
+			$scope.listOfMedia = [];
+		};
+		
 
-//		$scope.myInterval = 5000;
-//		$scope.slides = [];
-//		$scope.goToGallery = function(index){
-//
-//			$.each($scope.listOfMedia, function(key, value){
-//				var newWidth = 200 + (($scope.slides.length + (25 * $scope.slides.length)) % 150);
-//				$scope.slides.push({
-//					thumb : value.image,
-//					title : value.title,
-//					active : (key == index)
-//				});
-//				
-//			});
-//			
-//			//Lets move into level 2
-//			$scope.level = 2;
-//		};
+
 
 	}]);
 	
 	
+
 	function shuffle(array) {
 		var currentIndex = array.length, temporaryValue, randomIndex;
 		// While there remain elements to shuffle...
