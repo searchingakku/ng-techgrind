@@ -70,8 +70,7 @@
 						<button class="btn btn-info" ng-click="downloadFile(doc,$event)" style="margin-right:15px;">
 							<i class="icon-cloud-download"></i>
 						</button>
-						<img ng-show="doc.mime_type == 'application/msword'" src="./img/plugins/content_docs/doc.png"/>
-						<img ng-show="doc.mime_type == 'application/pdf'" src="./img/plugins/content_docs/pdf.png"/>
+						<img src="{{modifiUrlForSrc(doc.icon.path)}}"/>
 						{{doc.name}}
 						<span class="date">{{modifySizesForKb(doc.size)}} Kb</span>
 					</li>

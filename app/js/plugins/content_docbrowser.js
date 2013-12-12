@@ -52,7 +52,7 @@
 
 		$scope.data = DocsSharedData.itemShared;
 		var oldData = $scope.data.id;
-		callHttp();
+		callHttpForListOfFiles();
 
 		//lets start with level list
 		$scope.level = 'list';
@@ -64,7 +64,7 @@
 				$scope.data = DocsSharedData.itemShared;
 				oldData = $scope.data.id;
 				isMylistActivated = false;
-				callHttp();
+				callHttpForListOfFiles();
 				
 			}
 		});
@@ -78,6 +78,10 @@
 			$scope.data = {'title':'Your files uploaded'}
 			oldData = -1;
 			isMylistActivated = true;
+		};
+
+		$scope.modifiUrlForSrc = function(path){
+			return 'http://dev-back1.techgrind.asia/'+path;
 		};
 
 		$scope.itemActive = {};
@@ -100,7 +104,7 @@
 
 		$scope.downloadFile = function(doc,$event){
 			$event.stopPropagation();
-			window.open('http://dev-back1.techgrind.asia/'+doc.path);
+			window.open('http://dev-back1.techgrind.asia'+doc.path);
 		};
 
 		$scope.modifySizesForKb = function(size){
@@ -113,7 +117,7 @@
 		};
 
 
-		function callHttp(){
+		function callHttpForListOfFiles(){
 			var listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/'+$scope.data.id);
 			listOfCatFromJson.success(function(data){
 				console.log('Data for menu...', data.inventory);
