@@ -39,7 +39,7 @@
 	<i class="icon-edit"></i>Compose
 </button-->
 <div ng-controller="ContentNewsCtrl">
-<div ng-repeat="item in articles track by $index" class="article unselectable borderboxbutton" ng-click="goToArticle(item.id)">
+<div ng-repeat="item in articles track by $index" class="article unselectable borderboxbutton" ng-click="goToArticle(item.name)">
 	<h1>{{item.title}}</h1>
 	<div class="left"><img src="http://placehold.it/120x80"/>
 		<div class="clearfix"></div>

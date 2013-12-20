@@ -172,7 +172,7 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		controller: 'StartupGenomeCtrl'		
 
 # WIP: incomplete
-	$routeProvider.when '/content/:title',
+	$routeProvider.when '/content/:name',
 		templateUrl: 'partials/plugins/content_article_fullpage.html'
 		controller: 'ContentArticleFullPageCtrl'
 

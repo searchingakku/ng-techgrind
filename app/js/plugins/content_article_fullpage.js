@@ -22,8 +22,13 @@ function($scope, steam, rp) {
 	var user = null;
 	var self = this;
 	var article = null;
+	var get_article = function(data)
+	{
+		if (data['article'])
+		$scope.article = data['article'];
+	}
 
-	$scope.article = contentdata;
+	steam.get('/home/techgrind/articles/all/'+rp.name).then(get_article);
 
 	self.isOpen = false;
 	self.isLogged = false;
