@@ -40,18 +40,15 @@ function($scope, steam, rp, loc) {
 		loc.path('content/' + articleID);
 	}
 
-	var matchregion = function(item) {
-		console.log(sexpr("filter", item.country == rp.region, item.country, rp.region, item));
-		return item.country == rp.region;
+	var region = rp.region || "all";
+	console.log(sexpr("ContentNewsCtrl", rp.region, region))
+	var get_articles = function(data)
+	{
+		if (data['article-list'])
+		$scope.articles = data['article-list'];
 	}
 
-	console.log('route Params:: ', rp)
-	if (!!rp.region) {
-		$scope.articles = news.filter(matchregion);
-	} else {
-		$scope.articles = news;
-	}
-
+	steam.get('/home/techgrind/articles/'+region).then(get_articles);
 	/*$scope.gotoFullPage = function(id) {
 		console.log(' ID TO GO: ',id);
 		return fullPageService.open();
