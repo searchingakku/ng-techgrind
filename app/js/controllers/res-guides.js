@@ -2,8 +2,8 @@
 
 	var appModule = angular.module('TechGrindApp.controllers.res-guides', []);
 
-	appModule.controller('ResourcesGuidesCtrl', ['$scope', '$location', 'steam', '$filter', '$rootScope', '$http', 'GuidesSharedData', 
-	function($scope, loc, steam, $filter, $rootScope, $http, guidesSharedData) {
+	appModule.controller('ResourcesGuidesCtrl', ['$scope', '$location', 'steam', '$filter', '$rootScope', '$http', 'GuidesSharedData', 'ToolsRichEditorService',
+	function($scope, loc, steam, $filter, $rootScope, $http, guidesSharedData, richEditor) {
 
 		$scope.data = guidesSharedData.itemShared;
 		var oldData = $scope.data.id;
@@ -14,6 +14,10 @@
 				oldData = $scope.data.id;
 			}
 		});
+		
+		$scope.compose = function() {
+			return richEditor.open("guides");
+		};
 		
 		// ---
 		// PUBLIC METHODS.

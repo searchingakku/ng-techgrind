@@ -1,8 +1,8 @@
 (function() {
 	var app = angular.module('ToolsRichEditor', [ 'ui.bootstrap','TechGrindApp.directives.ui.tinymce' ]);
 	app.service('ToolsRichEditorService',
-		['$modal', 'steam', '$rootScope',
-		 function($modal, steam, $rootScope) {
+		['$modal', 'steam', '$rootScope', '$http',
+		 function($modal, steam, $rootScope, $http) {
 
 			var self = this;
 			self.isOpen = false;
@@ -34,10 +34,34 @@
 			self.tinymce = 'Write your own article, news, or tutorial and publish it now!';
 			self.labels = '';
 			self.dialogCategories = ['news','guides','tutorials'];
+
+			listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/home/techgrind/resources/guides/tree');
+
+			self.location = [];
+			listOfCatFromJson.success(function(data){
+				console.log('Data for menu...', data.inventory);
+				$.each(data.inventory, function(k0, v0){
+					self.location.push(v0.name);
+					$.each(v0.inventory, function(k1, v1){
+						self.location.push(v1.name);
+						$.each(v1.inventory, function(k2, v2){
+							self.location.push(v2.name);
+						});
+					});
+				});
+			});
+			
 			var user = null;
 
-			this.open = function() {
+			this.open = function(startCat) {
+				console.log('Starting Category: ', startCat);
 				if(!self.isOpen){
+					if(!!!startCat){
+						self.startCat =  "news";
+					}else{
+						self.startCat = startCat;
+					}
+					
 					self.isOpen = true;
 					// lets check if the user is logged
 					self.user = steam.loginp();
@@ -56,6 +80,9 @@
 							dialogCategories : function() {
 								return self.dialogCategories;
 							},
+							locations : function(){
+								return self.location;
+							},
 							user : function() {
 								return self.user;
 							},
@@ -70,6 +97,9 @@
 							},
 							labels : function() {
 								return self.labels;
+							},
+							initCat : function() {
+								return self.startCat;
 							}
 						}
 					});
@@ -82,15 +112,22 @@
 					});
 				}
 			};
-			var ModalInstanceCtrl = function($scope,$modalInstance, dialogCategories, user, loginp, tinymce, tinymceOptions, labels) {
+			var ModalInstanceCtrl = function($scope,$modalInstance, dialogCategories, locations, user, loginp, tinymce, tinymceOptions, labels,initCat) {
 				$scope.dialogCategories = dialogCategories;
-				$scope.selectedCategory = $scope.dialogCategories[0];
+				$scope.selectedCategory = initCat;
+//				$scope.initCat = function() {
+//					return $scope.selectedCategory;
+//				}
+
+				$scope.initCat = $scope.selectedCategory;
 
 				$scope.user = user;
 				$scope.loginp = loginp;
 				$scope.tinymceOptions = tinymceOptions;
 				$scope.tinymce = tinymce;
 				$scope.labels = labels;
+				$scope.locations = locations;
+				$scope.selectedLocation = locations[0];
 
 				$scope.close = function(result) {
 					try{
