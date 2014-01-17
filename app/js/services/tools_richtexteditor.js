@@ -33,7 +33,8 @@
 
 			self.tinymce = 'Write your own article, news, or tutorial and publish it now!';
 			self.labels = '';
-			self.dialogCategories = ['news','guides','tutorials'];
+			//self.dialogCategories = ['news','guides','tutorials'];
+			self.dialogCategories = [];
 
 			listOfCatFromJson = $http.get('http://dev-back1.techgrind.asia/scripts/rest.pike?request=/home/techgrind/resources/guides/tree');
 
@@ -43,9 +44,9 @@
 				$.each(data.inventory, function(k0, v0){
 					self.location.push(v0.name);
 					$.each(v0.inventory, function(k1, v1){
-						self.location.push(v1.name);
+						self.location.push('::::'+v1.name);
 						$.each(v1.inventory, function(k2, v2){
-							self.location.push(v2.name);
+							self.location.push('::::::::'+v2.name);
 						});
 					});
 				});
@@ -57,11 +58,16 @@
 				console.log('Starting Category: ', startCat);
 				if(!self.isOpen){
 					if(!!!startCat){
-						self.startCat =  "news";
+						self.startCat = "news";
 					}else{
 						self.startCat = startCat;
 					}
 					
+					if(self.startCat == "news"){
+						self.dialogCategories = ['news'];
+					}else{
+						self.dialogCategories = ['guides','tutorials'];
+					}
 					self.isOpen = true;
 					// lets check if the user is logged
 					self.user = steam.loginp();
@@ -118,7 +124,6 @@
 //				$scope.initCat = function() {
 //					return $scope.selectedCategory;
 //				}
-
 				$scope.initCat = $scope.selectedCategory;
 
 				$scope.user = user;
