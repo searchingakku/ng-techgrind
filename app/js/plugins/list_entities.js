@@ -39,7 +39,7 @@
 
 (function() {
 
-	var appModule = angular.module('TechGrindApp.controllers.list.entities', []);
+	var appModule = angular.module('TechGrindApp.controllers.list.entities', ['TechGrindApp.directives.ngErrSrc']);
  
 	appModule.controller('ListEntitiesCtrl', ['$scope', 'steam', '$routeParams',
 	  function($scope, steam, rp) {
