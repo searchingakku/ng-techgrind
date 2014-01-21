@@ -23,3 +23,24 @@
 		example-entity -> displayed information ==> action-on-interaction:
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
 */-->
+
+<head>
+	<link rel="stylesheet" href="css/plugins/list.css">
+	<link rel="stylesheet" href="css/plugins/list_entities.css">
+</head>
+
+<div ng-controller="ListEntitiesCtrl">
+	<table class="table table-hover">
+		<!-- <tr ng-repeat="item in entities" ng-click="goToOrganization(item.organization_id)"> -->
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>City</th>
+		</tr>
+		<tr ng-repeat="item in entities|limitTo: 5">
+			<td><img ng-src="{{item.logo_image_url}}"/></td>
+        	<td>{{item.name}}</td>
+        	<td>{{item.city}}</td>
+     	</tr>
+	</table>
+</div>
