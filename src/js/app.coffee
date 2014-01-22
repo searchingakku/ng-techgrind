@@ -49,6 +49,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.list.tableview'
 	'TechGrindApp.controllers.list.entities'
 	'TechGrindApp.controllers.info.userprofile'
+	'TechGrindApp.controllers.info.startupprofile'
 	'TechGrindApp.plugins.menu.accordion'
 	'ui.bootstrap'
 	'ngRoute'

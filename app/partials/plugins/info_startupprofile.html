@@ -1,0 +1,50 @@
+<head>
+	<link rel="stylesheet" href="css/plugins/info_startupprofile.css">
+</head>
+
+<div ng-controller="InfoStartUpProfileCtrl">
+<div class="container">
+<div class="row">
+	<div class="span12">
+		<div class="span8">
+			<div class="info-startup-maintabs">
+				<div class="widget">
+					<div class="widget-body">
+						<tabset>
+							<tab ng-repeat="tab in maintabs" heading="{{tab}}">{{tab}} data</tab>
+						</tabset>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="info-startup-sidetabs">
+				<div class="widget">
+					<div class="widget-body">
+						startup video
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="info-startup-sidetabs">
+				<div class="widget">
+					<div class="widget-body">
+						social network
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="info-startup-sidetabs">
+				<div class="widget">
+					<div class="widget-body">
+						twitter embedded widget
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
