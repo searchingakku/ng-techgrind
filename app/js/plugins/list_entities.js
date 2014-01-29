@@ -24,13 +24,9 @@
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
 */
 
-(function() {
+var appModule = angular.module('TechGrindApp.controllers.list.entities', []);
 
-	var appModule = angular.module('TechGrindApp.controllers.list.entities', []);
-	
-	appModule.controller('ListStartupCtrl', ['$scope', 'steam',
-	function($scope, steam) {
+appModule.controller('ListStartupCtrl', ['$scope', 'steam',
+function($scope, steam) {
 
-	}]);
-
-}).call(this);
+}]);

@@ -1,0 +1,180 @@
+<!--/*
+  info_event:
+    functional goal___________
+    * 
+    *
+    *
+    *
+
+    display-style___________
+    * 
+    *
+    *
+    *
+
+    example:
+*/-->
+<head>
+  <!--link rel="stylesheet" href="css/plugins/info.css"-->
+  <!--link rel="stylesheet" href="css/plugins/info_event.css"-->
+</head>
+
+<!--button ng-click="compose()" class="btn btn-compose btn-success pull-right">
+  <i class="icon-edit"></i>Compose
+</button-->
+<div ng-controller="InfoEventCtrl">
+<div class="container">
+<div class="row">
+  <div class="breadcrumb">
+    <span><a href="/events">Events</a>&nbsp;/&nbsp;{{event.title}}</span>
+  </div>
+</div>
+<div class="row">
+  <div class="span8">
+    <div class="widget">
+      <div class="widget-body">
+        <tabset class="unselectable">
+          <tab heading="Information">
+            <div class="info-event-information">
+              <form role="form">
+                <div class="event-title">
+                  <span ng-hide="edit.title">{{eventdata.title}}Event Title</span>
+                  <input type="text" ng-show="edit.title" placeholder="{{eventdata.title}}"></input>
+                  <i ng-hide="edit.title" ng-click="edit.title=!edit.title" class="icon-pencil"></i>
+                  <i ng-show="edit.title" ng-click="EventInfoUpdate('title');edit.title=!edit.title" class="icon-ok"></i>
+                  <i ng-show="edit.title" ng-click="edit.title=!edit.title" class="icon-remove"></i>
+                </div>
+
+                <div class="event-tagscloud pull-right">
+                  <span ng-repeat="tags in eventdata.tags" ng-hide="edit.tags" class="event-tags">tagsss{{tags}}</span>
+                  <textarea ng-show="edit.tags" rows="2"/>
+                  <i ng-hide="edit.tags" ng-click="edit.tags=!edit.tags" class="icon-pencil"></i>
+                  <i ng-show="edit.tags" ng-click="EventInfoUpdate('tags');edit.tags=!edit.tags" class="icon-ok"></i>
+                  <i ng-show="edit.tags" ng-click="edit.tags=!edit.tags" class="icon-remove"></i>
+                </div>
+
+                <div class="event-description">
+                  <span ng-hide="edit.description">{{eventdata.description}}Event Description..........</span>
+                  <textarea class="form-control" ng-show="edit.description" rows="5" style="width:80%;" placeholder="Event Description"/>
+                  <i ng-hide="edit.description" ng-click="edit.description=!edit.description" class="icon-pencil"></i>
+                  <i ng-show="edit.description" ng-click="EventInfoUpdate('description');edit.description=!edit.description" class="icon-ok"></i>
+                  <i ng-show="edit.description" ng-click="edit.description=!edit.description" class="icon-remove"></i>
+                </div>
+
+                <div class="event-schedule">
+                  <table class="table table-bordered table-condensed">
+                    <tbody>
+                      <tr ng-repeat="event in event.schedule" class="linkrow container">
+                        <td>
+                          <span ng-hide="edit.eventschedule">{{event.city}}</span>
+                          <input ng-show="edit.eventschedule" ng-model="event.city" type="text"/>
+                        </td>
+                        <td>
+                          <span ng-hide="edit.eventschedule">{{event.address}}</span>
+                          <input ng-show="edit.eventschedule" ng-model="eventi.address" type="text"/>
+                        </td>
+                        <td>
+                          <span ng-hide="edit.eventschedule">{{event.date}}</span>
+                          <input ng-show="edit.eventschedule" ng-model="eventi.date" type="text"/>
+                        </td>
+                        <td>
+                          <span ng-hide="edit.eventschedule">{{event.time}}</span>
+                          <input ng-show="edit.eventschedule" ng-model="eventi.time" type="text" size="5"/>
+                        </td>
+                        <td>
+                          <span ng-hide="edit.eventschedule">{{event.source}}</span>
+                          <input ng-show="edit.eventschedule" ng-model="eventi.source" type="text"/>
+                        </td>
+                        <td>
+                          <i ng-hide="edit.eventschedule" ng-click="edit.eventschedule=!edit.eventschedule" class="icon-pencil"></i>
+                          <i ng-show="edit.eventschedule" ng-click="EventInfoUpdate('eventschedule');edit.eventschedule=!edit.eventschedule" class="icon-ok"></i>
+                          <i ng-show="edit.eventschedule" ng-click="edit.eventschedule=!edit.eventschedule" class="icon-remove"></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="row">
+                  <form ng-submit="addEvent(); (edit.newevent=!edit.newevent)" class="container">
+                    <div ng-hide="edit.newevent">
+                      <a href="" ng-click="edit.newevent=!edit.newevent"><input value="Add Dates and Times" class="btn"/></a>
+                    </div>
+                    <div ng-show="edit.newevent">
+                      <input ng-model="insertplace1" type="text" placeholder="city"/>
+                      <input ng-model="insertplace2" type="text" placeholder="country"/>
+                      <input ng-model="insertdate" type="text" placeholder="date"/>
+                      <input ng-model="inserttime" type="text" placeholder="time"/>
+                      <input ng-model="insertsource" type="text" placeholder="source"/>
+                      <input type="submit" value="add" class="btn"/>
+                    </div>
+                    <a href="" ng-click="submit_event()"><input value="Submit Event" class="btn"/></a>
+                  </form>
+                </div>
+              </form>
+            </div>
+          </tab>
+          <tab heading=""> <!-- SPACER -->            
+          </tab>
+          <tab heading="Media">
+            <div>
+
+            </div>
+          </tab>
+          <tab heading="Content">
+            <div>
+
+            </div>
+          </tab>
+          <tab heading="Documents">
+            <div>
+
+            </div>
+          </tab>
+          <tab heading=""> <!-- SPACER -->            
+          </tab>
+          <tab heading="Discussion">
+            <div>
+
+            </div>
+          </tab>
+        </tabset>
+      </div>
+    </div> <!-- //WIDGET -->
+  </div> <!-- //SPAN -->
+
+  <div class="span4">
+    <div class="widget">
+      <div class="widget-body">
+        Sponsors???
+      </div>
+    </div> <!-- //WIDGET -->
+  </div> <!-- //SPAN -->
+
+  <div class="span4">
+    <div class="widget">
+      <div class="widget-body">
+        Offering/selling, memberships? etc...
+      </div>
+    </div> <!-- //WIDGET -->
+  </div> <!-- //SPAN -->
+
+  <div class="span4">
+    <div class="widget">
+      <div class="widget-body">
+        Anything else....
+      </div>
+    </div> <!-- //WIDGET -->
+  </div> <!-- //SPAN -->
+
+</div> <!-- //ROW -->
+
+</div> <!-- //CONTAINER -->
+</div> <!-- //CONTROLLER -->
+
+<div class="row">
+  <pre>{{ sexpr(event) }}</pre>
+  <pre>{{ sexpr(rp) }}</pre>
+  <pre>{{ sexpr(data) }}</pre>
+  <pre>{{ sexpr(user()) }}</pre>
+</div>

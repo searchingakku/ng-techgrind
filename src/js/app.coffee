@@ -50,6 +50,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.list.entities'
 	'TechGrindApp.controllers.list.places'
 	'TechGrindApp.controllers.info.userprofile'
+	'TechGrindApp.controllers.info.event'
 	'TechGrindApp.plugins.menu.accordion'
 	'ui.bootstrap'
 	'ngRoute'
@@ -80,14 +81,6 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/activation.html'
 		controller: 'ActivationCtrl'
 
-	$routeProvider.when '/people',
-		templateUrl: 'partials/plugins/info_userprofile.html'
-		controller: 'InfoUserProfileCtrl'
-
-	$routeProvider.when '/people/:userid',
-		templateUrl: 'partials/plugins/info_userprofile.html'
-		controller: 'InfoUserProfileCtrl'
-
 # MAIN MENU PAGES
 	$routeProvider.when '/home',
 		templateUrl: 'partials/home.html'
@@ -113,13 +106,13 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/res-guides.html'
 		controller: 'ResourcesGuidesCtrl'
 
-  $routeProvider.when '/resources/media/:cat',
-    templateUrl: 'partials/res-media.html'
-    controller: 'ResourcesMediaCtrl'
-
 	$routeProvider.when '/resources/media',
 		templateUrl: 'partials/res-media.html'
 		controller: 'ResourcesMediaCtrl'
+
+  $routeProvider.when '/resources/media/:cat',
+    templateUrl: 'partials/res-media.html'
+    controller: 'ResourcesMediaCtrl'
 
 	$routeProvider.when '/resources/teamspeak',
 		templateUrl: 'partials/res-teamspeak.html'
@@ -129,23 +122,89 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/partners.html'
 		controller: 'PartnersCtrl'
 
-# API CALL PAGES
+## REGIONS
 	$routeProvider.when '/regions/:region',
 		templateUrl: 'partials/regions.html'
 		controller: 'RegionsCtrl'
 
+## EVENTS
 	$routeProvider.when '/events/new',
-		templateUrl: 'partials/createactivity.html'
-		controller: 'CreateactivityCtrl'
+		templateUrl: 'partials/plugins/info_event.html'
+		controller: 'InfoEventCreateNewCtrl'
 
 	$routeProvider.when '/events/:name',
-		templateUrl: 'partials/createactivity.html'
-		controller: 'CreateactivityCtrl'
+		templateUrl: 'partials/plugins/info_event.html'
+		controller: 'InfoEventCtrl'
 
+## CONTENT
+	$routeProvider.when '/content/:name',
+		templateUrl: 'partials/plugins/content_article_fullpage.html'
+		controller: 'ContentArticleFullPageCtrl'
+
+# PROFILE PAGES
+	$routeProvider.when '/profile/people',
+    templateUrl: 'partials/plugins/info_userprofile.html'
+    controller: 'InfoUserProfileCtrl'
+
+	$routeProvider.when '/profile/people/:userid',
+    templateUrl: 'partials/plugins/info_userprofile.html'
+    controller: 'InfoUserProfileCtrl'
+
+	$routeProvider.when '/profile/startup',
+    templateUrl: 'partials/plugins/info_startupprofile.html'
+    controller: 'InfoStartUpProfileCtrl'
+
+	$routeProvider.when '/profile/startup/:startupid',
+    templateUrl: 'partials/plugins/info_startupprofile.html'
+    controller: 'InfoStartUpProfileCtrl'
+
+	$routeProvider.when '/profile/investor',
+    templateUrl: 'partials/plugins/info_investorprofile.html'
+    controller: 'InfoInvestorProfileCtrl'
+
+	$routeProvider.when '/profile/investor/:investorid',
+    templateUrl: 'partials/plugins/info_investorprofile.html'
+    controller: 'InfoInvestorProfileCtrl'
+
+	$routeProvider.when '/profile/xspace',
+    templateUrl: 'partials/plugins/info_xspaceprofile.html'
+    controller: 'InfoXspaceProfileCtrl'
+
+	$routeProvider.when '/profile/xspace/:xspaceid',
+    templateUrl: 'partials/plugins/info_xspaceprofile.html'
+    controller: 'InfoXspaceProfileCtrl'
+
+	$routeProvider.when '/profile/coworking',
+    templateUrl: 'partials/plugins/info_coworkingprofile.html'
+    controller: 'InfoCoworkingProfileCtrl'
+
+	$routeProvider.when '/profile/coworking/:coworkingid',
+    templateUrl: 'partials/plugins/info_coworkingprofile.html'
+    controller: 'InfoCoworkingProfileCtrl'
+
+	$routeProvider.when '/profile/community',
+    templateUrl: 'partials/plugins/info_communityprofile.html'
+    controller: 'InfoCommunityProfileCtrl'
+
+	$routeProvider.when '/profile/community/:communityid',
+    templateUrl: 'partials/plugins/info_communityprofile.html'
+    controller: 'InfoCommunityProfileCtrl'
+
+	$routeProvider.when '/profile/service',
+    templateUrl: 'partials/plugins/info_serviceprofile.html'
+    controller: 'InfoServiceProfileCtrl'
+
+	$routeProvider.when '/profile/service/:serviceid',
+	  templateUrl: 'partials/plugins/info_serviceprofile.html'
+	  controller: 'InfoServiceProfileCtrl'
+
+############### WIPs: incomplete/tests
+## CLEANUP
 	$routeProvider.when '/test-cleanup',
 		templateUrl: 'partials/home.html'
 		controller: 'TestCtrl'
-		
+
+## SGENOME TEST
 	$routeProvider.when '/sgenome',
 		templateUrl: 'partials/sgenome.html'
 		controller: 'StartupGenomeCtrl'
@@ -158,23 +217,6 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/sgenome.html'
 		controller: 'StartupGenomeCtrl'
 
-# PLUGINS AND SERVICES PAGES
-	$routeProvider.when '/lists',
-		templateUrl: 'partials/plugins/lists.html'
-		controller: 'StartupGenomeCtrl'
-
-	$routeProvider.when '/lists/:country',
-		templateUrl: 'partials/plugins/list_:country.html'
-		controller: 'StartupGenomeCtrl'
-
-	$routeProvider.when '/lists/:country/:filter',
-		templateUrl: 'partials/plugins/list_:filter.html'
-		controller: 'StartupGenomeCtrl'		
-
-# WIP: incomplete
-	$routeProvider.when '/content/:name',
-		templateUrl: 'partials/plugins/content_article_fullpage.html'
-		controller: 'ContentArticleFullPageCtrl'
-
+# OTHERWISE
 	$routeProvider.otherwise redirectTo: '/home'
 ]
