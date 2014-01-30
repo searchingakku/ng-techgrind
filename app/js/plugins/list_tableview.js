@@ -41,6 +41,12 @@ function($scope, steam, http) {
 							{field:'time', displayName:'Time'}, 
 							{field:'price', displayName:'Price'}];
 
+	$scope.listClickLink = function(linkid) {
+		document.location = '#/events/' + linkid;
+	};
+
+
+        /*
 	var afterSelectionChangeFunc = function(rowItem, event) {
 		document.location = '#/events/' + $scope.mySelections[0].linkid;
 	};
@@ -101,6 +107,7 @@ function($scope, steam, http) {
 		//Enable or disable reordering of columns
 		enableColumnReordering: false
 	};
+        */
 /*
 	$scope.updatedTab = function(tab) {
 		console.log(tab);
