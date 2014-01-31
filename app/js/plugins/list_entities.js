@@ -41,13 +41,22 @@
 
 	var appModule = angular.module('TechGrindApp.controllers.list.entities', ['TechGrindApp.directives.ngErrSrc']);
  
-	appModule.controller('ListEntitiesCtrl', ['$scope', 'steam', '$routeParams',
-	  function($scope, steam, rp) {
+	appModule.controller('ListEntitiesCtrl', ['$scope', 'steam', '$routeParams', '$location',
+	  function($scope, steam, rp, loc) {
 	 
 	    var get_countries, get_country;
 	    $scope.countries = {};
 	    $scope.sgenome = {};
 	    $scope.debug = [];
+
+	    $scope.goToOrganization = function(organization_id) {
+	    	//loc.path('profile/startup/' + organization_id);
+	    	console.log(organization_id);
+	    }
+
+	    $scope.onClickTab = function(tab) {
+        	console.log(tap);
+    	}
 	 
 	    get_country = function(country, filter) {
 	      $scope.debug.push = ["getting", country, filter];
