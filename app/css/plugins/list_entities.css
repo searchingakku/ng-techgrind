@@ -46,6 +46,7 @@
 
 .table-wrapper table{
 	table-layout: fixed;
+	overflow-x: hidden;
 }
 
 .table-wrapper tr{
