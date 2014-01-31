@@ -11,7 +11,10 @@
 				<div class="widget">
 					<div class="widget-body">
 						<tabset>
-							<tab ng-repeat="tab in maintabs" heading="{{tab}}">{{tab}} data</tab>
+							<tab ng-repeat="tab in maintabs" heading="{{tab.title}}">
+								<div ng-controller="tab.controller">
+								</div>
+							</tab>
 						</tabset>
 					</div>
 				</div>
