@@ -53,18 +53,16 @@
 	height: 10px;
 }
 
-.location-row td {
-	border-top: none;
-	padding-top: 0;
-	text-align: center;
-}
-
 .table-wrapper td.image {
 	width: 60px;
 }
 
 .table-wrapper td.star {
 	width: 5px;
+}
+
+.table-wrapper td.star:hover {
+	color: #e1df28;
 }
 
 .table-wrapper td.name {

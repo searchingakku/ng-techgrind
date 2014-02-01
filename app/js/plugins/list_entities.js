@@ -49,15 +49,24 @@
 	    $scope.sgenome = {};
 	    $scope.debug = [];
 
-	    $scope.goToOrganization = function(organization_id) {
-	    	//loc.path('profile/startup/' + organization_id);
-	    	console.log(organization_id);
+	    $scope.user = {
+	    	userid: 'efraimip',
+	    	favorite: []
+	    };
+
+	    $scope.goToOrganization = function(slug) {
+	    	loc.path('profile/startup/' + slug);
 	    }
 
-	    $scope.onClickTab = function(tab) {
-        	console.log(tap);
-    	}
-	 
+	    $scope.userFavorite = function(organization_id) {
+	    	var isFavoriteExist = $scope.user.favorite.indexOf(organization_id) != -1;
+	    	if (isFavoriteExist) {
+	    		$scope.user.favorite.splice($scope.user.favorite.indexOf(organization_id), 1);
+	    	} else {
+	    		$scope.user.favorite.push(organization_id);
+	    	}
+	    }
+
 	    get_country = function(country, filter) {
 	      $scope.debug.push = ["getting", country, filter];
 	      if (filter) {
