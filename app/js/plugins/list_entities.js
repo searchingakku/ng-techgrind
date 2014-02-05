@@ -48,6 +48,7 @@
 	    $scope.countries = {};
 	    $scope.sgenome = {};
 	    $scope.debug = [];
+	    $scope.entities = [];
 
 	    $scope.user = {
 	    	userid: 'efraimip',
