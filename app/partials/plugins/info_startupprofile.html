@@ -11,10 +11,34 @@
 				<div class="widget">
 					<div class="widget-body">
 						<tabset>
-							<tab ng-repeat="tab in maintabs" heading="{{tab.title}}">
-								<div ng-controller="tab.controller">
-								</div>
+							<!-- <tab ng-repeat="tab in maintabs" heading="{{tab.title}}">
+								{{tab.title}}
+								{{tab.news}}
+							</tab> -->
+							<tab heading="{{maintabs[0].title}}">
+								<h3>{{maintabs[0].name}}</h3>
+								<h4>{{maintabs[0].location}} - <a ng-href="{{maintabs[0].website}}">{{maintabs[0].website}}</a></h4>
+								<p>{{maintabs[0].biolong}}</p>
 							</tab>
+							<tab heading="{{maintabs[1].title}}">
+							</tab>
+							<tab heading="{{maintabs[2].title}}">
+           	 					<div ng-include="'partials/plugins/content_articles.html'"></div>
+							</tab>
+							<tab heading="{{maintabs[3].title}}">
+								
+							</tab>
+						</tabset>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="info-profile-sidetabs">
+				<div class="widget">
+					<div class="widget-body">
+						<tabset>
+							<tab ng-repeat="tab in sidetabs" heading="{{tab.title}}">{{tab.title}}</tab>
 						</tabset>
 					</div>
 				</div>
@@ -24,25 +48,8 @@
 			<div class="info-startup-sidetabs">
 				<div class="widget">
 					<div class="widget-body">
-						startup video
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="span3">
-			<div class="info-startup-sidetabs">
-				<div class="widget">
-					<div class="widget-body">
-						social network
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="span3">
-			<div class="info-startup-sidetabs">
-				<div class="widget">
-					<div class="widget-body">
-						twitter embedded widget
+						Discussion
+						<div ng-include="'partials/plugins/social_facebook.html'"></div>
 					</div>
 				</div>
 			</div>
