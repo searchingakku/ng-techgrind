@@ -21,12 +21,19 @@
 								<p>{{maintabs[0].biolong}}</p>
 							</tab>
 							<tab heading="{{maintabs[1].title}}">
+								<h3>{{maintabs[1].title}}</h3>
+								<p>{{maintabs[1].description}}</p>
 							</tab>
 							<tab heading="{{maintabs[2].title}}">
            	 					<div ng-include="'partials/plugins/content_articles.html'"></div>
 							</tab>
 							<tab heading="{{maintabs[3].title}}">
-								
+								<table>
+									<tr ng-repeat="funding in maintabs[3].fundraising">
+										<td>{{funding.date}}</td>
+										<td>Received ${{funding.amount}} in Series {{funding.series}} funding from {{funding.userid}}.</td>
+									</tr>
+								</table>
 							</tab>
 						</tabset>
 					</div>
