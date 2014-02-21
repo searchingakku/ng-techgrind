@@ -49,11 +49,8 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.list.tableview'
 	'TechGrindApp.controllers.list.entities'
 	'TechGrindApp.controllers.info.userprofile'
-<<<<<<< HEAD
 	'TechGrindApp.controllers.info.startupprofile'
-=======
 	'TechGrindApp.controllers.info.event'
->>>>>>> upstream/master
 	'TechGrindApp.plugins.menu.accordion'
 	'ui.bootstrap'
 	'ngRoute'
@@ -84,66 +81,6 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/activation.html'
 		controller: 'ActivationCtrl'
 
-<<<<<<< HEAD
-# PROFILE PAGES
-	$routeProvider.when '/profile/people',
-		templateUrl: 'partials/plugins/info_userprofile.html'
-		controller: 'InfoUserProfileCtrl'
-
-	$routeProvider.when '/profile/people/:userid',
-		templateUrl: 'partials/plugins/info_userprofile.html'
-		controller: 'InfoUserProfileCtrl'
-
-	$routeProvider.when '/profile/startup',
-		templateUrl: 'partials/plugins/info_startupprofile.html'
-		controller: 'InfoStartUpProfileCtrl'
-
-	$routeProvider.when '/profile/startup/:startupid',
-		templateUrl: 'partials/plugins/info_startupprofile.html'
-		controller: 'InfoStartUpProfileCtrl'
-
-	$routeProvider.when '/profile/investor',
-		templateUrl: 'partials/plugins/info_investorprofile.html'
-		controller: 'InfoInvestorProfileCtrl'
-
-	$routeProvider.when '/profile/investor/:investorid',
-		templateUrl: 'partials/plugins/info_investorprofile.html'
-		controller: 'InfoInvestorProfileCtrl'
-
-	$routeProvider.when '/profile/xspace',
-		templateUrl: 'partials/plugins/info_xspaceprofile.html'
-		controller: 'InfoXspaceProfileCtrl'
-
-	$routeProvider.when '/profile/xspace/:xspaceid',
-		templateUrl: 'partials/plugins/info_xspaceprofile.html'
-		controller: 'InfoXspaceProfileCtrl'
-
-	$routeProvider.when '/profile/coworking',
-		templateUrl: 'partials/plugins/info_coworkingprofile.html'
-		controller: 'InfoCoworkingProfileCtrl'
-
-	$routeProvider.when '/profile/coworking/:coworkingid',
-		templateUrl: 'partials/plugins/info_coworkingprofile.html'
-		controller: 'InfoCoworkingProfileCtrl'
-
-	$routeProvider.when '/profile/community',
-		templateUrl: 'partials/plugins/info_communityprofile.html'
-		controller: 'InfoCommunityProfileCtrl'
-
-	$routeProvider.when '/profile/community/:communityid',
-		templateUrl: 'partials/plugins/info_communityprofile.html'
-		controller: 'InfoCommunityProfileCtrl'
-
-	$routeProvider.when '/profile/service',
-		templateUrl: 'partials/plugins/info_serviceprofile.html'
-		controller: 'InfoServiceProfileCtrl'
-
-	$routeProvider.when '/profile/service/:serviceid',
-		templateUrl: 'partials/plugins/info_serviceprofile.html'
-		controller: 'InfoServiceProfileCtrl'
-
-=======
->>>>>>> upstream/master
 # MAIN MENU PAGES
 	$routeProvider.when '/home',
 		templateUrl: 'partials/home.html'

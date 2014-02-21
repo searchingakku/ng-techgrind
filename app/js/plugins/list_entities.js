@@ -24,7 +24,6 @@
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
 */
 
-<<<<<<< HEAD
 // - name
 // - location
 // - type ( startup, investors, conworking space etc...)
@@ -92,11 +91,3 @@
 	  }]);
 
 }).call(this);
-=======
-var appModule = angular.module('TechGrindApp.controllers.list.entities', []);
-
-appModule.controller('ListStartupCtrl', ['$scope', 'steam',
-function($scope, steam) {
-
-}]);
->>>>>>> upstream/master
