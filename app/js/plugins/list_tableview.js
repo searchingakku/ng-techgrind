@@ -30,10 +30,10 @@
 
 var appModule = angular.module('TechGrindApp.controllers.list.tableview', []);
 
-appModule.controller('ListActivitiesCtrl', ['$scope', 'steam', '$http',
+appModule.controller('ListEventsCtrl', ['$scope', 'steam', '$http',
 function($scope, steam, http) {
 
-	$scope.activities = activities;
+	$scope.eventsData = eventsData;
 	$scope.cols = [{field:'type', displayName:'Type'},
 							{field:'location', displayName:'Location'}, 
 							{field:'name', displayName:'Name'}, 
@@ -41,6 +41,12 @@ function($scope, steam, http) {
 							{field:'time', displayName:'Time'}, 
 							{field:'price', displayName:'Price'}];
 
+	$scope.listClickLink = function(linkid) {
+		document.location = '#/events/' + linkid;
+	};
+
+
+        /*
 	var afterSelectionChangeFunc = function(rowItem, event) {
 		document.location = '#/events/' + $scope.mySelections[0].linkid;
 	};
@@ -101,6 +107,7 @@ function($scope, steam, http) {
 		//Enable or disable reordering of columns
 		enableColumnReordering: false
 	};
+        */
 /*
 	$scope.updatedTab = function(tab) {
 		console.log(tab);
@@ -116,7 +123,7 @@ function($scope, steam, http) {
 
 }]);
 
-var activities = [{
+var eventsData = [{
 		linkid: 'SLAP',
 		type: 'Event',
 		location: 'Thailand',
