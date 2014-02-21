@@ -66,6 +66,8 @@
 	    	} else {
 	    		$scope.user.favorite.push(organization_id);
 	    	}
+	    	$scope.entities[organization_id].favorited = ($scope.entities[organization_id].favorited) ? false : true;
+	    	console.log($scope.user.favorite);
 	    }
 
 	    get_country = function(country, filter) {
@@ -77,8 +79,6 @@
 	      }
 	      return steam.get('/home/techgrind/organizations/country/' + country + filter).then(function(data) {
 	        $scope.debug.push = "got " + country;
-	        $scope.test = data.sgenome;
-	        console.log($scope.test);
 	        return $scope.entities = data.sgenome;
 	      });
 	    };

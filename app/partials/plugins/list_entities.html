@@ -36,7 +36,9 @@
 				<td class="image"><img ng-src="{{item.logo_image_url}}" err-src="http://placehold.it/60x30" /></td>
 				<td class="image"><b>{{item.name}}</b></td>
 	     		<td class="location">{{item.city}}</td>
-	     		<td class="star" ng-click="userFavorite(item.organization_id);$event.stopPropagation()"><i class="icon-star-empty"></i></td>
+	     		<td class="star" ng-click="userFavorite(item.organization_id);$event.stopPropagation()">
+	     			<i class="icon" ng-class="item.favorited ? 'icon-star' : 'icon-star-empty'"></i>
+	     		</td>
 	     	</tr>
 		</table>
 	</div>
