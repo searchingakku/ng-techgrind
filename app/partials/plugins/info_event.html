@@ -26,7 +26,7 @@
 <div class="container">
 <div class="row">
   <div class="breadcrumb">
-    <span><a href="/events">Events</a>&nbsp;/&nbsp;{{event.title}}</span>
+    <span><a href="/events">Events</a>&nbsp;/&nbsp;{{eventdata.title}}</span>
   </div>
 </div>
 <div class="row">
@@ -36,82 +36,136 @@
         <tabset class="unselectable">
           <tab heading="Information">
             <div class="info-event-information">
-              <form role="form">
+
                 <div class="event-title">
-                  <span ng-hide="edit.title">{{eventdata.title}}Event Title</span>
-                  <input type="text" ng-show="edit.title" placeholder="{{eventdata.title}}"></input>
-                  <i ng-hide="edit.title" ng-click="edit.title=!edit.title" class="icon-pencil"></i>
+                  <span ng-hide="edit.title">{{eventdata.title}}</span>
+                  <input type="text" ng-show="edit.title" ng-model="eventdata.title"></input>
+                  <i ng-hide="edit.title || !owner" ng-click="edit.title=!edit.title" class="icon-pencil"></i>
                   <i ng-show="edit.title" ng-click="EventInfoUpdate('title');edit.title=!edit.title" class="icon-ok"></i>
-                  <i ng-show="edit.title" ng-click="edit.title=!edit.title" class="icon-remove"></i>
+                  <i ng-show="edit.title" ng-click="edit.title=!edit.title;reset();" class="icon-remove"></i>
                 </div>
 
                 <div class="event-tagscloud pull-right">
-                  <span ng-repeat="tags in eventdata.tags" ng-hide="edit.tags" class="event-tags">tagsss{{tags}}</span>
-                  <textarea ng-show="edit.tags" rows="2"/>
-                  <i ng-hide="edit.tags" ng-click="edit.tags=!edit.tags" class="icon-pencil"></i>
+
+                  <span ng-repeat="tag in eventdata.tags" ng-hide="edit.tags" class="event-tags"> {{tag + ($last ? "" : ",")}} </span>
+                  <textarea ng-show="edit.tags" ng-model="eventdata.tags" rows="2"/>
+                  <i ng-hide="edit.tags || !owner" ng-click="edit.tags=!edit.tags" class="icon-pencil"></i>
                   <i ng-show="edit.tags" ng-click="EventInfoUpdate('tags');edit.tags=!edit.tags" class="icon-ok"></i>
-                  <i ng-show="edit.tags" ng-click="edit.tags=!edit.tags" class="icon-remove"></i>
+                  <i ng-show="edit.tags" ng-click="edit.tags=!edit.tags;reset();" class="icon-remove"></i>
                 </div>
 
                 <div class="event-description">
-                  <span ng-hide="edit.description">{{eventdata.description}}Event Description..........</span>
-                  <textarea class="form-control" ng-show="edit.description" rows="5" style="width:80%;" placeholder="Event Description"/>
-                  <i ng-hide="edit.description" ng-click="edit.description=!edit.description" class="icon-pencil"></i>
+                  <span ng-hide="edit.description">{{eventdata.description}}</span>
+                  <textarea class="form-control" ng-show="edit.description" rows="5" style="width:70%;" ng-model="eventdata.description"/>
+                  <i ng-hide="edit.description || !owner" ng-click="edit.description=!edit.description" class="icon-pencil"></i>
                   <i ng-show="edit.description" ng-click="EventInfoUpdate('description');edit.description=!edit.description" class="icon-ok"></i>
-                  <i ng-show="edit.description" ng-click="edit.description=!edit.description" class="icon-remove"></i>
+                  <i ng-show="edit.description" ng-click="edit.description=!edit.description; reset();" class="icon-remove"></i>
                 </div>
 
                 <div class="event-schedule">
                   <table class="table table-bordered table-condensed">
-                    <tbody>
-                      <tr ng-repeat="event in event.schedule" class="linkrow container">
+                    <tbody ng-repeat="iEvent in eventdata.schedule">
+                      <tr ng-hide="$index == eventItem.selected">
                         <td>
-                          <span ng-hide="edit.eventschedule">{{event.city}}</span>
-                          <input ng-show="edit.eventschedule" ng-model="event.city" type="text"/>
+                          {{iEvent.city}}
                         </td>
                         <td>
-                          <span ng-hide="edit.eventschedule">{{event.address}}</span>
-                          <input ng-show="edit.eventschedule" ng-model="eventi.address" type="text"/>
+                          {{iEvent.address}}
                         </td>
                         <td>
-                          <span ng-hide="edit.eventschedule">{{event.date}}</span>
-                          <input ng-show="edit.eventschedule" ng-model="eventi.date" type="text"/>
+                          {{iEvent.date}}
                         </td>
                         <td>
-                          <span ng-hide="edit.eventschedule">{{event.time}}</span>
-                          <input ng-show="edit.eventschedule" ng-model="eventi.time" type="text" size="5"/>
+                          {{iEvent.time}}
                         </td>
                         <td>
-                          <span ng-hide="edit.eventschedule">{{event.source}}</span>
-                          <input ng-show="edit.eventschedule" ng-model="eventi.source" type="text"/>
+                          {{iEvent.source}}
                         </td>
                         <td>
-                          <i ng-hide="edit.eventschedule" ng-click="edit.eventschedule=!edit.eventschedule" class="icon-pencil"></i>
-                          <i ng-show="edit.eventschedule" ng-click="EventInfoUpdate('eventschedule');edit.eventschedule=!edit.eventschedule" class="icon-ok"></i>
-                          <i ng-show="edit.eventschedule" ng-click="edit.eventschedule=!edit.eventschedule" class="icon-remove"></i>
+                          <i ng-click="editEvent($index);" ng-hide="!owner" class="icon-pencil"></i>
+                      </td>
+                      </tr>
+                      <tr ng-show="$index == eventItem.selected">
+                        <td>
+                          <input ng-model="iEvent.city" type="text"/>
+                        </td>
+                        <td>
+                          <input ng-model="iEvent.address" type="text"/>
+                        </td>
+                        <td>
+                          <input ng-model="iEvent.date" type="text"/>
+                        </td>
+                        <td>
+                          <input ng-model="iEvent.time" type="text" size="5"/>
+                        </td>
+                        <td>
+                          <input ng-model="iEvent.source" type="text"/>
+                        </td>
+                        <td>
+                          <i ng-click="updateEvent($index, iEvent);" class="icon-ok"></i>
+                          <i ng-click="cancelEventEdit();" class="icon-remove"></i>
+                      </td>
+                      </tr>
+
+
+
+                          <!--
+                        <td>
+                          <span ng-hide="event_{{$index}}" >{{event.city}}</span>
+                          <input ng-show="event_{{$index}}" ng-model="event.city" type="text"/>
+                        </td>
+                        <td>
+                          <span ng-hide="event_{{$index}}">{{event.address}}</span>
+                          <input ng-show="event_{{$index}}" ng-model="event.address" type="text"/>
+                        </td>
+                        <td>
+                          <span ng-hide="event_{{$index}}">{{event.date}}</span>
+                          <input ng-show="event_{{$index}}" ng-model="event.date" type="text"/>
+                        </td>
+                        <td>
+                          <span ng-hide="event_{{$index}}">{{event.time}}</span>
+                          <input ng-show="event_{{$index}}" ng-model="event.time" type="text" size="5"/>
+                        </td>
+                        <td>
+                          <span ng-hide="event_{{$index}}">{{event.source}}</span>
+                          <input ng-show="event_{{$index}}" ng-model="event.source" type="text"/>
+                        </td>
+                        <td>
+                          <i ng-hide="edit.eventschedule" ng-click="edit.eventschedule=!edit.eventschedule;editEvent($index);" class="icon-pencil"></i>
+                          -->
+
+
+                          <!--
+                          <i ng-show="edit.eventschedule_{{$index}}" ng-click="EventInfoUpdate('eventschedule');(edit.eventschedule_{{$index}})=!(edit.eventschedule_{{$index}});" class="icon-ok"></i>
+                          <i ng-show="edit.eventschedule_{{$index}}" ng-click="edit.eventschedule_{{$index}}=!edit.eventschedule_{{$index}};" class="icon-remove"></i>
                         </td>
                       </tr>
+                          -->
                     </tbody>
                   </table>
                 </div>
 
-                <div class="row">
-                  <form ng-submit="addEvent(); (edit.newevent=!edit.newevent)" class="container">
-                    <div ng-hide="edit.newevent">
-                      <a href="" ng-click="edit.newevent=!edit.newevent"><input value="Add Dates and Times" class="btn"/></a>
+                    <div ng-hide="edit.newevent || !owner">
+                      <button ng-click="edit.newevent=!edit.newevent"  class="btn"> Add Event </button>
                     </div>
-                    <div ng-show="edit.newevent">
-                      <input ng-model="insertplace1" type="text" placeholder="city"/>
-                      <input ng-model="insertplace2" type="text" placeholder="country"/>
-                      <input ng-model="insertdate" type="text" placeholder="date"/>
-                      <input ng-model="inserttime" type="text" placeholder="time"/>
-                      <input ng-model="insertsource" type="text" placeholder="source"/>
-                      <input type="submit" value="add" class="btn"/>
-                    </div>
-                    <a href="" ng-click="submit_event()"><input value="Submit Event" class="btn"/></a>
+
+                <div ng-show="edit.newevent" class="widget-body">
+
+                  <span > New Event Details </span> 
+
+                  <form name="myform" class="container">
+                      <span ng-show="myform.$invalid"> Please fill out all fields. </span> <br />
+
+                      <input ng-model="insertAddress" type="text" placeholder="Address" ng-required="true" /> <br/>
+                      <input ng-model="insertCity" type="text" placeholder="City" ng-required="true"/> <br/>
+                      <input ng-model="insertCountry" type="text" placeholder="Country" ng-required="true" /> <br/>
+                      <input ng-model="insertDate" type="text" placeholder="Date" ng-required="true" /> <br/>
+                      <input ng-model="insertTime" type="text" placeholder="Time" ng-required="true" /> <br/>
+                      <input ng-model="insertSource" type="text" placeholder="Source" ng-required="true" /> <br/>
+                      <button ng-click="cancelNewEvent();edit.newevent=!edit.newevent;" > Cancel </button>
+                      <button ng-disabled="myform.$invalid" ng-click="addEvent();edit.newevent=!edit.newevent;" > Submit </button>
                   </form>
                 </div>
-              </form>
             </div>
           </tab>
           <tab heading=""> <!-- SPACER -->            
