@@ -11,27 +11,25 @@
 				<div class="widget">
 					<div class="widget-body">
 						<tabset>
-							<!-- <tab ng-repeat="tab in maintabs" heading="{{tab.title}}">
-								{{tab.title}}
-								{{tab.news}}
-							</tab> -->
-							<tab heading="{{maintabs[0].title}}">
-								<h3>{{maintabs[0].name}}</h3>
-								<h4>{{maintabs[0].location}} - <a ng-href="{{maintabs[0].website}}">{{maintabs[0].website}}</a></h4>
-								<p>{{maintabs[0].biolong}}</p>
+							<tab heading="Profile">
+								<h3>{{startupprofile.name}}</h3>
+								<h4>{{startupprofile.location}} - <a ng-href="{{startupprofile.website}}">{{startupprofile.website}}</a></h4>
+								<p>{{startupprofile.biolong}}</p>
 							</tab>
-							<tab heading="{{maintabs[1].title}}">
-								<h3>{{maintabs[1].title}}</h3>
-								<p>{{maintabs[1].description}}</p>
+							<tab heading="Demo">
+								<h3>{{demo.title}}</h3>
+								<p>{{demo.description}}</p>
 							</tab>
-							<tab heading="{{maintabs[2].title}}">
+							<tab heading="News">
            	 					<div ng-include="'partials/plugins/content_articles.html'"></div>
 							</tab>
-							<tab heading="{{maintabs[3].title}}">
+							<tab heading="Fundraising">
 								<table>
-									<tr ng-repeat="funding in maintabs[3].fundraising">
+									<tr ng-repeat="funding in fundraising.investment">
 										<td>{{funding.date}}</td>
-										<td>Received ${{funding.amount}} in Series {{funding.series}} funding from {{funding.userid}}.</td>
+										<td>
+											Received ${{funding.amount}} in Series {{funding.series}} funding from <a href="" ng-click="goToPeople(funding.userid)">{{funding.userid}}</a>.
+										</td>
 									</tr>
 								</table>
 							</tab>
