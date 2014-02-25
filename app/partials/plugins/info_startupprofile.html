@@ -1,0 +1,65 @@
+<head>
+	<link rel="stylesheet" href="css/plugins/info_startupprofile.css">
+</head>
+
+<div ng-controller="InfoStartUpProfileCtrl">
+<div class="container">
+<div class="row">
+	<div class="span12">
+		<div class="span8">
+			<div class="info-startup-maintabs">
+				<div class="widget">
+					<div class="widget-body">
+						<tabset>
+							<tab heading="Profile">
+								<h3>{{startupprofile.name}}</h3>
+								<h4>{{startupprofile.location}} - <a ng-href="{{startupprofile.website}}">{{startupprofile.website}}</a></h4>
+								<p>{{startupprofile.biolong}}</p>
+							</tab>
+							<tab heading="Demo">
+								<h3>{{demo.title}}</h3>
+								<p>{{demo.description}}</p>
+							</tab>
+							<tab heading="News">
+           	 					<div ng-include="'partials/plugins/content_articles.html'"></div>
+							</tab>
+							<tab heading="Fundraising">
+								<table>
+									<tr ng-repeat="funding in fundraising.investment">
+										<td>{{funding.date}}</td>
+										<td>
+											Received ${{funding.amount}} in Series {{funding.series}} funding from <a href="" ng-click="goToPeople(funding.userid)">{{funding.userid}}</a>.
+										</td>
+									</tr>
+								</table>
+							</tab>
+						</tabset>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="info-profile-sidetabs">
+				<div class="widget">
+					<div class="widget-body">
+						<tabset>
+							<tab ng-repeat="tab in sidetabs" heading="{{tab.title}}">{{tab.title}}</tab>
+						</tabset>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="info-startup-sidetabs">
+				<div class="widget">
+					<div class="widget-body">
+						Discussion
+						<div ng-include="'partials/plugins/social_facebook.html'"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

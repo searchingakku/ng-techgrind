@@ -23,3 +23,53 @@
 		example-entity -> displayed information ==> action-on-interaction:
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
 */
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
+.table-wrapper img{
+	display: block;
+	max-width:60px;
+    max-height:30px;
+    display: block;
+    border: none;
+    margin: 0 auto;
+}
+
+.table-wrapper{
+	max-height: 150px;
+	overflow: auto;
+}
+
+.table-wrapper table{
+	table-layout: fixed;
+	overflow-x: hidden;
+}
+
+.table-wrapper tr{
+	height: 10px;
+}
+
+.table-wrapper td.image {
+	width: 60px;
+}
+
+.table-wrapper td.star {
+	width: 5px;
+}
+
+.table-wrapper td.star:hover {
+	color: #e1df28;
+}
+
+.table-wrapper td.name {
+	width: 70px;
+}
+
+.table-wrapper td.location {
+	width: 50px;
+}
+

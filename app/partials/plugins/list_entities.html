@@ -23,3 +23,23 @@
 		example-entity -> displayed information ==> action-on-interaction:
 			investors/startups/services -> small logo thumbnail + detailed info ==> profile page
 */-->
+
+<head>
+	<link rel="stylesheet" href="css/plugins/list.css">
+	<link rel="stylesheet" href="css/plugins/list_entities.css">
+</head>
+
+<div ng-controller="ListEntitiesCtrl">
+	<div class="table-wrapper">
+		<table class="table table-hover">
+			<tr ng-repeat="item in entities" ng-click="goToOrganization(item.slug)">
+				<td class="image"><img ng-src="{{item.logo_image_url}}" err-src="http://placehold.it/60x30" /></td>
+				<td class="image"><b>{{item.name}}</b></td>
+	     		<td class="location">{{item.city}}</td>
+	     		<td class="star" ng-click="userFavorite(item.organization_id);$event.stopPropagation()">
+	     			<i class="icon" ng-class="item.favorited ? 'icon-star' : 'icon-star-empty'"></i>
+	     		</td>
+	     	</tr>
+		</table>
+	</div>
+</div>
