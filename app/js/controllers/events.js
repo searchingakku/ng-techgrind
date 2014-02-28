@@ -15,10 +15,10 @@
 */
 var appModule = angular.module('TechGrindApp.controllers.events', []);
 
-appModule.controller('EventsCtrl', ['$scope', '$location', 'steam',
-	function(S, loc, steam) {
+appModule.controller('EventsCtrl', ['$scope', '$http', 'steam',
+	function(S, http, steam) {
     var allevents, get_events, list_events_by_category;
-    S.events = {};
+    S.events = events;
     allevents = [];
     list_events_by_category = function(category) {
       S.events[category] = allevents.filter(function(item) {
@@ -33,24 +33,42 @@ appModule.controller('EventsCtrl', ['$scope', '$location', 'steam',
       list_events_by_category('workshop');
       return list_events_by_category('conference');
     };
-    steam.get('techgrind.events').then(get_events);
-    S.createactivity = [
-      {
-        path: 'partials/createactivity.html'
-      }
-    ];
-    S.past = [
-      {
-        title: 'World.Startup.Report',
-        name: 'WSR',
-        path: '/events/wsr'
-      }
-    ];
-    return S.showEvent = function(event) {
-      return loc.path(event.url);
+    S.listClickLink = function(linkid) {
+      document.location = '#/events/' + linkid;
     };
+
+    steam.get('techgrind.events').then(get_events);
+
   }
 ]);
+
+/* TODO: individual arrays for each type, pull from sTeam by 'type'
+var meetups = [];
+var workshops = [];
+var conferences = [];
+*/
+
+var events = [
+  {
+    category: 'meetup',
+    location: 'Bangkok',
+    name: 'World.Startup.Report',
+    date: '12/34/56',
+    time: '1900',
+    price: 'FREE',
+    description: 'blah blah come to meeee!',
+    path: 'wsr'
+  },
+  {
+    category: 'meetup',
+    location: 'Bangkok',
+    title: 'Speak.Learn.And.Pitch',
+    date: '12/34/56',
+    time: '1900',
+    price: 'FREE',
+    description: 'test description woierj owijrowaejr ',
+    path: 'slap'
+  }];
 
 appModule.controller('CreateActivityCtrl', ['$scope', 'steam', '$location', '$routeParams',
   function(S, steam, loc, rp) {

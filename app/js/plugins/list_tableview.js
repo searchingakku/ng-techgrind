@@ -34,23 +34,12 @@ appModule.controller('ListEventsCtrl', ['$scope', 'steam', '$http',
 function($scope, steam, http) {
 
 	$scope.eventsData = eventsData;
-	$scope.cols = [{field:'type', displayName:'Type'},
-							{field:'location', displayName:'Location'}, 
-							{field:'name', displayName:'Name'}, 
-							{field:'date', displayName:'Date'}, 
-							{field:'time', displayName:'Time'}, 
-							{field:'price', displayName:'Price'}];
 
 	$scope.listClickLink = function(linkid) {
 		document.location = '#/events/' + linkid;
 	};
 
-
-        /*
-	var afterSelectionChangeFunc = function(rowItem, event) {
-		document.location = '#/events/' + $scope.mySelections[0].linkid;
-	};
-
+	/*
 	$scope.filterByLocation = function(location) {
 		// location can be an array or a single value
 		var newData = {};
@@ -124,7 +113,7 @@ function($scope, steam, http) {
 }]);
 
 var eventsData = [{
-		linkid: 'SLAP',
+		path: 'SLAP',
 		type: 'Event',
 		location: 'Thailand',
 		name: 'Speak.Learn.And.Pitch',
@@ -133,7 +122,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
 	}, {
-		linkid: 'CFF',
+		path: 'CFF',
 		type: 'Workshop',
 		location: 'Thailand',
 		name: 'CFF',
@@ -142,7 +131,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
-		linkid: 'CFF',
+		path: 'CFF',
 		type: 'Event',
 		location: 'Thailand',
 		name: 'CFF',
@@ -151,7 +140,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
-		linkid: 'SUJ-Fair',
+		path: 'SUJ-Fair',
 		type: 'Conferece',
 		location: 'Singapore',
 		name: 'StartupJobz Job Fair @ National University of Singapore',
@@ -160,7 +149,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Come get a job at a startup!'
 	}, {
-		linkid: 'SLAP',
+		path: 'SLAP',
 		type: 'Event',
 		location: 'Philippines',
 		name: 'Speak.Learn.And.Pitch',
@@ -169,7 +158,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
 	}, {
-		linkid: 'CFF',
+		path: 'CFF',
 		type: 'Workshop',
 		location: 'Philippines',
 		name: 'CFF',
@@ -178,7 +167,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
-		linkid: 'CFF',
+		path: 'CFF',
 		type: 'Event',
 		location: 'Philippines',
 		name: 'CFF',
@@ -187,7 +176,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
-		linkid: 'SUJ-Fair',
+		path: 'SUJ-Fair',
 		type: 'Conferece',
 		location: 'Philippines',
 		name: 'StartupJobz Job Fair @ National University of Singapore',
@@ -196,7 +185,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Come get a job at a startup!'
 	}, {
-		linkid: 'SLAP',
+		path: 'SLAP',
 		type: 'Event',
 		location: 'Cambodia',
 		name: 'Speak.Learn.And.Pitch',
@@ -205,7 +194,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Speak.Learn.And.Pitch - Come learn to pitch with fellow startups and get an info session from a local investor!'
 	}, {
-		linkid: 'CFF',
+		path: 'CFF',
 		type: 'Workshop',
 		location: 'Cambodia',
 		name: 'CFF',
@@ -214,7 +203,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
-		linkid: 'CFF',
+		path: 'CFF',
 		type: 'Event',
 		location: 'Cambodia',
 		name: 'CFF',
@@ -223,7 +212,7 @@ var eventsData = [{
 		price: 'FREE',
 		descriptionshort: 'Coding.For.Fun -- Come code for fun!!! Learn Pike!'
 	}, {
-		linkid: 'SUJ-Fair',
+		path: 'SUJ-Fair',
 		type: 'Conferece',
 		location: 'Cambodia',
 		name: 'StartupJobz Job Fair @ National University of Singapore',

@@ -141,7 +141,7 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
 		templateUrl: 'partials/plugins/content_article_fullpage.html'
 		controller: 'ContentArticleFullPageCtrl'
 
-# PROFILE PAGES
+## PROFILE PAGES
 	$routeProvider.when '/profile/people',
     templateUrl: 'partials/plugins/info_userprofile.html'
     controller: 'InfoUserProfileCtrl'
