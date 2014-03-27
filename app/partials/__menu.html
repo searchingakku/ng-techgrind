@@ -37,9 +37,8 @@
 			</ul></li>
 			<li ng-show="loginp()" class="dropdown"><a><i class="icon-user"></i><span id="show-user-name">{{ user().fullname }}</span></a>
 			<ul class="dropdown-menu">
-				<li class="sub-menu"><a href="#/people/{{userid}}">My Profile</a></li>
-				<li class="sub-menu"><a href="javascript:;">My Groups</a></li>
-				<li class="sub-menu"><a href="javascript:;">My Startups</a></li>
+				<li class="sub-menu"><a href="#/profile/people/{{userid}}">My Profile</a></li>
+				<li class="sub-menu"><a href="#/profile/startups/{{startupid}}">My Startups</a></li>
 				<li class="divider"></li>
 				<li class="sub-menu"><a ng-click="logout();$root.openlogin=false">Logout</a></li>
 			</ul></li>
