@@ -1,46 +1,26 @@
 <!--/*
 	widget_filterbox:
-		display-style___________
-		this widget is used as a filterbox for content on the page
-		* 
-		
-		example:
-		* 
- 
-		functional goal___________
-		* dropdownbox with "region select" -- filtered contents should update OnSelect
-		* textbox "tag it" keywords -- filtered contents should update OnKeywordAdded
-*/-->
+	  display-style___________
+	  this widget is used as a filterbox for content on the page
+	  * 
+
+	example:
+	* 
+
+	functional goal___________
+  * dropdownbox with "region select" -- filtered contents should update OnSelect
+  * textbox "tag it" keywords -- filtered contents should update OnKeywordAdded
+		http://timschlechter.github.io/bootstrap-tagsinput/examples/
+		http://aehlke.github.io/tag-it/
+*/
+-->
 <head>
 	<!--link rel="stylesheet" href="css/plugins/content.css"-->
 </head>
 
-<!--button ng-click="compose()" class="btn btn-compose btn-success pull-right">
-	<i class="icon-edit"></i>Compose
-</button-->
-<div ng-controller="ContentNewsCtrl">
-<div ng-repeat="item in articles track by $index" class="article unselectable borderboxbutton" ng-click="goToArticle(item.name)">
-	<h1>{{item.title}}</h1>
-	<div class="left"><img src="http://placehold.it/120x80"/>
-		<div class="clearfix"></div>
-		<rating value="item.rate" max="5" readonly="true"></rating>
-	</div>
-	<div class="right">
-		<div class="meta">
-			<ul>
-				<li>{{item.country}}</li>
-				<li>{{item.owner}}</li>
-				<li>{{item.month}} {{item.day}}</li>
-			</ul>
-		</div>
-		<p>{{item.excerpt||item.description}}</p>
-		<div class="social-sharing">
-			<ul>
-				<li><i class="icon-facebook-sign facebook pull-right"></i>{{item.fb}}</li>
-				<li><i class="icon-google-plus-sign google-plus pull-right"></i>{{item.gp}}</li>
-				<li><i class="icon-twitter-sign twitter pull-right"></i>{{item.tw}}</li>
-			</ul>
-		</div>
-	</div>
-</div>
+<div ng-controller="WidgetFilterbox">
+	<h1>Filter Box</h1>
+	<select>
+		<option ng-repeat="region in regions" value="{{region}}">{{region}}</option>
+	</select>
 </div>

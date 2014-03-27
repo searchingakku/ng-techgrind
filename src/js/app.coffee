@@ -52,6 +52,7 @@ app = angular.module 'TechGrindApp', [
 	'TechGrindApp.controllers.info.startupprofile'
 	'TechGrindApp.controllers.info.event'
 	'TechGrindApp.plugins.menu.accordion'
+	'TechGrindApp.plugins.widget.filterbox'
 	'ui.bootstrap'
 	'ngRoute'
 	'ngGrid'
