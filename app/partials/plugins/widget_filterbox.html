@@ -21,6 +21,10 @@
 <div ng-controller="WidgetFilterbox">
 	<h1>Filter Box</h1>
 	<select>
-		<option ng-repeat="region in regions" value="{{region}}">{{region}}</option>
+		<option class="button-dropdownmenu" ng-repeat="region in regions" value="{{region}}">{{region}}</option>
 	</select>
+	<select>
+		<option class="button-dropdownmenu" ng-repeat="category in categories" value="{{category}}">{{category}}</option>
+	</select>
+	<textarea size=5></textarea>
 </div>

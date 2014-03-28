@@ -1,0 +1,27 @@
+<!--/*
+	widget_createcontent:
+  display-style___________
+  * this widget is used to open up tools/services for creating new content
+
+	example___________
+	* 
+
+	functional goal___________
+  * button-dropdown-menu with type of content to create
+  * textbox area?
+*/
+-->
+<head>
+	<!--link rel="stylesheet" href="css/plugins/content.css"-->
+</head>
+
+<div ng-controller="WidgetCreateContent">
+	<h1>Create Content</h1>
+	<select>
+		<option class="button-dropdownmenu" ng-repeat="region in regions" value="{{region}}">{{region}}</option>
+	</select>
+	<select>
+		<option class="button-dropdownmenu" ng-repeat="category in categories" value="{{category}}">{{category}}</option>
+	</select>
+	<textarea size=5></textarea>
+</div>
