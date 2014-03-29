@@ -151,27 +151,27 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
     templateUrl: 'partials/plugins/info_userprofile.html'
     controller: 'InfoUserProfileCtrl'
 
-	$routeProvider.when '/profile/startup',
+	$routeProvider.when '/profile/startups',
     templateUrl: 'partials/plugins/info_startupprofile.html'
     controller: 'InfoStartUpProfileCtrl'
 
-	$routeProvider.when '/profile/startup/:startupid',
+	$routeProvider.when '/profile/startups/:startupid',
     templateUrl: 'partials/plugins/info_startupprofile.html'
     controller: 'InfoStartUpProfileCtrl'
 
-	$routeProvider.when '/profile/investor',
+	$routeProvider.when '/profile/investors',
     templateUrl: 'partials/plugins/info_investorprofile.html'
     controller: 'InfoInvestorProfileCtrl'
 
-	$routeProvider.when '/profile/investor/:investorid',
+	$routeProvider.when '/profile/investors/:investorid',
     templateUrl: 'partials/plugins/info_investorprofile.html'
     controller: 'InfoInvestorProfileCtrl'
 
-	$routeProvider.when '/profile/xspace',
+	$routeProvider.when '/profile/xspaces',
     templateUrl: 'partials/plugins/info_xspaceprofile.html'
     controller: 'InfoXspaceProfileCtrl'
 
-	$routeProvider.when '/profile/xspace/:xspaceid',
+	$routeProvider.when '/profile/xspaces/:xspaceid',
     templateUrl: 'partials/plugins/info_xspaceprofile.html'
     controller: 'InfoXspaceProfileCtrl'
 
@@ -191,11 +191,11 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
     templateUrl: 'partials/plugins/info_communityprofile.html'
     controller: 'InfoCommunityProfileCtrl'
 
-	$routeProvider.when '/profile/service',
+	$routeProvider.when '/profile/services',
     templateUrl: 'partials/plugins/info_serviceprofile.html'
     controller: 'InfoServiceProfileCtrl'
 
-	$routeProvider.when '/profile/service/:serviceid',
+	$routeProvider.when '/profile/services/:serviceid',
 	  templateUrl: 'partials/plugins/info_serviceprofile.html'
 	  controller: 'InfoServiceProfileCtrl'
 
