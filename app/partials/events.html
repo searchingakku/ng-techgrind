@@ -61,29 +61,30 @@
               </tbody>
               </table>
             </tab>
-            <tab></tab>
-            <tab heading="Discussion">
+            <tab></tab> <!-- SPACE -->
+            <tab heading="Calendar" select="tabCalendarSelect()">
+              <div id='calendar' calendar="all"></div>
+            </tab>
+            <tab></tab> <!-- SPACE -->
+            <tab heading="Discuss">
               <div ng-include="'partials/plugins/social_facebook.html'"></div>
             </tab>
-            <tab></tab>
-            <tab heading="Submit An Event">
-              
-            </tab>
+            <tab></tab> <!-- SPACE -->
           </tabset>
         </div>
       </div>
     </div>
+
     <div class="span4">
-      <div class="widget widget-nopad">
+      <div class="widget">
         <div class="widget-body">
-          Sort By:
-          <select>
-            <option>test1</option>
-            <option>test2</option>
-            <option>test3</option>
-            <option>test4</option>
-            <option>test5</option>
-          </select>
+          <tabset>
+            <tab heading="Filterbox">
+              <div ng-include="'partials/plugins/widget_filterbox.html'"></div>
+            </tab>
+            <tab heading="Submit An Event">
+            </tab>
+          </tabset>
         </div>
       </div>
     </div>

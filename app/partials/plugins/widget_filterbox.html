@@ -19,12 +19,14 @@
 </head>
 
 <div ng-controller="WidgetFilterbox">
-	<h1>Filter Box</h1>
+	Region
 	<select>
 		<option class="button-dropdownmenu" ng-repeat="region in regions" value="{{region}}">{{region}}</option>
 	</select>
+	Category
 	<select>
 		<option class="button-dropdownmenu" ng-repeat="category in categories" value="{{category}}">{{category}}</option>
 	</select>
+	Keywords / Tags
 	<textarea rows=2 value="keywords"></textarea>
 </div>
