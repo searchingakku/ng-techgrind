@@ -18,20 +18,19 @@ var appModule = angular.module('TechGrindApp.controllers.events', []);
 appModule.controller('EventsCtrl', ['$scope', '$http', 'steam',
 	function(S, http, steam) {
     var allevents, get_events, list_events_by_category;
-    S.events = events;
-    allevents = [];
-    list_events_by_category = function(category) {
-      S.events[category] = allevents.filter(function(item) {
-        return item.category === category;
+    S.events = {};
+    list_events_by_category = function(events) {
+      angular.forEach(events, function(item) {
+        if (!(item.event.category in S.events))
+          S.events[item.event.category] = []
+        S.events[item.event.category].push(item.event)
       });
       return console.log(sexpr("list_events_by_category", category, S.events));
     };
     get_events = function(data) {
       S.data = data;
-      allevents = data.events;
-      list_events_by_category('event');
-      list_events_by_category('workshop');
-      return list_events_by_category('conference');
+      var events = data.subgroups
+      list_events_by_category(events);
     };
     S.listClickLink = function(linkid) {
       document.location = '#/events/' + linkid;
@@ -48,7 +47,7 @@ var workshops = [];
 var conferences = [];
 */
 
-var events = [
+var mockevents = [
   {
     category: 'meetup',
     location: 'Bangkok',
