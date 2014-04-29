@@ -1,0 +1,26 @@
+<div ng-controller="SubmitEvent">
+        Name <input type="text" ng-model="event.name"/><br />
+        Title <input type="text" ng-model="event.title"/><br />
+        Description <textarea rows=2 ng-model="event.description"></textarea><br />
+        
+	Region
+	<select ng-model="event.region">
+		<option class="button-dropdownmenu" ng-repeat="region in regions" value="{{region}}">{{region}}</option>
+	</select><br />
+	Category
+	<select ng-model="event.category">
+		<option class="button-dropdownmenu" ng-repeat="category in categories" value="{{category.name}}">{{category.title}}</option>
+	</select><br />
+	Keywords / Tags
+	<textarea rows=2 ng-model="keywords"></textarea>
+	<button  ng-click="submit_event()" class="btn btn-success">Submit</button>
+<style>
+pre { overflow-x: scroll; white-space: pre; }
+</style>
+<pre>{{ sexpr(result) }}</pre>
+<pre>{{ sexpr(event) }}</pre>
+<pre>{{ sexpr(regions) }}</pre>
+<pre>{{ sexpr(categories) }}</pre>
+<pre>{{ sexpr(active_regions) }}</pre>
+<pre>{{ sexpr(keywords) }}</pre>
+</div>

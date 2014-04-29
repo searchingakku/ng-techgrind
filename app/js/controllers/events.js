@@ -25,11 +25,11 @@ appModule.controller('EventsCtrl', ['$scope', '$http', 'steam',
           S.events[item.event.category] = []
         S.events[item.event.category].push(item.event)
       });
-      return console.log(sexpr("list_events_by_category", category, S.events));
+      return console.log(sexpr("list_events_by_category", S.events));
     };
     get_events = function(data) {
       S.data = data;
-      var events = data.subgroups
+      var events = data["event-list"]
       list_events_by_category(events);
     };
     S.listClickLink = function(linkid) {
@@ -101,6 +101,45 @@ appModule.controller('CreateActivityCtrl', ['$scope', 'steam', '$location', '$ro
     };
   }
 ]);
+
+
+/*
+	submit_event:
+
+	functional goal___________
+                * fields describing an event
+                  shortname, title, description, region (optional), category, keywords
+*/
+appModule.controller('SubmitEvent', ['$scope', 'steam', '$http', 'settings',
+    function(S, steam, http, settings) {
+	S.regions = regions; // list of available regions should come from the server in the future
+	S.categories = event_categories;
+	S.active_regions = settings.get('regions');
+	S.keywords = (settings.get('keywords')||[]).join("\n");
+	S.event = {};
+
+        S.$watch('keywords', function()
+                             {
+                                 if (S.keywords)
+                                     S.event.keywords = S.keywords.split("\n");
+                             });
+        handle_submit = function(data)
+        {
+            S.result = data;
+        }
+
+        S.submit_event = function()
+        {
+            steam.put("techgrind.events", S.event).then(handle_submit);
+        }
+    }
+]);
+
+var regions = [ 'Asia-Pacific', 'Australia', 'Cambodia', 'China', 'Indonesia', 'India', 'Japan', 'Korea', 'Laos', 'Malaysia', 'New Zealand', 'Philippines', 'Singapore', 'Thailand', 'Vietnam' ];
+
+var event_categories = [ { title:'Meetup', name:'meetup' },
+                         { title:'Workshop', name:'workshop' },
+                         { title:'Conference', name:'conference' } ];
 
 /*
 # WIP
