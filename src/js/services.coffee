@@ -111,3 +111,13 @@ services.factory 'steam', ($http, localStorageService) ->
 	put: (request, data) ->
 		console.log(sexpr("steam-service", "PUT", request, data))
 		$http.put(restapi+request, data, headers()).then(handle_request)
+
+# service "user settings"
+# user configurable settings are to be stored on the server.
+# for now they are just stored in localstorage in the browser, so this appears
+# to be just a frontend to the localStorageService
+services.factory 'settings', (localStorageService) ->
+        get: (key) ->
+                localStorageService.get(key)
+        set: (key, value) ->
+                localStorageService.add(key, value)
