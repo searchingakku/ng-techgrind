@@ -112,11 +112,45 @@ appModule.controller('CreateActivityCtrl', ['$scope', 'steam', '$location', '$ro
 */
 appModule.controller('SubmitEvent', ['$scope', 'steam', '$http', 'settings',
     function(S, steam, http, settings) {
-	S.regions = regions; // list of available regions should come from the server in the future
-	S.categories = event_categories;
-	S.active_regions = settings.get('regions');
-	S.keywords = (settings.get('keywords')||[]).join("\n");
-	S.event = {};
+        S.regions = regions; // list of available regions should come from the server in the future
+        S.categories = event_categories;
+        S.active_regions = settings.get('regions');
+        S.keywords = (settings.get('keywords')||[]).join("\n");
+        S.event = {};
+
+        S.$watch('event.name', function()
+        {
+            count = 0;
+            if (S.event.name)
+                S.testname = S.event.name.toLowerCase().replace(/[^a-z ]/g, "").trim().replace(/\s+/g, "-")
+            S.event.id = S.testname
+        });
+
+        var tested_groups = {};
+        S.$watch('event.id', function()
+        {
+            handle_group = function(data)
+            {
+                S.data = data;
+                console.log(sexpr("userid-result", data));
+                if (data.error && data.error == "request not found")
+                    tested_groups[data.request] = false;
+                else
+                    tested_groups[data.request] = true;
+            };
+            if (S.event.id)
+                steam.get("techgrind.events."+S.event.id).then(handle_group);
+        });
+
+        S.event_available = function(){
+            console.log(sexpr("event-available", tested_groups, S.event.id, !tested_groups["techgrind.events."+S.event.id], typeof(tested_groups["techgrind.events."+S.event.id])));
+            return (S.event.id &&
+                typeof(tested_groups["techgrind.events."+S.event.id]) != 'undefined' && 
+                !tested_groups["techgrind.events."+S.event.id])
+        }
+        S.event_exists = function(){
+            return (typeof(tested_groups["techgrind.events."+S.event.id]) != 'undefined' && tested_groups["techgrind.events."+S.event.id])
+        }
 
         S.$watch('keywords', function()
                              {

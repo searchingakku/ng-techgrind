@@ -1,8 +1,9 @@
 <div ng-controller="SubmitEvent">
-        Name <input type="text" ng-model="event.name"/><br />
-        Title <input type="text" ng-model="event.title"/><br />
-        Description <textarea rows=2 ng-model="event.description"></textarea><br />
-        
+	Name <input type="text" ng-model="event.name"/><br />
+	<span ng-show='event_available()'>event is available<br /></span>
+	<span ng-show='event_exists()'>an event by that name already exists<br /></span>
+	Event ID <input type="text" ng-model="event.id"/><br />
+	Description <textarea rows=2 ng-model="event.description"></textarea><br />
 	Region
 	<select ng-model="event.region">
 		<option class="button-dropdownmenu" ng-repeat="region in regions" value="{{region}}">{{region}}</option>
@@ -17,6 +18,7 @@
 <style>
 pre { overflow-x: scroll; white-space: pre; }
 </style>
+<pre>{{ sexpr(data) }}</pre>
 <pre>{{ sexpr(result) }}</pre>
 <pre>{{ sexpr(event) }}</pre>
 <pre>{{ sexpr(regions) }}</pre>
