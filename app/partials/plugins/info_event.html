@@ -26,7 +26,7 @@
 <div class="container">
 <div class="row">
   <div class="breadcrumb">
-    <span><a href="#/events">Events</a>&nbsp;/&nbsp;{{eventdata.title}}</span>
+    <span><a href="#/events">Events</a>&nbsp;/&nbsp;{{event.title}}</span>
   </div>
 </div>
 <div class="row">
@@ -38,8 +38,8 @@
             <div class="info-event-information">
 
                 <div class="event-title">
-                  <span ng-hide="edit.title">{{eventdata.title}}</span>
-                  <input type="text" ng-show="edit.title" ng-model="eventdata.title"></input>
+                  <span ng-hide="edit.title">{{event.title}}</span>
+                  <input type="text" ng-show="edit.title" ng-model="event.title"></input>
                   <i ng-hide="edit.title || !owner" ng-click="edit.title=!edit.title" class="icon-pencil"></i>
                   <i ng-show="edit.title" ng-click="EventInfoUpdate('title');edit.title=!edit.title" class="icon-ok"></i>
                   <i ng-show="edit.title" ng-click="edit.title=!edit.title;reset();" class="icon-remove"></i>
@@ -47,16 +47,16 @@
 
                 <div class="event-tagscloud pull-right">
 
-                  <span ng-repeat="tag in eventdata.tags" ng-hide="edit.tags" class="event-tags"> {{tag + ($last ? "" : ",")}} </span>
-                  <textarea ng-show="edit.tags" ng-model="eventdata.tags" rows="2"/>
+                  <span ng-repeat="tag in event.tags" ng-hide="edit.tags" class="event-tags"> {{tag + ($last ? "" : ",")}} </span>
+                  <textarea ng-show="edit.tags" ng-model="event.tags" rows="2"/>
                   <i ng-hide="edit.tags || !owner" ng-click="edit.tags=!edit.tags" class="icon-pencil"></i>
                   <i ng-show="edit.tags" ng-click="EventInfoUpdate('tags');edit.tags=!edit.tags" class="icon-ok"></i>
                   <i ng-show="edit.tags" ng-click="edit.tags=!edit.tags;reset();" class="icon-remove"></i>
                 </div>
 
                 <div class="event-description">
-                  <span ng-hide="edit.description">{{eventdata.description}}</span>
-                  <textarea class="form-control" ng-show="edit.description" rows="5" style="width:70%;" ng-model="eventdata.description"/>
+                  <span ng-hide="edit.description">{{event.description}}</span>
+                  <textarea class="form-control" ng-show="edit.description" rows="5" style="width:70%;" ng-model="event.description"/>
                   <i ng-hide="edit.description || !owner" ng-click="edit.description=!edit.description" class="icon-pencil"></i>
                   <i ng-show="edit.description" ng-click="EventInfoUpdate('description');edit.description=!edit.description" class="icon-ok"></i>
                   <i ng-show="edit.description" ng-click="edit.description=!edit.description; reset();" class="icon-remove"></i>
@@ -64,7 +64,7 @@
 
                 <div class="event-schedule">
                   <table class="table table-bordered table-condensed">
-                    <tbody ng-repeat="iEvent in eventdata.schedule">
+                    <tbody ng-repeat="iEvent in event.schedule">
                       <tr ng-hide="$index == eventItem.selected">
                         <td>
                           {{iEvent.city}}
@@ -153,25 +153,31 @@
 
                   <span > New Event Details </span> 
 
-                  <form name="myform" class="container">
+                  <form novalidate="true" name="myform" class="container">
                       <span ng-show="myform.$invalid"> Please fill out all fields. </span> <br />
 
-                      <input ng-model="insertAddress" type="text" placeholder="Address" ng-required="true" /> <br/>
-                      <input ng-model="insertCity" type="text" placeholder="City" ng-required="true"/> <br/>
-                      <input ng-model="insertCountry" type="text" placeholder="Country" ng-required="true" /> <br/>
-                      <input ng-model="insertDate" type="text" placeholder="Date" ng-required="true" /> <br/>
-                      <input ng-model="insertTime" type="text" placeholder="Time" ng-required="true" /> <br/>
-                      <input ng-model="insertSource" type="text" placeholder="Source" ng-required="true" /> <br/>
+                      <input ng-model="newschedule.address" type="text" placeholder="Address" /> <br/>
+                      <input ng-model="newschedule.city" type="text" placeholder="City" /> <br/>
+                      <input ng-model="newschedule.country" type="text" placeholder="Country" /> <br/>
+                      <input ng-model="newschedule.date" type="text" placeholder="Date" ng-required="true" /> <br/>
+                      <p class="input-group">
+                          <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="newschedule.date" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                      </p>
+                      <input ng-model="newschedule.time" type="text" placeholder="Time" /> <br/>
+                      <input ng-model="newschedule.source" type="text" placeholder="Source" /> <br/>
                       <button ng-click="cancelNewEvent();edit.newevent=!edit.newevent;" > Cancel </button>
-                      <button ng-disabled="myform.$invalid" ng-click="addEvent();edit.newevent=!edit.newevent;" > Submit </button>
-                  </form>
-                </div>
-            </div>
-          </tab>
-          <tab heading=""> <!-- SPACER -->            
-          </tab>
-          <tab heading="Media">
-            <div>
+                      <button ng-disabled="myform.$invalid" ng-click="add_schedule();edit.newevent=!edit.newevent;" > Submit </button>
+                      </form>
+                      </div>
+                      </div>
+                      </tab>
+                      <tab heading=""> <!-- SPACER -->
+                      </tab>
+                      <tab heading="Media">
+                      <div>
 
             </div>
           </tab>
@@ -224,11 +230,14 @@
 </div> <!-- //ROW -->
 
 </div> <!-- //CONTAINER -->
-</div> <!-- //CONTROLLER -->
-
-<div class="row">
+<div class="row" style="margin:10px;">
+  <pre>{{ sexpr(newschedule) }}</pre>
   <pre>{{ sexpr(event) }}</pre>
   <pre>{{ sexpr(rp) }}</pre>
   <pre>{{ sexpr(data) }}</pre>
   <pre>{{ sexpr(user()) }}</pre>
+  <pre>{{ sexpr(result) }}</pre>
+  <pre>{{ sexpr(myform) }}</pre>
 </div>
+</div> <!-- //CONTROLLER -->
+
