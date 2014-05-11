@@ -112,6 +112,10 @@ services.factory 'steam', ($http, localStorageService) ->
 		console.log(sexpr("steam-service", "PUT", request, data))
 		$http.put(restapi+request, data, headers()).then(handle_request)
 
+	delete: (request) ->
+		console.log(sexpr("steam-service", "DELETE", request))
+		$http.delete(restapi+request, headers()).then(handle_request)
+
 # service "user settings"
 # user configurable settings are to be stored on the server.
 # for now they are just stored in localstorage in the browser, so this appears
