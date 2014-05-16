@@ -21,9 +21,9 @@ appModule.controller('EventsCtrl', ['$scope', '$http', 'steam',
     S.events = {};
     list_events_by_category = function(events) {
       angular.forEach(events, function(item) {
-        if (!(item.event.category in S.events))
-          S.events[item.event.category] = []
-        S.events[item.event.category].push(item.event)
+        if (!(item.category in S.events))
+          S.events[item.category] = []
+        S.events[item.category].push(item)
       });
       return console.log(sexpr("list_events_by_category", S.events));
     };

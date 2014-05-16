@@ -41,7 +41,7 @@
                   <span ng-hide="edit.title">{{event.title}}</span>
                   <input type="text" ng-show="edit.title" ng-model="event.title"></input>
                   <i ng-hide="edit.title || !owner" ng-click="edit.title=!edit.title" class="icon-pencil"></i>
-                  <i ng-show="edit.title" ng-click="EventInfoUpdate('title');edit.title=!edit.title" class="icon-ok"></i>
+                  <i ng-show="edit.title" ng-click="update_event();edit.title=!edit.title" class="icon-ok"></i>
                   <i ng-show="edit.title" ng-click="edit.title=!edit.title;reset();" class="icon-remove"></i>
                 </div>
 
@@ -50,7 +50,7 @@
                   <span ng-repeat="tag in event.tags" ng-hide="edit.tags" class="event-tags"> {{tag + ($last ? "" : ",")}} </span>
                   <textarea ng-show="edit.tags" ng-model="event.tags" rows="2"/>
                   <i ng-hide="edit.tags || !owner" ng-click="edit.tags=!edit.tags" class="icon-pencil"></i>
-                  <i ng-show="edit.tags" ng-click="EventInfoUpdate('tags');edit.tags=!edit.tags" class="icon-ok"></i>
+                  <i ng-show="edit.tags" ng-click="update_event();edit.tags=!edit.tags" class="icon-ok"></i>
                   <i ng-show="edit.tags" ng-click="edit.tags=!edit.tags;reset();" class="icon-remove"></i>
                 </div>
 
@@ -58,7 +58,7 @@
                   <span ng-hide="edit.description">{{event.description}}</span>
                   <textarea class="form-control" ng-show="edit.description" rows="5" style="width:70%;" ng-model="event.description"/>
                   <i ng-hide="edit.description || !owner" ng-click="edit.description=!edit.description" class="icon-pencil"></i>
-                  <i ng-show="edit.description" ng-click="EventInfoUpdate('description');edit.description=!edit.description" class="icon-ok"></i>
+                  <i ng-show="edit.description" ng-click="update_event();edit.description=!edit.description" class="icon-ok"></i>
                   <i ng-show="edit.description" ng-click="edit.description=!edit.description; reset();" class="icon-remove"></i>
                 </div>
 
@@ -102,7 +102,7 @@
                           <input ng-model="iEvent.source" type="text"/>
                         </td>
                         <td>
-                          <i ng-click="updateEvent($index, iEvent);" class="icon-ok"></i>
+                          <i ng-click="update_schedule($index, iEvent);" class="icon-ok"></i>
                           <i ng-click="cancelEventEdit();" class="icon-remove"></i>
                       </td>
                       </tr>
@@ -136,7 +136,7 @@
 
 
                           <!--
-                          <i ng-show="edit.eventschedule_{{$index}}" ng-click="EventInfoUpdate('eventschedule');(edit.eventschedule_{{$index}})=!(edit.eventschedule_{{$index}});" class="icon-ok"></i>
+                          <i ng-show="edit.eventschedule_{{$index}}" ng-click="update_event();(edit.eventschedule_{{$index}})=!(edit.eventschedule_{{$index}});" class="icon-ok"></i>
                           <i ng-show="edit.eventschedule_{{$index}}" ng-click="edit.eventschedule_{{$index}}=!edit.eventschedule_{{$index}};" class="icon-remove"></i>
                         </td>
                       </tr>

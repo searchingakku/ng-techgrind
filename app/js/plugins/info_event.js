@@ -24,7 +24,7 @@ function($scope, steam, rp) {
         $scope.event = {}
         $scope.newschedule = {}
         $scope.rp = rp
-/* 
+/*
               { title: "SLAP",
 		tags: ["tag1", "tag2", "tag3"], 
                 description: "Meet friends and good stuff", 
@@ -42,9 +42,6 @@ function($scope, steam, rp) {
                         source: "Juan"}]
 	};
 */
-        // keep a copy to undo changes when user cancels edit
-        $scope.master = angular.copy($scope.event);
-
         // flag used for testing the display of pencil icon 
         // and editing only if user is owner of event
         $scope.owner = true;
@@ -52,32 +49,11 @@ function($scope, steam, rp) {
         var get_event = function(data) {
           $scope.data = data;
           $scope.event = data.event
+          // keep a copy to undo changes when user cancels edit
+          $scope.master = angular.copy($scope.event);
         };
 
         steam.get('techgrind.events.'+rp.name).then(get_event);
-
-	$scope.EventInfoUpdate = function(field)
-	{
-            if ( field.match("tags") )
-            {
-                var newTags = [];
-                var csvTags = $scope.event.tags.split(',');
-                csvTags.forEach(function(tag){
-                            newTags.push(tag.trim());
-                        });
-                $scope.event.tags = newTags;
-            }
-            $scope.update();
-	}
-
-        /**
-         * Update existing event in the schedule.
-         */
-        $scope.updateEvent = function(index, event)
-        {
-            $scope.event.schedule[index] = event;
-            $scope.update();
-        }
 
         /**
          * Clear any edits made while adding a new event. 
@@ -97,37 +73,35 @@ function($scope, steam, rp) {
         }
 
         /**
-         * Accept user edits.
-         */
-        $scope.update = function()
-        {
-            $scope.master = angular.copy($scope.event);
-            $scope.eventItem.selected = null;
-
-            // and make call here to steam
-            // steam ...
-            //
-        }
-
-
-        /**
          * Add a new event to the schedule. 
          */
-	$scope.add_schedule = function()
-	{
+        $scope.add_schedule = function()
+        {
             var handle_newschedule = function(data)
             {
                 $scope.result = data;
-                $scope.event = data.event;
                 $scope.cancelNewEvent();
+                get_event(data);
             }
 
-            // accept user edits
-            // $scope.update();
             steam.put('techgrind.events.'+rp.name, $scope.newschedule).then(handle_newschedule);
-            // clear form fields
-	}
+        }
 
+        $scope.update_schedule = function(index, schedule)
+        {
+            var handle_update_schedule = function(data)
+            {
+                $scope.result = data;
+            }
+
+            steam.post($scope.event.schedule[index].id, schedule).then(handle_update_schedule);
+            steam.get('techgrind.events.'+rp.name).then(get_event);
+        }
+
+        $scope.update_event = function()
+        {
+            steam.post('techgrind.events.'+rp.name, $scope.event).then(get_event);
+        }
         $scope.eventItem = { selected: null };
 
         /**
