@@ -364,3 +364,30 @@ app.controller 'ContentCtrl', ['$scope', '$route', '$location', '$routeParams', 
 	]
 	S.list2 = []
 ]
+
+app.controller 'AdminCtrl', ['$scope', '$location', 'steam', (S, loc, steam) ->
+
+	S.feeds = []
+
+	S.$watch('newfeed.title', ->
+		if S.newfeed.title
+			S.testname = S.newfeed.title.toLowerCase().replace(/[^a-z ]/g, "").trim().replace(/\s+/g, "-")
+		S.newfeed.name = S.testname)
+
+	handle_feeds = (data) ->
+		S.data = data
+		S.feeds = data.inventory
+
+	handle_delete = (data) ->
+		S.data = data
+
+	steam.get('/home/techgrind/feeds/').then handle_feeds
+
+	S.add_feed = () ->
+		steam.put('/home/techgrind/feeds/', S.newfeed).then handle_feeds
+
+	S.delete_feed = (thisfeed) ->
+		steam.delete(thisfeed).then handle_delete
+		steam.get('/home/techgrind/feeds/').then handle_feeds
+]
+

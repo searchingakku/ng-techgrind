@@ -4,8 +4,7 @@
 	<span ng-show='event_exists()'>an event by that name already exists<br /></span>
 	Event ID <input type="text" ng-model="event.id"/><br />
 	Description <textarea rows=2 ng-model="event.description"></textarea><br />
-	Region
-	<select ng-model="event.region">
+	Region <select ng-model="event.region">
 		<option class="button-dropdownmenu" ng-repeat="region in regions" value="{{region}}">{{region}}</option>
 	</select><br />
 	Category
@@ -14,15 +13,15 @@
 	</select><br />
 	Keywords / Tags
 	<textarea rows=2 ng-model="keywords"></textarea>
-	<button  ng-click="submit_event()" class="btn btn-success">Submit</button>
+	<button  ng-click="submit_event()" class="btn btn-success">iCreate Event and add dates</button>
 <style>
 pre { overflow-x: scroll; white-space: pre; }
 </style>
-<pre>{{ sexpr(data) }}</pre>
 <pre>{{ sexpr(result) }}</pre>
 <pre>{{ sexpr(event) }}</pre>
 <pre>{{ sexpr(regions) }}</pre>
 <pre>{{ sexpr(categories) }}</pre>
 <pre>{{ sexpr(active_regions) }}</pre>
 <pre>{{ sexpr(keywords) }}</pre>
+<pre>{{ sexpr(data) }}</pre>
 </div>

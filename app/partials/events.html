@@ -15,7 +15,7 @@
                 <td>Location<td>Name<td>Date<td>Time<td>Price
               </thead>
               <tbody>
-                <tr class="list-body" ng-click="listClickLink(event.path)" ng-repeat="event in events.meetup" tooltip="{{event.description}}" tooltip-placement="right" tooltip-append-to-body="true">
+                <tr class="list-body" ng-click="listClickLink(event.name)" ng-repeat="event in events.meetup" tooltip="{{event.description}}" tooltip-placement="right" tooltip-append-to-body="true">
                   <td>{{event.location}}</td>
                   <td>{{event.name}}</td>
                   <td>{{event.date}}</td>

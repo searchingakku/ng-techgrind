@@ -21,9 +21,9 @@ appModule.controller('EventsCtrl', ['$scope', '$http', 'steam',
     S.events = {};
     list_events_by_category = function(events) {
       angular.forEach(events, function(item) {
-        if (!(item.event.category in S.events))
-          S.events[item.event.category] = []
-        S.events[item.event.category].push(item.event)
+        if (!(item.category in S.events))
+          S.events[item.category] = []
+        S.events[item.category].push(item)
       });
       return console.log(sexpr("list_events_by_category", S.events));
     };
@@ -110,8 +110,8 @@ appModule.controller('CreateActivityCtrl', ['$scope', 'steam', '$location', '$ro
                 * fields describing an event
                   shortname, title, description, region (optional), category, keywords
 */
-appModule.controller('SubmitEvent', ['$scope', 'steam', '$http', 'settings',
-    function(S, steam, http, settings) {
+appModule.controller('SubmitEvent', ['$scope', 'steam', 'settings', '$window',
+    function(S, steam, settings, W) {
         S.regions = regions; // list of available regions should come from the server in the future
         S.categories = event_categories;
         S.active_regions = settings.get('regions');
@@ -160,6 +160,7 @@ appModule.controller('SubmitEvent', ['$scope', 'steam', '$http', 'settings',
         handle_submit = function(data)
         {
             S.result = data;
+            W.location.href = '#/events/'+S.result["event-list"].name;
         }
 
         S.submit_event = function()
